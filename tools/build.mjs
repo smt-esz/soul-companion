@@ -70,7 +70,7 @@ export async function baue(optionen = {}) {
     if (fund.length > 0) {
       return abbruch([
         'FEHLER Materialschutz: Im oeffentlichen Build darf kein Material mitgehen.',
-        ...fund.map((pfad) => '       gefunden in src/: ' + pfad),
+        ...hoechstensZwanzig(fund).map((pfad) => '       gefunden in src/: ' + pfad),
         '       Entweder die Dateien entfernen oder mit --ziel=intern bauen.'
       ], still);
     }
@@ -163,7 +163,7 @@ export async function baue(optionen = {}) {
     if (fund.length > 0) {
       return abbruch([
         'FEHLER Materialschutz: Im Ausgabeordner liegt Material.',
-        ...fund.map((pfad) => '       ' + pfad),
+        ...hoechstensZwanzig(fund).map((pfad) => '       ' + pfad),
         '       Der Build wurde abgebrochen, der Ordner ist unvollstaendig.'
       ], still);
     }
@@ -242,10 +242,7 @@ function sucheMaterial(ordner, ausnahmen) {
       const rel = relative(ordner, join(pfad, eintrag.name)).split(sep).join('/');
       if (ausnahmen.includes(rel.split('/')[0])) continue;
       if (eintrag.isDirectory()) {
-        if (eintrag.name.toLowerCase() === 'material') {
-          gefunden.push(rel + '/  (Ordner "material")');
-          continue;
-        }
+        if (eintrag.name.toLowerCase() === 'material') gefunden.push(rel + '/  (Ordner "material")');
         gehe(join(pfad, eintrag.name));
       } else if (VERBOTENE_ENDUNGEN.includes(extname(eintrag.name).toLowerCase())) {
         gefunden.push(rel);
@@ -254,6 +251,12 @@ function sucheMaterial(ordner, ausnahmen) {
   };
   gehe(ordner);
   return gefunden.sort();
+}
+
+/** Lange Fundlisten kuerzen, damit die Meldung lesbar bleibt. */
+function hoechstensZwanzig(liste) {
+  if (liste.length <= 20) return liste;
+  return [...liste.slice(0, 20), 'und ' + (liste.length - 20) + ' weitere'];
 }
 
 // ---------------------------------------------------------------- Quellen lesen

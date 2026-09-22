@@ -11,6 +11,11 @@
 // Damit kann der Build Fehler so melden, wie Leo sie in der Datei wiederfindet.
 
 import * as XLSX from 'xlsx';
+import * as fs from 'node:fs';
+
+// Die ESM-Fassung von SheetJS bringt kein fs mit. Ohne diese Zeile meldet
+// readFile 'Cannot access file'. So steht es in der SheetJS-Doku fuer Node.
+XLSX.set_fs(fs);
 
 const MS_PRO_TAG = 86400000;
 

@@ -1,16 +1,17 @@
-// Vorlage fuer den Service Worker (ARCHITEKTUR 3.8).
+// Service Worker fuer SOUL Companion (ARCHITEKTUR 3.8).
 //
-// Diese Datei wird nie veroeffentlicht. Der Build (tools/lib/swgen.mjs) ersetzt
-// die beiden Platzhalter in den Zeilen unten und schreibt das Ergebnis nach
-// <ausgabe>/sw.js:
+// ERZEUGT. Aus der Vorlage src/sw.template.js macht tools/build.mjs die Datei
+// <ausgabe>/sw.js und setzt dabei zwei Werte ein:
 //
-//   Version   APP_VERSION aus src/app/version.js, dann ein Bindestrich und
-//             acht Zeichen aus dem sha256 ueber alle veroeffentlichten Dateien
-//   Precache  Liste aller veroeffentlichten Dateien, jeweils mit ./ davor,
-//             ohne sw.js selbst, dazu ./ fuer die Startseite
+//   Version   APP_VERSION aus src/app/version.js, ein Bindestrich und acht
+//             Zeichen aus dem sha256 ueber alle veroeffentlichten Dateien
+//   Precache  alle veroeffentlichten Dateien, jeweils mit ./ davor, ohne
+//             sw.js selbst, dazu ./ fuer die Startseite
 //
-// Wichtig: Die Platzhalter stehen nur in den beiden Codezeilen. In Kommentaren
-// duerfen sie nicht vorkommen, sonst ersetzt der Build sie dort auch.
+// Aendern bitte nur die Vorlage, nie die erzeugte Datei.
+// Hinweis fuer die Vorlage: Die beiden Platzhalter stehen nur in den zwei
+// Codezeilen unten. In Kommentaren duerfen sie nicht vorkommen, sonst ersetzt
+// der Build sie dort auch und die Datei wird ungueltig.
 //
 // Die Logik (install, activate, fetch, message SKIP_WAITING) schreibt AP-03.
 // Bis dahin steht hier nur der Rumpf, damit der Build laeuft.

@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "configVersion": "2026-09-test",
+  "empfaenger": {
+    "5": {
+      "A": "test-a@example.invalid",
+      "B": "",
+      "C": ""
+    }
+  },
+  "stufen": {
+    "2": {
+      "titel": "Testantrag Stufe 2",
+      "schritte": [
+        {
+          "id": "begruendung",
+          "nr": 1,
+          "titel": "Begruendung",
+          "rolle": "kind",
+          "typ": "freitext",
+          "minZeichen": 30
+        },
+        {
+          "id": "teamcheck",
+          "nr": 2,
+          "titel": "Team-Check",
+          "rolle": "mitschueler",
+          "typ": "personen",
+          "anzahl": 2
+        },
+        {
+          "id": "empfehlung",
+          "nr": 3,
+          "titel": "Empfehlung",
+          "rolle": "lernbegleitung",
+          "typ": "kriterien",
+          "kriterien": [
+            "Testkriterium"
+          ]
+        },
+        {
+          "id": "selbst",
+          "nr": 4,
+          "titel": "Erklaerung",
+          "rolle": "kind",
+          "typ": "erklaerung",
+          "aussagen": [
+            "Testaussage"
+          ]
+        },
+        {
+          "id": "entscheidung",
+          "nr": 5,
+          "titel": "Entscheidung",
+          "rolle": "klassenleitung",
+          "typ": "nurPdf"
+        }
+      ]
+    }
+  },
+  "rollen": {
+    "kind": "Du",
+    "mitschueler": "Mitschueler:in",
+    "lernbegleitung": "Lernbegleitung",
+    "klassenleitung": "Klassenleitung"
+  }
+}

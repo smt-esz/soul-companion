@@ -61,12 +61,13 @@ export class Meldungen {
 
 /** Eine Meldung als eine Zeile. */
 export function formatiere(meldung) {
-  const teile = [meldung.art === 'fehler' ? 'FEHLER' : 'WARNUNG'];
+  const teile = [];
   if (meldung.datei) teile.push(meldung.datei);
   if (meldung.blatt) teile.push(meldung.blatt);
   if (meldung.zeile) teile.push('Zeile ' + meldung.zeile);
   if (meldung.feld) teile.push(meldung.feld);
-  return teile.join(' › ') + ': ' + meldung.text;
+  const kopf = meldung.art === 'fehler' ? 'FEHLER' : 'WARNUNG';
+  return kopf + ' ' + teile.join(' › ') + ': ' + meldung.text;
 }
 
 // ---------------------------------------------------------------- Hilfsmittel
