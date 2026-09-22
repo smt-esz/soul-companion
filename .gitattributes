@@ -1,0 +1,18 @@
+# Textdateien im Repository mit LF speichern UND auch mit LF auschecken.
+#
+# Ohne `eol=lf` macht Git unter Windows beim Auschecken CRLF daraus. Der Build
+# kopiert diese Dateien dann nach docs/ und tools/lib/swgen.mjs rechnet daraus
+# eine andere Service-Worker-Version, obwohl sich am Inhalt nichts geaendert
+# hat. Die iPads wuerden dann grundlos alles neu laden.
+* text=auto eol=lf
+
+# Binaerdateien nie umschreiben.
+*.xlsx  binary
+*.xlsm  binary
+*.docx  binary
+*.pptx  binary
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.ico   binary
+*.woff2 binary

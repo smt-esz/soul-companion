@@ -1,0 +1,4 @@
+node_modules/
+dist-intern/
+.DS_Store
+Thumbs.db
