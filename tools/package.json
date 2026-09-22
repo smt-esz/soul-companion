@@ -1,0 +1,10 @@
+{
+  "name": "soul-companion-build",
+  "private": true,
+  "description": "Build-Werkzeug für SOUL Companion. Läuft nur auf Leos Rechner, nie im Browser.",
+  "type": "module",
+  "devDependencies": {
+    "marked": "^16.0.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  }
+}
