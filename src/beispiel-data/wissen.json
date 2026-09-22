@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "seiten": [
+    { "id": "beispielseite", "titel": "Beispielseite", "bereich": "soul", "jahrgaenge": "alle",
+      "status": "freigegeben", "reihenfolge": 10, "stichworte": ["Beispiel"],
+      "html": "<p>Beispieltext zum Entwickeln. Der echte Text kommt aus content/wissen/.</p>",
+      "abschnitte": [] }
+  ],
+  "glossar": [],
+  "faq": []
+}

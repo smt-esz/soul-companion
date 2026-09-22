@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "jgst": 5,
+  "ton": "verspielt",
+  "klassen": ["A", "B", "C"],
+  "fruehesterAufstieg": "2026-10-26",
+  "sonderwochen": [],
+  "slots": [
+    { "id": "jg5-de-1", "fach": "de", "nr": 1, "spur": 1, "spuren": [1], "stunden": 8,
+      "von": "2026-08-31", "bis": "2026-10-02", "abgabe": "2026-10-02",
+      "baustein": "jg5-de-1", "status": "fest", "hinweis": "" },
+    { "id": "jg5-offen-1", "fach": "offen", "nr": 1, "spur": 2, "spuren": [2], "stunden": null,
+      "von": "2026-08-31", "bis": "2026-10-02", "abgabe": "2026-10-02",
+      "baustein": "", "status": "offen", "hinweis": "" }
+  ],
+  "bausteine": [
+    { "id": "jg5-de-1", "fach": "de", "titel": "Beispielbaustein", "alternativen": [],
+      "gelingensnachweis": "", "gelingensnachweisStation": null, "materialort": "", "kurzbeschreibung": "",
+      "stationen": [
+        { "nr": 1, "titel": "Beispielstation 1", "art": "pflicht", "minuten": 20, "niveau": 1, "material": "", "hinweis": "" },
+        { "nr": 2, "titel": "Beispielstation 2", "art": "pflicht", "minuten": 30, "niveau": 2, "material": "", "hinweis": "" },
+        { "nr": 3, "titel": "Beispielstation 3", "art": "wahl", "minuten": 45, "niveau": 3, "material": "", "hinweis": "" }
+      ] }
+  ],
+  "inputs": [
+    { "id": "jg5-de-beispiel", "fach": "de", "art": "baustein", "titel": "Beispielinput",
+      "beschreibung": "", "pflicht": true, "bausteine": ["jg5-de-1"] }
+  ],
+  "coachings": [
+    { "wochentag": 1, "kuerzel": "TEST", "gueltigAb": "2026-08-31", "gueltigBis": null, "klasse": null }
+  ],
+  "termine": [
+    { "datum": "2026-09-08", "art": "input", "fach": "de", "kuerzel": "TEST", "klasse": "A",
+      "input": "jg5-de-beispiel", "text": "", "station": 1, "pflicht": true, "raster": "jg5-r1" },
+    { "datum": "2026-09-11", "art": "sonstiges", "fach": "", "kuerzel": "", "klasse": null,
+      "input": "", "text": "Beispieltermin zum Entwickeln", "station": null, "pflicht": false, "raster": "jg5-r1" }
+  ],
+  "raster": [
+    { "id": "jg5-r1", "von": "2026-08-31", "bis": "2026-10-02", "titel": "Beispielzeitraum" }
+  ]
+}

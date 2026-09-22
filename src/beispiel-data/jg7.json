@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "jgst": 7,
+  "ton": "",
+  "klassen": ["A", "B", "C"],
+  "fruehesterAufstieg": null,
+  "sonderwochen": [],
+  "slots": [],
+  "bausteine": [],
+  "inputs": [],
+  "coachings": [],
+  "termine": [],
+  "raster": []
+}

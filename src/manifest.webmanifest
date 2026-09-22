@@ -1,0 +1,14 @@
+{
+  "name": "SOUL Companion",
+  "short_name": "SOUL",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#035D61",
+  "background_color": "#F7F9F8",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

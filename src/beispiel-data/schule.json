@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "faecher": [
+    { "id": "de", "name": "Deutsch", "kurz": "De", "farbe": "de", "symbol": "fach-de", "reihenfolge": 1 },
+    { "id": "ma", "name": "Mathematik", "kurz": "Ma", "farbe": "ma", "symbol": "fach-ma", "reihenfolge": 2 },
+    { "id": "en", "name": "Englisch", "kurz": "En", "farbe": "en", "symbol": "fach-en", "reihenfolge": 3 },
+    { "id": "bio", "name": "Biologie", "kurz": "Bio", "farbe": "bio", "symbol": "fach-bio", "reihenfolge": 4 },
+    { "id": "geo", "name": "Geografie", "kurz": "Geo", "farbe": "geo", "symbol": "fach-geo", "reihenfolge": 5 },
+    { "id": "fvu", "name": "Fächerverbindend", "kurz": "FvU", "farbe": "fvu", "symbol": "zahnrad", "reihenfolge": 6 }
+  ],
+  "ferien": [
+    { "name": "Herbstferien", "von": "2026-10-12", "bis": "2026-10-24" }
+  ],
+  "stufen": [
+    { "id": 1, "name": "Wurzel", "symbol": "wurzel", "kurzbeschreibung": "" },
+    { "id": 2, "name": "Stamm", "symbol": "stamm", "kurzbeschreibung": "" },
+    { "id": 3, "name": "Krone", "symbol": "krone", "kurzbeschreibung": "" }
+  ]
+}

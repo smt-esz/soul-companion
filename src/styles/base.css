@@ -1,0 +1,181 @@
+/* Basis-CSS für AP-01: minimales Reset und Grundlayout.
+   Farben, Schriften und Komponenten kommen in AP-04
+   (tokens.css, components.css, tones.css, print.css).
+   Die zwei Farbwerte hier stehen so in DESIGN 2.1 und im Manifest. */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #F7F9F8;
+  color: #0E2841;
+  font: 17px/1.5 -apple-system, system-ui, sans-serif;
+
+  /* Querformat zuerst: Navigation links, Inhalt rechts, Kopfzeile darüber. */
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "kopf   kopf"
+    "nav    inhalt";
+}
+
+h1, h2, h3, p, ul, ol, dl, dd {
+  margin: 0 0 0.75rem;
+}
+
+ul, ol {
+  padding-left: 1.25rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+}
+
+dt {
+  font-weight: 650;
+}
+
+dd {
+  margin: 0;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #035D61;
+}
+
+/* Fokus immer sichtbar, auch auf der h1, auf die der Router springt. */
+:focus-visible {
+  outline: 3px solid #035D61;
+  outline-offset: 2px;
+}
+
+h1:focus {
+  outline: none;
+}
+
+.kopfzeile {
+  grid-area: kopf;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 1.25rem;
+}
+
+.kopfzeile-titel {
+  margin: 0;
+  font-weight: 700;
+}
+
+.status {
+  min-height: 1.5rem;
+  text-align: right;
+}
+
+.hauptnavigation {
+  grid-area: nav;
+  padding: 0.5rem;
+}
+
+.hauptnavigation-liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hauptnavigation-link {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.hauptnavigation-link[aria-current="page"] {
+  background: #E3F2F1;
+  font-weight: 650;
+}
+
+.inhalt {
+  grid-area: inhalt;
+  padding: 0.5rem 1.25rem 2rem;
+  max-width: 52rem;
+}
+
+.inhalt-einzel {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  padding: 2rem 1.25rem;
+}
+
+.wahl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.wahl-knopf {
+  min-height: 48px;
+  min-width: 10rem;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid #035D61;
+  border-radius: 0.75rem;
+  background: #FFFFFF;
+  color: #035D61;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.hinweis {
+  font-size: 14px;
+}
+
+/* Hochformat und schmale Fenster: Navigation unten. */
+@media (max-width: 47rem) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "kopf"
+      "inhalt"
+      "nav";
+  }
+
+  .hauptnavigation {
+    position: sticky;
+    bottom: 0;
+    background: #F7F9F8;
+    border-top: 1px solid #DDE6E4;
+    padding: 0.25rem 0.5rem calc(0.25rem + env(safe-area-inset-bottom));
+  }
+
+  .hauptnavigation-liste {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .hauptnavigation-link {
+    justify-content: center;
+  }
+}
