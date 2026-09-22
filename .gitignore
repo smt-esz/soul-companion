@@ -2,3 +2,7 @@ node_modules/
 dist-intern/
 .DS_Store
 Thumbs.db
+
+# Lokale Einstellungen von Claude Code (gelten nur auf diesem Rechner).
+# Eine geteilte .claude/settings.json duerfte dagegen ins Repo.
+.claude/settings.local.json
