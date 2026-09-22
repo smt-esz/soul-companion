@@ -16,9 +16,10 @@
 // Die Logik (install, activate, fetch, message SKIP_WAITING) schreibt AP-03.
 // Bis dahin steht hier nur der Rumpf, damit der Build laeuft.
 
-const VERSION = '0.1.0-ef7e3e44';
+const VERSION = '0.1.0-bd1598da';
 const PRECACHE = [
   "./",
+  "./.nojekyll",
   "./app/data.js",
   "./app/dates.js",
   "./app/main.js",

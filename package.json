@@ -1,0 +1,9 @@
+{
+  "name": "soul-companion-tools",
+  "private": true,
+  "description": "Build- und Hilfsskripte für SOUL Companion (nicht Teil der App).",
+  "type": "module",
+  "devDependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

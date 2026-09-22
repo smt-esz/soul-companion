@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'self' blob:">
+<meta name="theme-color" content="#1a7a74">
+<title>SOUL Technik-Test</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>SOUL Technik-Test (AP-00)</h1>
+
+<section id="status" aria-label="Status">
+  <h2>Status</h2>
+  <dl>
+    <dt>display-mode standalone</dt><dd id="status-standalone">?</dd>
+    <dt>navigator.standalone</dt><dd id="status-navigator-standalone">?</dd>
+    <dt>location.search</dt><dd id="status-suche">?</dd>
+    <dt>Service Worker aktiv</dt><dd id="status-sw-aktiv">?</dd>
+    <dt>Service Worker wartend</dt><dd id="status-sw-wartend">?</dd>
+    <dt>navigator.onLine</dt><dd id="status-online">?</dd>
+    <dt>localStorage-Zähler</dt><dd id="status-zaehler">?</dd>
+  </dl>
+</section>
+
+<section id="knoepfe" aria-label="Testknöpfe">
+  <h2>Tests</h2>
+
+  <button id="knopf-teilen" class="gross">1. PDF teilen</button>
+  <p id="ausgabe-teilen" class="ausgabe"></p>
+
+  <button id="knopf-fenster" class="gross">2. PDF in neuem Fenster</button>
+  <p id="ausgabe-fenster" class="ausgabe"></p>
+
+  <button id="knopf-zaehler" class="gross">3. Zähler +1</button>
+
+  <button id="knopf-persist" class="gross">4. persist() anfragen</button>
+  <p id="ausgabe-persist" class="ausgabe"></p>
+
+  <button id="knopf-update-pruefen" class="gross">5. Update prüfen</button>
+  <p id="ausgabe-update" class="ausgabe"></p>
+
+  <button id="knopf-update-aktivieren" class="gross">Update aktivieren</button>
+</section>
+
+<section id="protokoll" aria-label="Ereignisprotokoll">
+  <h2>Protokoll (letzte 20 Ereignisse, neueste zuerst)</h2>
+  <ul id="log-liste"></ul>
+</section>
+
+<section id="anleitung" aria-label="Testanleitung">
+  <h2>Testanleitung für Leo</h2>
+  <ol>
+    <li>Seite in Safari öffnen, zum Home-Bildschirm hinzufügen ("Als Web-App öffnen" an). App öffnen.</li>
+    <li>Knopf 1: Teilen-Menü erscheint? Mail wählen: PDF als Anhang? GoodNotes wählen: PDF kommt an?</li>
+    <li>Knopf 2: Was passiert?</li>
+    <li>Knopf 3 dreimal, App schließen (aus App-Umschalter wischen), öffnen: Zähler = 3? iPad neu starten: Zähler = 3? Einstellungen &rarr; Apps &rarr; Safari &rarr; Verlauf und Websitedaten löschen: Zähler?</li>
+    <li>Knopf 4: Ergebnis notieren.</li>
+    <li>Update-Test: Leo (oder das Modell auf Zuruf) erhöht <code>VERSION</code> in <code>spike/sw.js</code> und veröffentlicht. App nicht schließen, sondern in den Hintergrund und nach 3 Minuten zurückholen: Protokoll zeigt "wartend"? Dann App schließen und neu öffnen: "wartend"? Knopf "Update aktivieren": neue Version aktiv?</li>
+    <li>Jamf: Admin verteilt einen Web-Clip auf <code>.../spike/?jgst=6</code> an ein Testgerät. Startet er ohne Safari-Leiste? Steht <code>?jgst=6</code> in der Anzeige?</li>
+  </ol>
+  <p>Ergebnisse in <code>PLANUNG\berichte\AP-00_ipad-ergebnis.md</code> eintragen.</p>
+</section>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
