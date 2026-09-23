@@ -1,5 +1,598 @@
 {
   "schema": 1,
   "jgst": 5,
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "baustein:jg5-de-1",
+      "typ": "baustein",
+      "titel": "Briefe & E-Mails",
+      "text": "Einen Brief schreiben",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:1",
+      "typ": "station",
+      "titel": "Der persönliche Brief: Aufbau",
+      "text": "Station 1 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:2",
+      "typ": "station",
+      "titel": "Der persönliche Brief: Redemittel",
+      "text": "Station 2 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:3",
+      "typ": "station",
+      "titel": "Der persönliche Brief: Übungen",
+      "text": "Station 3 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:4",
+      "typ": "station",
+      "titel": "Der persönliche Brief: Schreibübungen",
+      "text": "Station 4 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:5",
+      "typ": "station",
+      "titel": "Die Adresse: Aufbau",
+      "text": "Station 5 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:6",
+      "typ": "station",
+      "titel": "Der förmliche Brief: Aufbau",
+      "text": "Station 6 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:7",
+      "typ": "station",
+      "titel": "Der förmliche Brief: Die Höflichkeitsform",
+      "text": "Station 7 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:8",
+      "typ": "station",
+      "titel": "Der förmliche Brief: Redemittel",
+      "text": "Station 8 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:9",
+      "typ": "station",
+      "titel": "Der förmliche Brief: Übungen",
+      "text": "Station 9 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:10",
+      "typ": "station",
+      "titel": "Der förmliche Brief: Schreibübungen",
+      "text": "Station 10 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:11",
+      "typ": "station",
+      "titel": "Der Briefumschlag: Aufbau",
+      "text": "Station 11 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:12",
+      "typ": "station",
+      "titel": "Die Geschichte der Post: Textverständnis",
+      "text": "Station 12 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:13",
+      "typ": "station",
+      "titel": "Übungen",
+      "text": "Station 13 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:14",
+      "typ": "station",
+      "titel": "Vergleich Briefe und E-Mails",
+      "text": "Station 14 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:15",
+      "typ": "station",
+      "titel": "E-Mails schreiben",
+      "text": "Station 15 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-1:16",
+      "typ": "station",
+      "titel": "Abschluss und Leistungsmessung",
+      "text": "Station 16 · Briefe & E-Mails",
+      "route": "#/baustein/jg5-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg5-ma-1",
+      "typ": "baustein",
+      "titel": "Grundlagen: Wiederholung",
+      "text": "Kurzkontrolle",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:1",
+      "typ": "station",
+      "titel": "Diagnose-Parcours",
+      "text": "Station 1 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:2",
+      "typ": "station",
+      "titel": "Riesenzahlen-Galerie",
+      "text": "Station 2 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:3",
+      "typ": "station",
+      "titel": "Stellenwerttafel",
+      "text": "Station 3 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:4",
+      "typ": "station",
+      "titel": "Zahlenstrahl",
+      "text": "Station 4 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:5",
+      "typ": "station",
+      "titel": "Schätzen & Runden",
+      "text": "Station 5 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:6",
+      "typ": "station",
+      "titel": "Vergleichen & Ordnen",
+      "text": "Station 6 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:7",
+      "typ": "station",
+      "titel": "Kopfrechen-Werkstatt",
+      "text": "Station 7 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:8",
+      "typ": "station",
+      "titel": "Schriftlich Rechnen",
+      "text": "Station 8 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:9",
+      "typ": "station",
+      "titel": "Geschickt Rechnen",
+      "text": "Station 9 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:10",
+      "typ": "station",
+      "titel": "Division mit Rest",
+      "text": "Station 10 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:11",
+      "typ": "station",
+      "titel": "Teiler & Teilbarkeit",
+      "text": "Station 11 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:12",
+      "typ": "station",
+      "titel": "Sachaufgaben-Werkstatt",
+      "text": "Station 12 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:13",
+      "typ": "station",
+      "titel": "Schätz-Olympiade",
+      "text": "Station 13 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:14",
+      "typ": "station",
+      "titel": "Welche Zahl bin ich?",
+      "text": "Station 14 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:15",
+      "typ": "station",
+      "titel": "Magische Quadrate",
+      "text": "Station 15 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:16",
+      "typ": "station",
+      "titel": "Zweite Aufgaben-Karte",
+      "text": "Station 16 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:17",
+      "typ": "station",
+      "titel": "Rechengesetze entdecken",
+      "text": "Station 17 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg5-ma-1:18",
+      "typ": "station",
+      "titel": "Primzahlen & Teilbarkeit",
+      "text": "Station 18 · Grundlagen: Wiederholung",
+      "route": "#/baustein/jg5-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg5-bio-1",
+      "typ": "baustein",
+      "titel": "Fische & Merkmale des Lebens",
+      "text": "Bedrohung und Schutz der Fische",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:1",
+      "typ": "station",
+      "titel": "Arbeitsweisen in der Biologie",
+      "text": "Station 1 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:2",
+      "typ": "station",
+      "titel": "Kennzeichen des Lebendigen",
+      "text": "Station 2 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:3",
+      "typ": "station",
+      "titel": "Die Vielfalt der Fische",
+      "text": "Station 3 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:4",
+      "typ": "station",
+      "titel": "Fisch-Domino",
+      "text": "Station 4 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:5",
+      "typ": "station",
+      "titel": "Äußerer und innerer Bau der Fische",
+      "text": "Station 5 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:6",
+      "typ": "station",
+      "titel": "Körperform der Fische",
+      "text": "Station 6 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:7",
+      "typ": "station",
+      "titel": "Haut der Fische",
+      "text": "Station 7 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:8",
+      "typ": "station",
+      "titel": "Atmung der Fische",
+      "text": "Station 8 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:9",
+      "typ": "station",
+      "titel": "Sektion eines Fisches",
+      "text": "Station 9 · Fische & Merkmale des Lebens · Teilnahmepflicht, klassenweiser Termin",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:10",
+      "typ": "station",
+      "titel": "Fortpflanzung und Entwicklung",
+      "text": "Station 10 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:11",
+      "typ": "station",
+      "titel": "Verhaltensweisen bei Fortpflanzung/Entwicklung",
+      "text": "Station 11 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:12",
+      "typ": "station",
+      "titel": "Ernährung der Fische",
+      "text": "Station 12 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:13",
+      "typ": "station",
+      "titel": "Bedrohung und Schutz der Fische",
+      "text": "Station 13 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-1:14",
+      "typ": "station",
+      "titel": "Online-Übungen Sofatutor",
+      "text": "Station 14 · Fische & Merkmale des Lebens",
+      "route": "#/baustein/jg5-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg5-de-2",
+      "typ": "baustein",
+      "titel": "Rechtschreibung",
+      "text": "",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg5-en-1",
+      "typ": "baustein",
+      "titel": "Grundlagen",
+      "text": "",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg5-geo-1",
+      "typ": "baustein",
+      "titel": "Die Erde",
+      "text": "",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg5-de-3",
+      "typ": "baustein",
+      "titel": "Zeichensetzung",
+      "text": "",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg5-ma-2",
+      "typ": "baustein",
+      "titel": "Arbeiten mit natürlichen Zahlen",
+      "text": "",
+      "route": "#/baustein/jg5-ma-2",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg5-bio-2",
+      "typ": "baustein",
+      "titel": "Lurche und Reptilien",
+      "text": "",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg5-de-5",
+      "typ": "baustein",
+      "titel": "Märchen und Fantasie",
+      "text": "",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg5-en-2",
+      "typ": "baustein",
+      "titel": "Welcome to my world",
+      "text": "",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg5-geo-2",
+      "typ": "baustein",
+      "titel": "Atlasführerschein",
+      "text": "",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg5-de-4",
+      "typ": "baustein",
+      "titel": "Wörterbuch",
+      "text": "",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg5-ma-3",
+      "typ": "baustein",
+      "titel": "geometrische Muster und Formen",
+      "text": "",
+      "route": "#/baustein/jg5-ma-3",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg5-bio-3",
+      "typ": "baustein",
+      "titel": "Vögel",
+      "text": "",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg5-de-6",
+      "typ": "baustein",
+      "titel": "Rico, Oskar und die Tieferschatten",
+      "text": "",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg5-en-3",
+      "typ": "baustein",
+      "titel": "Holidays",
+      "text": "",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg5-geo-3",
+      "typ": "baustein",
+      "titel": "Deutschland: Topografie und Küsten",
+      "text": "",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg5-ma-4",
+      "typ": "baustein",
+      "titel": "Flächeninhalte und Formen",
+      "text": "",
+      "route": "#/baustein/jg5-ma-4",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg5-bio-4",
+      "typ": "baustein",
+      "titel": "Säugetiere",
+      "text": "",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg5-de-7",
+      "typ": "baustein",
+      "titel": "Lyrik",
+      "text": "",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg5-en-4",
+      "typ": "baustein",
+      "titel": "Party Star",
+      "text": "",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg5-geo-4",
+      "typ": "baustein",
+      "titel": "Norddeutsches Tiefland und Mittelgebirge",
+      "text": "",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "input:jg5-bio-sektion",
+      "typ": "input",
+      "titel": "Sektion eines Fisches",
+      "text": "",
+      "route": "#/fach/bio",
+      "fach": "bio"
+    },
+    {
+      "id": "input:jg5-de-persoenlicher-brief",
+      "typ": "input",
+      "titel": "Persönlicher Brief",
+      "text": "",
+      "route": "#/fach/de",
+      "fach": "de"
+    },
+    {
+      "id": "input:jg5-de-foermlicher-brief",
+      "typ": "input",
+      "titel": "Förmlicher Brief",
+      "text": "",
+      "route": "#/fach/de",
+      "fach": "de"
+    }
+  ]
 }

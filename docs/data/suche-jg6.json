@@ -1,5 +1,206 @@
 {
   "schema": 1,
   "jgst": 6,
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "baustein:jg6-de-1",
+      "typ": "baustein",
+      "titel": "Satzglieder",
+      "text": "",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg6-ma-1",
+      "typ": "baustein",
+      "titel": "Zuordnungen",
+      "text": "",
+      "route": "#/baustein/jg6-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg6-bio-1",
+      "typ": "baustein",
+      "titel": "Wirbellose Tiere in ihren Lebensräumen",
+      "text": "",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg6-en-1",
+      "typ": "baustein",
+      "titel": "The Secret of Maple Hill",
+      "text": "",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg6-geo-1",
+      "typ": "baustein",
+      "titel": "Europa",
+      "text": "",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg6-ma-2",
+      "typ": "baustein",
+      "titel": "Konstruieren von Dreiecken",
+      "text": "",
+      "route": "#/baustein/jg6-ma-2",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg6-de-2",
+      "typ": "baustein",
+      "titel": "Fabeln",
+      "text": "",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg6-bio-2",
+      "typ": "baustein",
+      "titel": "Unter der Lupe",
+      "text": "",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg6-en-2",
+      "typ": "baustein",
+      "titel": "Christmas",
+      "text": "",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg6-geo-2",
+      "typ": "baustein",
+      "titel": "Klima in Europa",
+      "text": "",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg6-bio-3",
+      "typ": "baustein",
+      "titel": "Der Wald als Lebensgemeinschaft",
+      "text": "",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg6-ma-3",
+      "typ": "baustein",
+      "titel": "weitere Dreieckseigenschaften und Vierecksberechnung",
+      "text": "",
+      "route": "#/baustein/jg6-ma-3",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg6-de-3",
+      "typ": "baustein",
+      "titel": "Ocean City ODER Herr der Diebe",
+      "text": "",
+      "route": "#/baustein/jg6-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg6-en-3",
+      "typ": "baustein",
+      "titel": "Peacemakers",
+      "text": "",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg6-geo-3",
+      "typ": "baustein",
+      "titel": "Nordeuropa",
+      "text": "",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg6-en-4",
+      "typ": "baustein",
+      "titel": "Pip and the Umbrella Room",
+      "text": "",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg6-ma-4",
+      "typ": "baustein",
+      "titel": "Eigenschaften und Darstellen von Prismen",
+      "text": "",
+      "route": "#/baustein/jg6-ma-4",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg6-bio-4",
+      "typ": "baustein",
+      "titel": "Samenpflanzen",
+      "text": "",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg6-de-4",
+      "typ": "baustein",
+      "titel": "Beschreiben und Berichten",
+      "text": "",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg6-geo-4",
+      "typ": "baustein",
+      "titel": "Südeuropa",
+      "text": "",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg6-de-5",
+      "typ": "baustein",
+      "titel": "Redewendungen und Sprichwörter",
+      "text": "",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg6-ma-5",
+      "typ": "baustein",
+      "titel": "Volumen von Prismen",
+      "text": "",
+      "route": "#/baustein/jg6-ma-5",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg6-bio-5",
+      "typ": "baustein",
+      "titel": "Exkursionen",
+      "text": "",
+      "route": "#/baustein/jg6-bio-5",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg6-en-5",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg6-en-5",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg6-geo-5",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg6-geo-5",
+      "fach": "geo"
+    }
+  ]
 }

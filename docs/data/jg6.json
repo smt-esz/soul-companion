@@ -9,9 +9,708 @@
   ],
   "fruehesterAufstieg": null,
   "hinweis": "",
-  "sonderwochen": [],
-  "slots": [],
-  "bausteine": [],
+  "sonderwochen": [
+    {
+      "von": "2026-09-14",
+      "bis": "2026-09-18",
+      "titel": "Themen- und Fahrtenwoche",
+      "art": "themenwoche"
+    },
+    {
+      "von": "2027-03-22",
+      "bis": "2027-03-26",
+      "titel": "Besinn-Dich-Tage",
+      "art": "besinntage"
+    },
+    {
+      "von": "2027-07-05",
+      "bis": "2027-07-09",
+      "titel": "letzte Schulwoche",
+      "art": "letzte-woche"
+    }
+  ],
+  "slots": [
+    {
+      "id": "jg6-de-1",
+      "fach": "de",
+      "nr": 1,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": 16,
+      "von": "2026-08-17",
+      "bis": "2026-10-30",
+      "abgabe": "2026-10-30",
+      "baustein": "jg6-de-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-ma-1",
+      "fach": "ma",
+      "nr": 1,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2026-08-17",
+      "bis": "2026-09-11",
+      "abgabe": "2026-09-11",
+      "baustein": "jg6-ma-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-bio-1",
+      "fach": "bio",
+      "nr": 1,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2026-08-17",
+      "bis": "2026-09-11",
+      "abgabe": "2026-09-11",
+      "baustein": "jg6-bio-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-en-1",
+      "fach": "en",
+      "nr": 1,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2026-09-21",
+      "bis": "2026-10-30",
+      "abgabe": "2026-10-30",
+      "baustein": "jg6-en-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-geo-1",
+      "fach": "geo",
+      "nr": 1,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2026-09-21",
+      "bis": "2026-10-30",
+      "abgabe": "2026-10-30",
+      "baustein": "jg6-geo-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-ma-2",
+      "fach": "ma",
+      "nr": 2,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": 16,
+      "von": "2026-11-02",
+      "bis": "2027-01-08",
+      "abgabe": "2027-01-08",
+      "baustein": "jg6-ma-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-de-2",
+      "fach": "de",
+      "nr": 2,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2026-11-02",
+      "bis": "2026-11-27",
+      "abgabe": "2026-11-27",
+      "baustein": "jg6-de-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-bio-2",
+      "fach": "bio",
+      "nr": 2,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2026-11-02",
+      "bis": "2026-11-27",
+      "abgabe": "2026-11-27",
+      "baustein": "jg6-bio-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-en-2",
+      "fach": "en",
+      "nr": 2,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2026-11-30",
+      "bis": "2027-01-08",
+      "abgabe": "2027-01-08",
+      "baustein": "jg6-en-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-geo-2",
+      "fach": "geo",
+      "nr": 2,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2026-11-30",
+      "bis": "2027-01-08",
+      "abgabe": "2027-01-08",
+      "baustein": "jg6-geo-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-bio-3",
+      "fach": "bio",
+      "nr": 3,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": 16,
+      "von": "2027-01-11",
+      "bis": "2027-03-19",
+      "abgabe": "2027-03-19",
+      "baustein": "jg6-bio-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-ma-3",
+      "fach": "ma",
+      "nr": 3,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "abgabe": "2027-02-05",
+      "baustein": "jg6-ma-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-de-3",
+      "fach": "de",
+      "nr": 3,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "abgabe": "2027-02-05",
+      "baustein": "jg6-de-3",
+      "status": "wahl",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-en-3",
+      "fach": "en",
+      "nr": 3,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2027-02-22",
+      "bis": "2027-03-19",
+      "abgabe": "2027-03-19",
+      "baustein": "jg6-en-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-geo-3",
+      "fach": "geo",
+      "nr": 3,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2027-02-22",
+      "bis": "2027-03-19",
+      "abgabe": "2027-03-19",
+      "baustein": "jg6-geo-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-en-4",
+      "fach": "en",
+      "nr": 4,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": 16,
+      "von": "2027-04-05",
+      "bis": "2027-06-04",
+      "abgabe": "2027-06-04",
+      "baustein": "jg6-en-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-ma-4",
+      "fach": "ma",
+      "nr": 4,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2027-04-05",
+      "bis": "2027-04-30",
+      "abgabe": "2027-04-30",
+      "baustein": "jg6-ma-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-bio-4",
+      "fach": "bio",
+      "nr": 4,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2027-04-05",
+      "bis": "2027-04-30",
+      "abgabe": "2027-04-30",
+      "baustein": "jg6-bio-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-de-4",
+      "fach": "de",
+      "nr": 4,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 16,
+      "von": "2027-05-03",
+      "bis": "2027-06-04",
+      "abgabe": "2027-06-04",
+      "baustein": "jg6-de-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-geo-4",
+      "fach": "geo",
+      "nr": 4,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2027-05-03",
+      "bis": "2027-06-04",
+      "abgabe": "2027-06-04",
+      "baustein": "jg6-geo-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-de-5",
+      "fach": "de",
+      "nr": 5,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": 8,
+      "von": "2027-06-07",
+      "bis": "2027-07-02",
+      "abgabe": "2027-07-02",
+      "baustein": "jg6-de-5",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-ma-5",
+      "fach": "ma",
+      "nr": 5,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 8,
+      "von": "2027-06-07",
+      "bis": "2027-06-18",
+      "abgabe": "2027-06-18",
+      "baustein": "jg6-ma-5",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-bio-5",
+      "fach": "bio",
+      "nr": 5,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 8,
+      "von": "2027-06-07",
+      "bis": "2027-06-18",
+      "abgabe": "2027-06-18",
+      "baustein": "jg6-bio-5",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-en-5",
+      "fach": "en",
+      "nr": 5,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": 8,
+      "von": "2027-06-21",
+      "bis": "2027-07-02",
+      "abgabe": "2027-07-02",
+      "baustein": "jg6-en-5",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg6-geo-5",
+      "fach": "geo",
+      "nr": 5,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 8,
+      "von": "2027-06-21",
+      "bis": "2027-07-02",
+      "abgabe": "2027-07-02",
+      "baustein": "jg6-geo-5",
+      "status": "fest",
+      "hinweis": ""
+    }
+  ],
+  "bausteine": [
+    {
+      "id": "jg6-de-1",
+      "fach": "de",
+      "titel": "Satzglieder",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-ma-1",
+      "fach": "ma",
+      "titel": "Zuordnungen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-bio-1",
+      "fach": "bio",
+      "titel": "Wirbellose Tiere in ihren Lebensräumen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-en-1",
+      "fach": "en",
+      "titel": "The Secret of Maple Hill",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-geo-1",
+      "fach": "geo",
+      "titel": "Europa",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-ma-2",
+      "fach": "ma",
+      "titel": "Konstruieren von Dreiecken",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-de-2",
+      "fach": "de",
+      "titel": "Fabeln",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-bio-2",
+      "fach": "bio",
+      "titel": "Unter der Lupe",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-en-2",
+      "fach": "en",
+      "titel": "Christmas",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-geo-2",
+      "fach": "geo",
+      "titel": "Klima in Europa",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-bio-3",
+      "fach": "bio",
+      "titel": "Der Wald als Lebensgemeinschaft",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-ma-3",
+      "fach": "ma",
+      "titel": "weitere Dreieckseigenschaften und Vierecksberechnung",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-de-3",
+      "fach": "de",
+      "titel": "Ocean City ODER Herr der Diebe",
+      "alternativen": [
+        "Ocean City",
+        "Herr der Diebe"
+      ],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-en-3",
+      "fach": "en",
+      "titel": "Peacemakers",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-geo-3",
+      "fach": "geo",
+      "titel": "Nordeuropa",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-en-4",
+      "fach": "en",
+      "titel": "Pip and the Umbrella Room",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-ma-4",
+      "fach": "ma",
+      "titel": "Eigenschaften und Darstellen von Prismen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-bio-4",
+      "fach": "bio",
+      "titel": "Samenpflanzen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-de-4",
+      "fach": "de",
+      "titel": "Beschreiben und Berichten",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-geo-4",
+      "fach": "geo",
+      "titel": "Südeuropa",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-de-5",
+      "fach": "de",
+      "titel": "Redewendungen und Sprichwörter",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-ma-5",
+      "fach": "ma",
+      "titel": "Volumen von Prismen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-bio-5",
+      "fach": "bio",
+      "titel": "Exkursionen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-en-5",
+      "fach": "en",
+      "titel": "",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg6-geo-5",
+      "fach": "geo",
+      "titel": "",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    }
+  ],
   "inputs": [],
   "coachings": [],
   "termine": [],

@@ -1,0 +1,874 @@
+/* Stile der Komponenten aus Planung/DESIGN.md, Abschnitt 7.
+   Gebaut werden sie in src/app/ui/components.js. Alle Farben und Masse
+   kommen aus tokens.css, die Form der Tonlage aus tones.css. */
+
+/* ------------------------------------------------------ Fachfarben */
+/* Ein Element mit data-fach="bio" setzt die vier lokalen Fachwerte. Alle
+   Komponenten lesen danach nur noch --fach-kante, --fach-flaeche,
+   --fach-text und --fach-badge (DESIGN 2.2). */
+
+[data-fach='ma'] {
+  --fach-kante: var(--fach-ma-kante);
+  --fach-flaeche: var(--fach-ma-flaeche);
+  --fach-text: var(--fach-ma-text);
+  --fach-badge: var(--fach-ma-badge);
+}
+
+[data-fach='de'] {
+  --fach-kante: var(--fach-de-kante);
+  --fach-flaeche: var(--fach-de-flaeche);
+  --fach-text: var(--fach-de-text);
+  --fach-badge: var(--fach-de-badge);
+}
+
+[data-fach='en'] {
+  --fach-kante: var(--fach-en-kante);
+  --fach-flaeche: var(--fach-en-flaeche);
+  --fach-text: var(--fach-en-text);
+  --fach-badge: var(--fach-en-badge);
+}
+
+[data-fach='bio'] {
+  --fach-kante: var(--fach-bio-kante);
+  --fach-flaeche: var(--fach-bio-flaeche);
+  --fach-text: var(--fach-bio-text);
+  --fach-badge: var(--fach-bio-badge);
+}
+
+[data-fach='geo'] {
+  --fach-kante: var(--fach-geo-kante);
+  --fach-flaeche: var(--fach-geo-flaeche);
+  --fach-text: var(--fach-geo-text);
+  --fach-badge: var(--fach-geo-badge);
+}
+
+[data-fach='offen'] {
+  --fach-kante: var(--fach-offen-kante);
+  --fach-flaeche: var(--fach-offen-flaeche);
+  --fach-text: var(--fach-offen-text);
+  --fach-badge: var(--fach-offen-badge);
+}
+
+/* Faecherverbindend: Kante und Flaeche sind Verlaeufe, deshalb nie als
+   border-color oder background-color, sondern nur als Bild (DESIGN 2.2). */
+[data-fach='fvu'] {
+  --fach-kante: transparent;
+  --fach-flaeche: transparent;
+  --fach-text: var(--fach-fvu-text);
+  --fach-badge: var(--fach-fvu-badge);
+}
+
+/* ------------------------------------------------------ Icon */
+
+.icon {
+  display: inline-block;
+  flex: none;
+  vertical-align: -0.15em;
+  color: inherit;
+}
+
+/* ------------------------------------------------------ fachBadge */
+
+.fach-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--radius-klein);
+  background: var(--fach-kante);
+  color: var(--fach-badge);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.fach-badge-kuerzel {
+  letter-spacing: 0.01em;
+}
+
+.fach-badge--s {
+  font-size: var(--t-klein-groesse);
+  padding: 2px var(--s-1);
+}
+
+.fach-badge--s .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.fach-badge--m {
+  font-size: var(--t-text-groesse);
+}
+
+.fach-badge--l {
+  font-size: var(--t-h2-groesse);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius-knopf);
+}
+
+/* Regenbogen: Karten- bzw. weisser Grund mit 3 px Verlaufsrahmen, damit
+   die Schrift nicht auf dem Verlauf steht (DESIGN 2.2). */
+.fach-badge--fvu {
+  position: relative;
+  background: var(--c-karte);
+  color: var(--fach-fvu-badge);
+  border: 3px solid transparent;
+  background-image: linear-gradient(var(--c-karte), var(--c-karte)), var(--fach-fvu-kante);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* ------------------------------------------------------ karte */
+
+.karte {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 var(--s-4);
+  padding: var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+  color: inherit;
+  text-align: left;
+  overflow: hidden;
+}
+
+.karte-kopf {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin: calc(-1 * var(--s-4)) calc(-1 * var(--s-4)) var(--s-3);
+  padding: var(--s-3) var(--s-4);
+}
+
+.karte-titelblock {
+  min-width: 0;
+}
+
+/* Fachbadge und Etiketten rechts im Kopf. */
+.karte-marken {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}
+
+.karte-titel {
+  margin: 0;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+}
+
+.karte-unter {
+  margin: 2px 0 0;
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+  font-weight: var(--t-klein-gewicht);
+}
+
+.karte-inhalt > :last-child {
+  margin-bottom: 0;
+}
+
+/* Der Knopf im Titel macht die Karte auch mit Tastatur erreichbar, der
+   Klick auf die ganze Karte ist nur die bequeme Variante. */
+.karte-knopf {
+  display: inline;
+  /* Innenabstand statt Hoehe: die Tippflaeche wird 48 px hoch, das Layout
+     bleibt gleich (DESIGN 5). */
+  margin: -13px 0;
+  padding: 13px 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.karte--tappbar {
+  cursor: pointer;
+}
+
+.karte--tappbar:hover {
+  border-color: var(--c-teal);
+}
+
+/* Zustaende (DESIGN 7). */
+.karte--laeuft {
+  background: var(--c-teal-hell);
+}
+
+.karte--heute {
+  border-color: var(--c-gold);
+  border-width: 2px;
+}
+
+.karte--vorbei {
+  opacity: 0.75;
+}
+
+.karte--kommt {
+  border-style: dashed;
+}
+
+/* Vorlaeufiger Slot: gestrichelte Kante (DESIGN 2.2). */
+.karte--vorlaeufig {
+  border-style: dashed;
+}
+
+/* Faecherverbindend: Regenbogen als Balken oben, nie hinter der Schrift. */
+.karte[data-fach='fvu']::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--kante-breite);
+  background-image: var(--fach-fvu-kante);
+}
+
+.karte[data-fach='fvu'] {
+  padding-top: calc(var(--s-4) + var(--kante-breite));
+}
+
+/* ------------------------------------------------------ tagKarte */
+
+.tag-karte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-height: 7rem;
+  margin: 0;
+  padding: var(--s-3);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.tag-karte-kopf {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.tag-karte-tag {
+  font-weight: 700;
+}
+
+.tag-karte-datum {
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+}
+
+.tag-karte-liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.tag-karte-liste li {
+  margin: 0;
+  max-width: none;
+  font-size: var(--t-klein-groesse);
+}
+
+/* Etiketten in der Tagkarte bleiben so breit wie ihr Text. */
+.tag-karte > .etikett {
+  align-self: flex-start;
+}
+
+.tag-karte--heute {
+  border-color: var(--c-gold);
+  border-width: 2px;
+}
+
+.tag-karte--leer .tag-karte-liste {
+  color: var(--c-text-2);
+}
+
+.wochenraster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+
+/* ------------------------------------------------------ terminZeile */
+
+.termin-zeile {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  min-height: var(--touch);
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--c-linie);
+}
+
+.termin-zeile:last-child {
+  border-bottom: 0;
+}
+
+.termin-titel {
+  font-weight: 650;
+}
+
+.termin-kuerzel {
+  padding: 1px var(--s-2);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-klein);
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.termin-klasse,
+.termin-station {
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+}
+
+.termin-zeile--entfall .termin-titel {
+  text-decoration: line-through;
+}
+
+/* ------------------------------------------------------ countdown */
+
+.countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius-knopf);
+  background: var(--c-teal-hell);
+  color: var(--c-teal-dunkel);
+  font-weight: 650;
+}
+
+.countdown-zahl {
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown--heute {
+  background: var(--c-gold);
+  color: var(--c-auf-gold);
+}
+
+/* ------------------------------------------------------ fortschritt */
+/* Zeit im Slot, kein Leistungsbalken (DESIGN 7). */
+
+.fortschritt {
+  margin: var(--s-2) 0;
+}
+
+.fortschritt-bahn {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--c-linie);
+  overflow: hidden;
+}
+
+.fortschritt-teil {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--c-teal-dunkel);
+}
+
+.fortschritt-text {
+  margin: var(--s-1) 0 0;
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+}
+
+/* ------------------------------------------------------ stationenTabelle */
+
+.stationen {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--s-5);
+}
+
+.stationen caption {
+  text-align: left;
+  padding-bottom: var(--s-2);
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+}
+
+.stationen th,
+.stationen td {
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 1px solid var(--c-linie);
+  text-align: left;
+  vertical-align: top;
+}
+
+.stationen th {
+  font-size: var(--t-mini-groesse);
+  font-weight: var(--t-mini-gewicht);
+  letter-spacing: var(--t-mini-sperrung);
+  text-transform: uppercase;
+  color: var(--c-text-2);
+  white-space: nowrap;
+}
+
+.stationen .spalte-nr,
+.stationen .spalte-zeit {
+  width: 1%;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pflicht und Wahl nie nur ueber Farbe: Punkt und Wort (DESIGN 7). */
+.art-punkt {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin-right: var(--s-1);
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  vertical-align: baseline;
+}
+
+.art--pflicht .art-punkt {
+  background: currentColor;
+}
+
+.niveau {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--c-teal-dunkel);
+}
+
+/* ------------------------------------------------------ leer */
+
+.leer {
+  padding: var(--s-6) var(--s-4);
+  border: 1px dashed var(--c-linie);
+  border-radius: var(--radius-karte);
+  text-align: center;
+  color: var(--c-text-2);
+}
+
+.leer-motiv {
+  display: block;
+  margin: 0 auto var(--s-3);
+  color: var(--c-teal);
+}
+
+.leer p {
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------ hinweis */
+
+.hinweis-feld {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-left: var(--kante-breite) solid var(--c-teal-dunkel);
+  border-radius: var(--radius-klein);
+  background: var(--c-karte);
+}
+
+.hinweis-feld .icon {
+  margin-top: 2px;
+  color: var(--c-teal-dunkel);
+}
+
+.hinweis-feld p {
+  margin: 0;
+}
+
+.hinweis-feld--warnung {
+  border-left-color: var(--c-gold-dunkel);
+}
+
+.hinweis-feld--warnung .icon {
+  color: var(--c-gold-dunkel);
+}
+
+.hinweis-feld--erfolg {
+  border-left-color: var(--c-teal);
+}
+
+.hinweis-feld--erfolg .icon {
+  color: var(--c-teal-dunkel);
+}
+
+/* ------------------------------------------------------ leiste */
+
+.leiste {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--radius-klein);
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+}
+
+.leiste p {
+  margin: 0;
+  flex: 1 1 12rem;
+}
+
+.leiste--warnung {
+  background: var(--c-gold);
+  color: var(--c-auf-gold);
+}
+
+.leiste .knopf--haupt {
+  background: var(--c-karte);
+  color: var(--c-teal-dunkel);
+}
+
+.leiste--warnung .knopf--haupt {
+  color: var(--c-navy);
+}
+
+/* ------------------------------------------------------ knopf */
+
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: var(--touch);
+  padding: var(--s-2) var(--s-5);
+  border: 2px solid transparent;
+  border-radius: var(--radius-knopf);
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--zeit-zustand) var(--kurve),
+              color var(--zeit-zustand) var(--kurve),
+              border-color var(--zeit-zustand) var(--kurve);
+}
+
+.knopf--haupt {
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+}
+
+.knopf--neben {
+  background: var(--c-karte);
+  border-color: var(--c-teal-dunkel);
+  color: var(--c-teal-dunkel);
+}
+
+.knopf--text {
+  min-height: var(--touch);
+  padding: var(--s-2);
+  background: none;
+  color: var(--c-teal-dunkel);
+  text-decoration: underline;
+}
+
+.knopf[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.knopf-reihe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--touch-abstand);
+  margin-bottom: var(--s-4);
+}
+
+/* ------------------------------------------------------ segment */
+
+.segment {
+  display: inline-flex;
+  gap: var(--s-1);
+  padding: var(--s-1);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-knopf);
+  background: var(--c-karte);
+}
+
+.segment-knopf {
+  min-height: var(--touch);
+  padding: var(--s-2) var(--s-4);
+  border: 0;
+  border-radius: calc(var(--radius-knopf) - 2px);
+  background: none;
+  color: var(--c-teal-dunkel);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.segment-knopf[aria-pressed='true'] {
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+}
+
+/* ------------------------------------------------------ etikett */
+
+.etikett {
+  display: inline-block;
+  padding: 2px var(--s-2);
+  border-radius: var(--radius-klein);
+  background: var(--c-linie);
+  color: var(--c-navy);
+  font-size: var(--t-mini-groesse);
+  font-weight: var(--t-mini-gewicht);
+  letter-spacing: var(--t-mini-sperrung);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.etikett--heute {
+  background: var(--c-gold);
+  color: var(--c-auf-gold);
+}
+
+.etikett--pflicht {
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+}
+
+.etikett--wahl {
+  background: none;
+  border: 1px solid var(--c-teal-dunkel);
+  color: var(--c-teal-dunkel);
+}
+
+.etikett--vorlaeufig {
+  background: none;
+  border: 1px dashed var(--c-gold-dunkel);
+  color: var(--c-gold-dunkel);
+}
+
+/* ------------------------------------------------------ statusPunkt */
+
+.status-punkt {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+}
+
+.status-punkt-kreis {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-teal);
+}
+
+.status-punkt--offline .status-punkt-kreis {
+  background: var(--c-text-2);
+}
+
+.status-punkt--update .status-punkt-kreis {
+  background: var(--c-gold-dunkel);
+}
+
+/* ------------------------------------------------------ stufenBaum */
+
+.stufen-baum {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  margin: 0 auto var(--s-5);
+}
+
+.stufen-ebene {
+  cursor: pointer;
+}
+
+.stufen-ebene[data-ebene='1'] .stufen-form {
+  fill: var(--stufe-1-flaeche);
+}
+
+.stufen-ebene[data-ebene='2'] .stufen-form {
+  fill: var(--stufe-2-flaeche);
+}
+
+.stufen-ebene[data-ebene='3'] .stufen-form {
+  fill: var(--stufe-3-flaeche);
+}
+
+.stufen-ebene .stufen-schrift {
+  fill: var(--stufe-schrift);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.stufen-ebene[aria-current='true'] .stufen-form,
+.stufen-ebene[data-hervorheben='true'] .stufen-form {
+  stroke: var(--c-gold);
+  stroke-width: 3;
+}
+
+.stufen-boden {
+  stroke: var(--c-linie);
+  stroke-width: 2;
+}
+
+.stufen-ebene:focus-visible {
+  outline: var(--fokus-breite) solid var(--c-fokus);
+  outline-offset: var(--fokus-abstand);
+}
+
+/* ------------------------------------------------------ Haken-Rueckmeldung */
+/* DESIGN 9: der Haken zeichnet sich in 250 ms, dazu der Effekt der Tonlage. */
+
+.haken-zeichnung {
+  stroke-dasharray: var(--haken-laenge, 40);
+  stroke-dashoffset: var(--haken-laenge, 40);
+}
+
+.haken-laeuft .haken-zeichnung,
+.haken-laeuft.haken-zeichnung {
+  animation: haken-strich var(--zeit-wechsel) var(--kurve) forwards;
+}
+
+/* Nach der Bewegung bleibt der Haken gezeichnet stehen. */
+.haken-fertig .haken-zeichnung,
+.haken-fertig.haken-zeichnung {
+  stroke-dashoffset: 0;
+}
+
+@keyframes haken-strich {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .haken-zeichnung {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ------------------------------------------------------ Hilfsraster */
+
+.karten-reihe {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--s-4);
+}
+
+/* ------------------------------------------------------ Musterseite */
+/* Nur fuer #/muster?debug=1 (AP-04). Kommt in keiner echten Seite vor. */
+
+.muster-schalter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  margin-bottom: var(--s-5);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid var(--c-linie);
+}
+
+.muster-marke {
+  margin: 0 0 var(--s-1);
+  font-size: var(--t-mini-groesse);
+  font-weight: var(--t-mini-gewicht);
+  letter-spacing: var(--t-mini-sperrung);
+  text-transform: uppercase;
+  color: var(--c-text-2);
+}
+
+.muster-block {
+  margin-bottom: var(--s-7);
+}
+
+.muster-reihe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+
+.muster-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+
+.muster-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-klein);
+  background: var(--c-karte);
+}
+
+.muster-farben {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: var(--s-3);
+}
+
+.muster-farbe {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.muster-farbe-feld {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-klein);
+}
+
+.muster-typ-display { font-size: var(--t-display-groesse); font-weight: var(--t-display-gewicht); }
+.muster-typ-h1 { font-size: var(--t-h1-groesse); font-weight: var(--t-h1-gewicht); }
+.muster-typ-h2 { font-size: var(--t-h2-groesse); font-weight: var(--t-h2-gewicht); }
+.muster-typ-h3 { font-size: var(--t-h3-groesse); font-weight: var(--t-h3-gewicht); }
+
+.muster-haken {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--s-3);
+  border-radius: 50%;
+  background: var(--c-teal-hell);
+  color: var(--c-teal-dunkel);
+}
+
+/* ------------------------------------------------------ Modul woche */
+/* Startseite "Diese Woche" (AP-10, DESIGN 10). Abstaende der Abschnitte
+   stehen inline im Modul (wie schon in update.js und muster.js), hier nur
+   das eine, was eine echte Klasse braucht: die Tageskarten sind zusaetzlich
+   tippbar, das Aufklappen der Tagesansicht macht das Modul selbst. */
+
+.woche-tag-karte {
+  cursor: pointer;
+}
+
+/* Prüfhilfe: zeigt, ob jede Touchfläche mindestens 48 x 48 px gross ist. */
+.muster--touch a,
+.muster--touch button,
+.muster--touch .termin-zeile,
+.muster--touch .hauptnavigation-link {
+  outline: 1px dashed var(--c-gold-dunkel);
+  outline-offset: 0;
+}
+
+.muster--touch button,
+.muster--touch a {
+  min-height: var(--touch);
+}

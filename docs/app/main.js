@@ -5,17 +5,22 @@ import * as data from './data.js';
 import { heute } from './dates.js';
 import { getModules, setzeAktive, zerlegeHash } from './module.js';
 import { startRouter, navigate, onNavigation } from './router.js';
+import * as update from './update.js';
+import * as onboarding from './onboarding.js';
 import { el, leer } from './ui/components.js';
 
 // Module melden sich beim Import selbst an. Ohne Bundler braucht es diese
 // Zeile je Moduldatei. Welche davon wirklich gelten, sagt content/index.json
 // (Feld module) über setzeAktive().
-import './modules/demo.js';
+import './modules/woche.js';
+import './modules/einstellungen.js';
 
 const ONBOARDING_HASH = '#/start';
 
 let inhalt = null;
 let navigation = null;
+let statusBereich = null;
+let leistenBereich = null;
 
 start();
 
@@ -62,7 +67,14 @@ async function appStarten(index, schule, vorschau) {
   const jg = await data.loadJahrgang(jgst);
   const wissen = data.filterWissen(await data.loadWissen(), jgst, vorschau);
 
-  setzeAktive(Array.isArray(index.module) ? index.module : []);
+  // Einzige Aenderung aus AP-04: mit ?debug=1 kommt die Musterseite dazu.
+  // Sie steht nicht in content/index.json und nicht in der Navigation.
+  const aktiveModule = Array.isArray(index.module) ? index.module.slice() : [];
+  if (new URLSearchParams(location.search).get('debug') === '1') {
+    await import('./modules/muster.js');
+    if (!aktiveModule.includes('muster')) aktiveModule.push('muster');
+  }
+  setzeAktive(aktiveModule);
 
   const ctx = {
     index,
@@ -80,7 +92,9 @@ async function appStarten(index, schule, vorschau) {
   onNavigation(navigationMarkieren);
   await startRouter({ container: inhalt, ctx });
 
-  // update.init() kommt in AP-03 (Service Worker, Update-Leiste, Statusanzeige).
+  // Service Worker, Update-Leiste und Statusanzeige (AP-03). Der Aufruf
+  // steht bewusst am Ende: Erst die Seite, dann die Registrierung.
+  update.init({ statusEl: statusBereich, leisteEl: leistenBereich });
 }
 
 // Layout: Statuszeile oben rechts, Navigation links bzw. unten, Inhalt daneben.
@@ -89,10 +103,12 @@ function layoutAufbauen(jg) {
 
   if (jg && jg.ton) document.body.dataset.ton = jg.ton;
 
+  // Version, Offline-Zustand und wartendes Update füllt update.js ein (AP-03).
+  statusBereich = el('div', { id: 'status', class: 'status' });
+
   const kopf = el('header', { class: 'kopfzeile' }, [
     el('p', { class: 'kopfzeile-titel', text: 'SOUL Companion' }),
-    // Bleibt in AP-01 leer. AP-03 zeigt hier Version, offline und Updates.
-    el('div', { id: 'status', class: 'status' })
+    statusBereich
   ]);
 
   navigation = el('nav', { class: 'hauptnavigation', 'aria-label': 'Bereiche' }, [
@@ -108,9 +124,18 @@ function layoutAufbauen(jg) {
       ])))
   ]);
 
-  inhalt = el('main', { id: 'inhalt', class: 'inhalt' });
+  // Bereich für die Update-Leiste (AP-03). Er liegt im Inhaltsbereich über
+  // der Seite, nicht als eigenes Kind von body: body ist ein Raster mit den
+  // drei Feldern kopf, nav und inhalt (styles/base.css), ein viertes Kind
+  // würde das Raster verschieben. Der Router leert nur die Seite darunter,
+  // die Leiste bleibt beim Seitenwechsel stehen.
+  leistenBereich = el('div', { class: 'leisten' });
+  inhalt = el('div', { id: 'inhalt', class: 'inhalt-seite' });
 
-  document.body.append(kopf, navigation, inhalt);
+  document.body.append(kopf, navigation, el('main', { class: 'inhalt' }, [
+    leistenBereich,
+    inhalt
+  ]));
 }
 
 function navigationMarkieren(hash) {
@@ -126,23 +151,17 @@ function navigationMarkieren(hash) {
   }
 }
 
-// Platzhalter-Onboarding. AP-10 ersetzt es durch das richtige Onboarding
-// in einer eigenen Datei src/app/onboarding.js.
+// Onboarding-Weiche: main.js liefert die Einzelseite (Rahmen, Fokus), den
+// Inhalt baut src/app/onboarding.js (AP-10).
 function zeigeJahrgangswahl(index, schule, vorschau) {
   const jahrgaenge = Array.isArray(index.jahrgaenge) ? index.jahrgaenge.map(Number) : [];
   location.hash = ONBOARDING_HASH;
 
-  const seite = einzelseite([
-    el('h1', { text: 'Jahrgang wählen', tabindex: '-1' }),
-    el('p', { text: 'Hier findest du alles zu SOUL für deinen Jahrgang.' }),
-    el('div', { class: 'wahl' }, jahrgaenge.map((nummer) => el('button', {
-      type: 'button',
-      class: 'wahl-knopf',
-      text: 'Jahrgang ' + nummer,
-      onclick: () => jahrgangUebernehmen(nummer, index, schule, vorschau)
-    }))),
-    el('p', { class: 'hinweis', text: 'Du kannst den Jahrgang später ändern.' })
-  ]);
+  const seite = einzelseite([]);
+  onboarding.renderJahrgangswahl(seite, {
+    jahrgaenge,
+    onWahl: (nummer) => jahrgangUebernehmen(nummer, index, schule, vorschau)
+  });
   fokusAufTitel(seite);
 }
 
@@ -151,27 +170,12 @@ function zeigeSchuljahrFrage(index, schule, vorschau) {
   const alter = Number(store.state.jgst);
   const jahrgaenge = Array.isArray(index.jahrgaenge) ? index.jahrgaenge.map(Number) : [];
 
-  const knoepfe = [el('button', {
-    type: 'button',
-    class: 'wahl-knopf',
-    text: 'Ja, Jahrgang ' + alter,
-    onclick: () => jahrgangUebernehmen(alter, index, schule, vorschau)
-  })];
-  for (const nummer of jahrgaenge) {
-    if (nummer === alter) continue;
-    knoepfe.push(el('button', {
-      type: 'button',
-      class: 'wahl-knopf',
-      text: 'Nein, Jahrgang ' + nummer,
-      onclick: () => jahrgangUebernehmen(nummer, index, schule, vorschau)
-    }));
-  }
-
-  const seite = einzelseite([
-    el('h1', { text: 'Neues Schuljahr', tabindex: '-1' }),
-    el('p', { text: 'Bist du noch in Jahrgang ' + alter + '?' }),
-    el('div', { class: 'wahl' }, knoepfe)
-  ]);
+  const seite = einzelseite([]);
+  onboarding.renderSchuljahrFrage(seite, {
+    alter,
+    jahrgaenge,
+    onWahl: (nummer) => jahrgangUebernehmen(nummer, index, schule, vorschau)
+  });
   fokusAufTitel(seite);
 }
 
@@ -195,6 +199,8 @@ function zeigeStartfehler(fehler) {
 function einzelseite(kinder) {
   leer(document.body);
   navigation = null;
+  statusBereich = null;
+  leistenBereich = null;
   inhalt = el('main', { id: 'inhalt', class: 'inhalt inhalt-einzel' }, kinder);
   document.body.append(inhalt);
   if (typeof window.scrollTo === 'function') window.scrollTo(0, 0);

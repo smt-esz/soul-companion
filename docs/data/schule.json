@@ -50,7 +50,63 @@
       "reihenfolge": 6
     }
   ],
-  "ferien": [],
+  "ferien": [
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-12",
+      "bis": "2026-10-24"
+    },
+    {
+      "name": "Buß- und Bettag",
+      "von": "2026-11-18",
+      "bis": "2026-11-18"
+    },
+    {
+      "name": "Bewegliche Ferientage",
+      "von": "2026-12-21",
+      "bis": "2026-12-22"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-23",
+      "bis": "2027-01-02"
+    },
+    {
+      "name": "Winterferien",
+      "von": "2027-02-08",
+      "bis": "2027-02-19"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-26",
+      "bis": "2027-04-02"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2027-05-06",
+      "bis": "2027-05-06"
+    },
+    {
+      "name": "Brückentag",
+      "von": "2027-05-07",
+      "bis": "2027-05-07"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2027-05-15",
+      "bis": "2027-05-18"
+    },
+    {
+      "name": "Pfingstmontag",
+      "von": "2027-05-17",
+      "bis": "2027-05-17"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-10",
+      "bis": "2027-08-20"
+    }
+  ],
   "stufen": [
     {
       "id": 1,

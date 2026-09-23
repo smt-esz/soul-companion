@@ -1,19 +1,1342 @@
 {
   "schema": 1,
   "jgst": 5,
-  "ton": "klar",
+  "ton": "verspielt",
   "klassen": [
     "A",
     "B",
     "C"
   ],
-  "fruehesterAufstieg": null,
+  "fruehesterAufstieg": "2026-10-26",
   "hinweis": "",
-  "sonderwochen": [],
-  "slots": [],
-  "bausteine": [],
-  "inputs": [],
-  "coachings": [],
-  "termine": [],
-  "raster": []
+  "sonderwochen": [
+    {
+      "von": "2026-08-17",
+      "bis": "2026-08-21",
+      "titel": "Kennenlernwoche",
+      "art": "kennenlernen"
+    },
+    {
+      "von": "2026-08-24",
+      "bis": "2026-08-28",
+      "titel": "SOUL-Einführungswoche + SOUL-Basics 1",
+      "art": "einfuehrung"
+    },
+    {
+      "von": "2026-09-14",
+      "bis": "2026-09-18",
+      "titel": "Themen- und Fahrtenwoche",
+      "art": "themenwoche"
+    },
+    {
+      "von": "2026-10-05",
+      "bis": "2026-10-09",
+      "titel": "SOUL-Basics Woche",
+      "art": "soul-basics"
+    },
+    {
+      "von": "2026-12-14",
+      "bis": "2026-12-18",
+      "titel": "Pufferwoche + SOUL Basics + Weihnachtsmarkt",
+      "art": "puffer"
+    },
+    {
+      "von": "2027-03-22",
+      "bis": "2027-03-26",
+      "titel": "Besinn-Dich-Tage",
+      "art": "besinntage"
+    },
+    {
+      "von": "2027-07-05",
+      "bis": "2027-07-09",
+      "titel": "letzte Schulwoche",
+      "art": "letzte-woche"
+    }
+  ],
+  "slots": [
+    {
+      "id": "jg5-de-1",
+      "fach": "de",
+      "nr": 1,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": null,
+      "von": "2026-08-31",
+      "bis": "2026-10-02",
+      "abgabe": "2026-10-02",
+      "baustein": "jg5-de-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-ma-1",
+      "fach": "ma",
+      "nr": 1,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2026-08-31",
+      "bis": "2026-10-02",
+      "abgabe": "2026-10-02",
+      "baustein": "jg5-ma-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-bio-1",
+      "fach": "bio",
+      "nr": 1,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2026-08-31",
+      "bis": "2026-10-02",
+      "abgabe": "2026-10-02",
+      "baustein": "jg5-bio-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-de-2",
+      "fach": "de",
+      "nr": 2,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": null,
+      "von": "2026-10-26",
+      "bis": "2026-11-20",
+      "abgabe": "2026-11-20",
+      "baustein": "jg5-de-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-en-1",
+      "fach": "en",
+      "nr": 1,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2026-10-26",
+      "bis": "2026-11-20",
+      "abgabe": "2026-11-20",
+      "baustein": "jg5-en-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-geo-1",
+      "fach": "geo",
+      "nr": 1,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2026-10-26",
+      "bis": "2026-11-20",
+      "abgabe": "2026-11-20",
+      "baustein": "jg5-geo-1",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-de-3",
+      "fach": "de",
+      "nr": 3,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": null,
+      "von": "2026-11-23",
+      "bis": "2027-01-08",
+      "abgabe": "2027-01-08",
+      "baustein": "jg5-de-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-ma-2",
+      "fach": "ma",
+      "nr": 2,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2026-11-23",
+      "bis": "2027-01-08",
+      "abgabe": "2027-01-08",
+      "baustein": "jg5-ma-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-bio-2",
+      "fach": "bio",
+      "nr": 2,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2026-11-23",
+      "bis": "2027-01-08",
+      "abgabe": "2027-01-08",
+      "baustein": "jg5-bio-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-de-5",
+      "fach": "de",
+      "nr": 5,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": null,
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "abgabe": "2027-02-05",
+      "baustein": "jg5-de-5",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-en-2",
+      "fach": "en",
+      "nr": 2,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "abgabe": "2027-02-05",
+      "baustein": "jg5-en-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-geo-2",
+      "fach": "geo",
+      "nr": 2,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "abgabe": "2027-02-05",
+      "baustein": "jg5-geo-2",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-de-4",
+      "fach": "de",
+      "nr": 4,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": null,
+      "von": "2027-02-22",
+      "bis": "2027-03-19",
+      "abgabe": "2027-03-19",
+      "baustein": "jg5-de-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-ma-3",
+      "fach": "ma",
+      "nr": 3,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2027-02-22",
+      "bis": "2027-03-19",
+      "abgabe": "2027-03-19",
+      "baustein": "jg5-ma-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-bio-3",
+      "fach": "bio",
+      "nr": 3,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2027-02-22",
+      "bis": "2027-03-19",
+      "abgabe": "2027-03-19",
+      "baustein": "jg5-bio-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-de-6",
+      "fach": "de",
+      "nr": 6,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": null,
+      "von": "2027-04-05",
+      "bis": "2027-06-04",
+      "abgabe": "2027-06-04",
+      "baustein": "jg5-de-6",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-en-3",
+      "fach": "en",
+      "nr": 3,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2027-04-05",
+      "bis": "2027-04-30",
+      "abgabe": "2027-04-30",
+      "baustein": "jg5-en-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-geo-3",
+      "fach": "geo",
+      "nr": 3,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2027-04-05",
+      "bis": "2027-04-30",
+      "abgabe": "2027-04-30",
+      "baustein": "jg5-geo-3",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-ma-4",
+      "fach": "ma",
+      "nr": 4,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2027-05-03",
+      "bis": "2027-06-04",
+      "abgabe": "2027-06-04",
+      "baustein": "jg5-ma-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-bio-4",
+      "fach": "bio",
+      "nr": 4,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2027-05-03",
+      "bis": "2027-06-04",
+      "abgabe": "2027-06-04",
+      "baustein": "jg5-bio-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-de-7",
+      "fach": "de",
+      "nr": 7,
+      "spur": 1,
+      "spuren": [
+        1
+      ],
+      "stunden": null,
+      "von": "2027-06-07",
+      "bis": "2027-07-02",
+      "abgabe": "2027-07-02",
+      "baustein": "jg5-de-7",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-en-4",
+      "fach": "en",
+      "nr": 4,
+      "spur": 2,
+      "spuren": [
+        2
+      ],
+      "stunden": null,
+      "von": "2027-06-07",
+      "bis": "2027-07-02",
+      "abgabe": "2027-07-02",
+      "baustein": "jg5-en-4",
+      "status": "fest",
+      "hinweis": ""
+    },
+    {
+      "id": "jg5-geo-4",
+      "fach": "geo",
+      "nr": 4,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": null,
+      "von": "2027-06-07",
+      "bis": "2027-07-02",
+      "abgabe": "2027-07-02",
+      "baustein": "jg5-geo-4",
+      "status": "fest",
+      "hinweis": ""
+    }
+  ],
+  "bausteine": [
+    {
+      "id": "jg5-de-1",
+      "fach": "de",
+      "titel": "Briefe & E-Mails",
+      "alternativen": [],
+      "gelingensnachweis": "Einen Brief schreiben",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Der persönliche Brief: Aufbau",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "A1, A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Der persönliche Brief: Redemittel",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "M1, A3 oder M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Der persönliche Brief: Übungen",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "M3, M4",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Der persönliche Brief: Schreibübungen",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 3,
+          "material": "A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Die Adresse: Aufbau",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Der förmliche Brief: Aufbau",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "A5, A6",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Der förmliche Brief: Die Höflichkeitsform",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "L1",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Der förmliche Brief: Redemittel",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "M5, A7 oder M6",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Der förmliche Brief: Übungen",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "M7, M8",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Der förmliche Brief: Schreibübungen",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 3,
+          "material": "A8",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Der Briefumschlag: Aufbau",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Die Geschichte der Post: Textverständnis",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "M9, A10 oder A11",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Übungen",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A12, M10–M14",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Vergleich Briefe und E-Mails",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 15,
+          "titel": "E-Mails schreiben",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 3,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 16,
+          "titel": "Abschluss und Leistungsmessung",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "—",
+          "hinweis": ""
+        }
+      ]
+    },
+    {
+      "id": "jg5-ma-1",
+      "fach": "ma",
+      "titel": "Grundlagen: Wiederholung",
+      "alternativen": [],
+      "gelingensnachweis": "Kurzkontrolle",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Diagnose-Parcours",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Riesenzahlen-Galerie",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Stellenwerttafel",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Zahlenstrahl",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Heft, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Schätzen & Runden",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Vergleichen & Ordnen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Kopfrechen-Werkstatt",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Schriftlich Rechnen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Heft, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Geschickt Rechnen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Division mit Rest",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Teiler & Teilbarkeit",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Sachaufgaben-Werkstatt",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Schätz-Olympiade",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Welche Zahl bin ich?",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 15,
+          "titel": "Magische Quadrate",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 16,
+          "titel": "Zweite Aufgaben-Karte",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 17,
+          "titel": "Rechengesetze entdecken",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 18,
+          "titel": "Primzahlen & Teilbarkeit",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "Laptop",
+          "hinweis": ""
+        }
+      ]
+    },
+    {
+      "id": "jg5-bio-1",
+      "fach": "bio",
+      "titel": "Fische & Merkmale des Lebens",
+      "alternativen": [],
+      "gelingensnachweis": "Bedrohung und Schutz der Fische",
+      "gelingensnachweisStation": 13,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Arbeitsweisen in der Biologie",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Kennzeichen des Lebendigen",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M1, A1, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Die Vielfalt der Fische",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "A2, A3, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Fisch-Domino",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "M2, Lehrbuch, Fisch-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Äußerer und innerer Bau der Fische",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A4, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Körperform der Fische",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Experiment, Lehrbuch, M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Haut der Fische",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "M4, Lupe, Fischschuppe",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Atmung der Fische",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A5, A6, Lehrbuch, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Sektion eines Fisches",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "A4 (ausgefüllt)",
+          "hinweis": "Teilnahmepflicht, klassenweiser Termin"
+        },
+        {
+          "nr": 10,
+          "titel": "Fortpflanzung und Entwicklung",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "A7, Lehrbuch, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Verhaltensweisen bei Fortpflanzung/Entwicklung",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "M6, M7, A8, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Ernährung der Fische",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "A9, Lehrbuch, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Bedrohung und Schutz der Fische",
+          "art": "pflicht",
+          "minuten": 120,
+          "niveau": 3,
+          "material": "M8, M9, A10",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Online-Übungen Sofatutor",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Laptop, Zugangscode",
+          "hinweis": ""
+        }
+      ]
+    },
+    {
+      "id": "jg5-de-2",
+      "fach": "de",
+      "titel": "Rechtschreibung",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-en-1",
+      "fach": "en",
+      "titel": "Grundlagen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-geo-1",
+      "fach": "geo",
+      "titel": "Die Erde",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-de-3",
+      "fach": "de",
+      "titel": "Zeichensetzung",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-ma-2",
+      "fach": "ma",
+      "titel": "Arbeiten mit natürlichen Zahlen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-bio-2",
+      "fach": "bio",
+      "titel": "Lurche und Reptilien",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-de-5",
+      "fach": "de",
+      "titel": "Märchen und Fantasie",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-en-2",
+      "fach": "en",
+      "titel": "Welcome to my world",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-geo-2",
+      "fach": "geo",
+      "titel": "Atlasführerschein",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-de-4",
+      "fach": "de",
+      "titel": "Wörterbuch",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-ma-3",
+      "fach": "ma",
+      "titel": "geometrische Muster und Formen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-bio-3",
+      "fach": "bio",
+      "titel": "Vögel",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-de-6",
+      "fach": "de",
+      "titel": "Rico, Oskar und die Tieferschatten",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-en-3",
+      "fach": "en",
+      "titel": "Holidays",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-geo-3",
+      "fach": "geo",
+      "titel": "Deutschland: Topografie und Küsten",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-ma-4",
+      "fach": "ma",
+      "titel": "Flächeninhalte und Formen",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-bio-4",
+      "fach": "bio",
+      "titel": "Säugetiere",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-de-7",
+      "fach": "de",
+      "titel": "Lyrik",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-en-4",
+      "fach": "en",
+      "titel": "Party Star",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    },
+    {
+      "id": "jg5-geo-4",
+      "fach": "geo",
+      "titel": "Norddeutsches Tiefland und Mittelgebirge",
+      "alternativen": [],
+      "gelingensnachweis": "",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "jg5-bio-sektion",
+      "fach": "bio",
+      "art": "baustein",
+      "titel": "Sektion eines Fisches",
+      "beschreibung": "",
+      "pflicht": true,
+      "bausteine": [
+        "jg5-bio-1"
+      ]
+    },
+    {
+      "id": "jg5-de-persoenlicher-brief",
+      "fach": "de",
+      "art": "baustein",
+      "titel": "Persönlicher Brief",
+      "beschreibung": "",
+      "pflicht": false,
+      "bausteine": [
+        "jg5-de-1"
+      ]
+    },
+    {
+      "id": "jg5-de-foermlicher-brief",
+      "fach": "de",
+      "art": "baustein",
+      "titel": "Förmlicher Brief",
+      "beschreibung": "",
+      "pflicht": false,
+      "bausteine": [
+        "jg5-de-1"
+      ]
+    }
+  ],
+  "coachings": [
+    {
+      "wochentag": 1,
+      "kuerzel": "ERL",
+      "gueltigAb": "2026-09-07",
+      "gueltigBis": "2026-10-02",
+      "klasse": null
+    },
+    {
+      "wochentag": 2,
+      "kuerzel": "HEC",
+      "gueltigAb": "2026-09-07",
+      "gueltigBis": "2026-10-02",
+      "klasse": null
+    },
+    {
+      "wochentag": 3,
+      "kuerzel": "RIK",
+      "gueltigAb": "2026-09-07",
+      "gueltigBis": "2026-10-02",
+      "klasse": null
+    },
+    {
+      "wochentag": 4,
+      "kuerzel": "HER",
+      "gueltigAb": "2026-09-07",
+      "gueltigBis": "2026-10-02",
+      "klasse": null
+    },
+    {
+      "wochentag": 5,
+      "kuerzel": "HAM",
+      "gueltigAb": "2026-09-07",
+      "gueltigBis": "2026-10-02",
+      "klasse": null
+    }
+  ],
+  "termine": [
+    {
+      "datum": "2026-09-08",
+      "art": "input",
+      "fach": "bio",
+      "kuerzel": "HAM",
+      "klasse": "A",
+      "input": "jg5-bio-sektion",
+      "text": "",
+      "station": 9,
+      "pflicht": true,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-09-09",
+      "art": "input",
+      "fach": "de",
+      "kuerzel": "TRY",
+      "klasse": null,
+      "input": "jg5-de-persoenlicher-brief",
+      "text": "",
+      "station": 2,
+      "pflicht": false,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-09-11",
+      "art": "input",
+      "fach": "ma",
+      "kuerzel": "HEC",
+      "klasse": null,
+      "input": "",
+      "text": "Kommt mit euren Fragen!",
+      "station": null,
+      "pflicht": false,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-09-22",
+      "art": "entfall",
+      "fach": "",
+      "kuerzel": "HEC",
+      "klasse": null,
+      "input": "",
+      "text": "Kein Coaching",
+      "station": null,
+      "pflicht": false,
+      "raster": ""
+    },
+    {
+      "datum": "2026-09-22",
+      "art": "input",
+      "fach": "bio",
+      "kuerzel": "HAM",
+      "klasse": "B",
+      "input": "jg5-bio-sektion",
+      "text": "",
+      "station": 9,
+      "pflicht": true,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-09-23",
+      "art": "input",
+      "fach": "de",
+      "kuerzel": "TRY",
+      "klasse": null,
+      "input": "jg5-de-foermlicher-brief",
+      "text": "",
+      "station": 8,
+      "pflicht": false,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-09-25",
+      "art": "input",
+      "fach": "ma",
+      "kuerzel": "HEC",
+      "klasse": null,
+      "input": "",
+      "text": "Kommt mit euren Fragen!",
+      "station": null,
+      "pflicht": false,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-09-29",
+      "art": "input",
+      "fach": "bio",
+      "kuerzel": "HAM",
+      "klasse": "C",
+      "input": "jg5-bio-sektion",
+      "text": "",
+      "station": 9,
+      "pflicht": true,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-09-30",
+      "art": "input",
+      "fach": "de",
+      "kuerzel": "TRY",
+      "klasse": null,
+      "input": "",
+      "text": "Kommt mit euren Fragen!",
+      "station": null,
+      "pflicht": false,
+      "raster": "jg5-r1"
+    },
+    {
+      "datum": "2026-10-01",
+      "art": "entfall",
+      "fach": "",
+      "kuerzel": "HER",
+      "klasse": null,
+      "input": "",
+      "text": "Kein Coaching",
+      "station": null,
+      "pflicht": false,
+      "raster": ""
+    },
+    {
+      "datum": "2026-10-02",
+      "art": "entfall",
+      "fach": "",
+      "kuerzel": "HAM",
+      "klasse": null,
+      "input": "",
+      "text": "Kein Coaching",
+      "station": null,
+      "pflicht": false,
+      "raster": ""
+    },
+    {
+      "datum": "2026-10-02",
+      "art": "input",
+      "fach": "ma",
+      "kuerzel": "HEC",
+      "klasse": null,
+      "input": "",
+      "text": "Kommt mit euren Fragen!",
+      "station": null,
+      "pflicht": false,
+      "raster": "jg5-r1"
+    }
+  ],
+  "raster": [
+    {
+      "id": "jg5-r1",
+      "von": "2026-08-31",
+      "bis": "2026-10-02",
+      "titel": "Bausteinzeitraum 31.08. bis 02.10.2026"
+    }
+  ]
 }

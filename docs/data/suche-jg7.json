@@ -1,5 +1,174 @@
 {
   "schema": 1,
   "jgst": 7,
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "baustein:jg7-bio-1",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg7-en-1",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg7-geo-1",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg7-de-1",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg7-ma-1",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg7-geo-2",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg7-bio-2",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg7-en-2",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg7-de-2",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg7-ma-2",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-ma-2",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg7-en-3",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg7-ma-3",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-ma-3",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg7-bio-3",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg7-de-3",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg7-geo-3",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg7-de-4",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "baustein:jg7-en-4",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "baustein:jg7-bio-4",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "baustein:jg7-ma-4",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-ma-4",
+      "fach": "ma"
+    },
+    {
+      "id": "baustein:jg7-geo-4",
+      "typ": "baustein",
+      "titel": "Thema folgt",
+      "text": "",
+      "route": "#/baustein/jg7-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "baustein:jg7-fvu-1",
+      "typ": "baustein",
+      "titel": "Fächerverbindender Unterricht",
+      "text": "",
+      "route": "#/baustein/jg7-fvu-1",
+      "fach": "fvu"
+    }
+  ]
 }
