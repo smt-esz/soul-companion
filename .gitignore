@@ -6,3 +6,8 @@ Thumbs.db
 # Lokale Einstellungen von Claude Code (gelten nur auf diesem Rechner).
 # Eine geteilte .claude/settings.json duerfte dagegen ins Repo.
 .claude/settings.local.json
+
+# Mitschriften von Build-Laeufen. Sie entstehen beim Arbeiten und gehoeren
+# nicht ins oeffentliche Repo (build_output.txt enthaelt lokale Pfade).
+build_*.log
+build_*.txt
