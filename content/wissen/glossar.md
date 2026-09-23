@@ -12,6 +12,10 @@ quelle: SOUL_Wissensbasis.md
 
 Ein Bausteinzeitraum ist der Abschnitt, in dem du an deinen Bausteinen arbeitest. Meistens dauert er vier Wochen. Manche Bausteine laufen aber auch kürzer oder länger.
 
+## Cluster
+
+Das Cluster sind die Räume, die in SOUL zusammengehören: der SOUL-Raum, der Flur, der Input-Raum, wenn er gerade frei ist, und dein Fachraum. Als Stamm darfst du dir dort deinen Arbeitsplatz frei wählen.
+
 ## Coaching
 
 Im Coaching sprichst du allein mit deiner Lernbegleitung über dein Lernen. Es geht um deine Ziele, deine Stärken und darum, was schwierig ist. Ein Coaching dauert ungefähr 10 bis 15 Minuten und findet etwa fünfmal im Schuljahr statt.

@@ -20,7 +20,8 @@ Du lernst am besten überwiegend allein, weil du von Arbeitspartnern leicht abge
 
 ### Wahl der Lernorte
 
-Du arbeitest an deinem Platz im Klassenzimmer. Du benötigst deine gewohnte Umgebung und sichere Regeln.
+<!-- Abweichung vom A3-Wortlaut, entschieden von Leo am 23.09.2026: In SOUL heisst der Raum immer Fachraum, Klassenraeume gibt es in der SOUL-Zeit nicht. A3 schreibt an dieser Stelle "im Klassenzimmer". -->
+Du arbeitest an deinem Platz im Fachraum. Du benötigst deine gewohnte Umgebung und sichere Regeln.
 
 Wenn du den Raum verlassen willst, meldest du dich und fragst.
 

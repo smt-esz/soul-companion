@@ -20,6 +20,9 @@ Du kannst allein, in Partnerarbeit oder in einer Kleingruppe mit maximal 4 Perso
 
 Du kannst dir deinen Arbeitsplatz frei im Cluster wählen.
 
+<!-- Nicht aus der A3-Uebersicht, sondern Angabe von Leo am 23.09.2026: was zum Cluster gehoert. -->
+Zum Cluster gehören der SOUL-Raum, der Flur, der Input-Raum, wenn er gerade frei ist, und dein Fachraum.
+
 Du kannst selbst entscheiden, wo du arbeiten möchtest – je nachdem, wo und wie du dich am besten konzentrieren kannst.
 
 Du räumst deinen Arbeitsplatz ohne Erinnerung zuverlässig auf.
