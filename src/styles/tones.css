@@ -1,0 +1,123 @@
+/* Tonlagen (Planung/DESIGN.md, Abschnitt 4).
+   Die Texte der App sind fuer alle Jahrgaenge gleich, nur die Form wechselt:
+   Rundung, Titelgewicht, wie die Fachfarbe auf der Karte liegt, Motive und
+   Bewegung. Alles nur ueber CSS, kein JavaScript verzweigt hier.
+
+   Gesetzt wird das Attribut data-ton (Wert aus jgN.json, Feld ton). Die
+   Selektoren nennen kein Element, damit es gleich bleibt, ob data-ton an
+   <html> oder an <body> haengt.
+
+   Eine neue Tonlage (z. B. oberstufe) ist ein weiterer Block hier, sonst
+   nichts (ARCHITEKTUR 6). */
+
+/* ------------------------------------------------------ verspielt (Jg 5) */
+
+[data-ton='verspielt'] {
+  --radius-karte: 20px;
+  --radius-knopf: 999px;
+  --radius-klein: 10px;
+
+  --t-display-gewicht: 800;
+  --t-h1-gewicht: 750;
+  --t-h2-gewicht: 700;
+  --t-h3-gewicht: 650;
+}
+
+/* Karten ganz in der Fachflaeche. */
+[data-ton='verspielt'] .karte[data-fach] {
+  background: var(--fach-flaeche);
+}
+
+[data-ton='verspielt'] .karte[data-fach='fvu'] {
+  background-image: var(--fach-fvu-flaeche);
+}
+
+/* Motive im Leerzustand gross. */
+[data-ton='verspielt'] .leer-motiv {
+  width: 72px;
+  height: 72px;
+}
+
+/* ------------------------------------------------------ klar (Jg 6) */
+
+[data-ton='klar'] {
+  --radius-karte: 14px;
+  --radius-knopf: 12px;
+  --radius-klein: 6px;
+
+  --t-display-gewicht: 750;
+  --t-h1-gewicht: 700;
+  --t-h2-gewicht: 650;
+  --t-h3-gewicht: 600;
+}
+
+/* Fachflaeche nur als Kopfband. */
+[data-ton='klar'] .karte[data-fach] > .karte-kopf {
+  background: var(--fach-flaeche);
+}
+
+[data-ton='klar'] .karte[data-fach='fvu'] > .karte-kopf {
+  background-image: var(--fach-fvu-flaeche);
+}
+
+[data-ton='klar'] .leer-motiv {
+  width: 40px;
+  height: 40px;
+}
+
+/* ------------------------------------------------------ sachlich (Jg 7+) */
+
+[data-ton='sachlich'] {
+  --radius-karte: 10px;
+  --radius-knopf: 8px;
+  --radius-klein: 4px;
+
+  --t-display-gewicht: 700;
+  --t-h1-gewicht: 650;
+  --t-h2-gewicht: 600;
+  --t-h3-gewicht: 550;
+}
+
+/* Nur die Kante links, 4 px. */
+[data-ton='sachlich'] .karte[data-fach] {
+  border-left: var(--kante-breite) solid var(--fach-kante);
+}
+
+/* Der Regenbogen laeuft auch hier oben, weil ein Verlauf keine Randfarbe
+   sein kann (DESIGN 2.2: Kante als Balken oder Rahmen). */
+[data-ton='sachlich'] .karte[data-fach='fvu'] {
+  border-left-color: var(--c-linie);
+}
+
+/* Keine Motive ausser dem Baum. */
+[data-ton='sachlich'] .leer-motiv {
+  display: none;
+}
+
+/* ------------------------------------------------------ Bewegung */
+/* DESIGN 4 und 9: Der Haken zeichnet sich immer, dazu kommt der Effekt der
+   Tonlage. Bei prefers-reduced-motion schaltet base.css alles ab. */
+
+@keyframes haken-huepfer {
+  0%   { transform: scale(1); }
+  55%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes haken-ein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+[data-ton='verspielt'] .haken-laeuft {
+  animation: haken-huepfer var(--zeit-max) var(--kurve);
+}
+
+[data-ton='klar'] .haken-laeuft {
+  animation: haken-ein var(--zeit-wechsel) var(--kurve);
+}
+
+/* sachlich: nur Farbwechsel, keine eigene Bewegung. */
+[data-ton='sachlich'] .haken-laeuft {
+  color: var(--c-teal-dunkel);
+}

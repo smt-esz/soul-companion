@@ -1,0 +1,113 @@
+/* Druck: Grundlage. Der Feinschliff der Druckansichten kommt in AP-19.
+   Regel aus DESIGN 1 und 2.2: Navigation und Bedienelemente fallen weg,
+   Fachfarben werden zu Rahmen, damit sie auch in Schwarzweiss tragen.
+   Nur der Regenbogen des faecherverbindenden Unterrichts wird gedruckt
+   (print-color-adjust: exact, DESIGN 2.2). */
+
+@media print {
+  @page {
+    margin: 15mm;
+  }
+
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    display: block;
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  /* Alles, was nur zum Bedienen da ist, faellt weg. */
+  .hauptnavigation,
+  .status,
+  .leiste,
+  .segment,
+  .knopf,
+  .knopf-reihe {
+    display: none !important;
+  }
+
+  .kopfzeile {
+    border-bottom: 1px solid #000000;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .inhalt,
+  .inhalt-einzel {
+    max-width: none;
+    padding: 0;
+    animation: none;
+  }
+
+  /* Karten als Rahmen, keine Flaechen. */
+  .karte,
+  .tag-karte,
+  .hinweis-feld,
+  .leer {
+    border: 1px solid #000000;
+    background: #FFFFFF !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .karte-kopf {
+    background: none !important;
+    border-bottom: 1px solid #000000;
+  }
+
+  /* Fachfarbe wird zum Rahmen links. */
+  .karte[data-fach] {
+    border-left: 3px solid #000000;
+  }
+
+  .fach-badge {
+    background: none !important;
+    border: 1px solid #000000;
+    color: #000000 !important;
+  }
+
+  .etikett {
+    background: none !important;
+    border: 1px solid #000000;
+    color: #000000 !important;
+  }
+
+  .fortschritt-teil {
+    background: #000000;
+  }
+
+  /* Der Regenbogen ist die einzige Farbe, die mitgedruckt wird. */
+  .karte[data-fach='fvu']::before,
+  .fach-badge--fvu {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  table {
+    break-inside: auto;
+  }
+
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* Ziel von Links nennen, damit ein Ausdruck ohne Bildschirm taugt.
+     AP-19 entscheidet, wo das stoert. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}

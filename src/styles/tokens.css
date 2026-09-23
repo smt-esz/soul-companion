@@ -1,0 +1,267 @@
+/* Tokens: alle Farben, Schriftgroessen, Abstaende und Zeiten der App.
+   Quelle: Planung/DESIGN.md, Abschnitte 2, 3, 5 und 9.
+   Kein Modul traegt einen dieser Werte fest ein, alles laeuft ueber var().
+
+   Aufbau:
+   1. :root  alle Werte fuer den hellen Modus,
+             dazu je dunklem Wert ein Zwilling --<name>--dunkel.
+   2. Zwei gleiche Zuordnungsbloecke am Ende schalten auf die Zwillinge um:
+      einer fuer die Systemeinstellung (prefers-color-scheme), einer fuer den
+      Schalter der Musterseite ([data-farbschema]). Die Farbwerte selbst
+      stehen nur einmal, oben. */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---------------------------------------------- Marke (DESIGN 2.1) */
+  /* Kontraste gegen Weiss in Klammern, nachgerechnet in tools/kontrast.mjs. */
+  --c-teal: #078A87;          /* 4.2 : 1  Flaechen, Icons, grosse Schrift */
+  --c-teal-dunkel: #035D61;   /* 7.7 : 1  Links, Hauptknoepfe, aktive Navigation */
+  --c-teal-hell: #E3F2F1;     /*          "laeuft gerade", Auswahl */
+  --c-navy: #0E2841;          /* 15.0 : 1 Haupttext, Kopfzeile */
+  --c-text-2: #4A5A6A;        /* 7.1 : 1  Nebentext */
+  --c-gold: #D7A22D;          /* 2.3 : 1  nur Flaeche, Markierung "heute" */
+  --c-gold-dunkel: #8A6212;   /* 5.5 : 1  Gold als Text */
+  --c-grund: #F7F9F8;         /*          Seitenhintergrund */
+  --c-karte: #FFFFFF;         /*          Karten */
+  --c-linie: #DDE6E4;         /*          Trennlinien */
+
+  /* Schrift auf farbigen Flaechen. */
+  --c-auf-teal-dunkel: #FFFFFF;
+  --c-auf-gold: #0E2841;   /* bleibt in beiden Modi Navy, Gold bleibt hell */
+
+  /* Fokusrahmen (DESIGN 11: 3 px, 2 px Abstand). */
+  --c-fokus: var(--c-teal);
+  --fokus-breite: 3px;
+  --fokus-abstand: 2px;
+
+  /* Dunkelmodus (DESIGN 2.3). Die Tabelle dort nennt --c-grund, --c-karte,
+     --c-navy, --c-text-2 und --c-teal-dunkel. Die vier uebrigen Werte sind
+     nach derselben Regel abgeleitet und im Bericht vermerkt:
+     --c-teal wie --c-teal-dunkel, --c-teal-hell als Teal mit 18 % Deckkraft
+     auf --c-karte (wie die Fach-Flaechen), --c-gold-dunkel als das helle
+     Gold --c-gold, --c-linie als Ton zwischen Karte und Nebentext. */
+  --c-teal--dunkel: #5CC9C4;
+  --c-teal-dunkel--dunkel: #5CC9C4;
+  --c-teal-hell--dunkel: #113745;
+  --c-navy--dunkel: #EAF0EE;
+  --c-text-2--dunkel: #A9B8C4;
+  --c-gold--dunkel: #D7A22D;
+  --c-gold-dunkel--dunkel: #D7A22D;
+  --c-grund--dunkel: #0B1B2B;
+  --c-karte--dunkel: #132536;
+  --c-linie--dunkel: #294055;
+  --c-auf-teal-dunkel--dunkel: #0E2841;  /* Knopf: Navy-Schrift, DESIGN 2.3 */
+  --c-fokus--dunkel: #5CC9C4;
+
+  /* ------------------------------------- Faecher (DESIGN 2.2) */
+  /* Kante = Farbe des Fachraum-Schildes, Flaeche = heller Grund,
+     Text = dunkel genug fuer AA, Badge = Schrift auf der Kante.
+     Badge-Schrift weiss bei Ma, De, Geo; Navy bei En und Bio, weil
+     Gelb und Gruen fuer Weiss zu hell sind (DESIGN 2.2). */
+  --fach-ma-kante: #156082;
+  --fach-ma-flaeche: #E7F0F4;
+  --fach-ma-text: #156082;
+  --fach-ma-badge: #FFFFFF;
+
+  --fach-de-kante: #FF0000;
+  --fach-de-flaeche: #FFE5E5;
+  --fach-de-text: #C00000;
+  --fach-de-badge: #FFFFFF;
+
+  --fach-en-kante: #FFC000;
+  --fach-en-flaeche: #FFF3CC;
+  --fach-en-text: #7A5C00;
+  --fach-en-badge: #0E2841;
+
+  --fach-bio-kante: #00B050;
+  --fach-bio-flaeche: #E0F5E9;
+  --fach-bio-text: #007A38;
+  --fach-bio-badge: #0E2841;
+
+  --fach-geo-kante: #A02B93;
+  --fach-geo-flaeche: #F5E6F3;
+  --fach-geo-text: #A02B93;
+  --fach-geo-badge: #FFFFFF;
+
+  --fach-offen-kante: #8A97A3;
+  --fach-offen-flaeche: #EEF1F3;
+  --fach-offen-text: #4A5A6A;
+  --fach-offen-badge: #0E2841;
+
+  /* Faecherverbindend: Regenbogen aus den Schild- bzw. Flaechenfarben,
+     Reihenfolge De, En, Bio, Ma, Geo (DESIGN 2.2, Leo 22.09.2026).
+     Nie hinter Text mit Fachfarbe, nur als Kante, Rahmen oder Flaeche. */
+  --fach-fvu-kante: linear-gradient(90deg, #FF0000, #FFC000, #00B050, #156082, #A02B93);
+  --fach-fvu-flaeche: linear-gradient(90deg, #FFE5E5, #FFF3CC, #E0F5E9, #E7F0F4, #F5E6F3);
+  --fach-fvu-text: var(--c-navy);
+  --fach-fvu-badge: var(--c-navy);
+
+  /* Fach-Text im Dunkelmodus (DESIGN 2.3). */
+  --fach-ma-text--dunkel: #6FB3D6;
+  --fach-de-text--dunkel: #FF7A7A;
+  --fach-en-text--dunkel: #FFD24D;
+  --fach-bio-text--dunkel: #4FD68A;
+  --fach-geo-text--dunkel: #E07AD6;
+  --fach-offen-text--dunkel: #A9B8C4;
+  --fach-fvu-text--dunkel: #EAF0EE;
+
+  /* Fach-Flaeche im Dunkelmodus: Kante mit 18 % Deckkraft auf --c-karte
+     (#132536). Die Werte sind ausgerechnet, damit kontrast.mjs sie lesen
+     kann und nichts halbdurchsichtig uebereinander liegt. */
+  --fach-ma-flaeche--dunkel: #133044;
+  --fach-de-flaeche--dunkel: #3D1E2C;
+  --fach-en-flaeche--dunkel: #3D412C;
+  --fach-bio-flaeche--dunkel: #103E3B;
+  --fach-geo-flaeche--dunkel: #2C2647;
+  --fach-offen-flaeche--dunkel: #283A4A;
+  --fach-fvu-flaeche--dunkel: linear-gradient(90deg, #3D1E2C, #3D412C, #103E3B, #133044, #2C2647);
+
+  /* ------------------------------------- Stufenbaum (DESIGN 8) */
+  /* Drei Farbtoene aus Teal und Navy, von oben nach unten dunkler:
+     Krone (Blaetter) am hellsten, Wurzel (im Boden) am dunkelsten.
+     Der mittlere Ton ist eine Mischung aus --c-teal-dunkel und --c-navy.
+     Die Beschriftung steht in den Flaechen, deshalb sind alle drei Toene
+     dunkel genug fuer normalen Text (>= 4.5 : 1, siehe tools/kontrast.mjs). */
+  --stufe-3-flaeche: #035D61;   /* Krone */
+  --stufe-2-flaeche: #0A4453;   /* Stamm */
+  --stufe-1-flaeche: #0E2841;   /* Wurzel */
+  --stufe-schrift: #FFFFFF;
+
+  /* Dunkelmodus: dieselbe Staffelung, nur hell auf dunklem Grund. */
+  --stufe-3-flaeche--dunkel: #8FE3DF;
+  --stufe-2-flaeche--dunkel: #5CC9C4;
+  --stufe-1-flaeche--dunkel: #3EA3B4;
+  --stufe-schrift--dunkel: #0E2841;
+
+  /* ------------------------------------- Typografie (DESIGN 3) */
+  /* Grundgroesse 17 px: html steht auf 106.25 % von 16 px, damit 1rem = 17 px
+     ist und die Systemschriftgroesse trotzdem wirkt. */
+  --schrift: 'Inter', -apple-system, system-ui, sans-serif;
+
+  --t-display-groesse: 2rem;        /* 34 px */
+  --t-h1-groesse: 1.6471rem;        /* 28 px */
+  --t-h2-groesse: 1.2941rem;        /* 22 px */
+  --t-h3-groesse: 1.0588rem;        /* 18 px */
+  --t-text-groesse: 1rem;           /* 17 px */
+  --t-klein-groesse: 0.8235rem;     /* 14 px */
+  --t-mini-groesse: 0.7059rem;      /* 12 px */
+
+  /* Gewichte: Standard = Tonlage verspielt. tones.css schiebt die Stufen
+     fuer klar und sachlich um je 50 nach unten (DESIGN 3 und 4). */
+  --t-display-gewicht: 800;
+  --t-h1-gewicht: 750;
+  --t-h2-gewicht: 700;
+  --t-h3-gewicht: 650;
+  --t-text-gewicht: 400;
+  --t-klein-gewicht: 500;
+  --t-mini-gewicht: 600;
+
+  --t-zeilenhoehe: 1.5;
+  --t-mini-sperrung: 0.06em;
+  --t-zeile-max: 38rem;             /* hoechstens ~70 Zeichen */
+
+  /* ------------------------------------- Abstaende, Raster, Touch (DESIGN 5) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+
+  --touch: 48px;                    /* kleinste Touchflaeche */
+  --touch-abstand: var(--s-2);      /* Abstand zwischen tippbaren Elementen */
+
+  --nav-breite: 88px;               /* Querformat: Navigation links */
+  --tab-hoehe: 64px;                /* Hochformat: Tab-Leiste unten */
+  --inhalt-max: 1100px;
+  --inhalt-rand: var(--s-6);
+
+  /* Rundungen: Standard = Tonlage klar, tones.css setzt alle drei. */
+  --radius-karte: 14px;
+  --radius-knopf: 12px;
+  --radius-klein: 6px;
+  --kante-breite: 4px;              /* Fachkante links (DESIGN 4, sachlich) */
+
+  /* ------------------------------------- Bewegung (DESIGN 9) */
+  --zeit-zustand: 150ms;
+  --zeit-wechsel: 250ms;
+  --zeit-max: 300ms;
+  --kurve: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Dunkelmodus nach Systemeinstellung. Der Schalter der Musterseite kann ihn
+   mit data-farbschema="hell" ausschalten. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) {
+    --c-teal: var(--c-teal--dunkel);
+    --c-teal-dunkel: var(--c-teal-dunkel--dunkel);
+    --c-teal-hell: var(--c-teal-hell--dunkel);
+    --c-navy: var(--c-navy--dunkel);
+    --c-text-2: var(--c-text-2--dunkel);
+    --c-gold: var(--c-gold--dunkel);
+    --c-gold-dunkel: var(--c-gold-dunkel--dunkel);
+    --c-grund: var(--c-grund--dunkel);
+    --c-karte: var(--c-karte--dunkel);
+    --c-linie: var(--c-linie--dunkel);
+    --c-auf-teal-dunkel: var(--c-auf-teal-dunkel--dunkel);
+    --c-fokus: var(--c-fokus--dunkel);
+    --fach-ma-text: var(--fach-ma-text--dunkel);
+    --fach-de-text: var(--fach-de-text--dunkel);
+    --fach-en-text: var(--fach-en-text--dunkel);
+    --fach-bio-text: var(--fach-bio-text--dunkel);
+    --fach-geo-text: var(--fach-geo-text--dunkel);
+    --fach-offen-text: var(--fach-offen-text--dunkel);
+    --fach-fvu-text: var(--fach-fvu-text--dunkel);
+    --fach-ma-flaeche: var(--fach-ma-flaeche--dunkel);
+    --fach-de-flaeche: var(--fach-de-flaeche--dunkel);
+    --fach-en-flaeche: var(--fach-en-flaeche--dunkel);
+    --fach-bio-flaeche: var(--fach-bio-flaeche--dunkel);
+    --fach-geo-flaeche: var(--fach-geo-flaeche--dunkel);
+    --fach-offen-flaeche: var(--fach-offen-flaeche--dunkel);
+    --fach-fvu-flaeche: var(--fach-fvu-flaeche--dunkel);
+    --stufe-1-flaeche: var(--stufe-1-flaeche--dunkel);
+    --stufe-2-flaeche: var(--stufe-2-flaeche--dunkel);
+    --stufe-3-flaeche: var(--stufe-3-flaeche--dunkel);
+    --stufe-schrift: var(--stufe-schrift--dunkel);
+  }
+}
+
+/* Derselbe Block fuer den Schalter der Musterseite (#/muster?debug=1).
+   In der App selbst setzt niemand data-farbschema, dort gilt nur das System. */
+:root[data-farbschema='dunkel'] {
+  --c-teal: var(--c-teal--dunkel);
+  --c-teal-dunkel: var(--c-teal-dunkel--dunkel);
+  --c-teal-hell: var(--c-teal-hell--dunkel);
+  --c-navy: var(--c-navy--dunkel);
+  --c-text-2: var(--c-text-2--dunkel);
+  --c-gold: var(--c-gold--dunkel);
+  --c-gold-dunkel: var(--c-gold-dunkel--dunkel);
+  --c-grund: var(--c-grund--dunkel);
+  --c-karte: var(--c-karte--dunkel);
+  --c-linie: var(--c-linie--dunkel);
+  --c-auf-teal-dunkel: var(--c-auf-teal-dunkel--dunkel);
+  --c-fokus: var(--c-fokus--dunkel);
+  --fach-ma-text: var(--fach-ma-text--dunkel);
+  --fach-de-text: var(--fach-de-text--dunkel);
+  --fach-en-text: var(--fach-en-text--dunkel);
+  --fach-bio-text: var(--fach-bio-text--dunkel);
+  --fach-geo-text: var(--fach-geo-text--dunkel);
+  --fach-offen-text: var(--fach-offen-text--dunkel);
+  --fach-fvu-text: var(--fach-fvu-text--dunkel);
+  --fach-ma-flaeche: var(--fach-ma-flaeche--dunkel);
+  --fach-de-flaeche: var(--fach-de-flaeche--dunkel);
+  --fach-en-flaeche: var(--fach-en-flaeche--dunkel);
+  --fach-bio-flaeche: var(--fach-bio-flaeche--dunkel);
+  --fach-geo-flaeche: var(--fach-geo-flaeche--dunkel);
+  --fach-offen-flaeche: var(--fach-offen-flaeche--dunkel);
+  --fach-fvu-flaeche: var(--fach-fvu-flaeche--dunkel);
+  --stufe-1-flaeche: var(--stufe-1-flaeche--dunkel);
+  --stufe-2-flaeche: var(--stufe-2-flaeche--dunkel);
+  --stufe-3-flaeche: var(--stufe-3-flaeche--dunkel);
+  --stufe-schrift: var(--stufe-schrift--dunkel);
+}
+
+:root[data-farbschema='hell'] { color-scheme: light; }
+:root[data-farbschema='dunkel'] { color-scheme: dark; }
