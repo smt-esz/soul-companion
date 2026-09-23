@@ -10,8 +10,11 @@
   "module": [
     "woche",
     "plan",
+    "faecher",
+    "antrag",
+    "wissen",
     "einstellungen"
   ],
   "version": "0.1.0",
-  "erzeugt": "2026-09-23T07:04:57.582Z"
+  "erzeugt": "2026-09-23T19:30:04.632Z"
 }

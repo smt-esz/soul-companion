@@ -14,6 +14,9 @@ import { el, leer } from './ui/components.js';
 // (Feld module) über setzeAktive().
 import './modules/woche.js';
 import './modules/plan.js';
+import './modules/faecher.js';
+import './modules/antrag.js';
+import './modules/wissen.js';
 import './modules/einstellungen.js';
 
 const ONBOARDING_HASH = '#/start';

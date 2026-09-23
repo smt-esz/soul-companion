@@ -652,6 +652,13 @@
   color: var(--c-gold-dunkel);
 }
 
+/* Nur in der Vorschau sichtbar (AP-16): Die Seite ist noch nicht freigegeben. */
+.etikett--entwurf {
+  background: none;
+  border: 1px dashed var(--c-text-2);
+  color: var(--c-text-2);
+}
+
 /* ------------------------------------------------------ statusPunkt */
 
 .status-punkt {
@@ -1411,4 +1418,1030 @@ button.plan-block {
 .muster--touch button,
 .muster--touch a {
   min-height: var(--touch);
+}
+
+/* ------------------------------------------------------ Modul faecher */
+/* Fachuebersicht (#/faecher), Fachseite (#/fach/:fachId) und Baustein
+   (#/baustein/:bausteinId), AP-12. Farben und Masse kommen wie ueberall aus
+   tokens.css, die Fachwerte aus dem Block "Fachfarben" ganz oben. */
+
+/* --- Fachuebersicht (#/faecher) --- */
+
+.fach-kacheln {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--s-4);
+}
+
+/* Die Kachel ist selbst der Knopf, damit Finger und Tastatur dieselbe
+   Flaeche treffen (DESIGN 5: mindestens 48 x 48 px). */
+.fach-kachel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-2);
+  min-height: var(--touch);
+  margin: 0;
+  padding: var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+  color: var(--c-navy);
+  text-align: left;
+  cursor: pointer;
+}
+
+.fach-kachel-name {
+  font-size: var(--t-h2-groesse);
+  font-weight: var(--t-h2-gewicht);
+  color: var(--fach-text, var(--c-navy));
+}
+
+.fach-kachel-stand {
+  font-size: var(--t-klein-groesse);
+  font-weight: var(--t-klein-gewicht);
+  color: var(--c-text-2);
+}
+
+/* --- Fachseite: Kopf in Fachfarbe (#/fach/:fachId) --- */
+
+.fach-kopf {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  margin-bottom: var(--s-5);
+  padding: var(--s-4);
+  border-radius: var(--radius-karte);
+  background: var(--fach-flaeche);
+  color: var(--fach-text);
+}
+
+/* Das Symbol steht wie auf dem Fachraum-Schild auf der Kantenfarbe
+   (DESIGN 2.2). Die Schriftfarbe darauf ist --fach-badge. */
+.fach-kopf-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-klein);
+  background: var(--fach-kante);
+  color: var(--fach-badge);
+}
+
+.fach-kopf-name {
+  margin: 0;
+  color: var(--fach-text);
+}
+
+/* Faecherverbindend: Kante und Flaeche sind Verlaeufe, deshalb als Bild und
+   nie hinter der Schrift (DESIGN 2.2). Die Flaeche traegt nur Navy-Text,
+   Kontrast ueber 12 : 1 auf jeder Stufe des Verlaufs. */
+.fach-kopf[data-fach='fvu'] {
+  background-image: var(--fach-fvu-flaeche);
+}
+
+/* Das Symbolfeld folgt der Badge-Regel aus DESIGN 2.2: Karten-Grund mit
+   3 px Verlaufsrahmen, Zahnrad in Navy. Kein Verlauf hinter dem Symbol. */
+.fach-kopf[data-fach='fvu'] .fach-kopf-symbol {
+  border: 3px solid transparent;
+  background-color: var(--c-karte);
+  background-image: linear-gradient(var(--c-karte), var(--c-karte)), var(--fach-fvu-kante);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--fach-fvu-badge);
+}
+
+/* Tonlagen (DESIGN 4): so viel Fachflaeche wie auf den Karten. */
+[data-ton='klar'] .fach-kopf {
+  padding: var(--s-3) var(--s-4);
+}
+
+[data-ton='sachlich'] .fach-kopf {
+  background: none;
+  background-image: none;
+  padding-left: var(--s-3);
+  border-left: var(--kante-breite) solid var(--fach-kante);
+  border-radius: 0;
+}
+
+/* Ein Verlauf kann keine Randfarbe sein, deshalb laeuft der Regenbogen hier
+   als Balken oben, genau wie bei .karte (DESIGN 2.2). */
+[data-ton='sachlich'] .fach-kopf[data-fach='fvu'] {
+  border-left-color: var(--c-linie);
+  padding-top: calc(var(--s-4) + var(--kante-breite));
+}
+
+[data-ton='sachlich'] .fach-kopf[data-fach='fvu']::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--kante-breite);
+  background-image: var(--fach-fvu-kante);
+}
+
+/* --- Fachseite: "Dein Jahr in <Fach>" --- */
+
+/* Senkrechte Liste mit Verbindungslinie: die Linie liegt am Rand der Liste,
+   jeder Eintrag setzt seinen Punkt darauf. */
+.fach-jahr {
+  list-style: none;
+  margin: 0 0 var(--s-6);
+  padding: 0 0 0 var(--s-5);
+  border-left: 2px solid var(--c-linie);
+}
+
+.fach-jahr-eintrag {
+  position: relative;
+  margin: 0 0 var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+/* Der Punkt auf der Verbindungslinie. */
+.fach-jahr-eintrag::before {
+  content: '';
+  position: absolute;
+  top: var(--s-5);
+  left: calc(-1 * var(--s-5) - 7px);
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--c-linie);
+  border-radius: 50%;
+  background: var(--c-grund);
+}
+
+/* Laufender Eintrag hervorgehoben, vorbei gedaempft (AP-12). */
+.fach-jahr-eintrag[data-status='laeuft'] {
+  border-color: var(--c-teal-dunkel);
+  background: var(--c-teal-hell);
+}
+
+.fach-jahr-eintrag[data-status='laeuft']::before {
+  border-color: var(--c-teal-dunkel);
+  background: var(--c-teal-dunkel);
+}
+
+.fach-jahr-eintrag[data-status='vorbei'] {
+  background: none;
+}
+
+/* Gedaempft heisst hier: Nebentextfarbe (7.1 : 1), keine geringere
+   Deckkraft, damit der Kontrast nicht unter AA faellt (DESIGN 11). Der Titel
+   bleibt unterstrichen, damit er weiter als tippbar zu erkennen ist. */
+.fach-jahr-eintrag[data-status='vorbei'] .fach-jahr-kopf,
+.fach-jahr-eintrag[data-status='vorbei'] .knopf--text {
+  color: var(--c-text-2);
+}
+
+.fach-jahr-kopf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+/* Der Titel ist ein Knopf (art "text"), er soll hier wie eine Ueberschrift
+   wirken und nicht wie ein Absatz. */
+.fach-jahr-kopf .knopf--text {
+  padding-left: 0;
+  padding-right: 0;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+  text-align: left;
+}
+
+.fach-jahr-titel {
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+}
+
+.fach-jahr-daten {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  margin: var(--s-1) 0 0;
+}
+
+.fach-jahr-hinweis {
+  margin: var(--s-2) 0 0;
+}
+
+/* Etiketten der drei Zeitzustaende. Wort und Form unterscheiden sie, nicht
+   nur die Farbe (DESIGN 2.2, Rot-Gruen-Schwaeche). */
+.etikett--laeuft {
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+}
+
+.etikett--kommt {
+  background: none;
+  border: 1px solid var(--c-text-2);
+  color: var(--c-text-2);
+}
+
+.etikett--vorbei {
+  background: none;
+  border: 1px solid var(--c-linie);
+  color: var(--c-text-2);
+}
+
+/* --- Input-Curriculum --- */
+
+.input-liste {
+  list-style: none;
+  margin: 0 0 var(--s-5);
+  padding: 0;
+}
+
+.input-eintrag {
+  margin: 0 0 var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.input-titel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  font-weight: 650;
+}
+
+.input-eintrag p + p {
+  margin-top: var(--s-1);
+}
+
+/* --- Baustein (#/baustein/:bausteinId) --- */
+
+.baustein-kopf {
+  margin-bottom: var(--s-5);
+}
+
+.baustein-kopf h1 {
+  margin: var(--s-2) 0 0;
+}
+
+.baustein-kopf-marken {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.baustein-wahl {
+  margin: var(--s-3) 0 0;
+  font-weight: 650;
+}
+
+.baustein-zeit {
+  margin-bottom: var(--s-6);
+}
+
+.baustein-zeit dl {
+  margin: 0 0 var(--s-4);
+}
+
+/* Die Abgabe steht gross (AP-12), Datum in Zahlen mit fester Breite. */
+.baustein-abgabe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2);
+  margin: 0 0 var(--s-2);
+}
+
+.baustein-abgabe-wort {
+  font-size: var(--t-mini-groesse);
+  font-weight: var(--t-mini-gewicht);
+  letter-spacing: var(--t-mini-sperrung);
+  text-transform: uppercase;
+  color: var(--c-text-2);
+}
+
+.baustein-abgabe-datum {
+  font-size: var(--t-display-groesse);
+  font-weight: var(--t-display-gewicht);
+  font-variant-numeric: tabular-nums;
+}
+
+.baustein-material {
+  margin-bottom: var(--s-6);
+}
+
+/* --- Gelingensnachweis --- */
+
+.gelingensnachweis {
+  margin-bottom: var(--s-6);
+  padding: var(--s-4);
+  border: 2px solid var(--c-teal-dunkel);
+  border-radius: var(--radius-karte);
+  background: var(--c-teal-hell);
+}
+
+.gelingensnachweis h2 {
+  margin-top: 0;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+  color: var(--c-teal-dunkel);
+}
+
+.gelingensnachweis-titel {
+  margin: 0;
+  font-size: var(--t-h2-groesse);
+  font-weight: var(--t-h2-gewicht);
+}
+
+/* --- Stationen: Legende und Zeitsummen --- */
+
+.stationen-legende,
+.stationen-summe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  margin: 0 0 var(--s-3);
+  font-size: var(--t-klein-groesse);
+  color: var(--c-text-2);
+}
+
+.stationen-summe {
+  font-weight: var(--t-klein-gewicht);
+}
+
+/* Die Tabelle bleibt vollstaendig: auf schmalen Geraeten scrollt sie
+   waagerecht im eigenen Rahmen, statt Spalten zu verlieren (DESIGN 11).
+   Der Rahmen ist im Modul mit tabindex versehen, deshalb bekommt er auch
+   einen sichtbaren Fokus. */
+.stationen-rahmen {
+  overflow-x: auto;
+}
+
+/* Ueber der Tabelle steht schon die Ueberschrift "Stationen". Die Beschriftung
+   der Tabelle bleibt fuer Vorlesehilfen erhalten, verschwindet aber vom
+   Bildschirm, damit das Wort nicht zweimal untereinander steht. */
+#inhalt[data-modul='faecher'] .stationen caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Hochformat und schmale Geraete --- */
+
+@media (max-width: 599px) {
+  .fach-kopf {
+    gap: var(--s-3);
+  }
+
+  .fach-kopf-symbol {
+    width: 56px;
+    height: 56px;
+  }
+
+}
+
+/* ------------------------------------------------------ Modul wissen */
+/* Inhaltsverzeichnis (#/wissen), Wissensseite (#/wissen/:seiteId) und
+   Woerterbuch (#/wissen/glossar), AP-16. Masse und Farben kommen wie ueberall
+   aus tokens.css. */
+
+/* --- Inhaltsverzeichnis (#/wissen) --- */
+
+.wissen-karten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--s-4);
+}
+
+/* --- Wissensseite (#/wissen/:seiteId) --- */
+
+.wissen-kopf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+
+.wissen-kopf h1 {
+  margin: 0;
+}
+
+/* Der Fliesstext bleibt schmal genug zum Lesen (DESIGN 3: hoechstens rund
+   70 Zeichen). p und li begrenzt schon base.css, Tabellen duerfen breiter
+   werden, deshalb steht die Breite hier nicht am ganzen Block. */
+.wissen-text h2 {
+  margin-top: var(--s-5);
+}
+
+.wissen-text h3 {
+  margin-top: var(--s-4);
+}
+
+.wissen-text h2:focus,
+.wissen-text h3:focus {
+  outline: var(--fokus-breite) solid var(--c-fokus);
+  outline-offset: var(--fokus-abstand);
+}
+
+.wissen-ivz {
+  max-width: var(--t-zeile-max);
+  margin-bottom: var(--s-5);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.wissen-ivz-titel {
+  margin-bottom: var(--s-2);
+  color: var(--c-text-2);
+}
+
+.wissen-ivz ol {
+  margin: 0;
+}
+
+.wissen-ivz li {
+  margin-bottom: 0;
+}
+
+/* Tabellen im Seitentext duerfen waagerecht scrollen, statt zu brechen. */
+.wissen-tabelle-rahmen {
+  margin-bottom: var(--s-4);
+  overflow-x: auto;
+}
+
+.wissen-text table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;
+}
+
+.wissen-text th,
+.wissen-text td {
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 1px solid var(--c-linie);
+  text-align: left;
+  vertical-align: top;
+}
+
+.wissen-text th {
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+  border-bottom: 2px solid var(--c-linie);
+}
+
+.wissen-zurueck {
+  margin-top: var(--s-6);
+}
+
+/* --- Helferkette (#/wissen/helferkette) --- */
+/* Senkrechte Kette: links die Nummer und der Pfeil zum naechsten Schritt,
+   rechts der Text (AP-16). Die Nummern stehen im Kreis, der Pfeil zeigt nach
+   unten. Beides ist Schmuck, Vorlesehilfen hoeren "Schritt 1 von 5, ...". */
+
+.helferkette {
+  margin: var(--s-4) 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.helferkette-schritt {
+  display: grid;
+  grid-template-columns: var(--touch) 1fr;
+  column-gap: var(--s-4);
+  align-items: start;
+  margin-bottom: 0;
+}
+
+.helferkette-nummer {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch);
+  height: var(--touch);
+  border-radius: 50%;
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+  font-size: var(--t-h2-groesse);
+  font-weight: var(--t-h2-gewicht);
+  font-variant-numeric: tabular-nums;
+}
+
+.helferkette-text {
+  grid-column: 2;
+  max-width: var(--t-zeile-max);
+  padding-top: var(--s-2);
+  padding-bottom: var(--s-3);
+}
+
+.helferkette-pfeil {
+  grid-column: 1;
+  display: flex;
+  justify-content: center;
+  padding: var(--s-1) 0;
+  color: var(--c-teal-dunkel);
+}
+
+/* Der Pfeil aus ui/icons.js zeigt nach rechts, in der Kette nach unten. */
+.helferkette-pfeil .icon {
+  transform: rotate(90deg);
+}
+
+/* --- Woerterbuch (#/wissen/glossar) --- */
+
+.glossar-sprung {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--touch-abstand);
+  margin-bottom: var(--s-5);
+}
+
+.glossar-sprung-knopf {
+  min-width: var(--touch);
+  min-height: var(--touch);
+  padding: 0 var(--s-2);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-knopf);
+  background: var(--c-karte);
+  color: var(--c-teal-dunkel);
+  font-family: inherit;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+  cursor: pointer;
+}
+
+.glossar-buchstabe {
+  margin-top: var(--s-6);
+  padding-bottom: var(--s-1);
+  border-bottom: 2px solid var(--c-linie);
+  color: var(--c-teal-dunkel);
+}
+
+.glossar-buchstabe:focus,
+.glossar-begriff:focus {
+  outline: var(--fokus-breite) solid var(--c-fokus);
+  outline-offset: var(--fokus-abstand);
+}
+
+.glossar-begriff {
+  margin-top: var(--s-4);
+  margin-bottom: var(--s-1);
+}
+
+.glossar-erklaerung {
+  margin-bottom: var(--s-3);
+}
+
+/* --- Schmale Geraete --- */
+
+@media (max-width: 599px) {
+  .helferkette-schritt {
+    grid-template-columns: 40px 1fr;
+    column-gap: var(--s-3);
+  }
+
+  .helferkette-nummer {
+    width: 40px;
+    height: 40px;
+    font-size: var(--t-h3-groesse);
+  }
+
+  .wissen-text table {
+    min-width: 28rem;
+  }
+}
+
+/* ------------------------------------------------------ Modul antrag */
+/* Liste und neuer Antrag (#/antrag), Antrag bearbeiten (#/antrag/:id) und
+   Uebergabe-Modus (#/antrag/:id/uebergabe/:schritt), AP-14. Alle Werte kommen
+   aus tokens.css. */
+
+/* --- gemeinsame Bausteine --- */
+
+.antrag-datenschutz {
+  max-width: var(--t-zeile-max);
+  margin-bottom: var(--s-5);
+  padding: var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.antrag-datenschutz p:last-child {
+  margin-bottom: 0;
+}
+
+.antrag-knopfreihe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--touch-abstand);
+  margin-bottom: var(--s-4);
+}
+
+.antrag-meldung:empty {
+  display: none;
+}
+
+.antrag-zurueck {
+  margin-top: var(--s-6);
+}
+
+/* --- Eingabefelder --- */
+
+.antrag-feld {
+  margin-bottom: var(--s-4);
+}
+
+.antrag-feld label,
+.antrag-feld-titel,
+.antrag-frage {
+  display: block;
+  margin-bottom: var(--s-1);
+  font-weight: 650;
+}
+
+.antrag-eingabe,
+.antrag-textfeld {
+  display: block;
+  width: 100%;
+  max-width: var(--t-zeile-max);
+  min-height: var(--touch);
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-knopf);
+  background: var(--c-karte);
+  color: var(--c-navy);
+  font-family: inherit;
+  font-size: var(--t-text-groesse);
+  line-height: var(--t-zeilenhoehe);
+}
+
+.antrag-textfeld {
+  resize: vertical;
+}
+
+.antrag-eingabe--kurz {
+  width: 6rem;
+  min-width: 0;
+}
+
+.antrag-zaehler {
+  margin-top: var(--s-1);
+}
+
+.antrag-zeile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+}
+
+/* Klassenwahl: Umschalter, der Zustand steht in aria-pressed. */
+.antrag-klassen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--touch-abstand);
+}
+
+.antrag-klasse {
+  min-width: var(--touch);
+  min-height: var(--touch);
+  padding: 0 var(--s-3);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-knopf);
+  background: var(--c-karte);
+  color: var(--c-navy);
+  font-family: inherit;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+  cursor: pointer;
+}
+
+.antrag-klasse[aria-pressed="true"] {
+  border-color: var(--c-teal-dunkel);
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+}
+
+/* --- Ankreuzfelder --- */
+
+.antrag-ankreuz-liste,
+.antrag-haken-liste {
+  margin: 0 0 var(--s-3);
+  padding-left: 0;
+  list-style: none;
+}
+
+.antrag-ankreuz-liste li {
+  margin-bottom: var(--touch-abstand);
+  max-width: none;
+}
+
+/* Die ganze Zeile ist die Tippflaeche (DESIGN 5). */
+.antrag-ankreuz {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  min-height: var(--touch);
+  max-width: var(--t-zeile-max);
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-knopf);
+  background: var(--c-karte);
+  cursor: pointer;
+}
+
+.antrag-kasten {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--c-teal-dunkel);
+}
+
+.antrag-bestaetigung {
+  margin-bottom: var(--s-4);
+  font-weight: 650;
+}
+
+.antrag-haken {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  margin-bottom: var(--s-1);
+  max-width: var(--t-zeile-max);
+  color: var(--c-navy);
+}
+
+.antrag-haken .icon {
+  flex: none;
+  color: var(--c-teal-dunkel);
+}
+
+/* Leeres Kaestchen, damit "offen" auch ohne Farbe erkennbar ist. */
+.antrag-haken-leer {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--c-linie);
+  border-radius: var(--radius-klein);
+}
+
+/* --- Unterschrift --- */
+
+.antrag-unterschrift {
+  margin-top: var(--s-4);
+}
+
+.antrag-unterschrift-titel {
+  margin-bottom: var(--s-1);
+}
+
+/* Die Linie zum Unterschreiben liegt im Rahmen, nicht im Bild: So bleibt das
+   gespeicherte PNG sauber und durchsichtig. */
+.antrag-unterschrift-rahmen {
+  max-width: 600px;
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte)
+    linear-gradient(var(--c-linie), var(--c-linie)) no-repeat 8% 72% / 84% 1px;
+}
+
+.unterschrift-flaeche {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Ohne das scrollt iPadOS beim Zeichnen die Seite. [ungeprueft auf dem Geraet] */
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.antrag-unterschrift-hinweis {
+  margin-top: var(--s-1);
+}
+
+.antrag-unterschrift-bild {
+  margin: 0 0 var(--s-2);
+}
+
+.antrag-unterschrift-bild img {
+  max-width: 300px;
+  border-bottom: 1px solid var(--c-linie);
+}
+
+/* --- Liste und Kopf des Antrags --- */
+
+.antrag-kopf {
+  margin-bottom: var(--s-4);
+}
+
+.antrag-kopfkarte {
+  max-width: var(--t-zeile-max);
+  margin-bottom: var(--s-5);
+  padding: var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.antrag-kopfkarte dl {
+  margin-bottom: 0;
+}
+
+/* --- Schritte --- */
+
+.antrag-schritte {
+  margin: 0 0 var(--s-5);
+  padding-left: 0;
+  list-style: none;
+}
+
+.antrag-schritt {
+  max-width: var(--t-zeile-max);
+  margin-bottom: var(--s-4);
+  padding: var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.antrag-schritt[data-status="gesperrt"] {
+  opacity: 0.75;
+}
+
+.antrag-schritt[data-status="abgeschlossen"] {
+  border-color: var(--c-teal);
+}
+
+.antrag-schritt-kopf {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
+}
+
+.antrag-schritt-titel {
+  margin: 0;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+}
+
+.antrag-schritt-marken {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}
+
+.antrag-schritt-haken {
+  display: inline-flex;
+  color: var(--c-teal-dunkel);
+}
+
+.antrag-schritt-hinweis {
+  margin-bottom: var(--s-3);
+}
+
+.antrag-person {
+  margin-bottom: var(--s-4);
+}
+
+.antrag-person-kopf {
+  margin-bottom: var(--s-2);
+  font-weight: 650;
+}
+
+.antrag-vorschau-text {
+  white-space: pre-wrap;
+}
+
+.antrag-ruecksetzen,
+.antrag-loeschen {
+  margin-top: var(--s-4);
+}
+
+.antrag-abschluss {
+  max-width: var(--t-zeile-max);
+  padding: var(--s-4);
+  border: 1px solid var(--c-teal);
+  border-radius: var(--radius-karte);
+  background: var(--c-teal-hell);
+}
+
+/* Etiketten je Schritt-Status. */
+.etikett--in_arbeit {
+  background: var(--c-gold);
+  color: var(--c-auf-gold);
+}
+
+.etikett--abgeschlossen {
+  background: var(--c-teal-dunkel);
+  color: var(--c-auf-teal-dunkel);
+}
+
+.etikett--gesperrt {
+  background: none;
+  border: 1px solid var(--c-text-2);
+  color: var(--c-text-2);
+}
+
+/* --- Fehlermeldungen --- */
+
+.antrag-fehler-liste {
+  max-width: var(--t-zeile-max);
+  margin: var(--s-3) 0;
+  padding: var(--s-3) var(--s-4) var(--s-3) var(--s-6);
+  border-left: var(--kante-breite) solid var(--c-gold-dunkel);
+  border-radius: var(--radius-klein);
+  background: var(--c-karte);
+  color: var(--c-gold-dunkel);
+}
+
+.antrag-fehler-liste li {
+  max-width: none;
+}
+
+/* --- Uebergabe-Modus --- */
+/* Vollbild ueber der App: nur dieser eine Schritt, keine Navigation
+   (ARCHITEKTUR 5). Die Fussleiste bleibt unten stehen.
+
+   .inhalt traegt aus base.css die Einblend-Animation. Ihr Endwert
+   transform: none bleibt als Matrix stehen, und ein Vorfahr mit Transform
+   bindet position: fixed an sich. Solange die Uebergabe laeuft, bleibt die
+   Animation deshalb aus, sonst waere das Vollbild kein Vollbild. */
+
+body[data-uebergabe='1'] .inhalt {
+  animation: none;
+}
+
+.uebergabe {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-grund);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.uebergabe-inhalt {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--s-5) var(--inhalt-rand);
+}
+
+.uebergabe-titel {
+  font-size: var(--t-display-groesse);
+  font-weight: var(--t-display-gewicht);
+}
+
+.uebergabe-wer {
+  margin-bottom: var(--s-5);
+}
+
+.uebergabe-schritt {
+  max-width: var(--t-zeile-max);
+}
+
+.uebergabe-fussleiste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--touch-abstand);
+  padding: var(--s-3) var(--inhalt-rand);
+  border-top: 1px solid var(--c-linie);
+  background: var(--c-karte);
+}
+
+/* --- Schmale Geraete --- */
+
+@media (max-width: 599px) {
+  .uebergabe-inhalt,
+  .uebergabe-fussleiste {
+    padding-left: var(--s-4);
+    padding-right: var(--s-4);
+  }
+
+  .uebergabe-titel {
+    font-size: var(--t-h1-groesse);
+  }
+
+  .antrag-zeile {
+    gap: var(--s-3);
+  }
 }

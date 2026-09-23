@@ -1,1 +1,221 @@
-{}
+{
+  "schema": 1,
+  "configVersion": "2026-09",
+  "begriffe": {
+    "entscheidung": "Entscheidung über den Stufenaufstieg mit der Klassenleitung im Coaching"
+  },
+  "empfaenger": {
+    "5": {
+      "A": "",
+      "B": "",
+      "C": ""
+    },
+    "6": {
+      "A": "",
+      "B": "",
+      "C": ""
+    },
+    "7": {
+      "A": "",
+      "B": "",
+      "C": ""
+    }
+  },
+  "hinweisVersand": "Schicke den Antrag vor deinem Coaching an deine Klassenleitung.",
+  "stufen": {
+    "2": {
+      "titel": "Antrag auf Stufe 2 | Wurzel zu Stamm",
+      "unterzeile": "Du erfüllst die Kriterien für die nächste Stufe? Dann stelle jetzt deinen Antrag.",
+      "zielname": "Stamm",
+      "schritte": [
+        {
+          "id": "begruendung",
+          "nr": 1,
+          "titel": "Begründung",
+          "frage": "Warum bin ich zum Stufenaufstieg bereit?",
+          "rolle": "kind",
+          "typ": "freitext",
+          "minZeichen": 30
+        },
+        {
+          "id": "teamcheck",
+          "nr": 2,
+          "titel": "Team-Check",
+          "hinweis": "Zwei Lernende aus Stufe 2 füllen die Felder aus und unterschreiben.",
+          "rolle": "mitschueler",
+          "typ": "personen",
+          "anzahl": 2,
+          "felder": [
+            "name",
+            "klasse",
+            "datum",
+            "unterschrift"
+          ]
+        },
+        {
+          "id": "empfehlung",
+          "nr": 3,
+          "titel": "Empfehlung",
+          "hinweis": "Eine Lernbegleitung deiner Wahl füllt die Felder aus und unterschreibt.",
+          "rolle": "lernbegleitung",
+          "typ": "kriterien",
+          "kriterien": [
+            "Arbeitet weitgehend selbstständig, braucht kaum noch Unterstützung",
+            "Erreicht selbstgesteckte Lernziele und bringt Aufgaben pünktlich zu Ende",
+            "Arbeitet respektvoll mit Partnern bzw. in der Kleingruppe zusammen",
+            "Hält sich zuverlässig an vereinbarte Regeln",
+            "Räumt den Arbeitsplatz selbstständig und ohne Erinnerung auf",
+            "Lenkt sich und andere nicht ab, trägt nicht zu Störungen bei"
+          ],
+          "bestaetigung": "Ich empfehle den nächsten Schritt.",
+          "felder": [
+            "datum",
+            "kuerzel",
+            "unterschrift"
+          ]
+        },
+        {
+          "id": "selbst",
+          "nr": 4,
+          "titel": "Selbstverständniserklärung",
+          "rolle": "kind",
+          "typ": "erklaerung",
+          "automatisch": [
+            {
+              "text": "Ich habe die Empfehlung von 2 Lernenden (Team-Check)",
+              "wennSchritt": "teamcheck"
+            },
+            {
+              "text": "Ich habe die Empfehlung einer Lernbegleitung",
+              "wennSchritt": "empfehlung"
+            }
+          ],
+          "aussagen": [
+            "Ich habe diesen Antrag eigenständig und vollständig ausgefüllt.",
+            "Ich kenne die Rechte, Freiheiten und Pflichten der Stufe Stamm und bin bereit, sie zu übernehmen.",
+            "Mir ist bewusst: mehr Freiheit heißt auch mehr Eigenverantwortung."
+          ],
+          "felder": [
+            "datum",
+            "unterschrift"
+          ]
+        },
+        {
+          "id": "entscheidung",
+          "nr": 5,
+          "titel": "Entscheidung über den Stufenaufstieg mit der Klassenleitung im Coaching",
+          "rolle": "klassenleitung",
+          "typ": "nurPdf",
+          "optionen": [
+            "Noch im TRAINING - Vereinbarungen für die Weiterarbeit sind bei lernlog dokumentiert",
+            "Antrag GENEHMIGT - du hast die Stufe Stamm erreicht"
+          ],
+          "felder": [
+            "datum",
+            "kuerzel"
+          ]
+        }
+      ]
+    },
+    "3": {
+      "titel": "Antrag auf Stufe 3 | Stamm zu Krone",
+      "unterzeile": "Du erfüllst die Kriterien für die nächste Stufe? Dann stelle jetzt deinen Antrag.",
+      "zielname": "Krone",
+      "schritte": [
+        {
+          "id": "begruendung",
+          "nr": 1,
+          "titel": "Begründung",
+          "frage": "Warum bin ich zum Stufenaufstieg bereit?",
+          "rolle": "kind",
+          "typ": "freitext",
+          "minZeichen": 30
+        },
+        {
+          "id": "teamcheck",
+          "nr": 2,
+          "titel": "Team-Check",
+          "hinweis": "Zwei Lernende aus Stufe 3 füllen die Felder aus und unterschreiben.",
+          "rolle": "mitschueler",
+          "typ": "personen",
+          "anzahl": 2,
+          "felder": [
+            "name",
+            "klasse",
+            "datum",
+            "unterschrift"
+          ]
+        },
+        {
+          "id": "empfehlung",
+          "nr": 3,
+          "titel": "Empfehlung",
+          "hinweis": "Eine Lernbegleitung deiner Wahl füllt die Felder aus und unterschreibt.",
+          "rolle": "lernbegleitung",
+          "typ": "kriterien",
+          "kriterien": [
+            "Plant und organisiert den eigenen Lernprozess selbstständig und zielgerichtet",
+            "Sucht eigenständig nach Lösungen, engagiert sich über die Aufgabe hinaus",
+            "Übernimmt als Experte Verantwortung für Mitlernende, ohne ihnen die Arbeit abzunehmen",
+            "Verhält sich sozial vorbildlich und hält sich ständig an vereinbarte Regeln",
+            "Räumt Arbeitsplatz und Materialregal selbstständig, vollständig und ohne Erinnerung auf",
+            "Lässt sich nicht ablenken, lenkt andere nicht ab und trägt nicht zu Störungen bei"
+          ],
+          "bestaetigung": "Ich empfehle den nächsten Schritt.",
+          "felder": [
+            "datum",
+            "kuerzel",
+            "unterschrift"
+          ]
+        },
+        {
+          "id": "selbst",
+          "nr": 4,
+          "titel": "Selbstverständniserklärung",
+          "rolle": "kind",
+          "typ": "erklaerung",
+          "automatisch": [
+            {
+              "text": "Ich habe die Empfehlung von 2 Lernenden (Team-Check)",
+              "wennSchritt": "teamcheck"
+            },
+            {
+              "text": "Ich habe die Empfehlung einer Lernbegleitung",
+              "wennSchritt": "empfehlung"
+            }
+          ],
+          "aussagen": [
+            "Ich habe diesen Antrag eigenständig und vollständig ausgefüllt.",
+            "Ich kenne die Rechte, Freiheiten und Pflichten der Stufe Krone und bin bereit, sie zu übernehmen.",
+            "Mir ist bewusst: mehr Freiheit heißt auch mehr Eigenverantwortung."
+          ],
+          "felder": [
+            "datum",
+            "unterschrift"
+          ]
+        },
+        {
+          "id": "entscheidung",
+          "nr": 5,
+          "titel": "Entscheidung über den Stufenaufstieg mit der Klassenleitung im Coaching",
+          "rolle": "klassenleitung",
+          "typ": "nurPdf",
+          "optionen": [
+            "Noch im TRAINING - Vereinbarungen für die Weiterarbeit sind bei lernlog dokumentiert",
+            "Antrag GENEHMIGT - du hast die Stufe Krone erreicht"
+          ],
+          "felder": [
+            "datum",
+            "kuerzel"
+          ]
+        }
+      ]
+    }
+  },
+  "rollen": {
+    "kind": "Du",
+    "mitschueler": "Mitschüler:in aus der Zielstufe",
+    "lernbegleitung": "Lernbegleitung",
+    "klassenleitung": "Klassenleitung"
+  }
+}

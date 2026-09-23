@@ -319,13 +319,26 @@ h1:focus {
     gap: var(--s-1);
   }
 
+  /* min-width: 0 hebt die Standardbreite eines Flex-Kindes auf. Ohne das
+     bleibt der Eintrag so breit wie sein laengstes Wort, und ab sechs
+     Eintraegen (seit AP-14 mit dem Modul Antrag) laeuft die Tab-Leiste auf
+     schmalen Geraeten ueber den Rand (DESIGN 1: das iPhone darf nicht
+     brechen). Auf dem iPad passt sie auch ohne das. */
   .hauptnavigation-liste li {
     flex: 1 1 0;
+    min-width: 0;
     max-width: 7rem;
   }
 
+  /* Die Beschriftung darf jetzt umbrechen. hyphens: auto steht schon oben und
+     trennt nach Silben, sofern der Browser die deutsche Trennung mitbringt.
+     overflow-wrap: anywhere ist der Rueckfall, damit ein langes Wort auf
+     jeden Fall in seiner Spalte bleibt. */
   .hauptnavigation-link {
     height: var(--tab-hoehe);
+    font-size: var(--t-mini-groesse);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
   }
 
   .inhalt {
