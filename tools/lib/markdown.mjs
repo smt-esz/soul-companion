@@ -94,7 +94,10 @@ export function zuHtml(markdown) {
 
   const renderer = {
     html(token) {
-      const text = String(token.text ?? '').trim();
+      // Kommentare sind die einzige Ausnahme: Sie dienen der Redaktion als
+      // Quellenangabe in der Datei (AP-16, regeln.md), landen nie im HTML und
+      // sind deshalb auch keine Warnung wert.
+      const text = String(token.text ?? '').replace(/<!--[\s\S]*?-->/g, '').trim();
       if (text !== '') warnungen.push('HTML ist nicht erlaubt und wurde entfernt: ' + kurz(text));
       return '';
     },
