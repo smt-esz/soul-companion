@@ -849,6 +849,16 @@
   color: var(--c-teal-dunkel);
 }
 
+/* ------------------------------------------------------ Modul woche */
+/* Startseite "Diese Woche" (AP-10, DESIGN 10). Abstaende der Abschnitte
+   stehen inline im Modul (wie schon in update.js und muster.js), hier nur
+   das eine, was eine echte Klasse braucht: die Tageskarten sind zusaetzlich
+   tippbar, das Aufklappen der Tagesansicht macht das Modul selbst. */
+
+.woche-tag-karte {
+  cursor: pointer;
+}
+
 /* Prüfhilfe: zeigt, ob jede Touchfläche mindestens 48 x 48 px gross ist. */
 .muster--touch a,
 .muster--touch button,

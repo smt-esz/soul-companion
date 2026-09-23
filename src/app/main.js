@@ -6,12 +6,14 @@ import { heute } from './dates.js';
 import { getModules, setzeAktive, zerlegeHash } from './module.js';
 import { startRouter, navigate, onNavigation } from './router.js';
 import * as update from './update.js';
+import * as onboarding from './onboarding.js';
 import { el, leer } from './ui/components.js';
 
 // Module melden sich beim Import selbst an. Ohne Bundler braucht es diese
 // Zeile je Moduldatei. Welche davon wirklich gelten, sagt content/index.json
 // (Feld module) über setzeAktive().
-import './modules/demo.js';
+import './modules/woche.js';
+import './modules/einstellungen.js';
 
 const ONBOARDING_HASH = '#/start';
 
@@ -149,23 +151,17 @@ function navigationMarkieren(hash) {
   }
 }
 
-// Platzhalter-Onboarding. AP-10 ersetzt es durch das richtige Onboarding
-// in einer eigenen Datei src/app/onboarding.js.
+// Onboarding-Weiche: main.js liefert die Einzelseite (Rahmen, Fokus), den
+// Inhalt baut src/app/onboarding.js (AP-10).
 function zeigeJahrgangswahl(index, schule, vorschau) {
   const jahrgaenge = Array.isArray(index.jahrgaenge) ? index.jahrgaenge.map(Number) : [];
   location.hash = ONBOARDING_HASH;
 
-  const seite = einzelseite([
-    el('h1', { text: 'Jahrgang wählen', tabindex: '-1' }),
-    el('p', { text: 'Hier findest du alles zu SOUL für deinen Jahrgang.' }),
-    el('div', { class: 'wahl' }, jahrgaenge.map((nummer) => el('button', {
-      type: 'button',
-      class: 'wahl-knopf',
-      text: 'Jahrgang ' + nummer,
-      onclick: () => jahrgangUebernehmen(nummer, index, schule, vorschau)
-    }))),
-    el('p', { class: 'hinweis', text: 'Du kannst den Jahrgang später ändern.' })
-  ]);
+  const seite = einzelseite([]);
+  onboarding.renderJahrgangswahl(seite, {
+    jahrgaenge,
+    onWahl: (nummer) => jahrgangUebernehmen(nummer, index, schule, vorschau)
+  });
   fokusAufTitel(seite);
 }
 
@@ -174,27 +170,12 @@ function zeigeSchuljahrFrage(index, schule, vorschau) {
   const alter = Number(store.state.jgst);
   const jahrgaenge = Array.isArray(index.jahrgaenge) ? index.jahrgaenge.map(Number) : [];
 
-  const knoepfe = [el('button', {
-    type: 'button',
-    class: 'wahl-knopf',
-    text: 'Ja, Jahrgang ' + alter,
-    onclick: () => jahrgangUebernehmen(alter, index, schule, vorschau)
-  })];
-  for (const nummer of jahrgaenge) {
-    if (nummer === alter) continue;
-    knoepfe.push(el('button', {
-      type: 'button',
-      class: 'wahl-knopf',
-      text: 'Nein, Jahrgang ' + nummer,
-      onclick: () => jahrgangUebernehmen(nummer, index, schule, vorschau)
-    }));
-  }
-
-  const seite = einzelseite([
-    el('h1', { text: 'Neues Schuljahr', tabindex: '-1' }),
-    el('p', { text: 'Bist du noch in Jahrgang ' + alter + '?' }),
-    el('div', { class: 'wahl' }, knoepfe)
-  ]);
+  const seite = einzelseite([]);
+  onboarding.renderSchuljahrFrage(seite, {
+    alter,
+    jahrgaenge,
+    onWahl: (nummer) => jahrgangUebernehmen(nummer, index, schule, vorschau)
+  });
   fokusAufTitel(seite);
 }
 
