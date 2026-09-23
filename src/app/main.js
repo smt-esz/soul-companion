@@ -15,6 +15,7 @@ import { el, leer } from './ui/components.js';
 import './modules/woche.js';
 import './modules/plan.js';
 import './modules/faecher.js';
+import './modules/stufen.js';
 import './modules/antrag.js';
 import './modules/wissen.js';
 import './modules/einstellungen.js';

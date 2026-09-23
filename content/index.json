@@ -3,5 +3,5 @@
   "schuljahr": "2026/27",
   "zielgruppe": "sus",
   "jahrgaenge": [5, 6, 7],
-  "module": ["woche", "plan", "faecher", "antrag", "wissen", "einstellungen"]
+  "module": ["woche", "plan", "faecher", "stufen", "antrag", "wissen", "einstellungen"]
 }

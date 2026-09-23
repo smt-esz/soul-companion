@@ -722,6 +722,13 @@
   stroke-width: 3;
 }
 
+/* Schmuckpunkte in der Krone. Standard: aus. Nur die Tonlage verspielt
+   zeigt sie (DESIGN 4, tones.css). */
+.stufen-schmuck {
+  display: none;
+  fill: var(--c-gold);
+}
+
 .stufen-boden {
   stroke: var(--c-linie);
   stroke-width: 2;
@@ -2443,5 +2450,177 @@ body[data-uebergabe='1'] .inhalt {
 
   .antrag-zeile {
     gap: var(--s-3);
+  }
+}
+
+/* ------------------------------------------------------ Modul stufen */
+/* Graduierung (#/stufen) und "Was muss ich tun?" (#/stufen/aufstieg/:ziel),
+   AP-13. Der Baum selbst steht weiter oben im Abschnitt stufenBaum, die
+   Unterschiede je Tonlage in tones.css. Alle Werte kommen aus tokens.css. */
+
+.stufen-einleitung {
+  margin-bottom: var(--s-5);
+}
+
+/* Querformat: links der Baum, rechts die Abschnitte der gewaehlten Stufe.
+   Hochformat und schmale Geraete: Baum oben, Details darunter (DESIGN 5). */
+.stufen-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 20rem) minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+  margin-bottom: var(--s-5);
+}
+
+.stufen-baum-feld {
+  position: sticky;
+  top: var(--s-4);
+}
+
+.stufen-details-titel {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: 0;
+}
+
+.stufen-details-titel .icon {
+  color: var(--c-teal-dunkel);
+}
+
+.stufen-details .karte:last-child {
+  margin-bottom: 0;
+}
+
+.stufen-details .karte-marken .icon {
+  color: var(--c-teal-dunkel);
+}
+
+.stufen-knopfreihe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--touch-abstand);
+  margin-bottom: var(--s-6);
+}
+
+.stufen-allgemein {
+  max-width: var(--t-zeile-max);
+}
+
+/* --- Aufstiegsseite --- */
+
+.stufen-aufstieg-kopf {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  margin-bottom: var(--s-5);
+}
+
+.stufen-aufstieg-kopf h1 {
+  margin: 0;
+  flex: 1 1 14rem;
+}
+
+/* Der kleine Baum im Kopf zeigt nur, wohin es geht. */
+.stufen-baum--klein {
+  width: 7rem;
+  max-width: 7rem;
+  margin: 0;
+}
+
+.stufen-kriterien {
+  max-width: var(--t-zeile-max);
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Punkt statt Aufzaehlungszeichen, damit die Liste nicht wie eine Checkliste
+   aussieht: hier wird nichts angekreuzt (AP-13). */
+.stufen-kriterien li {
+  position: relative;
+  margin-bottom: var(--s-2);
+  padding-left: var(--s-5);
+  max-width: none;
+}
+
+.stufen-kriterien li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-teal-dunkel);
+}
+
+.stufen-ablauf {
+  max-width: var(--t-zeile-max);
+  padding-left: 0;
+  list-style: none;
+  counter-reset: schritt;
+}
+
+.stufen-ablauf li {
+  position: relative;
+  margin-bottom: var(--s-3);
+  padding-left: var(--s-6);
+  max-width: none;
+}
+
+.stufen-ablauf li::before {
+  counter-increment: schritt;
+  content: counter(schritt);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--c-teal-hell);
+  color: var(--c-teal-dunkel);
+  font-size: var(--t-klein-groesse);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stufen-ablauf-titel {
+  margin-bottom: 0;
+  font-weight: 650;
+}
+
+.stufen-termin {
+  max-width: var(--t-zeile-max);
+  padding: var(--s-3) var(--s-4);
+  border-left: var(--kante-breite) solid var(--c-gold);
+  border-radius: var(--radius-klein);
+  background: var(--c-karte);
+}
+
+.stufen-start {
+  margin-top: var(--s-5);
+}
+
+.stufen-zurueck {
+  margin-top: var(--s-6);
+}
+
+/* --- Hochformat und schmale Geraete --- */
+
+@media (max-width: 899px) {
+  .stufen-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stufen-baum-feld {
+    position: static;
+  }
+
+  .stufen-baum-feld .stufen-baum {
+    max-width: 16rem;
   }
 }
