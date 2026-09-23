@@ -28,7 +28,7 @@ Am Ende der SOUL-Zeit räumst du deinen Arbeitsplatz auf. Alle Materialien bring
 <!-- Quelle: SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.6 Kennzeichnung durch Umhaengebaender -->
 ## Lanyard tragen
 
-In der SOUL-Zeit trägst du dein Lanyard sichtbar, egal ob du im Raum, im Cluster oder im Schulhaus arbeitest. So sehen alle, in welcher Stufe du bist.
+In der SOUL-Zeit trägst du dein Lanyard sichtbar, egal ob du im Fachraum, im Cluster oder im Schulhaus arbeitest. So sehen alle, in welcher Stufe du bist.
 
 <!-- Quelle: SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.6 Regelverstoss und Rueckstufung -->
 ## Wenn Regeln gebrochen werden
