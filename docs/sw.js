@@ -23,7 +23,7 @@
 //   - keine fremden Hosts, es wird nichts nachgeladen und nichts gecacht,
 //     was nicht aus dem eigenen Ordner kommt.
 
-const VERSION = '0.1.0-f81de4e9';
+const VERSION = '0.1.0-889d94bd';
 const PRECACHE = [
   "./",
   "./.nojekyll",
@@ -40,6 +40,7 @@ const PRECACHE = [
   "./app/modules/faecher.js",
   "./app/modules/muster.js",
   "./app/modules/plan.js",
+  "./app/modules/stufen.js",
   "./app/modules/wissen.js",
   "./app/modules/woche.js",
   "./app/onboarding.js",
@@ -48,6 +49,7 @@ const PRECACHE = [
   "./app/ui/components.js",
   "./app/ui/icons.js",
   "./app/ui/motion.js",
+  "./app/ui/stufenbaum.js",
   "./app/update.js",
   "./app/version.js",
   "./assets/icon-180.png",

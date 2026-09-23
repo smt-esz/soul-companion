@@ -121,3 +121,39 @@
 [data-ton='sachlich'] .haken-laeuft {
   color: var(--c-teal-dunkel);
 }
+
+/* ------------------------------------------------------ Baum je Tonlage */
+/* DESIGN 4 und AP-13, Akzeptanzkriterium 5: Jg 5 bekommt den farbigen Baum,
+   Jg 7 einen reduzierten. Die Form bleibt in allen Tonlagen gleich, sonst
+   waere es ein anderes Bild. */
+
+/* verspielt (Jg 5): volle Flaechen, dazu die drei Punkte in der Krone. */
+[data-ton='verspielt'] .stufen-schmuck {
+  display: inline;
+}
+
+/* klar (Jg 6): volle Flaechen, kein Schmuck. Das ist der Standard aus
+   components.css, hier steht deshalb nichts. */
+
+/* sachlich (Jg 7): nur Umriss, Beschriftung in der Textfarbe. Die Kontraste
+   sind damit hoeher als mit Flaeche, nicht niedriger. */
+[data-ton='sachlich'] .stufen-ebene[data-ebene] .stufen-form {
+  fill: none;
+  stroke-width: 3;
+}
+
+[data-ton='sachlich'] .stufen-ebene[data-ebene='1'] .stufen-form {
+  stroke: var(--stufe-1-flaeche);
+}
+
+[data-ton='sachlich'] .stufen-ebene[data-ebene='2'] .stufen-form {
+  stroke: var(--stufe-2-flaeche);
+}
+
+[data-ton='sachlich'] .stufen-ebene[data-ebene='3'] .stufen-form {
+  stroke: var(--stufe-3-flaeche);
+}
+
+[data-ton='sachlich'] .stufen-ebene .stufen-schrift {
+  fill: var(--c-navy);
+}
