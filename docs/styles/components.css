@@ -859,6 +859,546 @@
   cursor: pointer;
 }
 
+/* ------------------------------------------------------ Modul plan */
+
+/* Der Inhaltsbereich ist ein Grid-Feld von body (base.css) und hat damit
+   min-width: auto. Ohne die folgende Zeile waechst er auf die min-content-
+   Breite der Zeitleiste (gedeckelt durch max-width 1100px) und die Seite
+   laeuft auf schmalen Geraeten waagerecht ueber. min-width: 0 ist die
+   richtige Grundeinstellung fuer ein Grid-Feld und aendert an Seiten ohne
+   breiten Inhalt nichts. */
+.inhalt {
+  min-width: 0;
+}
+/* Wochenraster (#/plan) und Jahresueberblick (#/plan/jahr), AP-11.
+   Farben und Masse kommen wie ueberall aus tokens.css. */
+
+.plan-schalter {
+  margin-bottom: var(--s-5);
+}
+
+/* --- Wochenraster (#/plan) --- */
+
+.plan-legende {
+  margin: 0 0 var(--s-5);
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.plan-legende li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  max-width: none;
+}
+
+.plan-woche {
+  margin-bottom: var(--s-6);
+}
+
+.plan-woche-kopf {
+  margin-top: 0;
+  margin-bottom: var(--s-2);
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+}
+
+/* Die laufende Woche bekommt denselben Goldakzent wie der Tag "heute". */
+.plan-woche--aktuell .plan-woche-kopf {
+  color: var(--c-gold-dunkel);
+}
+
+/* Sonderwoche und Ferienwoche: ein Balken ueber die ganze Breite statt
+   fuenf Tageskarten (AP-11, wie im Aushang). */
+.plan-balken {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5rem;
+  margin: 0 0 var(--s-5);
+  padding: var(--s-3);
+  max-width: none;
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  font-weight: 650;
+  text-align: center;
+}
+
+/* Schraffur aus zwei Tokenfarben, damit keine feste Farbe im CSS steht. */
+.plan-balken--sonderwoche {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--c-teal-hell) 0 8px,
+    var(--c-karte) 8px 16px
+  );
+}
+
+.plan-balken--ferien {
+  background: var(--c-linie);
+}
+
+/* --- Jahresueberblick: Zeitleiste (#/plan/jahr) --- */
+
+/* Querformat: waagerecht scrollbar, Zeit nach rechts.
+   Hochformat: der Bereich waechst nach unten, die Seite scrollt (Media
+   Query am Ende dieses Abschnitts). */
+.plan-zeitleiste {
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-2);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+}
+
+.plan-gitter {
+  /* Zeitachse: ein Kalendertag. Bei 9 px sind rund vier Monate sichtbar
+     (AP-11), der Kopf traegt die Zeilenbeschriftung. */
+  --plan-tag: 9px;
+  --plan-kopf: 4.5rem;
+  --plan-monat: 1.5rem;
+  --plan-spur: minmax(5rem, auto);
+
+  display: grid;
+  /* Die beiden Achsen setzt plan.js als eigene Werte, mit der Anzahl der
+     Tage bzw. Zeilen. Hier entscheidet sich nur, welche Achse Spalte ist. */
+  grid-template-columns: var(--plan-zeit-achse);
+  grid-template-rows: var(--plan-spur-achse);
+  min-width: min-content;
+}
+
+/* Jede Zelle nennt ihre Lage auf beiden Achsen. Im Hochformat werden die
+   beiden Zuweisungen getauscht, sonst aendert sich nichts. */
+.plan-zelle {
+  grid-column: var(--zeit-von) / span var(--zeit-span);
+  grid-row: var(--spur-von) / span var(--spur-span);
+  min-width: 0;
+  min-height: 0;
+}
+
+.plan-monat {
+  padding-left: var(--s-1);
+  border-left: 1px solid var(--c-linie);
+  color: var(--c-text-2);
+  font-size: var(--t-mini-groesse);
+  font-weight: var(--t-mini-gewicht);
+  letter-spacing: var(--t-mini-sperrung);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bleibt beim waagerechten Scrollen am linken Rand stehen. */
+.plan-reihenname {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  padding-right: var(--s-2);
+  background: var(--c-grund);
+  border-right: 1px solid var(--c-linie);
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+  font-weight: var(--t-klein-gewicht);
+  line-height: 1.2;
+  overflow: hidden;
+  /* Lange Fachnamen wie "Mathematik" sind breiter als die Spalte. Ohne
+     Trennung waeren sie abgeschnitten statt umgebrochen. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.plan-reihenname-text {
+  min-width: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Band hinter einer Zeile, nur die Trennlinie. */
+.plan-reihe {
+  border-bottom: 1px solid var(--c-linie);
+}
+
+/* Ferien grau, Sonderwochen schraffiert, beide ueber alle Spuren. */
+.plan-ferien,
+.plan-sonderwoche {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1px;
+  overflow: hidden;
+  color: var(--c-text-2);
+  font-size: var(--t-mini-groesse);
+}
+
+.plan-ferien {
+  background: var(--c-linie);
+}
+
+.plan-sonderwoche {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--c-teal-hell) 0 6px,
+    var(--c-karte) 6px 12px
+  );
+}
+
+.plan-streifen-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Linie "heute" in Gold, Etikett im Monatskopf darueber. */
+.plan-heute {
+  position: relative;
+  border-left: 2px solid var(--c-gold);
+  pointer-events: none;
+}
+
+.plan-heute .etikett {
+  position: absolute;
+  top: calc(-1 * var(--plan-monat));
+  left: 0;
+}
+
+/* Ein Slot. Hintergrund Fachflaeche, linke Kante Fachfarbe (DESIGN 2.2). */
+.plan-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  margin: 2px 1px;
+  padding: var(--s-1) var(--s-2);
+  border: 0;
+  border-left: var(--kante-breite) solid var(--fach-kante);
+  border-radius: var(--radius-klein);
+  background: var(--fach-flaeche);
+  color: var(--c-navy);
+  font: inherit;
+  text-align: left;
+  overflow: hidden;
+  min-width: 0;
+}
+
+button.plan-block {
+  cursor: pointer;
+}
+
+.plan-block-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  min-width: 0;
+}
+
+/* Langer Titel wird gekuerzt, der volle Titel steht im title-Attribut,
+   in der Liste und auf der Baustein-Seite. */
+.plan-block-titel {
+  font-size: var(--t-klein-groesse);
+  font-weight: 650;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-width: 0;
+  /* Lange Woerter wie "Rechtschreibung" sind breiter als ein schmaler
+     Block. Ohne Trennung wuerden sie abgeschnitten statt umgebrochen. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.plan-block-stunden,
+.plan-block-hinweis {
+  color: var(--c-text-2);
+  font-size: var(--t-mini-groesse);
+  line-height: 1.3;
+  overflow: hidden;
+}
+
+.plan-block-hinweis {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Status vorlaeufig: gestrichelte Kante (DESIGN 2.2). */
+.plan-block--vorlaeufig {
+  border: 1px dashed var(--fach-kante);
+  border-left-width: var(--kante-breite);
+}
+
+/* Faecherverbindend: Regenbogen als Balken oben, nie hinter der Schrift
+   (DESIGN 2.2). */
+.plan-block[data-fach='fvu'] {
+  position: relative;
+  border-left-color: transparent;
+  background-image: var(--fach-fvu-flaeche);
+  padding-top: calc(var(--s-1) + var(--kante-breite));
+}
+
+.plan-block[data-fach='fvu']::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--kante-breite);
+  background-image: var(--fach-fvu-kante);
+}
+
+/* --- Jahresueberblick: Liste fuer alle (AP-11, Barrierearmut) --- */
+
+.plan-listenbereich {
+  margin-bottom: var(--s-5);
+}
+
+.plan-liste {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.plan-liste[hidden] {
+  display: none;
+}
+
+.plan-liste-eintrag {
+  margin-bottom: var(--s-3);
+  max-width: none;
+}
+
+.plan-liste-kopf {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+.plan-liste-daten {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  color: var(--c-text-2);
+  font-size: var(--t-klein-groesse);
+}
+
+/* --- Hochformat: Zeitleiste um 90 Grad gedreht (AP-11) --- */
+/* Zeit laeuft nach unten, die Spuren stehen nebeneinander. Getauscht werden
+   nur die beiden Achsen, der Aufbau in plan.js bleibt gleich. */
+
+@media (max-width: 899px) {
+  .plan-zeitleiste {
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  .plan-gitter {
+    --plan-tag: 6px;
+    --plan-kopf: 1.6rem;
+    --plan-monat: 4.5rem;
+    --plan-spur: minmax(0, 1fr);
+
+    grid-template-columns: var(--plan-spur-achse);
+    grid-template-rows: var(--plan-zeit-achse);
+    min-width: 0;
+  }
+
+  /* Hochformat: die fuenf Tageskarten stehen untereinander (AP-11). */
+  .plan-tage {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-zelle {
+    grid-column: var(--spur-von) / span var(--spur-span);
+    grid-row: var(--zeit-von) / span var(--zeit-span);
+  }
+
+  /* Senkrecht ist die Monatsspalte schmal, deshalb darf der Name hier
+     umbrechen statt mit Ellipse zu enden. */
+  .plan-monat {
+    display: block;
+    padding-left: 0;
+    padding-right: var(--s-2);
+    border-left: 0;
+    border-top: 1px solid var(--c-linie);
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .plan-reihenname {
+    position: sticky;
+    top: 0;
+    left: auto;
+    justify-content: center;
+    padding-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--c-linie);
+  }
+
+  .plan-reihe {
+    border-bottom: 0;
+    border-right: 1px solid var(--c-linie);
+  }
+
+  .plan-block {
+    margin: 1px 2px;
+    border-left: 0;
+    border-top: var(--kante-breite) solid var(--fach-kante);
+  }
+
+  .plan-block--vorlaeufig {
+    border: 1px dashed var(--fach-kante);
+    border-top-width: var(--kante-breite);
+  }
+
+  .plan-block[data-fach='fvu'] {
+    border-top-color: transparent;
+  }
+
+  .plan-heute {
+    border-left: 0;
+    border-top: 2px solid var(--c-gold);
+  }
+
+  .plan-heute .etikett {
+    top: 0;
+    left: calc(-1 * var(--plan-monat));
+  }
+}
+
+/* --- Schmale Geraete: Handy im Hochformat (AP-11) --- */
+/* Unter 600 px bleiben je Spur nur rund 90 px. Nebeneinander passen Badge
+   und Titel dort nicht mehr, deshalb steht der Titel unter dem Badge und
+   darf drei Zeilen hoch sein. Die Monatsspalte wird schmaler, der Tag
+   hoeher, damit die Bloecke Platz fuer die Zeilen haben. */
+
+@media (max-width: 599px) {
+  .plan-gitter {
+    --plan-tag: 7px;
+    --plan-monat: 4rem;
+  }
+
+  .plan-block {
+    padding: var(--s-1);
+  }
+
+  .plan-block-kopf {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  /* Ohne stretch waechst der Titel auf seine Textbreite und wird vom
+     Block hart abgeschnitten statt umgebrochen. */
+  .plan-block-kopf .plan-block-titel {
+    align-self: stretch;
+  }
+
+  /* Lange Woerter wie "Rechtschreibung" oder "September" sind breiter als
+     die Spalte. Sie werden getrennt statt abgeschnitten (html lang="de"). */
+  .plan-block-titel {
+    -webkit-line-clamp: 3;
+  }
+
+  .plan-monat,
+  .plan-streifen-text {
+    font-size: var(--t-mini-groesse);
+  }
+
+  /* "Nach Fach" bleibt auf dem Handy bei Zeilen.
+     Bei fuenf bis sechs Faechern nebeneinander blieben je Spalte rund 55 px,
+     das reicht weder fuer den Fachnamen noch fuer den Titel. Diese eine
+     Ansicht behaelt deshalb die Querformat-Achsen: je Fach eine Zeile
+     (so steht es auch in AP-11), die Zeit laeuft waagerecht und wird
+     gescrollt. Die Ansicht "Zeitleiste" bleibt gedreht. */
+
+  .plan-zeitleiste[data-ansicht='fach'] {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-gitter {
+    --plan-tag: 8px;
+    --plan-kopf: 5rem;
+    --plan-monat: 1.5rem;
+    --plan-spur: minmax(3.75rem, auto);
+
+    grid-template-columns: var(--plan-zeit-achse);
+    grid-template-rows: var(--plan-spur-achse);
+    min-width: min-content;
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-zelle {
+    grid-column: var(--zeit-von) / span var(--zeit-span);
+    grid-row: var(--spur-von) / span var(--spur-span);
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-monat {
+    display: block;
+    padding-left: var(--s-1);
+    padding-right: 0;
+    border-left: 1px solid var(--c-linie);
+    border-top: 0;
+    white-space: nowrap;
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-reihenname {
+    left: 0;
+    top: auto;
+    justify-content: flex-start;
+    padding-right: var(--s-2);
+    border-right: 1px solid var(--c-linie);
+    border-bottom: 0;
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-reihe {
+    border-right: 0;
+    border-bottom: 1px solid var(--c-linie);
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-block {
+    margin: 2px 1px;
+    padding: var(--s-1) var(--s-2);
+    border-top: 0;
+    border-left: var(--kante-breite) solid var(--fach-kante);
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-block--vorlaeufig {
+    border: 1px dashed var(--fach-kante);
+    border-left-width: var(--kante-breite);
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-block[data-fach='fvu'] {
+    border-left-color: transparent;
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-block-titel {
+    -webkit-line-clamp: 2;
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-heute {
+    border-top: 0;
+    border-left: 2px solid var(--c-gold);
+  }
+
+  .plan-zeitleiste[data-ansicht='fach'] .plan-heute .etikett {
+    top: calc(-1 * var(--plan-monat));
+    left: 0;
+  }
+
+  /* Schmaler Rand, damit "September" in eine Zeile passt. */
+  .plan-monat {
+    padding-right: var(--s-1);
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+}
+
 /* Prüfhilfe: zeigt, ob jede Touchfläche mindestens 48 x 48 px gross ist. */
 .muster--touch a,
 .muster--touch button,

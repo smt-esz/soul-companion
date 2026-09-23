@@ -246,9 +246,14 @@ export function terminZeile(termin, schule = null) {
   const art = daten.art || 'sonstiges';
   const fach = daten.fach ? fachAusListe(schule, daten.fach) : null;
 
-  // Titel: eigener Text, sonst Art und Fach ("Input Biologie", DESIGN 11).
+  // Titel: Art und Fach ("Input Biologie", DESIGN 11), dahinter der eigene
+  // Titel des Termins, wenn es einen gibt ("Input Biologie: Sektion eines
+  // Fisches", AP-11, Tageskarte). model.termineAm setzt titel aus dem Input
+  // oder aus dem Freitext, bei Coachings bleibt es leer.
   const wort = TERMIN_WORT[art] || TERMIN_WORT.sonstiges;
-  const titel = daten.text || (fach ? wort + ' ' + alsFach(fach).name : wort);
+  const grund = fach ? wort + ' ' + alsFach(fach).name : wort;
+  const eigen = daten.titel || daten.text || '';
+  const titel = !eigen || eigen === grund ? grund : grund + ': ' + eigen;
 
   return el('div', { class: 'termin-zeile' + (art === 'entfall' ? ' termin-zeile--entfall' : '') }, [
     fach ? fachBadge(fach, { groesse: 's' }) : null,

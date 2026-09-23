@@ -13,6 +13,7 @@ import { el, leer } from './ui/components.js';
 // Zeile je Moduldatei. Welche davon wirklich gelten, sagt content/index.json
 // (Feld module) über setzeAktive().
 import './modules/woche.js';
+import './modules/plan.js';
 import './modules/einstellungen.js';
 
 const ONBOARDING_HASH = '#/start';
