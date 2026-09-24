@@ -78,18 +78,25 @@ function heuteAbschnitt(ctx) {
   }
 
   const termine = model.termineAm(jg, schule, heute);
+  // AP-10: Gilt heute kein Coaching-Muster, steht der Hinweis auf die
+  // Lernbegleitung unter den Terminen, auch wenn der Tag sonst leer ist.
+  const heuteISO = toISODate(heute);
+  const ohneMuster = !(jg.coachings || []).some((c) =>
+    (!c.gueltigAb || c.gueltigAb <= heuteISO) && (!c.gueltigBis || heuteISO <= c.gueltigBis));
+  const coachingHinweis = () => el('p', {
+    class: 'text-klein text-neben',
+    text: 'Wann dein Coaching ist, erfährst du von deiner Lernbegleitung.'
+  });
+
   if (termine.length === 0) {
-    return abschnitt('Heute', [
-      el('p', { text: 'Heute stehen keine Inputs oder Coachings im Plan.' })
-    ]);
+    const kinder = [el('p', { text: 'Heute stehen keine Inputs oder Coachings im Plan.' })];
+    if (ohneMuster) kinder.push(coachingHinweis());
+    return abschnitt('Heute', kinder);
   }
 
   const kinder = [el('div', {}, termine.map((termin) => terminZeile(termin, schule)))];
-  if (!termine.some((termin) => termin.art === 'coaching')) {
-    kinder.push(el('p', {
-      class: 'text-klein text-neben',
-      text: 'Wann dein Coaching ist, erfährst du von deiner Lernbegleitung.'
-    }));
+  if (ohneMuster && !termine.some((termin) => termin.art === 'coaching')) {
+    kinder.push(coachingHinweis());
   }
   return abschnitt('Heute', kinder);
 }
@@ -123,16 +130,21 @@ function wocheAbschnitt(ctx) {
 
   const karten = tage.map((tag) => {
     const istHeute = toISODate(tag.datum) === heuteISO;
-    const element = tagKarte({
+    const karte = tagKarte({
       datum: tag.datum,
       termine: tag.termine,
       istHeute,
       sonderwoche: tag.sonderwoche,
       schule
     });
-    element.classList.add('woche-tag-karte');
-    element.tabIndex = 0;
-    element.setAttribute('role', 'button');
+    // Tippbar: ein <article> darf nicht role="button" tragen. Deshalb derselbe
+    // Inhalt in einem div. Der Name kommt aus dem sichtbaren Inhalt (Tag,
+    // Datum, Termine), so wie DESIGN 11 es für VoiceOver beschreibt.
+    const element = el('div', {
+      class: karte.className + ' woche-tag-karte',
+      role: 'button',
+      tabindex: '0'
+    }, [...karte.childNodes]);
     const oeffnen = () => tagDetailZeigen(detailBereich, tag, istHeute, schule);
     element.addEventListener('click', oeffnen);
     element.addEventListener('keydown', (ereignis) => {
@@ -188,12 +200,16 @@ function laeuftAbschnitt(ctx) {
     const baustein = bausteinVon(jg, slot.baustein);
     const titel = (baustein && baustein.titel) || 'Thema folgt';
     const tage = schultageBis(heute, slot.abgabe, schule);
+    // DESIGN 2.2: Status vorlaeufig bekommt Etikett und Hinweistext.
+    const vorlaeufig = slot.status === 'vorlaeufig';
     return karte({
       titel,
       fach,
       zustand: 'laeuft',
       onTap: slot.baustein ? () => navigate('#/baustein/' + slot.baustein) : null,
+      etiketten: vorlaeufig ? [etikett('Vorläufig', 'vorlaeufig')] : [],
       kinder: [
+        vorlaeufig && slot.hinweis ? el('p', { class: 'text-klein', text: slot.hinweis }) : null,
         el('p', { class: 'text-klein', text: 'Abgabe ' + formatDatum(slot.abgabe, 'datum') }),
         countdown({ bis: slot.abgabe, label: 'bis zur Abgabe', schultage: tage }),
         fortschritt({ von: slot.von, bis: slot.bis, heute })

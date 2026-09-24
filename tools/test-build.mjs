@@ -183,7 +183,7 @@ const JG_FEHLER = [
 ];
 
 const INDEX_GUT = {
-  schema: 1, schuljahr: '2026/27', zielgruppe: 'sus', jahrgaenge: [5], module: ['demo']
+  schema: 1, schuljahr: '2026/27', zielgruppe: 'sus', jahrgaenge: [5], module: ['woche']
 };
 
 const ANTRAG_GUT = {
