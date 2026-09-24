@@ -189,6 +189,44 @@ h1:focus {
   gap: var(--s-4);
 }
 
+/* Logo und Name fuehren zur Startseite (Leo, 24.09.2026). */
+.kopfzeile-marke {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: inherit;
+  text-decoration: none;
+}
+
+.kopfzeile-logo {
+  height: 2rem;
+  width: auto;
+}
+
+/* Zwei Logo-Varianten, hell/dunkel wie die Farbtoken oben (Leo, 24.09.2026:
+   das weisse Logo war bisher ein ungenutztes Asset). */
+.kopfzeile-logo--dunkel {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) .kopfzeile-logo--hell {
+    display: none;
+  }
+
+  :root:not([data-farbschema='hell']) .kopfzeile-logo--dunkel {
+    display: block;
+  }
+}
+
+:root[data-farbschema='dunkel'] .kopfzeile-logo--hell {
+  display: none;
+}
+
+:root[data-farbschema='dunkel'] .kopfzeile-logo--dunkel {
+  display: block;
+}
+
 .kopfzeile-titel {
   margin: 0;
   font-size: var(--t-h3-groesse);
@@ -197,7 +235,12 @@ h1:focus {
 
 /* Suchfeld im Kopf (AP-18): auf jeder Seite sichtbar, eigene Zeile unter
    Titel und Status, damit es auf schmalen Geraeten nicht mit ihnen um den
-   Platz konkurriert. */
+   Platz konkurriert. Rechtsbuendig statt linksbuendig (Leo, 24.09.2026). */
+.kopfzeile-suche {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .kopfzeile-suche-feld {
   display: block;
   width: 100%;
@@ -250,6 +293,7 @@ h1:focus {
   gap: var(--s-1);
   min-height: var(--touch);
   padding: var(--s-2) var(--s-1);
+  border: 1px solid transparent;
   border-radius: var(--radius-knopf);
   color: var(--c-navy);
   font-size: var(--t-klein-groesse);
@@ -257,6 +301,13 @@ h1:focus {
   text-align: center;
   text-decoration: none;
   hyphens: auto;
+}
+
+/* Kasten beim Drueberfahren mit der Maus (Leo, 24.09.2026). Der Rahmen ist
+   oben immer schon reserviert (transparent), damit nichts beim Hover
+   springt. */
+.hauptnavigation-link:hover {
+  border-color: var(--c-linie);
 }
 
 .hauptnavigation-link[aria-current="page"] {

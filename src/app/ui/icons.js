@@ -63,9 +63,6 @@ const ICONS = {
 
   suche: [kreis(11, 11, 7), strecke(16, 16, 21, 21)],
 
-  // Drei Punkte fuer den Sammeleintrag "Mehr" in der Navigation.
-  mehr: [punkt(6, 12), punkt(12, 12), punkt(18, 12)],
-
   einstellungen: [
     strecke(3, 7, 13, 7), strecke(17, 7, 21, 7),
     strecke(3, 12, 7, 12), strecke(11, 12, 21, 12),
