@@ -2350,6 +2350,57 @@ button.plan-block {
   background: var(--c-teal-hell);
 }
 
+/* --- PDF, Empfaenger und Versand (AP-15) --- */
+
+.antrag-empfaenger {
+  margin: var(--s-4) 0;
+}
+
+.antrag-empfaenger-titel {
+  margin-bottom: var(--s-1);
+  font-weight: 650;
+}
+
+/* Gross und markierbar: manche Geraete geben die Zwischenablage nicht her. */
+.antrag-adresse {
+  margin-bottom: var(--s-2);
+  overflow-wrap: anywhere;
+  font-size: var(--t-h3-groesse);
+  font-weight: 650;
+  user-select: text;
+}
+
+.antrag-pdf:empty,
+.antrag-senden:empty,
+.antrag-vorlage-meldung:empty {
+  display: none;
+}
+
+.antrag-pdf,
+.antrag-senden {
+  margin-top: var(--s-3);
+}
+
+.antrag-geteilt {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 650;
+}
+
+.antrag-geteilt-haken {
+  display: inline-flex;
+  color: var(--c-teal-dunkel);
+}
+
+.antrag-loeschfrage {
+  margin-top: var(--s-3);
+}
+
+.antrag-vorlagen {
+  margin-top: var(--s-6);
+}
+
 /* Etiketten je Schritt-Status. */
 .etikett--in_arbeit {
   background: var(--c-gold);
