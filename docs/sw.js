@@ -23,12 +23,14 @@
 //   - keine fremden Hosts, es wird nichts nachgeladen und nichts gecacht,
 //     was nicht aus dem eigenen Ordner kommt.
 
-const VERSION = '0.1.0-889d94bd';
+const VERSION = '0.1.0-8dc2a9eb';
 const PRECACHE = [
   "./",
   "./.nojekyll",
   "./app/antrag/engine.js",
   "./app/antrag/felder.js",
+  "./app/antrag/pdf.js",
+  "./app/antrag/share.js",
   "./app/antrag/signature.js",
   "./app/data.js",
   "./app/dates.js",
@@ -76,7 +78,9 @@ const PRECACHE = [
   "./styles/components.css",
   "./styles/print.css",
   "./styles/tokens.css",
-  "./styles/tones.css"
+  "./styles/tones.css",
+  "./vendor/pdf-lib.LICENSE.txt",
+  "./vendor/pdf-lib.min.js"
 ];
 
 // Alle Caches der App beginnen mit diesem Praefix. Nur solche raeumt der

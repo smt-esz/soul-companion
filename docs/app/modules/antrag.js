@@ -23,6 +23,9 @@ import { icon } from '../ui/icons.js';
 import { hakenAnimation } from '../ui/motion.js';
 import * as engine from '../antrag/engine.js';
 import { schrittFelder, schrittVorschau } from '../antrag/felder.js';
+import { dateiname, erzeugeAntragPdf } from '../antrag/pdf.js';
+import { teilePdf } from '../antrag/share.js';
+import { APP_VERSION } from '../version.js';
 
 registerModule({
   id: 'antrag',
@@ -70,7 +73,87 @@ async function renderListe(container, params, ctx) {
   kinder.push(datenschutzHinweis(config));
   kinder.push(offeneAntraege(ctx, config));
   kinder.push(neuerAntragAbschnitt(ctx, config));
+  kinder.push(vorlagenAbschnitt(ctx, config));
   anfuegen(container, kinder);
+}
+
+/**
+ * Leerer Antrag als PDF, zum Ausdrucken oder fuer GoodNotes (AP-15).
+ * Gleiche Teilen-Logik wie der fertige Antrag, nur ohne Inhalt.
+ */
+function vorlagenAbschnitt(ctx, config) {
+  const meldung = el('div', { class: 'antrag-vorlage-meldung' });
+  const stufen = Object.keys(config.stufen || {}).sort();
+
+  const knoepfe = stufen.map((nummer) => vorlagenKnopf(nummer, config, meldung));
+
+  return el('section', { class: 'antrag-vorlagen' }, [
+    el('h2', { text: 'Leerer Antrag' }),
+    el('p', {
+      text: 'Du kannst den Antrag auch leer als PDF holen, zum Ausdrucken oder zum Ausfüllen mit dem Stift.'
+    }),
+    el('div', { class: 'antrag-knopfreihe' }, knoepfe),
+    meldung
+  ]);
+}
+
+/**
+ * Ein Knopf je Stufe, zwei Schritte: erst erstellen, dann senden. Dieselbe
+ * Reihenfolge wie beim fertigen Antrag, weil `navigator.share` eine frische
+ * Nutzeraktion braucht (AP-15, share.js).
+ */
+function vorlagenKnopf(zielstufe, config, meldung) {
+  const stufe = config.stufen[zielstufe];
+  const beschriftung = 'Leeren Antrag Stufe ' + zielstufe
+    + (stufe && stufe.zielname ? ' (' + stufe.zielname + ')' : '') + ' als PDF';
+  let bytes = null;
+
+  const taste = knopf({
+    text: beschriftung,
+    icon: 'antrag',
+    art: 'neben',
+    onTap: () => (bytes ? senden() : erstellen())
+  });
+
+  async function erstellen() {
+    taste.disabled = true;
+    leer(meldung);
+    try {
+      bytes = await erzeugeAntragPdf({
+        antrag: { zielstufe },
+        config,
+        jgst: null,
+        leer: true,
+        appVersion: APP_VERSION
+      });
+    } catch (fehler) {
+      taste.disabled = false;
+      meldung.append(hinweis({ art: 'warnung', text: 'Das PDF konnte nicht erstellt werden.' }));
+      return;
+    }
+    taste.disabled = false;
+    taste.querySelector('span').textContent = 'Stufe ' + zielstufe + ': senden (Mail, GoodNotes, ...)';
+    meldung.append(hinweis({ art: 'erfolg', text: 'PDF ist fertig.' }));
+  }
+
+  async function senden() {
+    const name = dateiname({ antrag: { zielstufe }, leer: true });
+    const ergebnis = await teilePdf(bytes, name, {
+      titel: name,
+      text: 'Leerer Antrag auf Stufe ' + zielstufe + '.'
+    });
+    if (ergebnis === 'abgebrochen') return;
+    leer(meldung);
+    if (ergebnis === 'rueckfall') {
+      meldung.append(hinweis({ art: 'info', text: 'Tippe im PDF auf Teilen und wähle Mail.' }));
+      return;
+    }
+    if (ergebnis === 'fehler') {
+      meldung.append(hinweis({ art: 'warnung', text: 'Das Senden hat nicht geklappt. Versuche es noch einmal.' }));
+    }
+  }
+
+  return taste;
 }
 
 /**
@@ -261,7 +344,7 @@ function zeichneAntrag(container, ctx, config, animiereSchritt) {
     el('ol', { class: 'antrag-schritte' }, schritte.map(
       (schritt) => schrittKarte(schritt, ctx, config, container)
     )),
-    abschlussAbschnitt(antrag, config),
+    abschlussAbschnitt(antrag, config, ctx, container),
     loeschAbschnitt(antrag, ctx),
     zurueckZeile(ctx.navigate)
   ];
@@ -432,29 +515,190 @@ function zuruecksetzenKnopf(schritt, ctx, config, container) {
   return bereich;
 }
 
-/** Nach Schritt 4: PDF und Versand. Die Funktion selbst kommt mit AP-15. */
-function abschlussAbschnitt(antrag, config) {
+/**
+ * Nach Schritt 4: Hinweis, Empfaenger, PDF erstellen, senden (AP-15).
+ *
+ * Zwei Knoepfe, nicht einer: `navigator.share` braucht eine frische
+ * Nutzeraktion. Das Erzeugen des PDF dauert einen Moment, deshalb entsteht es
+ * mit Knopf 1, und Knopf 2 teilt sofort (AP-15, `antrag/share.js`).
+ */
+function abschlussAbschnitt(antrag, config, ctx, container) {
   if (!engine.bereitFuerPdf(antrag, config)) return null;
-  const bereich = el('div');
+
+  const pdfBereich = el('div', { class: 'antrag-pdf' });
+  const sendeBereich = el('div', { class: 'antrag-senden' });
+  let bytes = null;
+  let name = '';
+
+  const sendeKnopf = knopf({
+    text: 'Senden (Mail, GoodNotes, ...)',
+    icon: 'teilen',
+    art: 'haupt',
+    onTap: () => senden()
+  });
+
+  const erstelleKnopf = knopf({
+    text: 'PDF erstellen',
+    icon: 'antrag',
+    art: 'haupt',
+    onTap: () => erstellen()
+  });
+
+  async function erstellen() {
+    erstelleKnopf.disabled = true;
+    leer(pdfBereich);
+    pdfBereich.append(hinweis({ art: 'info', text: 'Dein PDF wird erstellt.' }));
+    try {
+      bytes = await erzeugeAntragPdf({
+        antrag: arbeitsKopie,
+        config,
+        jgst: jahrgang(ctx),
+        leer: false,
+        appVersion: APP_VERSION
+      });
+      name = dateiname({ antrag: arbeitsKopie, jgst: jahrgang(ctx) });
+    } catch (fehler) {
+      erstelleKnopf.disabled = false;
+      leer(pdfBereich);
+      pdfBereich.append(hinweis({
+        art: 'warnung',
+        text: 'Das PDF konnte nicht erstellt werden. Sage es deiner Lernbegleitung.'
+      }));
+      return;
+    }
+
+    arbeitsKopie = Object.assign({}, arbeitsKopie, { pdfErzeugt: toISODate(ctx.heute) });
+    sofortSpeichern(ctx);
+    erstelleKnopf.disabled = false;
+
+    leer(pdfBereich);
+    pdfBereich.append(hinweis({ art: 'erfolg', text: 'PDF ist fertig.' }));
+    leer(sendeBereich);
+    sendeBereich.append(el('p', {}, [sendeKnopf]));
+  }
+
+  async function senden() {
+    const ergebnis = await teilePdf(bytes, name, {
+      titel: name,
+      text: 'Mein Antrag auf Stufe ' + arbeitsKopie.zielstufe + '.'
+    });
+
+    if (ergebnis === 'abgebrochen') {
+      // Bewusst abgebrochen, das ist kein Fehler (AP-00). Der Knopf bleibt.
+      return;
+    }
+    if (ergebnis === 'rueckfall') {
+      leer(pdfBereich);
+      pdfBereich.append(hinweis({ art: 'info', text: 'Tippe im PDF auf Teilen und wähle Mail.' }));
+      geschafft();
+      return;
+    }
+    if (ergebnis === 'fehler') {
+      leer(pdfBereich);
+      pdfBereich.append(hinweis({
+        art: 'warnung',
+        text: 'Das Senden hat nicht geklappt. Versuche es noch einmal oder sage es deiner Lernbegleitung.'
+      }));
+      return;
+    }
+    geschafft();
+  }
+
+  /** Vermerken, Haken zeigen, Loeschen anbieten (AP-15). */
+  function geschafft() {
+    arbeitsKopie = Object.assign({}, arbeitsKopie, { geteilt: toISODate(ctx.heute) });
+    sofortSpeichern(ctx);
+
+    leer(sendeBereich);
+    const marke = el('span', { class: 'antrag-geteilt-haken' }, [icon('haken', { groesse: 32, label: 'verschickt' })]);
+    sendeBereich.append(
+      el('p', { class: 'antrag-geteilt' }, [marke, el('span', { text: 'Verschickt.' })]),
+      loeschFrage()
+    );
+    hakenAnimation(marke);
+  }
+
+  function loeschFrage() {
+    const frage = el('div', { class: 'antrag-loeschfrage' });
+    frage.append(
+      el('p', { text: 'Antrag auf diesem iPad löschen? Du hast ihn verschickt.' }),
+      el('div', { class: 'antrag-knopfreihe' }, [
+        knopf({
+          text: 'Ja, löschen',
+          art: 'haupt',
+          onTap: () => {
+            abbrechenSpeichern();
+            ctx.store.antraege.remove(arbeitsKopie.id);
+            arbeitsKopie = null;
+            ctx.navigate('#/antrag');
+          }
+        }),
+        knopf({
+          text: 'Später',
+          art: 'neben',
+          onTap: () => {
+            leer(frage);
+            frage.append(el('p', { class: 'text-klein text-neben', text: 'Gut, der Antrag bleibt hier stehen.' }));
+          }
+        })
+      ])
+    );
+    return frage;
+  }
+
   return el('section', { class: 'antrag-abschluss' }, [
     el('h2', { text: 'Fertig ausgefüllt' }),
+    el('p', {
+      text: 'Dein Antrag geht an deine Klassenleitung. Er enthält deinen Namen, deine Begründung, '
+        + 'die Namen und Unterschriften aus dem Team-Check und die Empfehlung deiner Lernbegleitung.'
+    }),
     el('p', { text: String((config && config.hinweisVersand) || '') }),
-    el('p', {}, [
-      knopf({
-        text: 'PDF erstellen und senden',
-        icon: 'teilen',
-        art: 'haupt',
-        onTap: () => {
-          leer(bereich);
-          bereich.append(hinweis({
-            art: 'info',
-            text: 'Das PDF und das Senden kommen in AP-15. Bis dahin bleibt dein Antrag hier gespeichert.'
-          }));
-        }
-      })
-    ]),
-    bereich
+    empfaengerAbschnitt(antrag, config, ctx),
+    el('p', {}, [erstelleKnopf]),
+    pdfBereich,
+    sendeBereich
   ]);
+}
+
+/** Adresse der Klassenleitung gross, mit Knopf zum Kopieren (AP-15). */
+function empfaengerAbschnitt(antrag, config, ctx) {
+  const jgst = jahrgang(ctx);
+  const klasse = String((antrag.kopf && antrag.kopf.klasse) || '');
+  const nachJahrgang = (config && config.empfaenger && config.empfaenger[String(jgst)]) || {};
+  const adresse = String(nachJahrgang[klasse] || '').trim();
+
+  if (!adresse) {
+    return el('div', { class: 'antrag-empfaenger' }, [
+      el('p', { class: 'antrag-empfaenger-titel', text: 'Empfänger' }),
+      hinweis({ art: 'info', text: 'Frag deine Klassenleitung nach ihrer Mail-Adresse.' })
+    ]);
+  }
+
+  const rueckmeldung = el('p', { class: 'text-klein text-neben', role: 'status' });
+  return el('div', { class: 'antrag-empfaenger' }, [
+    el('p', { class: 'antrag-empfaenger-titel', text: 'Empfänger' }),
+    // Markierbar, damit auch ohne Zwischenablage kopiert werden kann.
+    el('p', { class: 'antrag-adresse', text: adresse }),
+    knopf({
+      text: 'Adresse kopieren',
+      icon: 'teilen',
+      art: 'neben',
+      onTap: async () => {
+        leer(rueckmeldung);
+        try {
+          await navigator.clipboard.writeText(adresse);
+          rueckmeldung.textContent = 'Kopiert.';
+        } catch (fehler) {
+          rueckmeldung.textContent = 'Das Kopieren geht hier nicht. Markiere die Adresse von Hand.';
+        }
+      }
+    }),
+    rueckmeldung
+  ]);
+}
+
+function jahrgang(ctx) {
+  return ctx && ctx.jg && ctx.jg.jgst !== undefined ? ctx.jg.jgst : null;
 }
 
 function loeschAbschnitt(antrag, ctx) {
