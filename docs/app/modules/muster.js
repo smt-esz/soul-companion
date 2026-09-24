@@ -300,7 +300,7 @@ function abschnittWoche(faecher, jetzt, schule) {
 function abschnittTermine(schule) {
   const fachId = Array.isArray(schule.faecher) && schule.faecher[0] ? schule.faecher[0].id : 'bio';
   return block('Terminzeilen', [
-    terminZeile({ art: 'input', fach: fachId, kuerzel: 'TEST', klasse: 'A', station: 9, pflicht: true }, schule),
+    terminZeile({ art: 'input', fach: fachId, kuerzel: 'TEST', klasse: 'A', station: 9, pflicht: true }, schule, 5),
     terminZeile({ art: 'coaching', kuerzel: 'TEST' }, schule),
     terminZeile({ art: 'sonstiges', text: 'Beispieltermin ohne Fach' }, schule),
     terminZeile({ art: 'entfall', text: 'Beispiel: fällt aus' }, schule)

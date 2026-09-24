@@ -6,7 +6,7 @@
       "titel": "Ich komme nicht weiter",
       "bereich": "hilfe",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 10,
       "stichworte": [
         "Helferkette",
@@ -26,17 +26,18 @@
       "titel": "So läuft eine SOUL-Stunde",
       "bereich": "ablauf",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 10,
       "stichworte": [
         "SOUL-Zeit",
         "Ankommen",
         "Arbeiten",
         "Aufhören",
+        "Frühstückspause",
         "Tagesablauf"
       ],
-      "quelle": "SOUL Onboarding_Stand 01_2026.pdf, Kapitel 7.1; SOUL_Wissensbasis.md, Abschnitte Organisation und Helferkette",
-      "html": "<p>Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören.</p>\n<h2 id=\"ankommen\">Ankommen</h2>\n<p>Du holst dir einen Laptop oder dein iPad und trägst in lernlog dein Tagesziel ein: Fach, Baustein und die Stationen, die du bearbeiten willst. Brauchst du das Gerät für die erste Station nicht, bringst du es zurück. Dann nimmst du dir deine Materialien, wählst deinen Arbeitsplatz je nach deiner Stufe und ziehst dein Lanyard an.</p>\n<h2 id=\"arbeiten\">Arbeiten</h2>\n<p>In dieser Zeit arbeitest du an deinen Bausteinen. Auch Inputs und Coachings finden jetzt statt. Kommst du bei einer Aufgabe nicht weiter, nutze die <a href=\"#/wissen/helferkette\">Helferkette</a>. Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du mit Sofatutor weiterüben, Zusatzaufgaben machen oder dir etwas aus der Belohnungskiste nehmen.</p>\n<h2 id=\"aufhoeren\">Aufhören</h2>\n<p>Am Ende holst du dir wieder ein Gerät und loggst dich in lernlog aus. Dabei reflektierst du, ob du dein Ziel erreicht hast, und trägst die bearbeiteten Stationen in deinen Lernpfad ein. Dann räumst du deinen Arbeitsplatz auf und bringst die Materialien zurück ins Materialregal.</p>",
+      "quelle": "SOUL Onboarding_Stand 01_2026.pdf, Kapitel 7.1; SOUL_Wissensbasis.md, Abschnitte Organisation und Helferkette; Leo, 24.09.2026 (Frühstückspause gilt für alle Jahrgänge)",
+      "html": "<p>Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören, Frühstückspause.</p>\n<h2 id=\"ankommen\">Ankommen</h2>\n<p>Du holst dir einen Laptop oder dein iPad und trägst in lernlog dein Tagesziel ein: Fach, Baustein und die Stationen, die du bearbeiten willst. Brauchst du das Gerät für die erste Station nicht, bringst du es zurück. Dann nimmst du dir deine Materialien, wählst deinen Arbeitsplatz je nach deiner Stufe und ziehst dein Lanyard an.</p>\n<h2 id=\"arbeiten\">Arbeiten</h2>\n<p>In dieser Zeit arbeitest du an deinen Bausteinen. Auch Inputs und Coachings finden jetzt statt. Kommst du bei einer Aufgabe nicht weiter, nutze die <a href=\"#/wissen/helferkette\">Helferkette</a>. Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du mit Sofatutor weiterüben, Zusatzaufgaben machen oder dir etwas aus der Belohnungskiste nehmen.</p>\n<h2 id=\"aufhoeren\">Aufhören</h2>\n<p>Am Ende holst du dir wieder ein Gerät und loggst dich in lernlog aus. Dabei reflektierst du, ob du dein Ziel erreicht hast, und trägst die bearbeiteten Stationen in deinen Lernpfad ein. Dann räumst du deinen Arbeitsplatz auf und bringst die Materialien zurück ins Materialregal.</p>\n<h2 id=\"fruehstueckspause\">Frühstückspause</h2>\n<p>Nach der SOUL-Zeit habt ihr gemeinsam Frühstückspause. Ihr teilt euer Frühstück mit einer Partnerin oder einem Partner, die Paare werden zufällig ausgelost. Die Lernbegleitung gibt euch ein Gesprächsthema. Danach geht ihr in die Hofpause.</p>",
       "abschnitte": [
         {
           "titel": "Ankommen",
@@ -49,6 +50,10 @@
         {
           "titel": "Aufhören",
           "anker": "aufhoeren"
+        },
+        {
+          "titel": "Frühstückspause",
+          "anker": "fruehstueckspause"
         }
       ]
     },
@@ -57,7 +62,7 @@
       "titel": "Was ist SOUL?",
       "bereich": "soul",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 15,
       "stichworte": [
         "SOUL",
@@ -91,7 +96,7 @@
       "titel": "App oder lernlog?",
       "bereich": "soul",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 20,
       "stichworte": [
         "App",
@@ -108,7 +113,7 @@
       "titel": "So läuft ein Bausteinzeitraum",
       "bereich": "ablauf",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 20,
       "stichworte": [
         "Bausteinzeitraum",
@@ -148,7 +153,7 @@
       "titel": "So bereitest du dein Coaching vor",
       "bereich": "ablauf",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 30,
       "stichworte": [
         "Coaching",
@@ -198,7 +203,7 @@
       "titel": "Regeln in SOUL",
       "bereich": "stufen",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 40,
       "stichworte": [
         "Regeln",
@@ -237,7 +242,7 @@
       "titel": "Rund um die Stufen",
       "bereich": "stufen",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 41,
       "stichworte": [
         "Stufen",
@@ -255,7 +260,7 @@
       "titel": "Stufe 1: Wurzel",
       "bereich": "stufen",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 42,
       "stichworte": [
         "Wurzel",
@@ -290,7 +295,7 @@
       "titel": "Stufe 2: Stamm",
       "bereich": "stufen",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 43,
       "stichworte": [
         "Stamm",
@@ -325,7 +330,7 @@
       "titel": "Stufe 3: Krone",
       "bereich": "stufen",
       "jahrgaenge": "alle",
-      "status": "entwurf",
+      "status": "freigegeben",
       "reihenfolge": 44,
       "stichworte": [
         "Krone",
@@ -348,41 +353,6 @@
         {
           "titel": "Wahl der Lernorte",
           "anker": "wahl-der-lernorte"
-        }
-      ]
-    },
-    {
-      "id": "ueber-die-app",
-      "titel": "Über die App",
-      "bereich": "soul",
-      "jahrgaenge": "alle",
-      "status": "entwurf",
-      "reihenfolge": 90,
-      "stichworte": [
-        "App",
-        "Daten",
-        "Datenschutz",
-        "GitHub",
-        "Antrag"
-      ],
-      "quelle": "PLANUNG/DATENSCHUTZ.md, Abschnitte 1.1, 1.2 und 6; SOUL_Wissensbasis.md, Abschnitt SOUL Companion",
-      "html": "<p>Dieser Text wird noch von der Datenschutzstelle geprüft.</p>\n<h2 id=\"was-die-app-macht\">Was die App macht</h2>\n<p>Der SOUL Companion zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du auch nichts. Das machst du in lernlog.</p>\n<h2 id=\"was-auf-deinem-ipad-gespeichert-wird\">Was auf deinem iPad gespeichert wird</h2>\n<p>Die App speichert deinen Jahrgang und die App-Version, die du zuletzt gesehen hast. Dazu kommen deine offenen Anträge mit deinem Namen, deiner Klasse, deiner Begründung, den Namen und Klassen von zwei Mitlernenden, dem Kürzel der Lernbegleitung, den angekreuzten Kriterien, den gezeichneten Unterschriften und den Datumsangaben.</p>\n<p>Alles davon bleibt auf deinem iPad. Die App speichert nicht, was du in ihr anschaust, wo du bist, welches Gerät du hast, wie gut du arbeitest, welche Noten du hast oder in welcher Stufe du bist.</p>\n<h2 id=\"was-das-ipad-verlaesst\">Was das iPad verlässt</h2>\n<p>Die App wird von GitHub geladen. GitHub ist die Firma, auf deren Servern die App liegt. Beim Laden und beim Aktualisieren bekommt GitHub die IP-Adresse deines iPads, also die Nummer, unter der dein Gerät gerade im Internet erreichbar ist. GitHub speichert sie aus Sicherheitsgründen. Inhalte aus der App schickt die App selbst nirgendwohin.</p>\n<p>Wenn du einen Antrag auf Stufenaufstieg fertig hast, verschickst du ihn als PDF per Mail an deine Klassenleitung. In dem PDF stehen alle Angaben aus deinem Antrag.</p>\n<h2 id=\"wenn-du-fragen-hast\">Wenn du Fragen hast</h2>\n<p>Fragen an deine Klassenleitung.</p>",
-      "abschnitte": [
-        {
-          "titel": "Was die App macht",
-          "anker": "was-die-app-macht"
-        },
-        {
-          "titel": "Was auf deinem iPad gespeichert wird",
-          "anker": "was-auf-deinem-ipad-gespeichert-wird"
-        },
-        {
-          "titel": "Was das iPad verlässt",
-          "anker": "was-das-ipad-verlaesst"
-        },
-        {
-          "titel": "Wenn du Fragen hast",
-          "anker": "wenn-du-fragen-hast"
         }
       ]
     }
@@ -487,6 +457,18 @@
       "frage": "Was ist der Unterschied zwischen einer Pflichtstation und einer Wahlstation?",
       "html": "<p>Eine Pflichtstation machst du auf jeden Fall. Eine Wahlstation darfst du machen, musst aber nicht. Auf der Bausteinübersicht siehst du, welche Stationen Pflicht und welche Wahl sind.</p>",
       "text": "Eine Pflichtstation machst du auf jeden Fall. Eine Wahlstation darfst du machen, musst aber nicht. Auf der Bausteinübersicht siehst du, welche Stationen Pflicht und welche Wahl sind."
+    },
+    {
+      "id": "wie-lange-dauert-eine-soul-stunde",
+      "frage": "Wie lange dauert eine SOUL-Stunde?",
+      "html": "<p>Die SOUL-Zeit ist jeden Tag der erste Block, insgesamt zehn Stunden in der Woche.</p>",
+      "text": "Die SOUL-Zeit ist jeden Tag der erste Block, insgesamt zehn Stunden in der Woche."
+    },
+    {
+      "id": "warum-gibt-es-biologie-und-geografie-nur-in-soul",
+      "frage": "Warum gibt es Biologie und Geografie nur in SOUL?",
+      "html": "<p>In Biologie und Geografie findet der Unterricht ausschließlich in der SOUL-Zeit statt, dafür gibt es keinen zusätzlichen Fachunterricht. Deutsch, Mathematik und Englisch laufen dagegen sowohl in SOUL als auch im normalen Unterricht.</p>",
+      "text": "In Biologie und Geografie findet der Unterricht ausschließlich in der SOUL-Zeit statt, dafür gibt es keinen zusätzlichen Fachunterricht. Deutsch, Mathematik und Englisch laufen dagegen sowohl in SOUL als auch im normalen Unterricht."
     },
     {
       "id": "was-mache-ich-wenn-ich-alle-stationen-fertig-habe",

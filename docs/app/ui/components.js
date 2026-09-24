@@ -201,9 +201,10 @@ export function karte(optionen = {}) {
  *   istHeute     markiert den Tag in Gold
  *   sonderwoche  { titel } aus jg.sonderwochen, optional
  *   schule       nötig, wenn termine Objekte sind
+ *   jgst         Jahrgang des Geräts, für "nur 5A" statt "nur Klasse A"
  */
 export function tagKarte(optionen = {}) {
-  const { datum, termine = [], istHeute = false, sonderwoche = null, schule = null } = optionen;
+  const { datum, termine = [], istHeute = false, sonderwoche = null, schule = null, jgst = null } = optionen;
   const tag = alsDatum(datum);
 
   const klassen = ['tag-karte'];
@@ -211,7 +212,7 @@ export function tagKarte(optionen = {}) {
   if (termine.length === 0) klassen.push('tag-karte--leer');
 
   const eintraege = termine.map((eintrag) => el('li', {}, [
-    eintrag instanceof Node ? eintrag : terminZeile(eintrag, schule)
+    eintrag instanceof Node ? eintrag : terminZeile(eintrag, schule, jgst)
   ]));
 
   return el('article', {
@@ -243,8 +244,10 @@ const TERMIN_WORT = {
  * Eine Zeile für Input, Coaching, Sonstiges oder Entfall.
  * @param {object} termin  Eintrag aus jg.termine oder aus dem Coaching-Muster
  * @param {object} schule  data/schule.json (für Fachname und Kürzel)
+ * @param {number} [jgst]  Jahrgang des Geräts. Mit Angabe steht "nur 5A"
+ *   statt "nur Klasse A" (AP-10/11, DESIGN 11; Leo, 24.09.2026).
  */
-export function terminZeile(termin, schule = null) {
+export function terminZeile(termin, schule = null, jgst = null) {
   const daten = termin || {};
   const art = daten.art || 'sonstiges';
   const fach = daten.fach ? fachAusListe(schule, daten.fach) : null;
@@ -262,7 +265,9 @@ export function terminZeile(termin, schule = null) {
     fach ? fachBadge(fach, { groesse: 's' }) : null,
     el('span', { class: 'termin-titel', text: titel }),
     daten.kuerzel ? el('span', { class: 'termin-kuerzel', text: daten.kuerzel }) : null,
-    daten.klasse ? el('span', { class: 'termin-klasse', text: 'nur Klasse ' + daten.klasse }) : null,
+    daten.klasse
+      ? el('span', { class: 'termin-klasse', text: 'nur ' + (jgst ? jgst + daten.klasse : 'Klasse ' + daten.klasse) })
+      : null,
     daten.station ? el('span', { class: 'termin-station', text: 'Station ' + daten.station }) : null,
     daten.pflicht ? etikett('Pflicht', 'pflicht') : null
   ]);

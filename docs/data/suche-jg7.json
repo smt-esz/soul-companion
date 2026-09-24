@@ -195,14 +195,14 @@
       "id": "wissen:soul-stunde",
       "typ": "wissen",
       "titel": "So läuft eine SOUL-Stunde",
-      "text": "Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören. Du holst dir einen Laptop oder dein iPad und trägst in lernlog dein Tagesziel ein: Fach, Baustein und die Stationen, die du bearbeiten willst. Brauchst du das Gerät für die erste Station nicht, bringst du es zurück....",
+      "text": "Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören, Frühstückspause. Du holst dir einen Laptop oder dein iPad und trägst in lernlog dein Tagesziel ein: Fach, Baustein und die Stationen, die du bearbeiten willst. Brauchst du das Gerät für die erste Station nicht, brin...",
       "route": "#/wissen/soul-stunde"
     },
     {
       "id": "abschnitt:soul-stunde:0",
       "typ": "abschnitt",
       "titel": "So läuft eine SOUL-Stunde",
-      "text": "Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören.",
+      "text": "Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören, Frühstückspause.",
       "route": "#/wissen/soul-stunde"
     },
     {
@@ -224,6 +224,13 @@
       "typ": "abschnitt",
       "titel": "So läuft eine SOUL-Stunde",
       "text": "Am Ende holst du dir wieder ein Gerät und loggst dich in lernlog aus. Dabei reflektierst du, ob du dein Ziel erreicht hast, und trägst die bearbeiteten Stationen in deinen Lernpfad ein. Dann räumst du deinen Arbeitsplatz auf und bringst die Materialien zurück ins Materialregal.",
+      "route": "#/wissen/soul-stunde"
+    },
+    {
+      "id": "abschnitt:soul-stunde:4",
+      "typ": "abschnitt",
+      "titel": "So läuft eine SOUL-Stunde",
+      "text": "Nach der SOUL-Zeit habt ihr gemeinsam Frühstückspause. Ihr teilt euer Frühstück mit einer Partnerin oder einem Partner, die Paare werden zufällig ausgelost. Die Lernbegleitung gibt euch ein Gesprächsthema. Danach geht ihr in die Hofpause.",
       "route": "#/wissen/soul-stunde"
     },
     {
@@ -570,62 +577,6 @@
       "route": "#/wissen/stufe-3"
     },
     {
-      "id": "wissen:ueber-die-app",
-      "typ": "wissen",
-      "titel": "Über die App",
-      "text": "Dieser Text wird noch von der Datenschutzstelle geprüft. Der SOUL Companion zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du au...",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
-      "id": "abschnitt:ueber-die-app:0",
-      "typ": "abschnitt",
-      "titel": "Über die App",
-      "text": "Dieser Text wird noch von der Datenschutzstelle geprüft.",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
-      "id": "abschnitt:ueber-die-app:1",
-      "typ": "abschnitt",
-      "titel": "Über die App",
-      "text": "Der SOUL Companion zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du auch nichts. Das machst du in lernlog.",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
-      "id": "abschnitt:ueber-die-app:2",
-      "typ": "abschnitt",
-      "titel": "Über die App",
-      "text": "Die App speichert deinen Jahrgang und die App-Version, die du zuletzt gesehen hast. Dazu kommen deine offenen Anträge mit deinem Namen, deiner Klasse, deiner Begründung, den Namen und Klassen von zwei Mitlernenden, dem Kürzel der Lernbegleitung, den angekreuzten Kriterien, den gezeichneten Unters...",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
-      "id": "abschnitt:ueber-die-app:3",
-      "typ": "abschnitt",
-      "titel": "Über die App",
-      "text": "Alles davon bleibt auf deinem iPad. Die App speichert nicht, was du in ihr anschaust, wo du bist, welches Gerät du hast, wie gut du arbeitest, welche Noten du hast oder in welcher Stufe du bist.",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
-      "id": "abschnitt:ueber-die-app:4",
-      "typ": "abschnitt",
-      "titel": "Über die App",
-      "text": "Die App wird von GitHub geladen. GitHub ist die Firma, auf deren Servern die App liegt. Beim Laden und beim Aktualisieren bekommt GitHub die IP-Adresse deines iPads, also die Nummer, unter der dein Gerät gerade im Internet erreichbar ist. GitHub speichert sie aus Sicherheitsgründen. Inhalte aus d...",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
-      "id": "abschnitt:ueber-die-app:5",
-      "typ": "abschnitt",
-      "titel": "Über die App",
-      "text": "Wenn du einen Antrag auf Stufenaufstieg fertig hast, verschickst du ihn als PDF per Mail an deine Klassenleitung. In dem PDF stehen alle Angaben aus deinem Antrag.",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
-      "id": "abschnitt:ueber-die-app:6",
-      "typ": "abschnitt",
-      "titel": "Über die App",
-      "text": "Fragen an deine Klassenleitung.",
-      "route": "#/wissen/ueber-die-app"
-    },
-    {
       "id": "glossar:Bausteinzeitraum",
       "typ": "glossar",
       "titel": "Bausteinzeitraum",
@@ -784,6 +735,20 @@
       "typ": "faq",
       "titel": "Was ist der Unterschied zwischen einer Pflichtstation und einer Wahlstation?",
       "text": "Eine Pflichtstation machst du auf jeden Fall. Eine Wahlstation darfst du machen, musst aber nicht. Auf der Bausteinübersicht siehst du, welche Stationen Pflicht und welche Wahl sind.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:wie-lange-dauert-eine-soul-stunde",
+      "typ": "faq",
+      "titel": "Wie lange dauert eine SOUL-Stunde?",
+      "text": "Die SOUL-Zeit ist jeden Tag der erste Block, insgesamt zehn Stunden in der Woche.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:warum-gibt-es-biologie-und-geografie-nur-in-soul",
+      "typ": "faq",
+      "titel": "Warum gibt es Biologie und Geografie nur in SOUL?",
+      "text": "In Biologie und Geografie findet der Unterricht ausschließlich in der SOUL-Zeit statt, dafür gibt es keinen zusätzlichen Fachunterricht. Deutsch, Mathematik und Englisch laufen dagegen sowohl in SOUL als auch im normalen Unterricht.",
       "route": "#/wissen/faq"
     },
     {
