@@ -32,7 +32,9 @@ export function terminLabel(termin, jgst, schule) {
   if (termin.kuerzel) teile.push(termin.kuerzel);
   if (termin.text) teile.push(termin.text);
   const beschreibung = teile.join(' ');
-  return datumDeutsch(termin.datum) + ' – ' + beschreibung + ' [jg' + jgst + '-z' + termin.__zeile + ']';
+  // Jahrgang gut lesbar im Text, nicht nur im Maschinen-Code am Ende
+  // (Leo, 24.09.2026: sonst nicht auf einen Blick erkennbar).
+  return datumDeutsch(termin.datum) + ' – Jg ' + jgst + ' – ' + beschreibung + ' [jg' + jgst + '-z' + termin.__zeile + ']';
 }
 
 /** Liest Jahrgang und Zeile aus einer Beschriftung. null, wenn es nicht passt. */
