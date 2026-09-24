@@ -25,8 +25,9 @@
 // sind Rand, Schriftgroessen und Abstaende enger als im AP vorgesehen, und
 // Datum und Kuerzel stehen neben der Unterschrift statt darueber.
 // Der Seitenumbruch bleibt trotzdem eingebaut: eine Begruendung ueber rund
-// 900 Zeichen laeuft auf eine zweite Seite, ohne einen Abschnitt zu zerreissen.
-// Abgeschnitten wird nie etwas.
+// 900 Zeichen laeuft auf eine zweite Seite. Jeder Abschnitt, der auf eine
+// Seite passt, wird dabei vorher ganz vermessen und bleibt zusammen (siehe
+// `abschnitt`). Abgeschnitten wird nie etwas.
 
 import { formatDatum, heute, parseISODate, toISODate } from '../dates.js';
 import { automatischeAussagen, schritteVon, stufeVon } from './engine.js';
@@ -230,7 +231,7 @@ function holePdfLib() {
 // ---------------------------------------------------------------- Kopf
 
 async function kopf(bogen, { antrag, stufe, jgst, leer, doc }) {
-  const logoBreite = await logo(bogen, { doc });
+  const { breite: logoBreite, hoehe: logoHoehe } = await logo(bogen, { doc });
   const titelBreite = INHALT_BREITE - (logoBreite > 0 ? logoBreite + 6 * MM : 0);
 
   const titel = sichereZeichen(stufe.titel || '');
@@ -244,21 +245,25 @@ async function kopf(bogen, { antrag, stufe, jgst, leer, doc }) {
     });
   }
 
-  bogen.y = Math.max(bogen.y, RAND + LOGO_BREITE * 0.63) + 3 * MM;
+  // Hoehe aus dem echten Bild, damit ein anderes Logo nicht in die Zeile laeuft.
+  bogen.y = Math.max(bogen.y, RAND + logoHoehe) + 3 * MM;
   kopfzeile(bogen, { antrag, jgst, leer });
   bogen.y += 2.5 * MM;
 }
 
-/** Name, Klasse und Datum in einer Zeile, wie auf dem Papier. */
+/**
+ * Name und Klasse in einer Zeile. Das Papier hat hier auch ein Datum; Leo hat
+ * am 24.09.2026 entschieden, dass es oben nicht noetig ist: massgeblich ist das
+ * Datum neben der Unterschrift der Lernenden in Abschnitt 4 (Gegenpruefung
+ * AP-15, Punkt 7). Der Tag der PDF-Erzeugung steht in der Fusszeile.
+ */
 function kopfzeile(bogen, { antrag, jgst, leer }) {
   const kopfDaten = (antrag && antrag.kopf) || {};
-  const klasse = leer ? '' : String(jgst === undefined || jgst === null ? '' : jgst) + String(kopfDaten.klasse || '');
-  const datum = leer ? '' : datumText(antrag && antrag.erstellt);
+  const klasse = leer ? '' : klassenText(antrag, jgst);
 
   const spalten = [
-    { beschriftung: 'Name:', wert: leer ? '' : String(kopfDaten.name || ''), anteil: 0.5 },
-    { beschriftung: 'Klasse:', wert: klasse, anteil: 0.22 },
-    { beschriftung: 'Datum:', wert: datum, anteil: 0.28 }
+    { beschriftung: 'Name:', wert: leer ? '' : String(kopfDaten.name || ''), anteil: 0.72 },
+    { beschriftung: 'Klasse:', wert: klasse, anteil: 0.28 }
   ];
 
   const oben = bogen.y;
@@ -279,10 +284,14 @@ function kopfzeile(bogen, { antrag, jgst, leer }) {
   bogen.y = oben + S_KOPF * ZEILE + 1 * MM;
 }
 
-/** SOUL-Logo klein rechts oben. Fehlt es, bleibt der Platz frei. */
+/**
+ * SOUL-Logo klein rechts oben. Fehlt es, bleibt der Platz frei.
+ * @returns {Promise<{breite: number, hoehe: number}>} gesetzte Groesse, 0 ohne Logo
+ */
 async function logo(bogen, { doc }) {
+  const ohne = { breite: 0, hoehe: 0 };
   const bytes = await holeLogoBytes();
-  if (!bytes) return 0;
+  if (!bytes) return ohne;
   try {
     const bild = await doc.embedPng(bytes);
     const breite = LOGO_BREITE;
@@ -293,10 +302,10 @@ async function logo(bogen, { doc }) {
       width: breite,
       height: hoehe
     });
-    return breite;
+    return { breite, hoehe };
   } catch (fehler) {
     // Ohne Logo ist der Antrag genauso gueltig.
-    return 0;
+    return ohne;
   }
 }
 
@@ -315,11 +324,16 @@ async function holeLogoBytes() {
 
 function abschnitt(bogen, { schritt, antrag, leer }) {
   const daten = leer ? {} : schrittDaten(antrag, schritt.id);
-  const koerperHoehe = koerperSchaetzung(bogen, { schritt, daten, leer });
+  const kopfMass = kopfLayout(bogen, schritt);
+  const koerper = koerperHoehe(bogen, { schritt, daten, antrag, leer });
 
-  // Kopf und erste Zeilen des Koerpers sollen zusammenbleiben.
-  brauchePlatz(bogen, S_ABSCHNITT * ZEILE + Math.min(koerperHoehe, 22 * MM) + 4 * MM);
-  abschnittKopf(bogen, schritt);
+  // Passt der ganze Abschnitt auf eine Seite, bleibt er ganz zusammen. So
+  // steht eine Unterschrift nie getrennt von dem, was sie unterschreibt.
+  // Nur ein Abschnitt, der allein laenger als eine Seite ist (sehr lange
+  // Begruendung), wird geteilt; dann bleiben Kopf und Anfang zusammen.
+  if (kopfMass.hoehe + koerper <= UNTEN - RAND) brauchePlatz(bogen, kopfMass.hoehe + koerper);
+  else brauchePlatz(bogen, kopfMass.hoehe + Math.min(koerper, 22 * MM));
+  abschnittKopf(bogen, schritt, kopfMass);
 
   if (schritt.typ === 'freitext') freitext(bogen, { daten, leer });
   else if (schritt.typ === 'personen') personen(bogen, { schritt, daten, leer });
@@ -331,8 +345,32 @@ function abschnitt(bogen, { schritt, antrag, leer }) {
   bogen.y += ABSCHNITT_ABSTAND;
 }
 
+/**
+ * Mass des Abschnittskopfs, ohne zu zeichnen. `abschnittKopf` zeichnet genau
+ * danach, damit Messen und Zeichnen nicht auseinanderlaufen.
+ */
+function kopfLayout(bogen, schritt) {
+  const titelX = RAND + NUMMER_KASTEN + 3 * MM;
+  const titel = sichereZeichen(schritt.titel || '');
+  const titelBreite = bogen.schriften.fett.widthOfTextAtSize(titel, S_ABSCHNITT);
+  const platzRest = INHALT_BREITE - (titelX - RAND) - titelBreite - 4 * MM;
+  const zusatz = sichereZeichen(schritt.frage || schritt.hinweis || '');
+  // Frage bzw. Hinweis steht wie auf dem Papier rechts neben dem Titel, wenn
+  // Platz ist, sonst darunter.
+  const daneben = Boolean(zusatz) && platzRest > 40;
+  const zeilen = !zusatz ? []
+    : umbrich(zusatz, bogen.schriften.normal, S_HINWEIS, daneben ? platzRest : INHALT_BREITE);
+
+  let unterkante = S_ABSCHNITT * ZEILE;
+  if (daneben) unterkante = Math.max(unterkante, 3 + zeilen.length * S_HINWEIS * ZEILE);
+  else if (zusatz) unterkante = S_ABSCHNITT * ZEILE + 1 * MM + zeilen.length * S_HINWEIS * ZEILE;
+  const hoehe = Math.max(unterkante, NUMMER_KASTEN) + 1.3 * MM;
+
+  return { titel, titelX, titelBreite, daneben, zeilen, hoehe };
+}
+
 /** Nummer im Kaestchen, Titel, dahinter Frage oder Hinweis. */
-function abschnittKopf(bogen, schritt) {
+function abschnittKopf(bogen, schritt, mass) {
   const oben = bogen.y;
   const nummer = sichereZeichen(schritt.nr === undefined || schritt.nr === null ? '' : schritt.nr);
   const kastenHoehe = NUMMER_KASTEN;
@@ -353,35 +391,23 @@ function abschnittKopf(bogen, schritt) {
     farbe: FARBEN.weiss
   });
 
-  const titelX = RAND + kastenHoehe + 3 * MM;
-  const titel = sichereZeichen(schritt.titel || '');
-  const titelBreite = bogen.schriften.fett.widthOfTextAtSize(titel, S_ABSCHNITT);
-  const platzRest = INHALT_BREITE - (titelX - RAND) - titelBreite - 4 * MM;
-  const zusatz = sichereZeichen(schritt.frage || schritt.hinweis || '');
-
+  const { titel, titelX, titelBreite, daneben, zeilen } = mass;
   zeichneText(bogen, titel, {
     x: titelX, y: oben + 1.5, font: bogen.schriften.fett, groesse: S_ABSCHNITT, farbe: FARBEN.navy
   });
 
-  let unterkante = oben + S_ABSCHNITT * ZEILE;
-  if (zusatz && platzRest > 40) {
-    // Frage bzw. Hinweis steht wie auf dem Papier rechts neben dem Titel.
-    const zeilen = umbrich(zusatz, bogen.schriften.normal, S_HINWEIS, platzRest);
-    let y = oben + 3;
-    for (const stueck of zeilen) {
-      zeichneText(bogen, stueck, {
-        x: titelX + titelBreite + 4 * MM, y, font: bogen.schriften.normal, groesse: S_HINWEIS, farbe: FARBEN.neben
-      });
-      y += S_HINWEIS * ZEILE;
-    }
-    unterkante = Math.max(unterkante, y);
-  } else if (zusatz) {
-    bogen.y = oben + S_ABSCHNITT * ZEILE + 1 * MM;
-    schreibe(bogen, zusatz, { font: bogen.schriften.normal, groesse: S_HINWEIS, farbe: FARBEN.neben });
-    unterkante = bogen.y;
+  // Zeilenweise ohne eigenen Seitenumbruch: der Platz ist in `abschnitt`
+  // schon geprueft, der Kopf bleibt so immer beisammen.
+  const x = daneben ? titelX + titelBreite + 4 * MM : RAND;
+  let y = daneben ? oben + 3 : oben + S_ABSCHNITT * ZEILE + 1 * MM;
+  for (const stueck of zeilen) {
+    zeichneText(bogen, stueck, {
+      x, y, font: bogen.schriften.normal, groesse: S_HINWEIS, farbe: FARBEN.neben
+    });
+    y += S_HINWEIS * ZEILE;
   }
 
-  bogen.y = Math.max(unterkante, oben + kastenHoehe) + 1.3 * MM;
+  bogen.y = oben + mass.hoehe;
 }
 
 // Drei Schreiblinien wie auf dem Papier, Abstand 8 mm.
@@ -568,12 +594,19 @@ function schreiblinien(bogen, anzahl) {
 const ABSCHLUSS_FELD = 34 * MM;     // Breite fuer Datum und Kuerzel
 const ABSCHLUSS_LUECKE = 5 * MM;
 
+/** Hoehe von `abschluss` bei `anzahl` Zeilen links. */
+function abschlussHoehe(anzahl) {
+  const zeilenHoehe = anzahl * (S_TEXT * ZEILE + 1.2 * MM);
+  const sigHoehe = unterschriftHoehe() + 1 * MM + S_KLEIN * ZEILE;
+  return Math.max(zeilenHoehe, sigHoehe) + 1.5 * MM;
+}
+
 function abschluss(bogen, { zeilen, unterschrift, beschriftung }) {
   const sigBreite = UNTERSCHRIFT_BREITE;
   const breite = ABSCHLUSS_FELD + ABSCHLUSS_LUECKE + sigBreite;
   const zeilenHoehe = zeilen.length * (S_TEXT * ZEILE + 1.2 * MM);
   const sigHoehe = unterschriftHoehe() + 1 * MM + S_KLEIN * ZEILE;
-  const hoehe = Math.max(zeilenHoehe, sigHoehe) + 1.5 * MM;
+  const hoehe = abschlussHoehe(zeilen.length);
 
   brauchePlatz(bogen, hoehe);
   const oben = bogen.y;
@@ -630,11 +663,19 @@ function unterschriftFeld(bogen, { x, y, breite, png, beschriftung }) {
 }
 
 /** Eine Zeile mit Kaestchen. Der Text umbricht neben dem Kaestchen. */
+function ankreuzUmbruch(bogen, text, breite, font) {
+  return umbrich(text, font || bogen.schriften.normal, S_TEXT, breite - KASTEN - 2 * MM);
+}
+
+function ankreuzHoehe(zeilen) {
+  return Math.max(KASTEN, zeilen.length * S_TEXT * ZEILE) + ZEILEN_ABSTAND;
+}
+
 function ankreuzZeile(bogen, text, angekreuzt, x, breite, font = null) {
   const schrift = font || bogen.schriften.normal;
   const textX = x + KASTEN + 2 * MM;
-  const zeilen = umbrich(text, schrift, S_TEXT, breite - (textX - x));
-  const hoehe = Math.max(KASTEN, zeilen.length * S_TEXT * ZEILE) + ZEILEN_ABSTAND;
+  const zeilen = ankreuzUmbruch(bogen, text, breite, schrift);
+  const hoehe = ankreuzHoehe(zeilen);
 
   brauchePlatz(bogen, hoehe);
   const oben = bogen.y;
@@ -676,10 +717,10 @@ function kaestchen(bogen, x, oben, angekreuzt) {
 function fusszeile(bogen, { antrag, leer, appVersion }) {
   const version = sichereZeichen(appVersion || '');
   const tag = formatDatum(heute(), 'datum');
+  const id = sichereZeichen((antrag && antrag.id) || '');
   const text = leer
     ? 'Vorlage aus SOUL Companion ' + version
-    : 'Erstellt mit SOUL Companion ' + version + ' am ' + tag + '. Antrag-ID '
-      + sichereZeichen((antrag && antrag.id) || '') + '.';
+    : 'Erstellt mit SOUL Companion ' + version + ' am ' + tag + '.' + (id ? ' Antrag-ID ' + id + '.' : '');
 
   const seiten = bogen.seiten;
   for (let i = 0; i < seiten.length; i++) {
@@ -709,7 +750,6 @@ function metadaten(doc, { stufe, leer, appVersion }) {
     doc.setTitle(leer ? titel + ' (Vorlage)' : titel);
     doc.setCreator('SOUL Companion ' + sichereZeichen(appVersion || ''));
     doc.setProducer('SOUL Companion ' + sichereZeichen(appVersion || ''));
-    doc.setSubject('Antrag auf Stufenaufstieg');
     // Uhrzeit bleibt aussen vor, das Datum kommt aus dates.js (AP_ALLGEMEIN 5).
     doc.setCreationDate(heute());
     doc.setModificationDate(heute());
@@ -733,7 +773,9 @@ function neueSeite(bogen) {
 
 /** Neue Seite, wenn die Hoehe nicht mehr passt. */
 function brauchePlatz(bogen, hoehe) {
-  if (bogen.y + hoehe <= UNTEN) return;
+  // Kleine Toleranz: ein ganz vorgemerkter Abschnitt soll nicht an
+  // Rundungsresten der Einzelschritte doch noch umbrechen.
+  if (bogen.y + hoehe <= UNTEN + 0.5) return;
   if (bogen.y <= RAND + 0.01) return;   // eine leere Seite hilft nicht
   neueSeite(bogen);
 }
@@ -804,7 +846,9 @@ export function umbrich(text, font, groesse, maxBreite) {
     }
     let rest = wort;
     while (rest && font.widthOfTextAtSize(rest, groesse) > maxBreite) {
-      let schnitt = rest.length - 1;
+      // Mindestens ein Zeichen je Zeile, sonst liefe die Schleife endlos,
+      // wenn schon ein einzelnes Zeichen breiter ist als die Zeile.
+      let schnitt = Math.max(1, rest.length - 1);
       while (schnitt > 1 && font.widthOfTextAtSize(rest.slice(0, schnitt), groesse) > maxBreite) schnitt--;
       zeilen.push(rest.slice(0, schnitt));
       rest = rest.slice(schnitt);
@@ -822,26 +866,39 @@ function passendeGroesse(text, font, groesse, maxBreite, minimum) {
   return wert;
 }
 
-/** Grobe Hoehe eines Abschnitts, nur fuer die Frage "passt der Anfang noch?". */
-function koerperSchaetzung(bogen, { schritt, daten, leer }) {
+/**
+ * Hoehe des Abschnittskoerpers, gemessen mit denselben Umbruechen und
+ * Abstaenden wie beim Zeichnen. Aendert sich eine Zeichenfunktion, muss
+ * diese Rechnung mitgehen.
+ */
+function koerperHoehe(bogen, { schritt, daten, antrag, leer }) {
+  const summe = (texte, font = null) => texte.reduce(
+    (wert, text) => wert + ankreuzHoehe(ankreuzUmbruch(bogen, sichereZeichen(text), INHALT_BREITE, font)), 0);
+
   if (schritt.typ === 'freitext') {
     if (leer || !String(daten.text || '').trim()) return SCHREIBZEILEN * SCHREIBZEILE_HOEHE;
     return umbrich(sichereZeichen(daten.text), bogen.schriften.normal, S_TEXT, INHALT_BREITE).length * S_TEXT * ZEILE;
   }
-  if (schritt.typ === 'personen') return spaltenHoehe() * Math.ceil((Number(schritt.anzahl) || 1) / 2);
+  if (schritt.typ === 'personen') {
+    const reihen = Math.ceil(Math.max(1, Number(schritt.anzahl) || 1) / 2);
+    return spaltenHoehe() * reihen + (reihen - 1) * 4 * MM;
+  }
   if (schritt.typ === 'kriterien') {
-    return (Array.isArray(schritt.kriterien) ? schritt.kriterien.length + 1 : 1) * (KASTEN + ZEILEN_ABSTAND)
-      + unterschriftHoehe() + S_KLEIN * ZEILE + 6 * MM;
+    const kriterien = Array.isArray(schritt.kriterien) ? schritt.kriterien : [];
+    const bestaetigung = schritt.bestaetigung ? 2 * MM + summe([schritt.bestaetigung], bogen.schriften.fett) : 0;
+    return summe(kriterien) + bestaetigung + 2 * MM + abschlussHoehe(2);
   }
   if (schritt.typ === 'erklaerung') {
-    const anzahl = (Array.isArray(schritt.automatisch) ? schritt.automatisch.length : 0)
-      + (Array.isArray(schritt.aussagen) ? schritt.aussagen.length : 0);
-    return anzahl * (KASTEN + ZEILEN_ABSTAND) + unterschriftHoehe() + S_KLEIN * ZEILE + 6 * MM;
+    const automatisch = automatischeAussagen(leer ? null : antrag, schritt).map((eintrag) => eintrag.text);
+    const aussagen = Array.isArray(schritt.aussagen) ? schritt.aussagen : [];
+    return summe(automatisch) + (aussagen.length > 0 ? 1.5 * MM : 0) + summe(aussagen)
+      + 2 * MM + abschlussHoehe(1);
   }
   if (schritt.typ === 'nurPdf') {
-    return (Array.isArray(schritt.optionen) ? schritt.optionen.length : 0) * (KASTEN + ZEILEN_ABSTAND) + 12 * MM;
+    const optionen = Array.isArray(schritt.optionen) ? schritt.optionen : [];
+    return summe(optionen) + 2.5 * MM + 9 * MM;
   }
-  return 18 * MM;
+  return 2 * SCHREIBZEILE_HOEHE;
 }
 
 function schrittDaten(antrag, schrittId) {
@@ -870,7 +927,7 @@ export function dateiname({ antrag, jgst, leer = false }) {
   if (leer) return ['Antrag', 'Stufe' + stufe, 'Vorlage', tag].join('_') + '.pdf';
 
   const kopfDaten = (antrag && antrag.kopf) || {};
-  const klasse = sauber(String(jgst === undefined || jgst === null ? '' : jgst) + String(kopfDaten.klasse || ''));
+  const klasse = sauber(klassenText(antrag, jgst));
   const name = sauber(kopfDaten.name);
   return ['Antrag', 'Stufe' + stufe, klasse, name, tag].filter(Boolean).join('_') + '.pdf';
 }
@@ -883,4 +940,17 @@ function sauber(wert) {
     .replace(/ß/g, 'ss')
     .replace(/[^A-Za-z0-9]+/g, '_')
     .replace(/^_+|_+$/g, '');
+}
+
+/**
+ * Klasse wie "6B". Der Jahrgang steht seit der Gegenpruefung zu AP-15 im
+ * Antrag (`kopf.jgst`), damit ein spaeterer Jahrgangswechsel auf dem Geraet
+ * die Klasse im PDF nicht veraendert. Aeltere Antraege ohne `kopf.jgst`
+ * nehmen den uebergebenen Jahrgang.
+ */
+export function klassenText(antrag, jgst) {
+  const kopfDaten = (antrag && antrag.kopf) || {};
+  const gespeichert = kopfDaten.jgst;
+  const zahl = gespeichert !== undefined && gespeichert !== null && gespeichert !== '' ? gespeichert : jgst;
+  return String(zahl === undefined || zahl === null ? '' : zahl) + String(kopfDaten.klasse || '');
 }
