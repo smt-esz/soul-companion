@@ -331,6 +331,14 @@ function jsonFehlerText(fehler) {
 
 // ---------------------------------------------------------------- schule.xlsx
 
+// Fach-Kuerzel werden grossgeschrieben angezeigt (Leo, 24.09.2026), ausser
+// FvU: das ist eine feste Abkuerzung fuer "Faecherverbindender Unterricht"
+// und bleibt gemischt geschrieben (Leo, 24.09.2026).
+function normiertesKuerzel(wert) {
+  const gross = alsText(wert).toUpperCase();
+  return gross === 'FVU' ? 'FvU' : gross;
+}
+
 function leseSchule(pfad, meldungen) {
   if (!existsSync(pfad)) {
     meldungen.fehler({ datei: 'schule.xlsx' }, 'Die Datei fehlt in content/.');
@@ -354,7 +362,7 @@ function leseSchule(pfad, meldungen) {
     __zeile: zeile.__zeile,
     id: alsText(zeile.id),
     name: alsText(zeile.name),
-    kurz: alsText(zeile.kurz).toUpperCase(),
+    kurz: normiertesKuerzel(zeile.kurz),
     farbe: alsText(zeile.farbe),
     symbol: alsText(zeile.symbol),
     reihenfolge: alsZahl(zeile.reihenfolge)

@@ -6,7 +6,7 @@
     { "id": "en", "name": "Englisch", "kurz": "EN", "farbe": "en", "symbol": "fach-en", "reihenfolge": 3 },
     { "id": "bio", "name": "Biologie", "kurz": "BIO", "farbe": "bio", "symbol": "fach-bio", "reihenfolge": 4 },
     { "id": "geo", "name": "Geografie", "kurz": "GEO", "farbe": "geo", "symbol": "fach-geo", "reihenfolge": 5 },
-    { "id": "fvu", "name": "Fächerverbindend", "kurz": "FVU", "farbe": "fvu", "symbol": "zahnrad", "reihenfolge": 6 }
+    { "id": "fvu", "name": "Fächerverbindend", "kurz": "FvU", "farbe": "fvu", "symbol": "zahnrad", "reihenfolge": 6 }
   ],
   "ferien": [
     { "name": "Herbstferien", "von": "2026-10-12", "bis": "2026-10-24" }
