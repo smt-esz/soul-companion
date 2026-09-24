@@ -1,0 +1,53 @@
+name: Terminaenderungen uebernehmen
+
+# Lehrerzugang fuer kleine, terminliche Aenderungen (Leo, 24.09.2026):
+# holt alle 15 Minuten die Antworten aus dem Microsoft-Formular, prueft sie
+# und baut/veroeffentlicht die Seite neu, wenn sich wirklich etwas geaendert
+# hat. TERMIN_FORMULAR_URL (der Freigabe-Link auf die Formular-Antworten-
+# Excel-Datei) ist ein Repository-Secret, siehe README dieses Workflows.
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: termin-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Werkzeug-Abhaengigkeiten installieren
+        run: npm ci
+        working-directory: tools
+
+      - name: Antworten uebernehmen
+        id: uebernehmen
+        env:
+          TERMIN_FORMULAR_URL: ${{ secrets.TERMIN_FORMULAR_URL }}
+        run: node tools/uebernehme-terminaenderungen.mjs
+
+      - name: Seite neu bauen
+        if: steps.uebernehmen.outputs.geaendert == 'true'
+        run: node tools/build.mjs
+
+      - name: Aenderungen committen und veroeffentlichen
+        if: steps.uebernehmen.outputs.geaendert == 'true'
+        run: |
+          git config user.name "SOUL Companion Terminbot"
+          git config user.email "actions@github.com"
+          git add content/jahrgaenge content/.termin-sync-log.json docs
+          git commit -m "Terminaenderung aus dem Lehrerformular uebernommen"
+          git pull --rebase
+          git push
