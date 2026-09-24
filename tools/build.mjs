@@ -354,7 +354,7 @@ function leseSchule(pfad, meldungen) {
     __zeile: zeile.__zeile,
     id: alsText(zeile.id),
     name: alsText(zeile.name),
-    kurz: alsText(zeile.kurz),
+    kurz: alsText(zeile.kurz).toUpperCase(),
     farbe: alsText(zeile.farbe),
     symbol: alsText(zeile.symbol),
     reihenfolge: alsZahl(zeile.reihenfolge)
