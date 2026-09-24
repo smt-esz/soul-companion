@@ -23,8 +23,8 @@ import { icon } from '../ui/icons.js';
 import { hakenAnimation } from '../ui/motion.js';
 import * as engine from '../antrag/engine.js';
 import { schrittFelder, schrittVorschau } from '../antrag/felder.js';
-import { dateiname, erzeugeAntragPdf } from '../antrag/pdf.js';
-import { teilePdf } from '../antrag/share.js';
+import { dateiname, erzeugeAntragPdf, klassenText } from '../antrag/pdf.js';
+import { oeffnePdf, teilePdf } from '../antrag/share.js';
 import { APP_VERSION } from '../version.js';
 
 registerModule({
@@ -104,8 +104,8 @@ function vorlagenAbschnitt(ctx, config) {
  */
 function vorlagenKnopf(zielstufe, config, meldung) {
   const stufe = config.stufen[zielstufe];
-  const beschriftung = 'Leeren Antrag Stufe ' + zielstufe
-    + (stufe && stufe.zielname ? ' (' + stufe.zielname + ')' : '') + ' als PDF';
+  // Wortlaut wie im AP: "Leeren Antrag Stufe 2 als PDF".
+  const beschriftung = 'Leeren Antrag Stufe ' + zielstufe + ' als PDF';
   let bytes = null;
 
   const taste = knopf({
@@ -138,10 +138,19 @@ function vorlagenKnopf(zielstufe, config, meldung) {
 
   async function senden() {
     const name = dateiname({ antrag: { zielstufe }, leer: true });
-    const ergebnis = await teilePdf(bytes, name, {
-      titel: name,
-      text: 'Leerer Antrag auf Stufe ' + zielstufe + '.'
-    });
+    // Gesperrt, solange das Teilen laeuft: ein zweiter Tipp wuerde ein
+    // zweites share() ausloesen (Gegenpruefung AP-15, Punkt 3). Der Aufruf
+    // folgt ohne await, die Nutzeraktion bleibt also erhalten.
+    taste.disabled = true;
+    let ergebnis;
+    try {
+      ergebnis = await teilePdf(bytes, name, {
+        titel: 'Leerer Antrag Stufe ' + zielstufe,
+        text: 'Leerer Antrag auf Stufe ' + zielstufe + '.'
+      });
+    } finally {
+      taste.disabled = false;
+    }
     if (ergebnis === 'abgebrochen') return;
     leer(meldung);
     if (ergebnis === 'rueckfall') {
@@ -149,7 +158,10 @@ function vorlagenKnopf(zielstufe, config, meldung) {
       return;
     }
     if (ergebnis === 'fehler') {
-      meldung.append(hinweis({ art: 'warnung', text: 'Das Senden hat nicht geklappt. Versuche es noch einmal.' }));
+      meldung.append(
+        hinweis({ art: 'warnung', text: 'Das Senden hat nicht geklappt. Versuche es noch einmal oder öffne das PDF.' }),
+        oeffnenKnopf(() => bytes, meldung)
+      );
     }
   }
 
@@ -296,7 +308,10 @@ function antragAnlegen(ctx, config, zielstufe, name, klasse) {
   // samt Snapshot der Texte (AP-14).
   const angelegt = ctx.store.antraege.create(zielstufe, config.configVersion);
   const voll = engine.neuerAntrag(config, zielstufe, heuteISO, angelegt.id);
-  voll.kopf = { name: String(name).trim(), klasse: String(klasse) };
+  // Jahrgang mit ablegen: die Klasse im PDF soll sich nicht aendern, wenn
+  // spaeter auf dem Geraet ein anderer Jahrgang eingestellt wird (Gegenpruefung
+  // AP-15, Punkt 6).
+  voll.kopf = { name: String(name).trim(), klasse: String(klasse), jgst: jahrgang(ctx) };
   ctx.store.antraege.update(angelegt.id, voll);
   const ergebnis = ctx.store.save();
   if (!ergebnis.ok) {
@@ -376,7 +391,7 @@ function kopfKarte(antrag, ctx) {
     ]),
     el('dl', {}, [
       el('dt', { text: 'Klasse' }),
-      el('dd', { text: jgst + ((antrag.kopf && antrag.kopf.klasse) || '') }),
+      el('dd', { text: klassenText(antrag, jgst) }),
       el('dt', { text: 'Datum' }),
       el('dd', { text: datumText(antrag.erstellt) })
     ])
@@ -578,30 +593,61 @@ function abschlussAbschnitt(antrag, config, ctx, container) {
   }
 
   async function senden() {
-    const ergebnis = await teilePdf(bytes, name, {
-      titel: name,
-      text: 'Mein Antrag auf Stufe ' + arbeitsKopie.zielstufe + '.'
-    });
+    // Gesperrt, solange das Teilen laeuft (Gegenpruefung AP-15, Punkt 3).
+    // teilePdf folgt ohne await davor, die Nutzeraktion bleibt erhalten.
+    sendeKnopf.disabled = true;
+    let ergebnis;
+    try {
+      ergebnis = await teilePdf(bytes, name, {
+        titel: 'Antrag auf Stufe ' + arbeitsKopie.zielstufe,
+        text: 'Mein Antrag auf Stufe ' + arbeitsKopie.zielstufe + '.'
+      });
+    } finally {
+      sendeKnopf.disabled = false;
+    }
 
     if (ergebnis === 'abgebrochen') {
       // Bewusst abgebrochen, das ist kein Fehler (AP-00). Der Knopf bleibt.
       return;
     }
-    if (ergebnis === 'rueckfall') {
-      leer(pdfBereich);
-      pdfBereich.append(hinweis({ art: 'info', text: 'Tippe im PDF auf Teilen und wähle Mail.' }));
+    if (ergebnis === 'geteilt') {
       geschafft();
       return;
     }
-    if (ergebnis === 'fehler') {
-      leer(pdfBereich);
-      pdfBereich.append(hinweis({
-        art: 'warnung',
-        text: 'Das Senden hat nicht geklappt. Versuche es noch einmal oder sage es deiner Lernbegleitung.'
-      }));
+    leer(pdfBereich);
+    if (ergebnis === 'rueckfall') {
+      rueckfallHinweis();
       return;
     }
-    geschafft();
+    pdfBereich.append(
+      hinweis({
+        art: 'warnung',
+        text: 'Das Senden hat nicht geklappt. Versuche es noch einmal oder öffne das PDF.'
+      }),
+      oeffnenKnopf(() => bytes, pdfBereich, rueckfallHinweis)
+    );
+  }
+
+  /**
+   * Im Rueckfall ist noch nichts verschickt, nur das PDF geoeffnet. Deshalb
+   * kein Haken und keine Loeschfrage (AP-15, Oberflaeche 4: nur nach
+   * 'geteilt'), sondern ein Knopf, mit dem das Kind das Verschicken selbst
+   * bestaetigt (Gegenpruefung AP-15, Punkt 1).
+   */
+  function rueckfallHinweis() {
+    leer(pdfBereich);
+    pdfBereich.append(
+      hinweis({ art: 'info', text: 'Tippe im PDF auf Teilen und wähle Mail.' }),
+      el('p', {}, [knopf({
+        text: 'Ich habe den Antrag verschickt',
+        icon: 'haken',
+        art: 'neben',
+        onTap: () => {
+          leer(pdfBereich);
+          geschafft();
+        }
+      })])
+    );
   }
 
   /** Vermerken, Haken zeigen, Loeschen anbieten (AP-15). */
@@ -662,7 +708,9 @@ function abschlussAbschnitt(antrag, config, ctx, container) {
 
 /** Adresse der Klassenleitung gross, mit Knopf zum Kopieren (AP-15). */
 function empfaengerAbschnitt(antrag, config, ctx) {
-  const jgst = jahrgang(ctx);
+  // Gespeicherter Jahrgang vor dem eingestellten, wie im PDF (klassenText).
+  const gespeichert = antrag.kopf && antrag.kopf.jgst;
+  const jgst = gespeichert !== undefined && gespeichert !== null && gespeichert !== '' ? gespeichert : jahrgang(ctx);
   const klasse = String((antrag.kopf && antrag.kopf.klasse) || '');
   const nachJahrgang = (config && config.empfaenger && config.empfaenger[String(jgst)]) || {};
   const adresse = String(nachJahrgang[klasse] || '').trim();
@@ -699,6 +747,32 @@ function empfaengerAbschnitt(antrag, config, ctx) {
 
 function jahrgang(ctx) {
   return ctx && ctx.jg && ctx.jg.jgst !== undefined ? ctx.jg.jgst : null;
+}
+
+/**
+ * Knopf "PDF öffnen", wenn das Teilen gescheitert ist. Der eigene Tipp bringt
+ * die frische Nutzeraktion, die `window.open` braucht (Gegenpruefung AP-15,
+ * Punkt 4). `oeffnePdf` wird deshalb ohne await direkt im Tipp gerufen.
+ */
+function oeffnenKnopf(holeBytes, bereich, beiRueckfall = null) {
+  return el('p', {}, [knopf({
+    text: 'PDF öffnen',
+    icon: 'antrag',
+    art: 'neben',
+    onTap: () => {
+      const ergebnis = oeffnePdf(holeBytes());
+      leer(bereich);
+      if (ergebnis === 'rueckfall') {
+        if (beiRueckfall) beiRueckfall();
+        else bereich.append(hinweis({ art: 'info', text: 'Tippe im PDF auf Teilen und wähle Mail.' }));
+        return;
+      }
+      bereich.append(hinweis({
+        art: 'warnung',
+        text: 'Das PDF lässt sich hier nicht öffnen. Sage es deiner Lernbegleitung.'
+      }));
+    }
+  })]);
 }
 
 function loeschAbschnitt(antrag, ctx) {
@@ -861,7 +935,7 @@ function kindZeile(antrag, stufe, ctx) {
   const name = (antrag.kopf && antrag.kopf.name) || '';
   const klasse = (antrag.kopf && antrag.kopf.klasse) || '';
   const ziel = (stufe && stufe.zielname) ? 'Stufe ' + antrag.zielstufe + ', ' + stufe.zielname : 'Stufe ' + antrag.zielstufe;
-  return [name, klasse ? jgst + klasse : '', ziel].filter(Boolean).join(' · ');
+  return [name, klasse ? klassenText(antrag, jgst) : '', ziel].filter(Boolean).join(' · ');
 }
 
 function uebergabeStarten() {

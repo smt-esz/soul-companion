@@ -125,6 +125,9 @@ export function fachBadge(fach, optionen = {}) {
   return el('span', {
     class: klassen.join(' '),
     dataset: { fach: f.farbe },
+    // role="img": ohne Rolle ist aria-label an einem span nicht erlaubt,
+    // VoiceOver liest dann trotzdem "Biologie" (DESIGN 11, T-X-01).
+    role: 'img',
     'aria-label': f.name
   }, [
     icon(f.symbol, { groesse: symbolgroesse }),

@@ -19,8 +19,12 @@
 // transient activation]**). Deshalb wird das PDF **vorher** erzeugt (Knopf
 // "PDF erstellen") und `teilePdf` direkt aus dem Tipp auf "Senden" gerufen.
 
-/** Rueckfall: PDF im neuen Fenster. Der Hinweis steht daneben in der App. */
-const RUECKFALL_SEKUNDEN = 60;
+// Blob-Adresse des zuletzt geoeffneten PDF. Sie bleibt gueltig, bis ein neues
+// PDF geoeffnet wird: das Kind soll im neuen Tab in Ruhe auf Teilen tippen
+// koennen, ohne dass die Adresse nach einer festen Zeit verschwindet
+// (Gegenpruefung AP-15, Punkt 5). Ein PDF liegt bei rund 100 KB, mehr als
+// eines haelt die App so nie fest.
+let letzteAdresse = null;
 
 /**
  * Gibt das PDF weiter.
@@ -46,9 +50,11 @@ export async function teilePdf(bytes, dateiname, { titel = '', text = '' } = {})
     } catch (fehler) {
       // Teilen-Fenster geschlossen, ohne etwas zu waehlen (AP-00).
       if (fehler && fehler.name === 'AbortError') return 'abgebrochen';
-      // Alles andere: nicht verschlucken, aber auch nicht aufgeben.
-      const ergebnis = rueckfall(bytes);
-      return ergebnis === 'rueckfall' ? 'rueckfall' : 'fehler';
+      // Alles andere: Rueckfall laut AP. Nach dem `await` ist die Nutzeraktion
+      // aus dem Tipp meist verbraucht, `window.open` wird dann gesperrt und
+      // es kommt 'fehler' [ungeprueft auf dem iPad]. Die App bietet dafuer
+      // `oeffnePdf` an einem eigenen Knopf an, mit frischem Tipp.
+      return rueckfall(bytes);
     }
   }
 
@@ -80,11 +86,27 @@ function rueckfall(bytes) {
     const blob = new Blob([bytes], { type: 'application/pdf' });
     const adresse = URL.createObjectURL(blob);
     const fenster = window.open(adresse, '_blank');
-    // Die Adresse muss leben, solange das Fenster sie laedt. Danach freigeben,
-    // damit der Speicher nicht vollaeuft.
-    window.setTimeout(() => URL.revokeObjectURL(adresse), RUECKFALL_SEKUNDEN * 1000);
-    return fenster ? 'rueckfall' : 'fehler';
+    if (!fenster) {
+      URL.revokeObjectURL(adresse);
+      return 'fehler';
+    }
+    if (letzteAdresse) URL.revokeObjectURL(letzteAdresse);
+    letzteAdresse = adresse;
+    return 'rueckfall';
   } catch (fehler) {
     return 'fehler';
   }
+}
+
+/**
+ * PDF direkt im neuen Fenster oeffnen, ohne Teilen-Fenster. Fuer einen
+ * eigenen Knopf, wenn `teilePdf` mit 'fehler' endet: der neue Tipp bringt die
+ * frische Nutzeraktion mit, die `window.open` braucht. Muss deshalb direkt
+ * aus dem Tipp-Ereignis gerufen werden.
+ *
+ * @param {Uint8Array|ArrayBuffer} bytes
+ * @returns {'rueckfall'|'fehler'}
+ */
+export function oeffnePdf(bytes) {
+  return rueckfall(bytes);
 }
