@@ -4,7 +4,7 @@
     {
       "id": "de",
       "name": "Deutsch",
-      "kurz": "De",
+      "kurz": "DE",
       "farbe": "de",
       "symbol": "fach-de",
       "reihenfolge": 1
@@ -12,7 +12,7 @@
     {
       "id": "ma",
       "name": "Mathematik",
-      "kurz": "Ma",
+      "kurz": "MA",
       "farbe": "ma",
       "symbol": "fach-ma",
       "reihenfolge": 2
@@ -20,7 +20,7 @@
     {
       "id": "en",
       "name": "Englisch",
-      "kurz": "En",
+      "kurz": "EN",
       "farbe": "en",
       "symbol": "fach-en",
       "reihenfolge": 3
@@ -28,7 +28,7 @@
     {
       "id": "bio",
       "name": "Biologie",
-      "kurz": "Bio",
+      "kurz": "BIO",
       "farbe": "bio",
       "symbol": "fach-bio",
       "reihenfolge": 4
@@ -36,7 +36,7 @@
     {
       "id": "geo",
       "name": "Geografie",
-      "kurz": "Geo",
+      "kurz": "GEO",
       "farbe": "geo",
       "symbol": "fach-geo",
       "reihenfolge": 5
@@ -44,7 +44,7 @@
     {
       "id": "fvu",
       "name": "Fächerverbindend",
-      "kurz": "FvU",
+      "kurz": "FVU",
       "farbe": "fvu",
       "symbol": "zahnrad",
       "reihenfolge": 6
