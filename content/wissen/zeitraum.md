@@ -3,7 +3,7 @@ id: zeitraum
 titel: So läuft ein Bausteinzeitraum
 bereich: ablauf
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 20
 stichworte: [Bausteinzeitraum, Stationen, Lösungen, Inputs, Gelingensnachweis, Abgabeliste]
 quelle: SOUL_Wissensbasis.md, Abschnitte Organisation und Helferkette, Gelingensnachweise, Inputs; SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.1, 4.3 und 4.5

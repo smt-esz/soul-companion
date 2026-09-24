@@ -3,7 +3,7 @@ id: coaching
 titel: So bereitest du dein Coaching vor
 bereich: ablauf
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 30
 stichworte: [Coaching, Vorbereitung, Reflexion, Stufenaufstieg]
 quelle: SOUL_Coachinggespräch komplett.pdf, Seiten 1 bis 2; SOUL_Wissensbasis.md, Abschnitt Coachinggespräche; SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.2

@@ -3,7 +3,7 @@ id: soul
 titel: Was ist SOUL?
 bereich: soul
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 15
 stichworte: [SOUL, Idee, Ziele, Lernbegleitung]
 quelle: SOUL_Wissensbasis.md, Abschnitte Was SOUL ist, Ziele und Rolle der Lehrkraft; SOUL Onboarding_Stand 01_2026.pdf, Kapitel 1

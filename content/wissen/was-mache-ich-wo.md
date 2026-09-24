@@ -3,7 +3,7 @@ id: was-mache-ich-wo
 titel: App oder lernlog?
 bereich: soul
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 20
 stichworte: [App, lernlog, Materialregal, Überblick]
 quelle: SOUL_Wissensbasis.md, Abschnitte SOUL Companion und Aufbau der Bausteine

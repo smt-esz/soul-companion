@@ -3,7 +3,7 @@ id: regeln
 titel: Regeln in SOUL
 bereich: stufen
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 40
 stichworte: [Regeln, Flüstern, Aufräumen, Lanyard, Rückstufung]
 quelle: SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.6, 4.7 und 7.1; SOUL_A3Graduierungssystem für SuS.pdf

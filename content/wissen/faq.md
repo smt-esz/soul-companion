@@ -3,7 +3,7 @@ id: faq
 titel: Häufige Fragen
 bereich: faq
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 100
 stichworte: [FAQ, Fragen, Hilfe]
 quelle: SOUL_Wissensbasis.md; SOUL Onboarding_Stand 01_2026.pdf
@@ -16,6 +16,12 @@ Nutze die [Helferkette](#/wissen/helferkette). Sie zeigt dir Schritt für Schrit
 
 ## Was ist der Unterschied zwischen einer Pflichtstation und einer Wahlstation?
 Eine Pflichtstation machst du auf jeden Fall. Eine Wahlstation darfst du machen, musst aber nicht. Auf der Bausteinübersicht siehst du, welche Stationen Pflicht und welche Wahl sind.
+
+## Wie lange dauert eine SOUL-Stunde?
+Die SOUL-Zeit ist jeden Tag der erste Block, insgesamt zehn Stunden in der Woche.
+
+## Warum gibt es Biologie und Geografie nur in SOUL?
+In Biologie und Geografie findet der Unterricht ausschließlich in der SOUL-Zeit statt, dafür gibt es keinen zusätzlichen Fachunterricht. Deutsch, Mathematik und Englisch laufen dagegen sowohl in SOUL als auch im normalen Unterricht.
 
 ## Was mache ich, wenn ich alle Stationen fertig habe?
 Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du an einem Laptop mit Sofatutor weiterüben, Zusatzaufgaben machen oder dir etwas aus der Belohnungskiste nehmen.

@@ -3,7 +3,7 @@ id: stufen-allgemein
 titel: Rund um die Stufen
 bereich: stufen
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 41
 stichworte: [Stufen, Lanyard, Aufstieg, Rückstufung, Graduierung]
 quelle: SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.6; SOUL_Wissensbasis.md, Abschnitt Graduierungssystem; Angaben von Leo, 23.09.2026

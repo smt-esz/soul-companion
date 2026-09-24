@@ -3,7 +3,7 @@ id: stufe-1
 titel: Stufe 1: Wurzel
 bereich: stufen
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 42
 stichworte: [Wurzel, Stufe 1, Graduierung, Rechte, Freiheiten]
 quelle: SOUL_A3Graduierungssystem für SuS.pdf (HEC, SMT, 06.02.2025)

@@ -163,11 +163,11 @@ function wocheBlock(ctx, montag) {
     dataset: istAktuell ? { aktuell: 'true' } : null
   }, [
     kopf,
-    wocheInhalt(tage, info, schule, heuteISO)
+    wocheInhalt(tage, info, schule, heuteISO, jg.jgst)
   ]);
 }
 
-function wocheInhalt(tage, info, schule, heuteISO) {
+function wocheInhalt(tage, info, schule, heuteISO, jgst) {
   // Sonderwoche: statt der Tage ein Balken ueber die ganze Breite (AP-11,
   // wie im JPG "Themen- und Fahrtenwoche").
   if (info.sonderwoche && info.sonderwoche.titel) {
@@ -185,7 +185,8 @@ function wocheInhalt(tage, info, schule, heuteISO) {
     termine: tag.termine,
     istHeute: toISODate(tag.datum) === heuteISO,
     sonderwoche: tag.sonderwoche,
-    schule
+    schule,
+    jgst
   })));
 }
 
@@ -219,7 +220,8 @@ function coachingAbschnitt(ctx) {
     termine: tag.termine,
     istHeute: toISODate(tag.datum) === heuteISO,
     sonderwoche: tag.sonderwoche,
-    schule
+    schule,
+    jgst: jg.jgst
   }))));
   return el('section', {}, kinder);
 }
@@ -304,7 +306,7 @@ function druckTabelle(ctx, raster, wochen) {
       ...tage.map((tag) => el('td', { class: 'druck-datum', text: formatDatum(tag.datum, 'datum') }))
     ]));
     koerper.push(el('tr', { class: 'druck-terminzeile' },
-      tage.map((tag) => el('td', {}, tag.termine.map((termin) => terminBlock(termin, schule))))
+      tage.map((tag) => el('td', {}, tag.termine.map((termin) => terminBlock(termin, schule, jg.jgst))))
     ));
   }
 
@@ -339,14 +341,14 @@ function druckBalken(text, art) {
  * Fach-Kürzel kommt aus schule.faecher (dieselbe Angabe wie überall sonst in
  * der App), nicht aus der informellen Beschriftung des alten JPGs.
  */
-function terminBlock(termin, schule) {
+function terminBlock(termin, schule, jgst) {
   if (termin.art === 'input') {
     const fach = fachVon(schule, termin.fach);
     const zusatz = [
       termin.titel,
       termin.station ? 'Station ' + termin.station : null,
       termin.pflicht ? 'Pflicht' : null,
-      termin.klasse ? 'nur Klasse ' + termin.klasse : null
+      termin.klasse ? 'nur ' + (jgst ? jgst + termin.klasse : 'Klasse ' + termin.klasse) : null
     ].filter(Boolean).join(', ');
     return el('div', { class: 'druck-input', dataset: { fach: fach.farbe } }, [
       el('p', { class: 'druck-input-kopf', text: 'Input ' + fach.kurz + (termin.kuerzel ? ' ' + termin.kuerzel : '') }),

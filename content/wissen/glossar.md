@@ -3,7 +3,7 @@ id: glossar
 titel: Wörterbuch
 bereich: glossar
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 100
 stichworte: [Glossar, Wörterbuch, Begriffe]
 quelle: SOUL_Wissensbasis.md

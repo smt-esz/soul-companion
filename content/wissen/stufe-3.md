@@ -3,7 +3,7 @@ id: stufe-3
 titel: Stufe 3: Krone
 bereich: stufen
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 44
 stichworte: [Krone, Stufe 3, Graduierung, Rechte, Freiheiten]
 quelle: SOUL_A3Graduierungssystem für SuS.pdf (HEC, SMT, 06.02.2025)

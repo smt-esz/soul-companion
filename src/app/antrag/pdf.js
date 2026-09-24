@@ -20,14 +20,20 @@
 //    AP-15]. Zeichen, die WinAnsi nicht kennt, wuerden pdf-lib zum Abbruch
 //    bringen, deshalb geht jeder Text durch `sichereZeichen()`.
 //
-// Das Blatt wird von oben nach unten gefuellt und passt im Normalfall auf
-// **eine Seite** (Leos Entscheidung vom 24.09.2026, AP-15-Bericht). Dafuer
-// sind Rand, Schriftgroessen und Abstaende enger als im AP vorgesehen, und
-// Datum und Kuerzel stehen neben der Unterschrift statt darueber.
-// Der Seitenumbruch bleibt trotzdem eingebaut: eine Begruendung ueber rund
-// 900 Zeichen laeuft auf eine zweite Seite. Jeder Abschnitt, der auf eine
-// Seite passt, wird dabei vorher ganz vermessen und bleibt zusammen (siehe
-// `abschnitt`). Abgeschnitten wird nie etwas.
+// Das Blatt wird von oben nach unten gefuellt. Rand, Schriftgroessen und
+// Abstaende sind bewusst naeher am Papierformular als in der ersten Fassung
+// (Leo, 24.09.2026, nach AP-19: "layoutgetreuer ans Original angleichen").
+// AP-15 hatte das Blatt zunaechst auf eine Seite verdichtet (12 mm Rand,
+// kleinere Schrift, 3 statt 4 Schreiblinien); diese Verdichtung ist hier
+// wieder zurueckgenommen. Ein vollstaendiger Antrag mit vier Unterschriften
+// braucht dadurch in der Regel **zwei Seiten**. Datum und Kuerzel bleiben
+// neben der Unterschrift statt darueber: Das spart Platz und liegt laut
+// AP-15-Bericht sogar naeher am Papier, wo "Datum / Kuerzel" ebenfalls in
+// einer Zeile steht.
+// Der Seitenumbruch reisst keinen Abschnitt auseinander: Jeder Abschnitt wird
+// vorher ganz vermessen und bleibt zusammen (siehe `abschnitt`), nur ein
+// Abschnitt, der allein laenger als eine Seite ist, wird geteilt. Ist das
+// Blatt zweiseitig, zeigt die Fusszeile "Seite 1 von 2".
 
 import { formatDatum, heute, parseISODate, toISODate } from '../dates.js';
 import { automatischeAussagen, schritteVon, stufeVon } from './engine.js';
@@ -37,36 +43,34 @@ import { automatischeAussagen, schritteVon, stufeVon } from './engine.js';
 const MM = 2.834645669;             // ein Millimeter in PDF-Punkten
 const SEITE_BREITE = 210 * MM;
 const SEITE_HOEHE = 297 * MM;
-// Rand: 12 mm statt der 20 mm aus AP-15. Mit 20 mm passt der Antrag nicht auf
-// ein Blatt, weil die vier Unterschriftsbilder Hoehe brauchen, die das
-// Papierformular nicht kennt. Leo hat am 24.09.2026 entschieden: eine Seite.
-// Das Papier selbst hat 7,5 mm links und 3 mm unten, 12 mm bleibt also immer
-// noch grosszuegiger als die Vorlage.
-const RAND = 12 * MM;
+// Rand wie urspruenglich in AP-15 vorgesehen (vor der Verdichtung auf eine
+// Seite). Das Papier selbst hat 7,5 mm links und 3 mm unten, 20 mm bleibt
+// also weiterhin grosszuegiger als die Vorlage.
+const RAND = 20 * MM;
 const INHALT_BREITE = SEITE_BREITE - 2 * RAND;
 const UNTEN = SEITE_HOEHE - RAND;   // hier ist der Inhalt zu Ende
-const FUSS_ABSTAND = 7 * MM;        // Fusszeile sitzt im unteren Rand
+const FUSS_ABSTAND = 12 * MM;       // Fusszeile sitzt im unteren Rand
 
 // Schriftgroessen in Punkt.
-const S_TITEL = 16;
+const S_TITEL = 17;
 const S_UNTER = 8.5;
 const S_KOPF = 9.5;
 const S_NUMMER = 9.5;
-const S_ABSCHNITT = 12;
+const S_ABSCHNITT = 12.5;
 const S_HINWEIS = 8;
-const S_TEXT = 9;
+const S_TEXT = 9.5;
 const S_KLEIN = 7.5;
 const S_FUSS = 7;
 
-const ZEILE = 1.28;                 // Zeilenabstand als Faktor der Groesse
-const KASTEN = 9;                   // Kaestchen zum Ankreuzen, Seitenlaenge
+const ZEILE = 1.35;                 // Zeilenabstand als Faktor der Groesse
+const KASTEN = 10;                  // Kaestchen zum Ankreuzen, Seitenlaenge
 const NUMMER_KASTEN = 13;           // Kaestchen mit der Abschnittsnummer
 const SCHREIBLINIE = 0.7;           // Strichstaerke der Linien fuer Handschrift
-const UNTERSCHRIFT_BREITE = 102;    // Unterschriftsbild, Hoehe folgt 600 x 200
+const UNTERSCHRIFT_BREITE = 150;    // Unterschriftsbild, Hoehe folgt 600 x 200
 const LOGO_BREITE = 26 * MM;
 
 // Abstaende, die ueber das ganze Blatt gelten.
-const ABSCHNITT_ABSTAND = 2.8 * MM; // zwischen zwei Abschnitten
+const ABSCHNITT_ABSTAND = 5 * MM;   // zwischen zwei Abschnitten
 const ZEILEN_ABSTAND = 1.1 * MM;    // unter einer Zeile mit Kaestchen
 
 // Farben wie in styles/tokens.css, damit PDF und App zusammenpassen.
@@ -410,9 +414,9 @@ function abschnittKopf(bogen, schritt, mass) {
   bogen.y = oben + mass.hoehe;
 }
 
-// Drei Schreiblinien wie auf dem Papier, Abstand 8 mm.
-const SCHREIBZEILEN = 3;
-const SCHREIBZEILE_HOEHE = 7.2 * MM;
+// Vier Schreiblinien wie auf dem Papier, Abstand 9 mm.
+const SCHREIBZEILEN = 4;
+const SCHREIBZEILE_HOEHE = 9 * MM;
 
 function freitext(bogen, { daten, leer }) {
   if (leer || !String(daten.text || '').trim()) {

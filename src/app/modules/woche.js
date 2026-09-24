@@ -94,7 +94,7 @@ function heuteAbschnitt(ctx) {
     return abschnitt('Heute', kinder);
   }
 
-  const kinder = [el('div', {}, termine.map((termin) => terminZeile(termin, schule)))];
+  const kinder = [el('div', {}, termine.map((termin) => terminZeile(termin, schule, jg.jgst)))];
   if (ohneMuster && !termine.some((termin) => termin.art === 'coaching')) {
     kinder.push(coachingHinweis());
   }
@@ -135,7 +135,8 @@ function wocheAbschnitt(ctx) {
       termine: tag.termine,
       istHeute,
       sonderwoche: tag.sonderwoche,
-      schule
+      schule,
+      jgst: jg.jgst
     });
     // Tippbar: ein <article> darf nicht role="button" tragen. Deshalb derselbe
     // Inhalt in einem div. Der Name kommt aus dem sichtbaren Inhalt (Tag,
@@ -145,14 +146,14 @@ function wocheAbschnitt(ctx) {
       role: 'button',
       tabindex: '0'
     }, [...karte.childNodes]);
-    const oeffnen = () => tagDetailZeigen(detailBereich, tag, istHeute, schule);
+    const oeffnen = () => tagDetailZeigen(detailBereich, tag, istHeute, schule, jg.jgst);
     element.addEventListener('click', oeffnen);
     element.addEventListener('keydown', (ereignis) => {
       if (ereignis.key !== 'Enter' && ereignis.key !== ' ') return;
       ereignis.preventDefault();
       oeffnen();
     });
-    if (istHeute) tagDetailZeigen(detailBereich, tag, true, schule, { keinScroll: true });
+    if (istHeute) tagDetailZeigen(detailBereich, tag, true, schule, jg.jgst, { keinScroll: true });
     return element;
   });
 
@@ -162,12 +163,12 @@ function wocheAbschnitt(ctx) {
   ]);
 }
 
-function tagDetailZeigen(bereich, tag, istHeute, schule, optionen = {}) {
+function tagDetailZeigen(bereich, tag, istHeute, schule, jgst, optionen = {}) {
   leer(bereich);
   bereich.append(
     el('h3', { text: (istHeute ? 'Heute, ' : '') + formatDatum(tag.datum, 'lang') }),
     tag.termine.length > 0
-      ? el('div', {}, tag.termine.map((termin) => terminZeile(termin, schule)))
+      ? el('div', {}, tag.termine.map((termin) => terminZeile(termin, schule, jgst)))
       : leerZustand({ text: tagLeerText(tag), motiv: 'keins' })
   );
   if (!optionen.keinScroll && typeof bereich.scrollIntoView === 'function') {

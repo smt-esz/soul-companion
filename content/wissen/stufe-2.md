@@ -3,7 +3,7 @@ id: stufe-2
 titel: Stufe 2: Stamm
 bereich: stufen
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 43
 stichworte: [Stamm, Stufe 2, Graduierung, Rechte, Freiheiten]
 quelle: SOUL_A3Graduierungssystem für SuS.pdf (HEC, SMT, 06.02.2025)

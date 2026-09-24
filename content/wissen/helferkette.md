@@ -3,7 +3,7 @@ id: helferkette
 titel: Ich komme nicht weiter
 bereich: hilfe
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 10
 stichworte: [Helferkette, Hilfe, Nachdenken, Nachsehen, Nachhelfen, Nachfragen, Nachhaken]
 quelle: SOUL_Helferkette.pdf (Plakat); SOUL_Wissensbasis.md, Abschnitt Helferkette
