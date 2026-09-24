@@ -43,14 +43,16 @@ const SCHEMATA = [
 
 // Beispielfächer, falls die Musterseite ohne geladene Schuldaten läuft.
 // Farben und Symbole stehen so in DESIGN 2.2, Kürzel komplett großgeschrieben
-// (Leo, 24.09.2026), wie build.mjs es aus schule.xlsx erzeugt.
+// (Leo, 24.09.2026), wie build.mjs es aus schule.xlsx erzeugt. Ausnahme FvU:
+// feste Abkürzung für "Fächerverbindender Unterricht", bleibt gemischt
+// geschrieben (Leo, 24.09.2026).
 const FAECHER_ERSATZ = [
   { id: 'ma', name: 'Mathematik', kurz: 'MA', farbe: 'ma', symbol: 'fach-ma' },
   { id: 'de', name: 'Deutsch', kurz: 'DE', farbe: 'de', symbol: 'fach-de' },
   { id: 'en', name: 'Englisch', kurz: 'EN', farbe: 'en', symbol: 'fach-en' },
   { id: 'bio', name: 'Biologie', kurz: 'BIO', farbe: 'bio', symbol: 'fach-bio' },
   { id: 'geo', name: 'Geografie', kurz: 'GEO', farbe: 'geo', symbol: 'fach-geo' },
-  { id: 'fvu', name: 'Fächerverbindend', kurz: 'FVU', farbe: 'fvu', symbol: 'zahnrad' },
+  { id: 'fvu', name: 'Fächerverbindend', kurz: 'FvU', farbe: 'fvu', symbol: 'zahnrad' },
   { id: 'offen', name: 'Fach offen', kurz: '?', farbe: 'offen', symbol: 'fragezeichen' }
 ];
 
