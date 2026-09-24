@@ -19,7 +19,6 @@ import './modules/faecher.js';
 import './modules/stufen.js';
 import './modules/antrag.js';
 import './modules/wissen.js';
-import './modules/mehr.js';
 import './modules/suche.js';
 import './modules/einstellungen.js';
 
@@ -121,7 +120,21 @@ function layoutAufbauen(jg) {
 
   const kopf = el('header', { class: 'kopfzeile' }, [
     el('div', { class: 'kopfzeile-oben' }, [
-      el('p', { class: 'kopfzeile-titel', text: 'SOUL Companion' }),
+      el('a', { class: 'kopfzeile-marke', href: '#/woche' }, [
+        el('img', {
+          class: 'kopfzeile-logo kopfzeile-logo--hell',
+          src: 'assets/soul-logo.png',
+          alt: '',
+          'aria-hidden': 'true'
+        }),
+        el('img', {
+          class: 'kopfzeile-logo kopfzeile-logo--dunkel',
+          src: 'assets/soul-logo-weiss.png',
+          alt: '',
+          'aria-hidden': 'true'
+        }),
+        el('p', { class: 'kopfzeile-titel', text: 'SOUL Companion' })
+      ]),
       statusBereich
     ]),
     sucheBereich()
@@ -129,7 +142,7 @@ function layoutAufbauen(jg) {
 
   navigation = el('nav', { class: 'hauptnavigation', 'aria-label': 'Bereiche' }, [
     el('ul', { class: 'hauptnavigation-liste' }, getModules()
-      .filter((modul) => modul.nav.sichtbar && !modul.nav.mehr && modul.routes.length > 0)
+      .filter((modul) => modul.nav.sichtbar && modul.routes.length > 0)
       .map((modul) => el('li', {}, [
         el('a', {
           class: 'hauptnavigation-link',

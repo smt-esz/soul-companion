@@ -57,39 +57,38 @@
   /* ------------------------------------- Faecher (DESIGN 2.2) */
   /* Kante = Farbe des Fachraum-Schildes, Flaeche = heller Grund,
      Text = dunkel genug fuer AA, Badge = Schrift auf der Kante.
-     Badge-Schrift weiss bei Ma, De, Geo; Navy bei En und Bio, weil
-     Gelb und Gruen fuer Weiss zu hell sind (DESIGN 2.2). */
+     Badge-Schrift einheitlich Schwarz (Leo, 24.09.2026: lieber
+     einheitlich als eine Mischung aus Schwarz und Weiss, auch wenn der
+     Kontrast bei Ma und Geo dadurch knapper wird, siehe kontrast.mjs). */
   --fach-ma-kante: #156082;
   --fach-ma-flaeche: #E7F0F4;
   --fach-ma-text: #156082;
-  --fach-ma-badge: #FFFFFF;
+  --fach-ma-badge: #000000;
 
   --fach-de-kante: #FF0000;
   --fach-de-flaeche: #FFE5E5;
   --fach-de-text: #C00000;
-  /* Schwarz statt Weiss (Leo, 24.09.2026): auf dem reinen Rot war Weiss mit
-     4.0 : 1 das schwaechste Badge, Schwarz kommt auf 5.25 : 1. */
   --fach-de-badge: #000000;
 
   --fach-en-kante: #FFC000;
   --fach-en-flaeche: #FFF3CC;
   --fach-en-text: #7A5C00;
-  --fach-en-badge: #0E2841;
+  --fach-en-badge: #000000;
 
   --fach-bio-kante: #00B050;
   --fach-bio-flaeche: #E0F5E9;
   --fach-bio-text: #007A38;
-  --fach-bio-badge: #0E2841;
+  --fach-bio-badge: #000000;
 
   --fach-geo-kante: #A02B93;
   --fach-geo-flaeche: #F5E6F3;
   --fach-geo-text: #A02B93;
-  --fach-geo-badge: #FFFFFF;
+  --fach-geo-badge: #000000;
 
   --fach-offen-kante: #8A97A3;
   --fach-offen-flaeche: #EEF1F3;
   --fach-offen-text: #4A5A6A;
-  --fach-offen-badge: #0E2841;
+  --fach-offen-badge: #000000;
 
   /* Faecherverbindend: Regenbogen aus den Schild- bzw. Flaechenfarben,
      Reihenfolge De, En, Bio, Ma, Geo (DESIGN 2.2, Leo 22.09.2026).

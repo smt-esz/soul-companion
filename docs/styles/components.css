@@ -1571,6 +1571,8 @@ button.plan-block {
   font-size: var(--t-h2-groesse);
   font-weight: var(--t-h2-gewicht);
   color: var(--fach-text, var(--c-navy));
+  /* Kapitaelchen fuer die ausgeschriebenen Fachnamen (Leo, 24.09.2026). */
+  font-variant-caps: small-caps;
 }
 
 .fach-kachel-stand {
@@ -1610,6 +1612,8 @@ button.plan-block {
 .fach-kopf-name {
   margin: 0;
   color: var(--fach-text);
+  /* Kapitaelchen fuer die ausgeschriebenen Fachnamen (Leo, 24.09.2026). */
+  font-variant-caps: small-caps;
 }
 
 /* Faecherverbindend: Kante und Flaeche sind Verlaeufe, deshalb als Bild und
