@@ -67,7 +67,9 @@
   --fach-de-kante: #FF0000;
   --fach-de-flaeche: #FFE5E5;
   --fach-de-text: #C00000;
-  --fach-de-badge: #FFFFFF;
+  /* Schwarz statt Weiss (Leo, 24.09.2026): auf dem reinen Rot war Weiss mit
+     4.0 : 1 das schwaechste Badge, Schwarz kommt auf 5.25 : 1. */
+  --fach-de-badge: #000000;
 
   --fach-en-kante: #FFC000;
   --fach-en-flaeche: #FFF3CC;

@@ -88,7 +88,8 @@
 
 .fach-badge--s {
   font-size: var(--t-klein-groesse);
-  padding: 2px var(--s-1);
+  /* Vorher 2px var(--s-1): wirkte gedrungen (Leo, 24.09.2026). */
+  padding: 4px var(--s-2);
 }
 
 .fach-badge--s .icon {
