@@ -8,6 +8,7 @@ import { startRouter, navigate, onNavigation } from './router.js';
 import * as update from './update.js';
 import * as onboarding from './onboarding.js';
 import { el, leer } from './ui/components.js';
+import { icon } from './ui/icons.js';
 
 // Module melden sich beim Import selbst an. Ohne Bundler braucht es diese
 // Zeile je Moduldatei. Welche davon wirklich gelten, sagt content/index.json
@@ -18,6 +19,7 @@ import './modules/faecher.js';
 import './modules/stufen.js';
 import './modules/antrag.js';
 import './modules/wissen.js';
+import './modules/mehr.js';
 import './modules/suche.js';
 import './modules/einstellungen.js';
 
@@ -127,14 +129,16 @@ function layoutAufbauen(jg) {
 
   navigation = el('nav', { class: 'hauptnavigation', 'aria-label': 'Bereiche' }, [
     el('ul', { class: 'hauptnavigation-liste' }, getModules()
-      .filter((modul) => modul.nav.sichtbar && modul.routes.length > 0)
+      .filter((modul) => modul.nav.sichtbar && !modul.nav.mehr && modul.routes.length > 0)
       .map((modul) => el('li', {}, [
         el('a', {
           class: 'hauptnavigation-link',
           href: modul.routes[0].pattern,
-          'data-modul': modul.id,
-          text: modul.titel
-        })
+          'data-modul': modul.id
+        }, [
+          modul.icon ? icon(modul.icon) : null,
+          el('span', { class: 'hauptnavigation-beschriftung', text: modul.titel })
+        ])
       ])))
   ]);
 
