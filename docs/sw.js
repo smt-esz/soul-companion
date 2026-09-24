@@ -23,7 +23,7 @@
 //   - keine fremden Hosts, es wird nichts nachgeladen und nichts gecacht,
 //     was nicht aus dem eigenen Ordner kommt.
 
-const VERSION = '0.1.0-1c5ad1b0';
+const VERSION = '0.1.0-d14e1a59';
 const PRECACHE = [
   "./",
   "./.nojekyll",
