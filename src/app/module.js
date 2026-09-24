@@ -40,7 +40,10 @@ export function registerModule(definition) {
     icon: definition.icon || null,
     nav: {
       position: Number.isFinite(Number(nav.position)) ? Number(nav.position) : 100,
-      sichtbar: nav.sichtbar !== false
+      sichtbar: nav.sichtbar !== false,
+      // mehr: true haengt den Eintrag nicht in die Leiste, sondern unter
+      // #/mehr (DESIGN: hoechstens 6 Eintraege + Sammeleintrag "Mehr").
+      mehr: nav.mehr === true
     },
     routes: routen,
     suche: typeof definition.suche === 'function' ? definition.suche : null

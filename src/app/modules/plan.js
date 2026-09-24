@@ -66,12 +66,19 @@ function renderWochenraster(container, params, ctx) {
   const schalterBereich = el('div', { class: 'plan-schalter' });
   const wochenBereich = el('div', { class: 'plan-wochen' });
 
+  // Die SuS brauchen die Druckansicht nicht (Leo, 24.09.2026), der Knopf
+  // bleibt darum ausgeblendet und ist nur mit ?debug=1 erreichbar, genau wie
+  // die Musterseite (muster.js) und die Fehlersuche (einstellungen.js).
+  const debug = new URLSearchParams(location.search).get('debug') === '1';
+
   anfuegen(container, [
     el('h1', { text: raster.titel || 'Wochenraster', tabindex: '-1' }),
     legende(jg, schule, raster),
-    el('p', {}, [
-      knopf({ text: 'Drucken', art: 'neben', onTap: () => navigate('#/plan/druck/' + raster.id) })
-    ]),
+    debug
+      ? el('p', {}, [
+          knopf({ text: 'Drucken', art: 'neben', onTap: () => navigate('#/plan/druck/' + raster.id) })
+        ])
+      : null,
     schalterBereich,
     wochenBereich,
     verweis(navigate, '#/plan/jahr', 'Zum Jahresüberblick')

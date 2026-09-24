@@ -12,7 +12,9 @@ registerModule({
   id: 'einstellungen',
   titel: 'Einstellungen',
   icon: 'einstellungen',
-  nav: { position: 90, sichtbar: true },
+  // Sichtbar, aber unter "Mehr" statt in der Leiste (Leo, 24.09.2026: die
+  // Leiste soll hoechstens 6 Eintraege zeigen).
+  nav: { position: 90, sichtbar: true, mehr: true },
   routes: [
     { pattern: '#/einstellungen', render: renderEinstellungen }
   ]
