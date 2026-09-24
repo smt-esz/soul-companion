@@ -31,10 +31,9 @@ registerModule({
   nav: { position: 20, sichtbar: true },
   routes: [
     { pattern: '#/plan', render: renderWochenraster },
-    { pattern: '#/plan/jahr', render: renderJahr }
+    { pattern: '#/plan/jahr', render: renderJahr },
+    { pattern: '#/plan/druck/:rasterId', render: renderDruck }
   ]
-  // Etappe 3: Route '#/plan/druck/:rasterId' und der Knopf "Drucken"
-  // kommen erst mit AP-19 dazu.
 });
 
 // "offen" steht nicht in schule.faecher (DESIGN 2.2, letzte Zeile), dieselbe
@@ -70,6 +69,9 @@ function renderWochenraster(container, params, ctx) {
   anfuegen(container, [
     el('h1', { text: raster.titel || 'Wochenraster', tabindex: '-1' }),
     legende(jg, schule, raster),
+    el('p', {}, [
+      knopf({ text: 'Drucken', art: 'neben', onTap: () => navigate('#/plan/druck/' + raster.id) })
+    ]),
     schalterBereich,
     wochenBereich,
     verweis(navigate, '#/plan/jahr', 'Zum Jahresüberblick')
@@ -220,6 +222,142 @@ function coachingAbschnitt(ctx) {
     schule
   }))));
   return el('section', {}, kinder);
+}
+
+// ===================================================== Route #/plan/druck/:rasterId
+// Druckansicht (AP-19): ein A4-quer-Blatt je Bausteinzeitraum, Vorbild ist
+// QUELLEN\SOUL Artefakt Klasse 5\bausteinzeitraum-uebersicht.jpg. Die A/B-
+// Wochen-Spalte des Vorbilds entfällt (Leo, 22.09.2026: für SOUL nicht
+// relevant), an ihrer Stelle steht die Kalenderwoche. Alle Werte kommen aus
+// denselben model.js-Funktionen wie #/plan, hier wird kein Datum berechnet.
+
+function renderDruck(container, params, ctx) {
+  const { jg, schule, heute, navigate } = ctx;
+  const raster = rasterVonId(jg, params && params.rasterId);
+
+  if (!raster) {
+    anfuegen(container, [
+      el('h1', { text: 'Druckansicht', tabindex: '-1' }),
+      hinweis({ art: 'info', text: 'Diesen Bausteinzeitraum gibt es nicht.' }),
+      verweis(navigate, '#/plan', 'Zum Wochenraster')
+    ]);
+    return;
+  }
+
+  const wochen = wochenListe(raster, heute, 'zeitraum');
+  const titel = raster.titel || ('Bausteinzeitraum ' + formatDatum(raster.von, 'datum') + ' bis ' + formatDatum(raster.bis, 'datum'));
+
+  container.append(el('div', { class: 'druck-seite' }, [
+    el('header', { class: 'druck-kopf' }, [
+      el('div', { class: 'druck-kopf-text' }, [
+        el('h1', { text: titel, tabindex: '-1' }),
+        legende(jg, schule, raster)
+      ]),
+      el('img', { class: 'druck-logo', src: 'assets/soul-logo.png', alt: '', 'aria-hidden': 'true' })
+    ]),
+    druckTabelle(ctx, raster, wochen),
+    el('p', { class: 'druck-knopfzeile' }, [
+      knopf({ text: 'Drucken', art: 'haupt', onTap: () => window.print() }),
+      knopf({ text: 'Zurück zum Plan', art: 'neben', onTap: () => navigate('#/plan') })
+    ])
+  ]));
+}
+
+/** Der Bausteinzeitraum mit dieser ID, oder null. Sucht direkt in jg.raster,
+ * weil model.rasterAm nur "den Zeitraum an einem Datum" kennt, nicht per ID. */
+function rasterVonId(jg, rasterId) {
+  const treffer = liste(jg, 'raster').find((eintrag) => eintrag && eintrag.id === rasterId);
+  if (!treffer) return null;
+  return Object.assign({}, treffer, {
+    von: parseISODate(treffer.von),
+    bis: parseISODate(treffer.bis || treffer.von)
+  });
+}
+
+/**
+ * Die Tabelle: Kopfzeile Mo bis Fr, je Woche eine Datums- und eine
+ * Terminzeile (AP-19), Sonderwochen und Ferien als Balken über die ganze
+ * Breite (wie #/plan, siehe wocheInhalt).
+ */
+function druckTabelle(ctx, raster, wochen) {
+  const { jg, schule } = ctx;
+  const referenzMontag = wochen[0] || mondayOf(raster.von);
+  const koerper = [];
+
+  for (const montag of wochen) {
+    const info = model.wocheninfo(schule, jg, montag);
+    const tage = model.wocheTermine(jg, schule, montag);
+    const zeitraumText = formatDatum(montag, 'datum') + ' bis ' + formatDatum(addDays(montag, 4), 'datum') + ': ';
+
+    if (info.sonderwoche && info.sonderwoche.titel) {
+      koerper.push(druckBalken(zeitraumText + info.sonderwoche.titel, 'sonderwoche'));
+      continue;
+    }
+    const ferien = tage[0] && tage[0].ferien;
+    if (ferien && tage.every((tag) => tag.ferien)) {
+      koerper.push(druckBalken(zeitraumText + (ferien.name || 'Ferien'), 'ferien'));
+      continue;
+    }
+
+    koerper.push(el('tr', { class: 'druck-datumszeile' }, [
+      el('td', { class: 'druck-kw', rowspan: 2, text: 'KW ' + info.kw }),
+      ...tage.map((tag) => el('td', { class: 'druck-datum', text: formatDatum(tag.datum, 'datum') }))
+    ]));
+    koerper.push(el('tr', { class: 'druck-terminzeile' },
+      tage.map((tag) => el('td', {}, tag.termine.map((termin) => terminBlock(termin, schule))))
+    ));
+  }
+
+  // Eigener Rahmen mit waagerechtem Scrollen auf schmalen Geraeten (DESIGN 1,
+  // dieselbe Regel wie .wissen-tabelle-rahmen in wissen.js). Fuer den Ausdruck
+  // hebt print.css das wieder auf, dort bestimmt @page die Breite.
+  return el('div', { class: 'druck-tabelle-rahmen', tabindex: '0', role: 'group', 'aria-label': 'Tabelle' }, [
+    el('table', { class: 'druck-tabelle' }, [
+      el('thead', {}, [
+        el('tr', {}, [
+          el('th', { scope: 'col', class: 'druck-kw', text: 'KW' }),
+          ...[0, 1, 2, 3, 4].map((versatz) => el('th', {
+            scope: 'col',
+            text: formatDatum(addDays(referenzMontag, versatz), 'tagLang')
+          }))
+        ])
+      ]),
+      el('tbody', {}, koerper)
+    ])
+  ]);
+}
+
+function druckBalken(text, art) {
+  return el('tr', { class: 'druck-balken' }, [
+    el('td', { colspan: 6, class: 'plan-balken plan-balken--' + art, text })
+  ]);
+}
+
+/**
+ * Ein Termin im Feld: Inputs als Fachfläche mit fettem Kopf "Input <Kürzel
+ * Fach> <Kürzel Person>", Coachings als "Coaching <Kürzel>" (AP-19). Der
+ * Fach-Kürzel kommt aus schule.faecher (dieselbe Angabe wie überall sonst in
+ * der App), nicht aus der informellen Beschriftung des alten JPGs.
+ */
+function terminBlock(termin, schule) {
+  if (termin.art === 'input') {
+    const fach = fachVon(schule, termin.fach);
+    const zusatz = [
+      termin.titel,
+      termin.station ? 'Station ' + termin.station : null,
+      termin.pflicht ? 'Pflicht' : null,
+      termin.klasse ? 'nur Klasse ' + termin.klasse : null
+    ].filter(Boolean).join(', ');
+    return el('div', { class: 'druck-input', dataset: { fach: fach.farbe } }, [
+      el('p', { class: 'druck-input-kopf', text: 'Input ' + fach.kurz + (termin.kuerzel ? ' ' + termin.kuerzel : '') }),
+      zusatz ? el('p', { class: 'druck-input-text', text: zusatz }) : null
+    ].filter(Boolean));
+  }
+  if (termin.art === 'coaching') {
+    return el('p', { class: 'druck-coaching', text: 'Coaching' + (termin.kuerzel ? ' ' + termin.kuerzel : '') });
+  }
+  // 'sonstiges': dieselbe Bezeichnung wie in ui/components.js terminZeile.
+  return el('p', { class: 'druck-sonstiges', text: 'Termin' + (termin.text ? ': ' + termin.text : '') });
 }
 
 // ===================================================== Route #/plan/jahr

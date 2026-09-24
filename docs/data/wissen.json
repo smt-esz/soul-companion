@@ -22,6 +22,71 @@
       "abschnitte": []
     },
     {
+      "id": "soul-stunde",
+      "titel": "So läuft eine SOUL-Stunde",
+      "bereich": "ablauf",
+      "jahrgaenge": "alle",
+      "status": "entwurf",
+      "reihenfolge": 10,
+      "stichworte": [
+        "SOUL-Zeit",
+        "Ankommen",
+        "Arbeiten",
+        "Aufhören",
+        "Tagesablauf"
+      ],
+      "quelle": "SOUL Onboarding_Stand 01_2026.pdf, Kapitel 7.1; SOUL_Wissensbasis.md, Abschnitte Organisation und Helferkette",
+      "html": "<p>Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören.</p>\n<h2 id=\"ankommen\">Ankommen</h2>\n<p>Du holst dir einen Laptop oder dein iPad und trägst in lernlog dein Tagesziel ein: Fach, Baustein und die Stationen, die du bearbeiten willst. Brauchst du das Gerät für die erste Station nicht, bringst du es zurück. Dann nimmst du dir deine Materialien, wählst deinen Arbeitsplatz je nach deiner Stufe und ziehst dein Lanyard an.</p>\n<h2 id=\"arbeiten\">Arbeiten</h2>\n<p>In dieser Zeit arbeitest du an deinen Bausteinen. Auch Inputs und Coachings finden jetzt statt. Kommst du bei einer Aufgabe nicht weiter, nutze die <a href=\"#/wissen/helferkette\">Helferkette</a>. Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du mit Sofatutor weiterüben, Zusatzaufgaben machen oder dir etwas aus der Belohnungskiste nehmen.</p>\n<h2 id=\"aufhoeren\">Aufhören</h2>\n<p>Am Ende holst du dir wieder ein Gerät und loggst dich in lernlog aus. Dabei reflektierst du, ob du dein Ziel erreicht hast, und trägst die bearbeiteten Stationen in deinen Lernpfad ein. Dann räumst du deinen Arbeitsplatz auf und bringst die Materialien zurück ins Materialregal.</p>",
+      "abschnitte": [
+        {
+          "titel": "Ankommen",
+          "anker": "ankommen"
+        },
+        {
+          "titel": "Arbeiten",
+          "anker": "arbeiten"
+        },
+        {
+          "titel": "Aufhören",
+          "anker": "aufhoeren"
+        }
+      ]
+    },
+    {
+      "id": "soul",
+      "titel": "Was ist SOUL?",
+      "bereich": "soul",
+      "jahrgaenge": "alle",
+      "status": "entwurf",
+      "reihenfolge": 15,
+      "stichworte": [
+        "SOUL",
+        "Idee",
+        "Ziele",
+        "Lernbegleitung"
+      ],
+      "quelle": "SOUL_Wissensbasis.md, Abschnitte Was SOUL ist, Ziele und Rolle der Lehrkraft; SOUL Onboarding_Stand 01_2026.pdf, Kapitel 1",
+      "html": "<h2 id=\"der-name\">Der Name</h2>\n<p>SOUL heißt SelbstOrganisiertes Umfeld zum Lernen.</p>\n<h2 id=\"die-idee\">Die Idee</h2>\n<p>In SOUL gestaltest du deinen Lernprozess eigenverantwortlich und erschließt dir Inhalte selbstständig. Deine Lehrkraft ist dabei nicht mehr die klassische Wissensvermittlerin oder der klassische Wissensvermittler, sondern deine Lernbegleitung.</p>\n<h2 id=\"die-ziele\">Die Ziele</h2>\n<p>Du übernimmst Verantwortung für deinen Lernprozess, bestimmst dein eigenes Lerntempo und erarbeitest dir Inhalte eigenständig. Mit Lernbausteinen und Gelingensnachweisen zeigst du, was du gelernt hast. Dazu reflektierst du deine Arbeitsweise und verbesserst sie immer weiter.</p>\n<h2 id=\"deine-lernbegleitung\">Deine Lernbegleitung</h2>\n<p>Deine Lernbegleitung unterstützt dich bei der Organisation, gibt dir Denkanstöße und hilft dir beim Nachdenken über dein Lernen.</p>",
+      "abschnitte": [
+        {
+          "titel": "Der Name",
+          "anker": "der-name"
+        },
+        {
+          "titel": "Die Idee",
+          "anker": "die-idee"
+        },
+        {
+          "titel": "Die Ziele",
+          "anker": "die-ziele"
+        },
+        {
+          "titel": "Deine Lernbegleitung",
+          "anker": "deine-lernbegleitung"
+        }
+      ]
+    },
+    {
       "id": "was-mache-ich-wo",
       "titel": "App oder lernlog?",
       "bereich": "soul",
@@ -37,6 +102,96 @@
       "quelle": "SOUL_Wissensbasis.md, Abschnitte SOUL Companion und Aufbau der Bausteine",
       "html": "<p>In SOUL arbeitest du an drei Orten: in dieser App, in lernlog und am Materialregal. Hier siehst du, was wohin gehört.</p>\n<table>\n<thead>\n<tr>\n<th>In der App</th>\n<th>In lernlog</th>\n<th>Am Materialregal</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Überblick über deine Bausteine, deine Termine, die Inputs, deine Coachings und die Abgaben. Dazu die Stufen und der Antrag auf Stufenaufstieg.</td>\n<td>Dein Tagesziel, das Einloggen und Ausloggen mit Reflexion, dein Lernpfad und die Vereinbarungen aus dem Coaching.</td>\n<td>Die Bausteine, die Materialien und die Arbeitsblätter, die Lösungen und die Abgabeliste für die Gelingensnachweise.</td>\n</tr>\n</tbody></table>",
       "abschnitte": []
+    },
+    {
+      "id": "zeitraum",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "bereich": "ablauf",
+      "jahrgaenge": "alle",
+      "status": "entwurf",
+      "reihenfolge": 20,
+      "stichworte": [
+        "Bausteinzeitraum",
+        "Stationen",
+        "Lösungen",
+        "Inputs",
+        "Gelingensnachweis",
+        "Abgabeliste"
+      ],
+      "quelle": "SOUL_Wissensbasis.md, Abschnitte Organisation und Helferkette, Gelingensnachweise, Inputs; SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.1, 4.3 und 4.5",
+      "html": "<p>In einem Bausteinzeitraum bearbeitest du drei Bausteine aus drei Fächern gleichzeitig.</p>\n<h2 id=\"drei-faecher-gleichzeitig\">Drei Fächer gleichzeitig</h2>\n<p>Pro Zeitraum sind drei Fächer mit je einem Baustein vertreten. Wie lange dein Zeitraum dauert, ist unterschiedlich. Die genauen Termine findest du im <a href=\"#/plan\">Plan</a>.</p>\n<h2 id=\"stationen-bearbeiten\">Stationen bearbeiten</h2>\n<p>Jeder Baustein besteht aus Stationen. Manche sind Pflicht, manche darfst du wählen. Mehr dazu steht im <a href=\"#/wissen/glossar\">Wörterbuch</a>.</p>\n<h2 id=\"loesungen-selbst-holen\">Lösungen selbst holen</h2>\n<p>Zu jeder Station gibt es Lösungen am Materialregal. Wenn du eine Station fertig hast, holst du dir die Lösung selbst und vergleichst deine Ergebnisse.</p>\n<h2 id=\"inputs\">Inputs</h2>\n<p>Zu jedem Fachbaustein gibt es in deinem Zeitraum drei Inputs. Die meisten sind freiwillig, manche sind Pflicht. Pflichtinputs sind auf der Inputübersicht gekennzeichnet.</p>\n<h2 id=\"gelingensnachweis-abgeben\">Gelingensnachweis abgeben</h2>\n<p>Am Ende jedes Bausteins gibst du deinen Gelingensnachweis bei einer Lernbegleitung ab. Sie trägt die Abgabe mit Datum und Kürzel in die Abgabeliste am Materialregal ein. Deinen Abgabetermin findest du im <a href=\"#/plan\">Plan</a>.</p>",
+      "abschnitte": [
+        {
+          "titel": "Drei Fächer gleichzeitig",
+          "anker": "drei-faecher-gleichzeitig"
+        },
+        {
+          "titel": "Stationen bearbeiten",
+          "anker": "stationen-bearbeiten"
+        },
+        {
+          "titel": "Lösungen selbst holen",
+          "anker": "loesungen-selbst-holen"
+        },
+        {
+          "titel": "Inputs",
+          "anker": "inputs"
+        },
+        {
+          "titel": "Gelingensnachweis abgeben",
+          "anker": "gelingensnachweis-abgeben"
+        }
+      ]
+    },
+    {
+      "id": "coaching",
+      "titel": "So bereitest du dein Coaching vor",
+      "bereich": "ablauf",
+      "jahrgaenge": "alle",
+      "status": "entwurf",
+      "reihenfolge": 30,
+      "stichworte": [
+        "Coaching",
+        "Vorbereitung",
+        "Reflexion",
+        "Stufenaufstieg"
+      ],
+      "quelle": "SOUL_Coachinggespräch komplett.pdf, Seiten 1 bis 2; SOUL_Wissensbasis.md, Abschnitt Coachinggespräche; SOUL Onboarding_Stand 01_2026.pdf, Kapitel 4.2",
+      "html": "<h2 id=\"wie-oft-und-wie-lange\">Wie oft und wie lange</h2>\n<p>Etwa fünfmal im Schuljahr hast du ein Coaching mit deiner Lernbegleitung. Ein Coaching dauert etwa 10 bis 15 Minuten.</p>\n<h2 id=\"lernprozess\">Lernprozess</h2>\n<ul>\n<li>Wie beschreibst du deinen bisherigen Lernerfolg in SOUL?</li>\n<li>Welche Lernstrategien funktionieren gut für dich und welche eher nicht?</li>\n</ul>\n<h2 id=\"motivation\">Motivation</h2>\n<ul>\n<li>Was motiviert dich, in SOUL aktiv zu sein?</li>\n<li>Wie gehst du mit Phasen um, in denen die Motivation nachlässt?</li>\n</ul>\n<h2 id=\"schwierigkeiten\">Schwierigkeiten</h2>\n<ul>\n<li>Welche Art von Aufgaben bereitet dir Schwierigkeiten und wie gehst du damit um?</li>\n<li>Gibt es Unterstützung, die du dir wünschen würdest, um mit bestimmten Herausforderungen besser umzugehen?</li>\n</ul>\n<h2 id=\"staerken\">Stärken</h2>\n<ul>\n<li>In welchen Fächern oder Aufgabenarten von SOUL fühlst du dich besonders stark?</li>\n<li>Welche Fähigkeiten oder Eigenschaften helfen dir, Herausforderungen in SOUL zu meistern?</li>\n</ul>\n<h2 id=\"lernumgebung\">Lernumgebung</h2>\n<ul>\n<li>Wie gestaltest du deine Lernumgebung in SOUL, um effektiv arbeiten zu können?</li>\n<li>Gibt es bestimmte Gewohnheiten oder Rituale, die dir beim Lernen helfen? (Musik, Ruhe, Geräuschschutzkopfhörer, ...)</li>\n</ul>\n<h2 id=\"ziele\">Ziele</h2>\n<ul>\n<li>Hast du klare Ziele für SOUL? Wenn ja, welche?</li>\n<li>Welche Schritte planst du, um deine Ziele zu erreichen?</li>\n</ul>\n<h2 id=\"was-danach-passiert\">Was danach passiert</h2>\n<p>Deine Lernbegleitung hält eure Vereinbarungen in lernlog fest. Im Coaching wird auch entschieden, ob du in die nächste Stufe aufsteigst.</p>",
+      "abschnitte": [
+        {
+          "titel": "Wie oft und wie lange",
+          "anker": "wie-oft-und-wie-lange"
+        },
+        {
+          "titel": "Lernprozess",
+          "anker": "lernprozess"
+        },
+        {
+          "titel": "Motivation",
+          "anker": "motivation"
+        },
+        {
+          "titel": "Schwierigkeiten",
+          "anker": "schwierigkeiten"
+        },
+        {
+          "titel": "Stärken",
+          "anker": "staerken"
+        },
+        {
+          "titel": "Lernumgebung",
+          "anker": "lernumgebung"
+        },
+        {
+          "titel": "Ziele",
+          "anker": "ziele"
+        },
+        {
+          "titel": "Was danach passiert",
+          "anker": "was-danach-passiert"
+        }
+      ]
     },
     {
       "id": "regeln",
@@ -314,5 +469,54 @@
       "text": "Das sind die drei Stufen der Graduierung. Alle starten in der Wurzel. Aufsteigen kannst du frühestens nach den Herbstferien."
     }
   ],
-  "faq": []
+  "faq": [
+    {
+      "id": "warum-fuehlt-sich-soul-manchmal-anstrengender-an-als-normaler-unterricht",
+      "frage": "Warum fühlt sich SOUL manchmal anstrengender an als normaler Unterricht?",
+      "html": "<p>In SOUL trägst du selbst die Verantwortung für deinen Lernprozess. Du bestimmst dein eigenes Tempo und erarbeitest dir Inhalte eigenständig, statt dass dir alles erklärt wird. Deine Lernbegleitung erklärt dir nicht mehr alles vor, sondern gibt dir Denkanstöße und hilft dir beim Nachdenken über dein Lernen. Dazu reflektierst du regelmäßig deine Arbeitsweise.</p>",
+      "text": "In SOUL trägst du selbst die Verantwortung für deinen Lernprozess. Du bestimmst dein eigenes Tempo und erarbeitest dir Inhalte eigenständig, statt dass dir alles erklärt wird. Deine Lernbegleitung erklärt dir nicht mehr alles vor, sondern gibt dir Denkanstöße und hilft dir beim Nachdenken über dein Lernen. Dazu reflektierst du regelmäßig deine Arbeitsweise."
+    },
+    {
+      "id": "wo-finde-ich-hilfe-wenn-ich-bei-einer-aufgabe-nicht-weiterkomme",
+      "frage": "Wo finde ich Hilfe, wenn ich bei einer Aufgabe nicht weiterkomme?",
+      "html": "<p>Nutze die <a href=\"#/wissen/helferkette\">Helferkette</a>. Sie zeigt dir Schritt für Schritt, wie du vorgehst. Deine Lernbegleitung fragst du erst zuletzt.</p>",
+      "text": "Nutze die Helferkette. Sie zeigt dir Schritt für Schritt, wie du vorgehst. Deine Lernbegleitung fragst du erst zuletzt."
+    },
+    {
+      "id": "was-ist-der-unterschied-zwischen-einer-pflichtstation-und-einer-wahlstation",
+      "frage": "Was ist der Unterschied zwischen einer Pflichtstation und einer Wahlstation?",
+      "html": "<p>Eine Pflichtstation machst du auf jeden Fall. Eine Wahlstation darfst du machen, musst aber nicht. Auf der Bausteinübersicht siehst du, welche Stationen Pflicht und welche Wahl sind.</p>",
+      "text": "Eine Pflichtstation machst du auf jeden Fall. Eine Wahlstation darfst du machen, musst aber nicht. Auf der Bausteinübersicht siehst du, welche Stationen Pflicht und welche Wahl sind."
+    },
+    {
+      "id": "was-mache-ich-wenn-ich-alle-stationen-fertig-habe",
+      "frage": "Was mache ich, wenn ich alle Stationen fertig habe?",
+      "html": "<p>Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du an einem Laptop mit Sofatutor weiterüben, Zusatzaufgaben machen oder dir etwas aus der Belohnungskiste nehmen.</p>",
+      "text": "Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du an einem Laptop mit Sofatutor weiterüben, Zusatzaufgaben machen oder dir etwas aus der Belohnungskiste nehmen."
+    },
+    {
+      "id": "wer-kontrolliert-meine-loesungen",
+      "frage": "Wer kontrolliert meine Lösungen?",
+      "html": "<p>Du selbst. Wenn du eine Station fertig hast, holst du dir die Lösung am Materialregal und vergleichst deine Ergebnisse. Deine Lernbegleitung schaut sich das ab und zu stichprobenartig an.</p>",
+      "text": "Du selbst. Wenn du eine Station fertig hast, holst du dir die Lösung am Materialregal und vergleichst deine Ergebnisse. Deine Lernbegleitung schaut sich das ab und zu stichprobenartig an."
+    },
+    {
+      "id": "muss-ich-zu-jedem-input",
+      "frage": "Muss ich zu jedem Input?",
+      "html": "<p>Die meisten Inputs sind freiwillig, du gehst hin, wenn du sie brauchst. Manche Inputs sind aber Pflicht, zum Beispiel wenn in Biologie experimentiert oder mikroskopiert wird. Pflichtinputs sind auf der Inputübersicht gekennzeichnet.</p>",
+      "text": "Die meisten Inputs sind freiwillig, du gehst hin, wenn du sie brauchst. Manche Inputs sind aber Pflicht, zum Beispiel wenn in Biologie experimentiert oder mikroskopiert wird. Pflichtinputs sind auf der Inputübersicht gekennzeichnet."
+    },
+    {
+      "id": "wann-kann-ich-aufsteigen",
+      "frage": "Wann kann ich aufsteigen?",
+      "html": "<p>Frühestens nach den Herbstferien. Wenn du dich bereit fühlst, stellst du selbst einen Antrag auf Stufenaufstieg und schickst ihn vor deinem Coaching an deine Klassenleitung. Die Entscheidung fällt dann im Coaching.</p>",
+      "text": "Frühestens nach den Herbstferien. Wenn du dich bereit fühlst, stellst du selbst einen Antrag auf Stufenaufstieg und schickst ihn vor deinem Coaching an deine Klassenleitung. Die Entscheidung fällt dann im Coaching."
+    },
+    {
+      "id": "was-passiert-wenn-ich-mich-nicht-an-die-regeln-halte",
+      "frage": "Was passiert, wenn ich mich nicht an die Regeln halte?",
+      "html": "<p>Du bekommst eine Rückmeldung von deiner Lernbegleitung und es gibt ein Gespräch. Wenn das öfter passiert, kannst du für eine festgelegte Zeit zurückgestuft werden. Mehr dazu steht unter <a href=\"#/wissen/regeln\">Regeln in SOUL</a>.</p>",
+      "text": "Du bekommst eine Rückmeldung von deiner Lernbegleitung und es gibt ein Gespräch. Wenn das öfter passiert, kannst du für eine festgelegte Zeit zurückgestuft werden. Mehr dazu steht unter Regeln in SOUL."
+    }
+  ]
 }

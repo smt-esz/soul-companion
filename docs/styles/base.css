@@ -174,19 +174,46 @@ h1:focus {
 .kopfzeile {
   grid-area: kopf;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s-4);
+  flex-direction: column;
+  gap: var(--s-2);
   padding: var(--s-2) var(--inhalt-rand);
   padding-top: calc(var(--s-2) + env(safe-area-inset-top));
   padding-right: calc(var(--inhalt-rand) + env(safe-area-inset-right));
   border-bottom: 1px solid var(--c-linie);
 }
 
+.kopfzeile-oben {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
 .kopfzeile-titel {
   margin: 0;
   font-size: var(--t-h3-groesse);
   font-weight: var(--t-h3-gewicht);
+}
+
+/* Suchfeld im Kopf (AP-18): auf jeder Seite sichtbar, eigene Zeile unter
+   Titel und Status, damit es auf schmalen Geraeten nicht mit ihnen um den
+   Platz konkurriert. */
+.kopfzeile-suche-feld {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  min-height: var(--touch);
+  padding: 0 var(--s-3);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-knopf);
+  background: var(--c-karte);
+  color: var(--c-navy);
+  font: inherit;
+  /* Safari gibt type="search" sonst sein eigenes Aussehen (abgerundete
+     Kapsel, eigene Innenabstände). [ungeprüft auf iPadOS, aber dokumentiertes
+     WebKit-Verhalten] */
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .status {

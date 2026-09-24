@@ -9,6 +9,17 @@
     margin: 15mm;
   }
 
+  /* Die Druckansicht (#/plan/druck/:rasterId, AP-19) braucht Querformat und
+     einen schmaleren Rand, damit die Tabelle auf eine Seite passt. Ein
+     @page-Block gilt fuer den ganzen Druckauftrag, nicht nur eine Route,
+     deshalb ueberschreibt dieser hier die Werte oben fuer alle Ausdrucke.
+     Bisher gab es noch keine andere Seite, die beim Drucken auf ein
+     bestimmtes Format angewiesen war. */
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+
   html {
     font-size: 100%;
   }
@@ -19,20 +30,18 @@
     color: #000000;
   }
 
-  /* Alles, was nur zum Bedienen da ist, faellt weg. */
+  /* Alles, was nur zum Bedienen da ist, faellt weg. Die Kopfzeile (Titel,
+     Suchfeld) gehoert zur App-Oberflaeche, nicht zum Ausdruck: AP-19 zeigt
+     als erste Druckansicht ein eigenstaendiges Blatt (SOUL-Logo statt
+     App-Kopf), keinen Seitenausschnitt mit Bedienleiste drumherum. */
   .hauptnavigation,
+  .kopfzeile,
   .status,
   .leiste,
   .segment,
   .knopf,
   .knopf-reihe {
     display: none !important;
-  }
-
-  .kopfzeile {
-    border-bottom: 1px solid #000000;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .inhalt,
@@ -109,5 +118,80 @@
   a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;
+  }
+
+  /* --- Druckansicht (#/plan/druck/:rasterId), AP-19 --- */
+  /* Eng gesetzt, damit ein Bausteinzeitraum auf eine A4-Seite quer passt
+     (Akzeptanzkriterium 2). Farben der Fachflaechen stehen hier als feste
+     Werte, nicht als var(): ein Ausdruck bleibt immer hell, auch wenn das
+     Geraet gerade den Dunkelmodus zeigt (anders als am Bildschirm, DESIGN 9
+     gilt nur dort). Die Werte sind dieselben wie --fach-*-flaeche/-text in
+     tokens.css (heller Modus), von Hand synchron zu halten.
+
+     Kuerzel stehen im Feld immer als Text (siehe app/modules/plan.js
+     terminBlock), deshalb bleibt die Fachflaeche auch in Schwarzweiss lesbar
+     (Akzeptanzkriterium 3), Farbe ist hier nur zusaetzliche Orientierung. */
+
+  .druck-seite {
+    font-size: 8.5pt;
+  }
+
+  .druck-tabelle-rahmen {
+    overflow: visible;
+  }
+
+  .druck-tabelle {
+    min-width: 0;
+  }
+
+  .druck-kopf-text h1 {
+    font-size: 13pt;
+  }
+
+  .druck-logo {
+    width: 22mm;
+  }
+
+  .plan-legende {
+    gap: 0;
+  }
+
+  .druck-tabelle th,
+  .druck-tabelle td {
+    padding: 1mm 1.5mm;
+    border-color: #000000;
+  }
+
+  /* .druck-tabelle th nimmt sonst --c-karte/--c-navy vom Bildschirm-Farbschema
+     (components.css), ein Ausdruck bei aktivem Dunkelmodus haette dann eine
+     dunkle Kopfzeile. */
+  .druck-tabelle th {
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  .druck-input,
+  .druck-input[data-fach='fvu'] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .druck-input[data-fach='ma'] { background: #E7F0F4; color: #156082; }
+  .druck-input[data-fach='de'] { background: #FFE5E5; color: #C00000; }
+  .druck-input[data-fach='en'] { background: #FFF3CC; color: #7A5C00; }
+  .druck-input[data-fach='bio'] { background: #E0F5E9; color: #007A38; }
+  .druck-input[data-fach='geo'] { background: #F5E6F3; color: #A02B93; }
+  .druck-input[data-fach='offen'] { background: #EEF1F3; color: #4A5A6A; }
+  .druck-input[data-fach='fvu'] {
+    background: none;
+    background-image: linear-gradient(90deg, #FFE5E5, #FFF3CC, #E0F5E9, #E7F0F4, #F5E6F3);
+    color: #0E2841;
+  }
+
+  .plan-balken--sonderwoche,
+  .plan-balken--ferien {
+    background: #E4E4E4 !important;
+    background-image: none !important;
+    color: #000000;
   }
 }

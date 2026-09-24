@@ -602,18 +602,88 @@
       "route": "#/wissen/helferkette"
     },
     {
-      "id": "absatz:helferkette:0",
-      "typ": "absatz",
+      "id": "abschnitt:helferkette:0",
+      "typ": "abschnitt",
       "titel": "Ich komme nicht weiter",
       "text": "Du kommst nicht weiter? Dann suchst du zuerst selbst nach einer Lösung. Die Helferkette zeigt dir, in welcher Reihenfolge du vorgehst.",
       "route": "#/wissen/helferkette"
     },
     {
-      "id": "absatz:helferkette:1",
-      "typ": "absatz",
+      "id": "abschnitt:helferkette:1",
+      "typ": "abschnitt",
       "titel": "Ich komme nicht weiter",
       "text": "Die Lernbegleitung gibt dir Impulse statt fertiger Lösungen.",
       "route": "#/wissen/helferkette"
+    },
+    {
+      "id": "wissen:soul-stunde",
+      "typ": "wissen",
+      "titel": "So läuft eine SOUL-Stunde",
+      "text": "Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören. Du holst dir einen Laptop oder dein iPad und trägst in lernlog dein Tagesziel ein: Fach, Baustein und die Stationen, die du bearbeiten willst. Brauchst du das Gerät für die erste Station nicht, bringst du es zurück....",
+      "route": "#/wissen/soul-stunde"
+    },
+    {
+      "id": "abschnitt:soul-stunde:0",
+      "typ": "abschnitt",
+      "titel": "So läuft eine SOUL-Stunde",
+      "text": "Jede SOUL-Stunde läuft nach dem gleichen Schema ab: Ankommen, Arbeiten, Aufhören.",
+      "route": "#/wissen/soul-stunde"
+    },
+    {
+      "id": "abschnitt:soul-stunde:1",
+      "typ": "abschnitt",
+      "titel": "So läuft eine SOUL-Stunde",
+      "text": "Du holst dir einen Laptop oder dein iPad und trägst in lernlog dein Tagesziel ein: Fach, Baustein und die Stationen, die du bearbeiten willst. Brauchst du das Gerät für die erste Station nicht, bringst du es zurück. Dann nimmst du dir deine Materialien, wählst deinen Arbeitsplatz je nach deiner S...",
+      "route": "#/wissen/soul-stunde"
+    },
+    {
+      "id": "abschnitt:soul-stunde:2",
+      "typ": "abschnitt",
+      "titel": "So läuft eine SOUL-Stunde",
+      "text": "In dieser Zeit arbeitest du an deinen Bausteinen. Auch Inputs und Coachings finden jetzt statt. Kommst du bei einer Aufgabe nicht weiter, nutze die Helferkette. Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du mit Sofatutor weiterüben, Zusatzaufgabe...",
+      "route": "#/wissen/soul-stunde"
+    },
+    {
+      "id": "abschnitt:soul-stunde:3",
+      "typ": "abschnitt",
+      "titel": "So läuft eine SOUL-Stunde",
+      "text": "Am Ende holst du dir wieder ein Gerät und loggst dich in lernlog aus. Dabei reflektierst du, ob du dein Ziel erreicht hast, und trägst die bearbeiteten Stationen in deinen Lernpfad ein. Dann räumst du deinen Arbeitsplatz auf und bringst die Materialien zurück ins Materialregal.",
+      "route": "#/wissen/soul-stunde"
+    },
+    {
+      "id": "wissen:soul",
+      "typ": "wissen",
+      "titel": "Was ist SOUL?",
+      "text": "SOUL heißt SelbstOrganisiertes Umfeld zum Lernen. In SOUL gestaltest du deinen Lernprozess eigenverantwortlich und erschließt dir Inhalte selbstständig. Deine Lehrkraft ist dabei nicht mehr die klassische Wissensvermittlerin oder der klassische Wissensvermittler, sondern deine Lernbegleitung. Du ...",
+      "route": "#/wissen/soul"
+    },
+    {
+      "id": "abschnitt:soul:0",
+      "typ": "abschnitt",
+      "titel": "Was ist SOUL?",
+      "text": "SOUL heißt SelbstOrganisiertes Umfeld zum Lernen.",
+      "route": "#/wissen/soul"
+    },
+    {
+      "id": "abschnitt:soul:1",
+      "typ": "abschnitt",
+      "titel": "Was ist SOUL?",
+      "text": "In SOUL gestaltest du deinen Lernprozess eigenverantwortlich und erschließt dir Inhalte selbstständig. Deine Lehrkraft ist dabei nicht mehr die klassische Wissensvermittlerin oder der klassische Wissensvermittler, sondern deine Lernbegleitung.",
+      "route": "#/wissen/soul"
+    },
+    {
+      "id": "abschnitt:soul:2",
+      "typ": "abschnitt",
+      "titel": "Was ist SOUL?",
+      "text": "Du übernimmst Verantwortung für deinen Lernprozess, bestimmst dein eigenes Lerntempo und erarbeitest dir Inhalte eigenständig. Mit Lernbausteinen und Gelingensnachweisen zeigst du, was du gelernt hast. Dazu reflektierst du deine Arbeitsweise und verbesserst sie immer weiter.",
+      "route": "#/wissen/soul"
+    },
+    {
+      "id": "abschnitt:soul:3",
+      "typ": "abschnitt",
+      "titel": "Was ist SOUL?",
+      "text": "Deine Lernbegleitung unterstützt dich bei der Organisation, gibt dir Denkanstöße und hilft dir beim Nachdenken über dein Lernen.",
+      "route": "#/wissen/soul"
     },
     {
       "id": "wissen:was-mache-ich-wo",
@@ -623,57 +693,127 @@
       "route": "#/wissen/was-mache-ich-wo"
     },
     {
-      "id": "absatz:was-mache-ich-wo:0",
-      "typ": "absatz",
+      "id": "abschnitt:was-mache-ich-wo:0",
+      "typ": "abschnitt",
       "titel": "App oder lernlog?",
       "text": "In SOUL arbeitest du an drei Orten: in dieser App, in lernlog und am Materialregal. Hier siehst du, was wohin gehört.",
       "route": "#/wissen/was-mache-ich-wo"
     },
     {
+      "id": "wissen:zeitraum",
+      "typ": "wissen",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "text": "In einem Bausteinzeitraum bearbeitest du drei Bausteine aus drei Fächern gleichzeitig. Pro Zeitraum sind drei Fächer mit je einem Baustein vertreten. Wie lange dein Zeitraum dauert, ist unterschiedlich. Die genauen Termine findest du im Plan. Jeder Baustein besteht aus Stationen. Manche sind Pfli...",
+      "route": "#/wissen/zeitraum"
+    },
+    {
+      "id": "abschnitt:zeitraum:0",
+      "typ": "abschnitt",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "text": "In einem Bausteinzeitraum bearbeitest du drei Bausteine aus drei Fächern gleichzeitig.",
+      "route": "#/wissen/zeitraum"
+    },
+    {
+      "id": "abschnitt:zeitraum:1",
+      "typ": "abschnitt",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "text": "Pro Zeitraum sind drei Fächer mit je einem Baustein vertreten. Wie lange dein Zeitraum dauert, ist unterschiedlich. Die genauen Termine findest du im Plan.",
+      "route": "#/wissen/zeitraum"
+    },
+    {
+      "id": "abschnitt:zeitraum:2",
+      "typ": "abschnitt",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "text": "Jeder Baustein besteht aus Stationen. Manche sind Pflicht, manche darfst du wählen. Mehr dazu steht im Wörterbuch.",
+      "route": "#/wissen/zeitraum"
+    },
+    {
+      "id": "abschnitt:zeitraum:3",
+      "typ": "abschnitt",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "text": "Zu jeder Station gibt es Lösungen am Materialregal. Wenn du eine Station fertig hast, holst du dir die Lösung selbst und vergleichst deine Ergebnisse.",
+      "route": "#/wissen/zeitraum"
+    },
+    {
+      "id": "abschnitt:zeitraum:4",
+      "typ": "abschnitt",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "text": "Zu jedem Fachbaustein gibt es in deinem Zeitraum drei Inputs. Die meisten sind freiwillig, manche sind Pflicht. Pflichtinputs sind auf der Inputübersicht gekennzeichnet.",
+      "route": "#/wissen/zeitraum"
+    },
+    {
+      "id": "abschnitt:zeitraum:5",
+      "typ": "abschnitt",
+      "titel": "So läuft ein Bausteinzeitraum",
+      "text": "Am Ende jedes Bausteins gibst du deinen Gelingensnachweis bei einer Lernbegleitung ab. Sie trägt die Abgabe mit Datum und Kürzel in die Abgabeliste am Materialregal ein. Deinen Abgabetermin findest du im Plan.",
+      "route": "#/wissen/zeitraum"
+    },
+    {
+      "id": "wissen:coaching",
+      "typ": "wissen",
+      "titel": "So bereitest du dein Coaching vor",
+      "text": "Etwa fünfmal im Schuljahr hast du ein Coaching mit deiner Lernbegleitung. Ein Coaching dauert etwa 10 bis 15 Minuten. Deine Lernbegleitung hält eure Vereinbarungen in lernlog fest. Im Coaching wird auch entschieden, ob du in die nächste Stufe aufsteigst.",
+      "route": "#/wissen/coaching"
+    },
+    {
+      "id": "abschnitt:coaching:0",
+      "typ": "abschnitt",
+      "titel": "So bereitest du dein Coaching vor",
+      "text": "Etwa fünfmal im Schuljahr hast du ein Coaching mit deiner Lernbegleitung. Ein Coaching dauert etwa 10 bis 15 Minuten.",
+      "route": "#/wissen/coaching"
+    },
+    {
+      "id": "abschnitt:coaching:1",
+      "typ": "abschnitt",
+      "titel": "So bereitest du dein Coaching vor",
+      "text": "Deine Lernbegleitung hält eure Vereinbarungen in lernlog fest. Im Coaching wird auch entschieden, ob du in die nächste Stufe aufsteigst.",
+      "route": "#/wissen/coaching"
+    },
+    {
       "id": "wissen:regeln",
       "typ": "wissen",
       "titel": "Regeln in SOUL",
-      "text": "Diese Regeln gelten für alle in SOUL. Sie sorgen dafür, dass jede und jeder in Ruhe arbeiten kann. In den Fachräumen ist es still, dort arbeitest du allein. Im Flur, im SOUL-Raum und auf dem restlichen Schulgelände dürft ihr zusammen arbeiten. Dort sprecht ihr nur im Flüsterton, so leise, dass eure Stimme nicht mitklingt. Wenn du den Raum verlassen willst, meldest du dich und fragst. Am Ende de...",
+      "text": "Diese Regeln gelten für alle in SOUL. Sie sorgen dafür, dass jede und jeder in Ruhe arbeiten kann. In den Fachräumen ist es still, dort arbeitest du allein. Im Flur, im SOUL-Raum und auf dem restlichen Schulgelände dürft ihr zusammen arbeiten. Dort sprecht ihr nur im Flüsterton, so leise, dass eu...",
       "route": "#/wissen/regeln"
     },
     {
-      "id": "absatz:regeln:0",
-      "typ": "absatz",
+      "id": "abschnitt:regeln:0",
+      "typ": "abschnitt",
       "titel": "Regeln in SOUL",
       "text": "Diese Regeln gelten für alle in SOUL. Sie sorgen dafür, dass jede und jeder in Ruhe arbeiten kann.",
       "route": "#/wissen/regeln"
     },
     {
-      "id": "absatz:regeln:1",
-      "typ": "absatz",
+      "id": "abschnitt:regeln:1",
+      "typ": "abschnitt",
       "titel": "Regeln in SOUL",
       "text": "In den Fachräumen ist es still, dort arbeitest du allein. Im Flur, im SOUL-Raum und auf dem restlichen Schulgelände dürft ihr zusammen arbeiten. Dort sprecht ihr nur im Flüsterton, so leise, dass eure Stimme nicht mitklingt.",
       "route": "#/wissen/regeln"
     },
     {
-      "id": "absatz:regeln:2",
-      "typ": "absatz",
+      "id": "abschnitt:regeln:2",
+      "typ": "abschnitt",
       "titel": "Regeln in SOUL",
       "text": "Wenn du den Raum verlassen willst, meldest du dich und fragst.",
       "route": "#/wissen/regeln"
     },
     {
-      "id": "absatz:regeln:3",
-      "typ": "absatz",
+      "id": "abschnitt:regeln:3",
+      "typ": "abschnitt",
       "titel": "Regeln in SOUL",
       "text": "Am Ende der SOUL-Zeit räumst du deinen Arbeitsplatz auf. Alle Materialien bringst du zurück ins Materialregal.",
       "route": "#/wissen/regeln"
     },
     {
-      "id": "absatz:regeln:4",
-      "typ": "absatz",
+      "id": "abschnitt:regeln:4",
+      "typ": "abschnitt",
       "titel": "Regeln in SOUL",
       "text": "In der SOUL-Zeit trägst du dein Lanyard sichtbar, egal ob du im Fachraum, im Cluster oder im Schulhaus arbeitest. So sehen alle, in welcher Stufe du bist.",
       "route": "#/wissen/regeln"
     },
     {
-      "id": "absatz:regeln:5",
-      "typ": "absatz",
+      "id": "abschnitt:regeln:5",
+      "typ": "abschnitt",
       "titel": "Regeln in SOUL",
       "text": "Bei einem Regelverstoß bekommst du eine Rückmeldung und es gibt ein Gespräch. Wenn das öfter passiert, kannst du für eine festgelegte Zeit eine Stufe zurückgestuft werden. Danach sprecht ihr darüber, wie du wieder aufsteigst.",
       "route": "#/wissen/regeln"
@@ -682,33 +822,33 @@
       "id": "wissen:stufen-allgemein",
       "typ": "wissen",
       "titel": "Rund um die Stufen",
-      "text": "In SOUL trägst du ein Lanyard, also ein Umhängeband mit einer Karte. Auf der Karte stehen dein Name, ein Farbcode und der Name und das Symbol deiner Stufe. Deine Klassenleitung verwahrt die Karten aller Stufen. Beim Aufstieg bekommst du die neue Karte im Coachinggespräch, die alte gibst du ab. Vor und nach der SOUL-Zeit liegt dein Lanyard im Klassenraum. In Klasse 5 hängen die Lanyards an einem...",
+      "text": "In SOUL trägst du ein Lanyard, also ein Umhängeband mit einer Karte. Auf der Karte stehen dein Name, ein Farbcode und der Name und das Symbol deiner Stufe. Deine Klassenleitung verwahrt die Karten aller Stufen. Beim Aufstieg bekommst du die neue Karte im Coachinggespräch, die alte gibst du ab. Vo...",
       "route": "#/wissen/stufen-allgemein"
     },
     {
-      "id": "absatz:stufen-allgemein:0",
-      "typ": "absatz",
+      "id": "abschnitt:stufen-allgemein:0",
+      "typ": "abschnitt",
       "titel": "Rund um die Stufen",
       "text": "In SOUL trägst du ein Lanyard, also ein Umhängeband mit einer Karte. Auf der Karte stehen dein Name, ein Farbcode und der Name und das Symbol deiner Stufe. Deine Klassenleitung verwahrt die Karten aller Stufen. Beim Aufstieg bekommst du die neue Karte im Coachinggespräch, die alte gibst du ab.",
       "route": "#/wissen/stufen-allgemein"
     },
     {
-      "id": "absatz:stufen-allgemein:1",
-      "typ": "absatz",
+      "id": "abschnitt:stufen-allgemein:1",
+      "typ": "abschnitt",
       "titel": "Rund um die Stufen",
       "text": "Vor und nach der SOUL-Zeit liegt dein Lanyard im Klassenraum. In Klasse 5 hängen die Lanyards an einem Baum im Zimmer, in den anderen Klassen kommt deins in deinen Ordner. Pass gut darauf auf: Ein neues kostet 5 Euro.",
       "route": "#/wissen/stufen-allgemein"
     },
     {
-      "id": "absatz:stufen-allgemein:2",
-      "typ": "absatz",
+      "id": "abschnitt:stufen-allgemein:2",
+      "typ": "abschnitt",
       "titel": "Rund um die Stufen",
       "text": "Alle starten in Stufe 1. Aufsteigen kannst du frühestens nach den Herbstferien. So hat deine Lernbegleitung Zeit, dich einzuschätzen.",
       "route": "#/wissen/stufen-allgemein"
     },
     {
-      "id": "absatz:stufen-allgemein:3",
-      "typ": "absatz",
+      "id": "abschnitt:stufen-allgemein:3",
+      "typ": "abschnitt",
       "titel": "Rund um die Stufen",
       "text": "Wenn du gegen Regeln verstößt, bekommst du eine Rückmeldung und es gibt ein Gespräch. Bei wiederholten Verstößen kannst du für eine festgelegte Zeit eine Stufe zurückgestuft werden. Danach sprecht ihr darüber, wie du wieder aufsteigst. Welche Regeln gelten, steht bei Regeln in SOUL.",
       "route": "#/wissen/stufen-allgemein"
@@ -717,47 +857,47 @@
       "id": "wissen:stufe-1",
       "typ": "wissen",
       "titel": "Stufe 1: Wurzel",
-      "text": "Du besprichst jeden Morgen deine Ziele und deinen Arbeitsplan für SOUL mit deiner Lernbegleitung. Am Ende von SOUL zeigst du deiner Lernbegleitung deine Logbuch-Reflexion. Du lernst am besten überwiegend allein, weil du von Arbeitspartnern leicht abgelenkt wirst. Du arbeitest an deinem Platz im Fachraum. Du benötigst deine gewohnte Umgebung und sichere Regeln. Wenn du den Raum verlassen willst,...",
+      "text": "Du besprichst jeden Morgen deine Ziele und deinen Arbeitsplan für SOUL mit deiner Lernbegleitung. Am Ende von SOUL zeigst du deiner Lernbegleitung deine Logbuch-Reflexion. Du lernst am besten überwiegend allein, weil du von Arbeitspartnern leicht abgelenkt wirst. Du arbeitest an deinem Platz im F...",
       "route": "#/wissen/stufe-1"
     },
     {
-      "id": "absatz:stufe-1:0",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-1:0",
+      "typ": "abschnitt",
       "titel": "Stufe 1: Wurzel",
       "text": "Du besprichst jeden Morgen deine Ziele und deinen Arbeitsplan für SOUL mit deiner Lernbegleitung.",
       "route": "#/wissen/stufe-1"
     },
     {
-      "id": "absatz:stufe-1:1",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-1:1",
+      "typ": "abschnitt",
       "titel": "Stufe 1: Wurzel",
       "text": "Am Ende von SOUL zeigst du deiner Lernbegleitung deine Logbuch-Reflexion.",
       "route": "#/wissen/stufe-1"
     },
     {
-      "id": "absatz:stufe-1:2",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-1:2",
+      "typ": "abschnitt",
       "titel": "Stufe 1: Wurzel",
       "text": "Du lernst am besten überwiegend allein, weil du von Arbeitspartnern leicht abgelenkt wirst.",
       "route": "#/wissen/stufe-1"
     },
     {
-      "id": "absatz:stufe-1:3",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-1:3",
+      "typ": "abschnitt",
       "titel": "Stufe 1: Wurzel",
       "text": "Du arbeitest an deinem Platz im Fachraum. Du benötigst deine gewohnte Umgebung und sichere Regeln.",
       "route": "#/wissen/stufe-1"
     },
     {
-      "id": "absatz:stufe-1:4",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-1:4",
+      "typ": "abschnitt",
       "titel": "Stufe 1: Wurzel",
       "text": "Wenn du den Raum verlassen willst, meldest du dich und fragst.",
       "route": "#/wissen/stufe-1"
     },
     {
-      "id": "absatz:stufe-1:5",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-1:5",
+      "typ": "abschnitt",
       "titel": "Stufe 1: Wurzel",
       "text": "Um Stufe 2 zu erreichen, musst du nachweisen, dass du zunehmend selbstständig arbeitest. Folgendes gehört dazu:",
       "route": "#/wissen/stufe-1"
@@ -766,54 +906,54 @@
       "id": "wissen:stufe-2",
       "typ": "wissen",
       "titel": "Stufe 2: Stamm",
-      "text": "Du besprichst bei Bedarf oder auf Anfrage deinen Arbeitsplan für SOUL mit deiner Lernbegleitung. Du kannst allein, in Partnerarbeit oder in einer Kleingruppe mit maximal 4 Personen arbeiten. Du kannst dir deinen Arbeitsplatz frei im Cluster wählen. Zum Cluster gehören der SOUL-Raum, der Flur, der Input-Raum, wenn er gerade frei ist, und dein Fachraum. Du kannst selbst entscheiden, wo du arbeite...",
+      "text": "Du besprichst bei Bedarf oder auf Anfrage deinen Arbeitsplan für SOUL mit deiner Lernbegleitung. Du kannst allein, in Partnerarbeit oder in einer Kleingruppe mit maximal 4 Personen arbeiten. Du kannst dir deinen Arbeitsplatz frei im Cluster wählen. Zum Cluster gehören der SOUL-Raum, der Flur, der...",
       "route": "#/wissen/stufe-2"
     },
     {
-      "id": "absatz:stufe-2:0",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-2:0",
+      "typ": "abschnitt",
       "titel": "Stufe 2: Stamm",
       "text": "Du besprichst bei Bedarf oder auf Anfrage deinen Arbeitsplan für SOUL mit deiner Lernbegleitung.",
       "route": "#/wissen/stufe-2"
     },
     {
-      "id": "absatz:stufe-2:1",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-2:1",
+      "typ": "abschnitt",
       "titel": "Stufe 2: Stamm",
       "text": "Du kannst allein, in Partnerarbeit oder in einer Kleingruppe mit maximal 4 Personen arbeiten.",
       "route": "#/wissen/stufe-2"
     },
     {
-      "id": "absatz:stufe-2:2",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-2:2",
+      "typ": "abschnitt",
       "titel": "Stufe 2: Stamm",
       "text": "Du kannst dir deinen Arbeitsplatz frei im Cluster wählen.",
       "route": "#/wissen/stufe-2"
     },
     {
-      "id": "absatz:stufe-2:3",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-2:3",
+      "typ": "abschnitt",
       "titel": "Stufe 2: Stamm",
       "text": "Zum Cluster gehören der SOUL-Raum, der Flur, der Input-Raum, wenn er gerade frei ist, und dein Fachraum.",
       "route": "#/wissen/stufe-2"
     },
     {
-      "id": "absatz:stufe-2:4",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-2:4",
+      "typ": "abschnitt",
       "titel": "Stufe 2: Stamm",
       "text": "Du kannst selbst entscheiden, wo du arbeiten möchtest – je nachdem, wo und wie du dich am besten konzentrieren kannst.",
       "route": "#/wissen/stufe-2"
     },
     {
-      "id": "absatz:stufe-2:5",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-2:5",
+      "typ": "abschnitt",
       "titel": "Stufe 2: Stamm",
       "text": "Du räumst deinen Arbeitsplatz ohne Erinnerung zuverlässig auf.",
       "route": "#/wissen/stufe-2"
     },
     {
-      "id": "absatz:stufe-2:6",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-2:6",
+      "typ": "abschnitt",
       "titel": "Stufe 2: Stamm",
       "text": "Um Stufe 3 zu erreichen, musst du folgendes nachweisen:",
       "route": "#/wissen/stufe-2"
@@ -822,33 +962,33 @@
       "id": "wissen:stufe-3",
       "typ": "wissen",
       "titel": "Stufe 3: Krone",
-      "text": "Du gestaltest deinen Lernprozess zielorientiert und selbstständig. Nach Beendigung eines Bausteins kannst du selbstständig ein Projekt wählen. Du kannst entscheiden, ob du allein, in Kleingruppen oder auch in größeren Gruppen arbeiten möchtest. Du darfst dir deinen Arbeitsplatz frei im gesamten Schulhaus wählen. Du räumst überall ohne Erinnerung vollständig und zuverlässig auf.",
+      "text": "Du gestaltest deinen Lernprozess zielorientiert und selbstständig. Nach Beendigung eines Bausteins kannst du selbstständig ein Projekt wählen. Du kannst entscheiden, ob du allein, in Kleingruppen oder auch in größeren Gruppen arbeiten möchtest. Du darfst dir deinen Arbeitsplatz frei im gesamten S...",
       "route": "#/wissen/stufe-3"
     },
     {
-      "id": "absatz:stufe-3:0",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-3:0",
+      "typ": "abschnitt",
       "titel": "Stufe 3: Krone",
       "text": "Du gestaltest deinen Lernprozess zielorientiert und selbstständig. Nach Beendigung eines Bausteins kannst du selbstständig ein Projekt wählen.",
       "route": "#/wissen/stufe-3"
     },
     {
-      "id": "absatz:stufe-3:1",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-3:1",
+      "typ": "abschnitt",
       "titel": "Stufe 3: Krone",
       "text": "Du kannst entscheiden, ob du allein, in Kleingruppen oder auch in größeren Gruppen arbeiten möchtest.",
       "route": "#/wissen/stufe-3"
     },
     {
-      "id": "absatz:stufe-3:2",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-3:2",
+      "typ": "abschnitt",
       "titel": "Stufe 3: Krone",
       "text": "Du darfst dir deinen Arbeitsplatz frei im gesamten Schulhaus wählen.",
       "route": "#/wissen/stufe-3"
     },
     {
-      "id": "absatz:stufe-3:3",
-      "typ": "absatz",
+      "id": "abschnitt:stufe-3:3",
+      "typ": "abschnitt",
       "titel": "Stufe 3: Krone",
       "text": "Du räumst überall ohne Erinnerung vollständig und zuverlässig auf.",
       "route": "#/wissen/stufe-3"
@@ -857,54 +997,54 @@
       "id": "wissen:ueber-die-app",
       "typ": "wissen",
       "titel": "Über die App",
-      "text": "Dieser Text wird noch von der Datenschutzstelle geprüft. Der SOUL Companion zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du auch nichts. Das machst du in lernlog. Die App speichert deinen Jahrgang und die App-Version, die du z...",
+      "text": "Dieser Text wird noch von der Datenschutzstelle geprüft. Der SOUL Companion zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du au...",
       "route": "#/wissen/ueber-die-app"
     },
     {
-      "id": "absatz:ueber-die-app:0",
-      "typ": "absatz",
+      "id": "abschnitt:ueber-die-app:0",
+      "typ": "abschnitt",
       "titel": "Über die App",
       "text": "Dieser Text wird noch von der Datenschutzstelle geprüft.",
       "route": "#/wissen/ueber-die-app"
     },
     {
-      "id": "absatz:ueber-die-app:1",
-      "typ": "absatz",
+      "id": "abschnitt:ueber-die-app:1",
+      "typ": "abschnitt",
       "titel": "Über die App",
       "text": "Der SOUL Companion zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du auch nichts. Das machst du in lernlog.",
       "route": "#/wissen/ueber-die-app"
     },
     {
-      "id": "absatz:ueber-die-app:2",
-      "typ": "absatz",
+      "id": "abschnitt:ueber-die-app:2",
+      "typ": "abschnitt",
       "titel": "Über die App",
-      "text": "Die App speichert deinen Jahrgang und die App-Version, die du zuletzt gesehen hast. Dazu kommen deine offenen Anträge mit deinem Namen, deiner Klasse, deiner Begründung, den Namen und Klassen von zwei Mitlernenden, dem Kürzel der Lernbegleitung, den angekreuzten Kriterien, den gezeichneten Unterschriften und den Datumsangaben.",
+      "text": "Die App speichert deinen Jahrgang und die App-Version, die du zuletzt gesehen hast. Dazu kommen deine offenen Anträge mit deinem Namen, deiner Klasse, deiner Begründung, den Namen und Klassen von zwei Mitlernenden, dem Kürzel der Lernbegleitung, den angekreuzten Kriterien, den gezeichneten Unters...",
       "route": "#/wissen/ueber-die-app"
     },
     {
-      "id": "absatz:ueber-die-app:3",
-      "typ": "absatz",
+      "id": "abschnitt:ueber-die-app:3",
+      "typ": "abschnitt",
       "titel": "Über die App",
       "text": "Alles davon bleibt auf deinem iPad. Die App speichert nicht, was du in ihr anschaust, wo du bist, welches Gerät du hast, wie gut du arbeitest, welche Noten du hast oder in welcher Stufe du bist.",
       "route": "#/wissen/ueber-die-app"
     },
     {
-      "id": "absatz:ueber-die-app:4",
-      "typ": "absatz",
+      "id": "abschnitt:ueber-die-app:4",
+      "typ": "abschnitt",
       "titel": "Über die App",
-      "text": "Die App wird von GitHub geladen. GitHub ist die Firma, auf deren Servern die App liegt. Beim Laden und beim Aktualisieren bekommt GitHub die IP-Adresse deines iPads, also die Nummer, unter der dein Gerät gerade im Internet erreichbar ist. GitHub speichert sie aus Sicherheitsgründen. Inhalte aus der App schickt die App selbst nirgendwohin.",
+      "text": "Die App wird von GitHub geladen. GitHub ist die Firma, auf deren Servern die App liegt. Beim Laden und beim Aktualisieren bekommt GitHub die IP-Adresse deines iPads, also die Nummer, unter der dein Gerät gerade im Internet erreichbar ist. GitHub speichert sie aus Sicherheitsgründen. Inhalte aus d...",
       "route": "#/wissen/ueber-die-app"
     },
     {
-      "id": "absatz:ueber-die-app:5",
-      "typ": "absatz",
+      "id": "abschnitt:ueber-die-app:5",
+      "typ": "abschnitt",
       "titel": "Über die App",
       "text": "Wenn du einen Antrag auf Stufenaufstieg fertig hast, verschickst du ihn als PDF per Mail an deine Klassenleitung. In dem PDF stehen alle Angaben aus deinem Antrag.",
       "route": "#/wissen/ueber-die-app"
     },
     {
-      "id": "absatz:ueber-die-app:6",
-      "typ": "absatz",
+      "id": "abschnitt:ueber-die-app:6",
+      "typ": "abschnitt",
       "titel": "Über die App",
       "text": "Fragen an deine Klassenleitung.",
       "route": "#/wissen/ueber-die-app"
@@ -1048,6 +1188,83 @@
       "titel": "Wurzel, Stamm und Krone",
       "text": "Das sind die drei Stufen der Graduierung. Alle starten in der Wurzel. Aufsteigen kannst du frühestens nach den Herbstferien.",
       "route": "#/wissen/glossar"
+    },
+    {
+      "id": "faq:warum-fuehlt-sich-soul-manchmal-anstrengender-an-als-normaler-unterricht",
+      "typ": "faq",
+      "titel": "Warum fühlt sich SOUL manchmal anstrengender an als normaler Unterricht?",
+      "text": "In SOUL trägst du selbst die Verantwortung für deinen Lernprozess. Du bestimmst dein eigenes Tempo und erarbeitest dir Inhalte eigenständig, statt dass dir alles erklärt wird. Deine Lernbegleitung erklärt dir nicht mehr alles vor, sondern gibt dir Denkanstöße und hilft dir beim Nachdenken über de...",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:wo-finde-ich-hilfe-wenn-ich-bei-einer-aufgabe-nicht-weiterkomme",
+      "typ": "faq",
+      "titel": "Wo finde ich Hilfe, wenn ich bei einer Aufgabe nicht weiterkomme?",
+      "text": "Nutze die Helferkette. Sie zeigt dir Schritt für Schritt, wie du vorgehst. Deine Lernbegleitung fragst du erst zuletzt.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:was-ist-der-unterschied-zwischen-einer-pflichtstation-und-einer-wahlstation",
+      "typ": "faq",
+      "titel": "Was ist der Unterschied zwischen einer Pflichtstation und einer Wahlstation?",
+      "text": "Eine Pflichtstation machst du auf jeden Fall. Eine Wahlstation darfst du machen, musst aber nicht. Auf der Bausteinübersicht siehst du, welche Stationen Pflicht und welche Wahl sind.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:was-mache-ich-wenn-ich-alle-stationen-fertig-habe",
+      "typ": "faq",
+      "titel": "Was mache ich, wenn ich alle Stationen fertig habe?",
+      "text": "Hast du gerade keinen Baustein zu bearbeiten und sind alle deine Wahlstationen fertig, darfst du an einem Laptop mit Sofatutor weiterüben, Zusatzaufgaben machen oder dir etwas aus der Belohnungskiste nehmen.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:wer-kontrolliert-meine-loesungen",
+      "typ": "faq",
+      "titel": "Wer kontrolliert meine Lösungen?",
+      "text": "Du selbst. Wenn du eine Station fertig hast, holst du dir die Lösung am Materialregal und vergleichst deine Ergebnisse. Deine Lernbegleitung schaut sich das ab und zu stichprobenartig an.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:muss-ich-zu-jedem-input",
+      "typ": "faq",
+      "titel": "Muss ich zu jedem Input?",
+      "text": "Die meisten Inputs sind freiwillig, du gehst hin, wenn du sie brauchst. Manche Inputs sind aber Pflicht, zum Beispiel wenn in Biologie experimentiert oder mikroskopiert wird. Pflichtinputs sind auf der Inputübersicht gekennzeichnet.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:wann-kann-ich-aufsteigen",
+      "typ": "faq",
+      "titel": "Wann kann ich aufsteigen?",
+      "text": "Frühestens nach den Herbstferien. Wenn du dich bereit fühlst, stellst du selbst einen Antrag auf Stufenaufstieg und schickst ihn vor deinem Coaching an deine Klassenleitung. Die Entscheidung fällt dann im Coaching.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "faq:was-passiert-wenn-ich-mich-nicht-an-die-regeln-halte",
+      "typ": "faq",
+      "titel": "Was passiert, wenn ich mich nicht an die Regeln halte?",
+      "text": "Du bekommst eine Rückmeldung von deiner Lernbegleitung und es gibt ein Gespräch. Wenn das öfter passiert, kannst du für eine festgelegte Zeit zurückgestuft werden. Mehr dazu steht unter Regeln in SOUL.",
+      "route": "#/wissen/faq"
+    },
+    {
+      "id": "stufe:1",
+      "typ": "stufe",
+      "titel": "Wurzel",
+      "text": "",
+      "route": "#/stufen"
+    },
+    {
+      "id": "stufe:2",
+      "typ": "stufe",
+      "titel": "Stamm",
+      "text": "",
+      "route": "#/stufen"
+    },
+    {
+      "id": "stufe:3",
+      "typ": "stufe",
+      "titel": "Krone",
+      "text": "",
+      "route": "#/stufen"
     }
   ]
 }

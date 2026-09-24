@@ -18,6 +18,7 @@ import './modules/faecher.js';
 import './modules/stufen.js';
 import './modules/antrag.js';
 import './modules/wissen.js';
+import './modules/suche.js';
 import './modules/einstellungen.js';
 
 const ONBOARDING_HASH = '#/start';
@@ -26,6 +27,11 @@ let inhalt = null;
 let navigation = null;
 let statusBereich = null;
 let leistenBereich = null;
+let sucheFeld = null;
+
+// Entprellung der Sucheingabe (AP-18: 150 ms).
+const SUCHE_ENTPRELLUNG_MS = 150;
+let sucheZeitstempel = null;
 
 start();
 
@@ -112,8 +118,11 @@ function layoutAufbauen(jg) {
   statusBereich = el('div', { id: 'status', class: 'status' });
 
   const kopf = el('header', { class: 'kopfzeile' }, [
-    el('p', { class: 'kopfzeile-titel', text: 'SOUL Companion' }),
-    statusBereich
+    el('div', { class: 'kopfzeile-oben' }, [
+      el('p', { class: 'kopfzeile-titel', text: 'SOUL Companion' }),
+      statusBereich
+    ]),
+    sucheBereich()
   ]);
 
   navigation = el('nav', { class: 'hauptnavigation', 'aria-label': 'Bereiche' }, [
@@ -144,6 +153,7 @@ function layoutAufbauen(jg) {
 }
 
 function navigationMarkieren(hash) {
+  syncSucheFeld(hash);
   if (!navigation) return;
   const { pfad } = zerlegeHash(hash);
   for (const link of navigation.querySelectorAll('.hauptnavigation-link')) {
@@ -154,6 +164,45 @@ function navigationMarkieren(hash) {
       link.removeAttribute('aria-current');
     }
   }
+}
+
+// ===================================================== Suchfeld im Kopf (AP-18)
+// Das Feld selbst gehört zu main.js (steht immer im Kopf, auf jeder Seite).
+// Die Ergebnisliste zeigt das Modul suche.js unter #/suche.
+
+function sucheBereich() {
+  sucheFeld = el('input', {
+    id: 'suche-eingabe',
+    type: 'search',
+    class: 'kopfzeile-suche-feld',
+    placeholder: 'Suchen',
+    autocomplete: 'off',
+    oninput: (ereignis) => sucheEingabe(ereignis.target.value)
+  });
+  return el('div', { class: 'kopfzeile-suche', role: 'search' }, [
+    el('label', { class: 'nur-vorlesen', for: 'suche-eingabe', text: 'Suchen' }),
+    sucheFeld
+  ]);
+}
+
+/** Entprellt auf 150 ms (AP-18) und wechselt dann zu #/suche?q=... */
+function sucheEingabe(wert) {
+  const zeitstempel = Symbol('suche');
+  sucheZeitstempel = zeitstempel;
+  setTimeout(() => {
+    if (sucheZeitstempel !== zeitstempel) return;
+    const bereinigt = String(wert || '').trim();
+    navigate(bereinigt ? '#/suche?q=' + encodeURIComponent(bereinigt) : '#/suche');
+  }, SUCHE_ENTPRELLUNG_MS);
+}
+
+/** Hält das Suchfeld mit der Anfrage in der URL synchron (z. B. bei einem
+ * Vorschlag oder dem Zurück-Knopf des Browsers). Während der Nutzer selbst
+ * tippt (Feld hat den Fokus), fasst das die Eingabe nicht an. */
+function syncSucheFeld(hash) {
+  if (!sucheFeld || document.activeElement === sucheFeld) return;
+  const { pfad, query } = zerlegeHash(hash);
+  sucheFeld.value = pfad === '#/suche' ? (query.q || '') : '';
 }
 
 // Onboarding-Weiche: main.js liefert die Einzelseite (Rahmen, Fokus), den
@@ -206,6 +255,7 @@ function einzelseite(kinder) {
   navigation = null;
   statusBereich = null;
   leistenBereich = null;
+  sucheFeld = null;
   inhalt = el('main', { id: 'inhalt', class: 'inhalt inhalt-einzel' }, kinder);
   document.body.append(inhalt);
   if (typeof window.scrollTo === 'function') window.scrollTo(0, 0);
