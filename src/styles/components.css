@@ -1413,6 +1413,114 @@ button.plan-block {
   }
 }
 
+/* --- Druckansicht (#/plan/druck/:rasterId), AP-19 --- */
+/* Bildschirmdarstellung. Das eigentliche Seitenformat (A4 quer, 12 mm Rand,
+   farbige Fachflaechen auch ohne Tokens) regelt print.css fuer @media print,
+   weil ein Ausdruck immer hell bleibt, unabhaengig vom Farbschema des
+   Geraets (DESIGN 9 gilt nur fuer den Bildschirm). */
+
+.druck-seite {
+  max-width: none;
+}
+
+.druck-kopf {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-5);
+  margin-bottom: var(--s-5);
+}
+
+.druck-kopf-text {
+  min-width: 0;
+}
+
+.druck-kopf-text h1 {
+  margin-top: 0;
+}
+
+.druck-logo {
+  width: 7rem;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.druck-tabelle-rahmen {
+  margin-bottom: var(--s-5);
+  overflow-x: auto;
+}
+
+.druck-tabelle {
+  width: 100%;
+  min-width: 50rem;
+  border-collapse: collapse;
+}
+
+.druck-tabelle th,
+.druck-tabelle td {
+  border: 1px solid var(--c-linie);
+  padding: var(--s-2);
+  text-align: left;
+  vertical-align: top;
+}
+
+.druck-tabelle th {
+  background: var(--c-karte);
+  text-align: center;
+}
+
+.druck-kw {
+  width: 4rem;
+  text-align: center;
+  font-weight: 650;
+  vertical-align: middle;
+}
+
+.druck-datum {
+  font-weight: 650;
+  text-align: center;
+}
+
+.druck-tabelle .plan-balken {
+  min-height: 0;
+  margin: 0;
+  border: 0;
+}
+
+.druck-input {
+  margin-bottom: var(--s-1);
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--radius-klein);
+  background: var(--fach-flaeche);
+  color: var(--fach-text);
+}
+
+/* Faecherverbindend: Flaeche ist ein Verlauf, nie eine Hintergrundfarbe
+   (DESIGN 2.2), wie .plan-block[data-fach='fvu']. */
+.druck-input[data-fach='fvu'] {
+  background: none;
+  background-image: var(--fach-fvu-flaeche);
+}
+
+.druck-input-kopf {
+  margin: 0;
+  font-weight: 650;
+}
+
+.druck-input-text {
+  margin: 0;
+}
+
+.druck-coaching,
+.druck-sonstiges {
+  margin: 0 0 var(--s-1);
+}
+
+.druck-knopfzeile {
+  display: flex;
+  gap: var(--s-3);
+}
+
 /* Prüfhilfe: zeigt, ob jede Touchfläche mindestens 48 x 48 px gross ist. */
 .muster--touch a,
 .muster--touch button,
@@ -2013,6 +2121,38 @@ button.plan-block {
   margin-bottom: var(--s-3);
 }
 
+/* --- Haeufige Fragen (#/wissen/faq) --- */
+/* <details>/<summary> statt eigenem Auf- und Zuklapp-Code (AP-17): das
+   Oeffnen und Schliessen macht der Browser, mit Tastatur und Vorlesehilfe. */
+
+.wissen-faq-frage {
+  max-width: var(--t-zeile-max);
+  margin-bottom: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.wissen-faq-frage > summary {
+  padding: var(--s-1) 0;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+  cursor: pointer;
+}
+
+.wissen-faq-frage[open] > summary {
+  margin-bottom: var(--s-2);
+}
+
+.wissen-faq-frage .wissen-text {
+  margin: 0;
+}
+
+.wissen-faq-frage .wissen-text p:last-child {
+  margin-bottom: 0;
+}
+
 /* --- Schmale Geraete --- */
 
 @media (max-width: 599px) {
@@ -2030,6 +2170,66 @@ button.plan-block {
   .wissen-text table {
     min-width: 28rem;
   }
+}
+
+/* ------------------------------------------------------ Modul suche */
+/* Ergebnisliste unter #/suche, AP-18. Das Eingabefeld selbst steht im Kopf
+   (base.css, .kopfzeile-suche-feld). Alle Werte kommen aus tokens.css. */
+
+.suche-gruppe {
+  margin-bottom: var(--s-5);
+}
+
+.suche-liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.suche-eintrag {
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--c-linie);
+  border-radius: var(--radius-karte);
+  background: var(--c-karte);
+}
+
+.suche-eintrag-titel {
+  display: block;
+  width: 100%;
+  min-height: var(--touch);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--c-teal-dunkel);
+  font-family: inherit;
+  font-size: var(--t-h3-groesse);
+  font-weight: var(--t-h3-gewicht);
+  text-align: left;
+  cursor: pointer;
+}
+
+.suche-eintrag-text {
+  margin: var(--s-1) 0 0;
+  color: var(--c-text-2);
+}
+
+/* Trefferwort: dieselben Farben wie "Karte 'laeuft gerade'" (bereits gegen
+   4.5 : 1 geprueft, siehe tools/kontrast.mjs), nur als Hervorhebung im Text. */
+.suche-eintrag mark {
+  background: var(--c-teal-hell);
+  color: var(--c-navy);
+  border-radius: var(--radius-klein);
+  padding: 0 0.1em;
+}
+
+.suche-vorschlaege-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--touch-abstand);
+  margin-top: var(--s-2);
 }
 
 /* ------------------------------------------------------ Modul antrag */

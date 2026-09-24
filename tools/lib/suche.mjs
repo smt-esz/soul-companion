@@ -1,18 +1,23 @@
-// Suchindex je Jahrgang (AP-02 Schritt 8, ARCHITEKTUR 3.10).
+// Suchindex je Jahrgang (AP-02 Schritt 8, vervollstaendigt in AP-18,
+// ARCHITEKTUR 3.10).
 //
 // Eine flache Liste { id, typ, titel, text, route, fach? } aus Bausteinen,
-// Stationstiteln, Inputs, Wissensseiten (Absaetze) und Glossarbegriffen.
-// Die Normalisierung und das Ranking macht die App zur Laufzeit (AP-11),
-// hier wird nur gesammelt.
+// Stationstiteln, Inputs, Wissensseiten (als Seite und als Abschnitt je
+// Absatz), Glossarbegriffen, FAQ-Fragen und Stufen. `typ` ist eines von:
+// baustein, station, input, wissen, abschnitt, glossar, faq, stufe (AP-18).
+// Die Normalisierung und das Ranking macht die App zur Laufzeit in
+// app/search.js (AP-18), hier wird nur gesammelt. `text` ist hoechstens
+// 300 Zeichen lang (AP-18).
 
-const MAX_TEXT = 400;
+const MAX_TEXT = 300;
 
 /**
  * @param {object} jg      data/jgN.json (ohne interne Felder)
  * @param {object} wissen  data/wissen.json
+ * @param {object} [schule]  data/schule.json, fuer die Stufen (AP-18)
  * @returns {Array}
  */
-export function baueSuchindex(jg, wissen) {
+export function baueSuchindex(jg, wissen, schule) {
   const eintraege = [];
   const jgst = Number(jg.jgst);
 
@@ -64,8 +69,8 @@ export function baueSuchindex(jg, wissen) {
     (seite.absaetze || []).forEach((absatz, i) => {
       if (!absatz || absatz.length < 30) return;
       eintraege.push({
-        id: 'absatz:' + seite.id + ':' + i,
-        typ: 'absatz',
+        id: 'abschnitt:' + seite.id + ':' + i,
+        typ: 'abschnitt',
         titel: seite.titel || seite.id,
         text: kuerze(absatz),
         route
@@ -90,6 +95,19 @@ export function baueSuchindex(jg, wissen) {
       titel: eintrag.frage,
       text: kuerze(eintrag.text || ''),
       route: '#/wissen/faq'
+    });
+  }
+
+  // Stufen (DATENMODELL 2, Blatt Stufen): dieselben drei Eintraege in jedem
+  // Jahrgang, die Seite dazu (#/stufen) zeigt immer alle drei (AP-13).
+  for (const stufe of (schule && Array.isArray(schule.stufen)) ? schule.stufen : []) {
+    if (!stufe || !stufe.name) continue;
+    eintraege.push({
+      id: 'stufe:' + stufe.id,
+      typ: 'stufe',
+      titel: stufe.name,
+      text: kuerze(stufe.kurzbeschreibung || ''),
+      route: '#/stufen'
     });
   }
 

@@ -144,7 +144,7 @@ export async function baue(optionen = {}) {
   for (const jg of jahrgangsdaten) {
     const daten = jahrgangZuJson(jg, ziel);
     await schreibeJson(join(datenOrdner, 'jg' + jg.jgst + '.json'), daten);
-    const treffer = baueSuchindex(daten, wissen);
+    const treffer = baueSuchindex(daten, wissen, schule);
     await schreibeJson(join(datenOrdner, 'suche-jg' + jg.jgst + '.json'), { schema: 1, jgst: jg.jgst, eintraege: treffer });
     statistik.push({
       jgst: jg.jgst,

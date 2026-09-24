@@ -1,5 +1,6 @@
-// Modul "Wissen" (AP-16): Inhaltsverzeichnis (#/wissen), Wörterbuch
-// (#/wissen/glossar) und einzelne Wissensseite (#/wissen/:seiteId).
+// Modul "Wissen" (AP-16, FAQ ergänzt in AP-17): Inhaltsverzeichnis (#/wissen),
+// Wörterbuch (#/wissen/glossar), häufige Fragen (#/wissen/faq) und einzelne
+// Wissensseite (#/wissen/:seiteId).
 //
 // Regeln aus AP_ALLGEMEIN und ARCHITEKTUR 3.3/3.4:
 // - Reine Anzeige. Alle Texte stehen in content/wissen/*.md, hier steht kein
@@ -24,9 +25,10 @@ registerModule({
   nav: { position: 60, sichtbar: true },
   routes: [
     { pattern: '#/wissen', render: renderIndex },
-    // Muss vor '#/wissen/:seiteId' stehen, sonst gewinnt das Muster mit dem
+    // Müssen vor '#/wissen/:seiteId' stehen, sonst gewinnt das Muster mit dem
     // Platzhalter (module.js prüft die Routen in dieser Reihenfolge).
     { pattern: '#/wissen/glossar', render: renderGlossar },
+    { pattern: '#/wissen/faq', render: renderFaq },
     { pattern: '#/wissen/:seiteId', render: renderSeite }
   ]
 });
@@ -51,10 +53,11 @@ const IVZ_AB = 3;
 function renderIndex(container, params, ctx) {
   const seiten = sichtbareSeiten(ctx);
   const glossar = glossarListe(ctx);
+  const faq = faqListe(ctx);
 
   const kinder = [el('h1', { text: 'Wissen', tabindex: '-1' })];
 
-  if (seiten.length === 0 && glossar.length === 0) {
+  if (seiten.length === 0 && glossar.length === 0 && faq.length === 0) {
     kinder.push(leerZustand({
       text: 'Die Wissensseiten entstehen gerade. Bald steht hier mehr.',
       motiv: 'gluehbirne'
@@ -69,6 +72,14 @@ function renderIndex(container, params, ctx) {
       kinder.push(el('section', {}, [
         el('h2', { text: bereich.titel }),
         el('div', { class: 'wissen-karten' }, [glossarKarte(glossar, ctx)])
+      ]));
+      continue;
+    }
+    if (bereich.id === 'faq') {
+      if (faq.length === 0) continue;
+      kinder.push(el('section', {}, [
+        el('h2', { text: bereich.titel }),
+        el('div', { class: 'wissen-karten' }, [faqKarte(faq, ctx)])
       ]));
       continue;
     }
@@ -100,6 +111,16 @@ function glossarKarte(glossar, ctx) {
     titel: 'Begriffe von A bis Z',
     unter: glossar.length + (glossar.length === 1 ? ' Eintrag' : ' Einträge'),
     onTap: () => navigate('#/wissen/glossar')
+  });
+}
+
+/** Die häufigen Fragen bekommen eine eigene Karte, wie das Wörterbuch (AP-17). */
+function faqKarte(faq, ctx) {
+  const { navigate } = ctx;
+  return karte({
+    titel: 'Häufige Fragen',
+    unter: faq.length + (faq.length === 1 ? ' Frage' : ' Fragen'),
+    onTap: () => navigate('#/wissen/faq')
   });
 }
 
@@ -212,6 +233,48 @@ function renderGlossar(container, params, ctx) {
   ]);
 }
 
+// ===================================================== Route #/wissen/faq
+
+/**
+ * Häufige Fragen als aufklappbare Liste (AP-17, in AP-16 als spätere Route
+ * angekündigt). `<details>`/`<summary>` sind natives HTML: auf- und zuklappen
+ * funktioniert ohne eigenes Skript und ist mit Tastatur und Vorlesehilfe
+ * erreichbar.
+ */
+function renderFaq(container, params, ctx) {
+  const { navigate } = ctx;
+  const fragen = faqListe(ctx);
+
+  if (fragen.length === 0) {
+    anfuegen(container, [
+      el('h1', { text: 'Häufige Fragen', tabindex: '-1' }),
+      leerZustand({ text: 'Hier stehen noch keine Fragen.', motiv: 'gluehbirne' }),
+      zurueckZeile(navigate)
+    ]);
+    return;
+  }
+
+  const liste = el('div', { class: 'wissen-faq' }, fragen.map((frage) => faqEintrag(frage)));
+
+  anfuegen(container, [
+    el('h1', { text: 'Häufige Fragen', tabindex: '-1' }),
+    liste,
+    zurueckZeile(navigate)
+  ]);
+}
+
+/** Eine Frage mit ihrer Antwort. Die Antwort ist Build-HTML, siehe seitenInhalt. */
+function faqEintrag(frage) {
+  const antwort = el('div', { class: 'wissen-text' });
+  antwort.innerHTML = String(frage.html || '');
+  richteTabellen(antwort);
+
+  return el('details', { class: 'wissen-faq-frage', id: 'frage-' + frage.id }, [
+    el('summary', { text: frage.frage }),
+    antwort
+  ]);
+}
+
 /** Leiste mit den Anfangsbuchstaben. Knöpfe, aus demselben Grund wie im IVZ. */
 function sprungbuchstaben(gruppen, bereich) {
   return el('nav', { class: 'glossar-sprung', 'aria-label': 'Zu einem Buchstaben springen' },
@@ -320,6 +383,11 @@ function giltFuerJahrgang(jahrgaenge, jgst) {
 function glossarListe(ctx) {
   const liste = (ctx.wissen && Array.isArray(ctx.wissen.glossar)) ? ctx.wissen.glossar : [];
   return liste.filter((eintrag) => eintrag && eintrag.begriff);
+}
+
+function faqListe(ctx) {
+  const liste = (ctx.wissen && Array.isArray(ctx.wissen.faq)) ? ctx.wissen.faq : [];
+  return liste.filter((eintrag) => eintrag && eintrag.frage);
 }
 
 /** Etikett "Entwurf", nur in der Vorschau (AP-16). */
