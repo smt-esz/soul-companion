@@ -1,10 +1,11 @@
 name: Terminaenderungen uebernehmen
 
 # Lehrerzugang fuer kleine, terminliche Aenderungen (Leo, 24.09.2026):
-# holt alle 15 Minuten die Antworten aus dem Microsoft-Formular, prueft sie
-# und baut/veroeffentlicht die Seite neu, wenn sich wirklich etwas geaendert
-# hat. TERMIN_FORMULAR_URL (der Freigabe-Link auf die Formular-Antworten-
-# Excel-Datei) ist ein Repository-Secret, siehe README dieses Workflows.
+# holt alle 15 Minuten die Antworten aus den drei Microsoft-Formularen (ein
+# Formular je Jahrgang), prueft sie und baut/veroeffentlicht die Seite neu,
+# wenn sich wirklich etwas geaendert hat. TERMIN_FORMULAR_URLS (die drei
+# Freigabe-Links auf die Formular-Antworten-Excel-Dateien, mit Komma
+# getrennt) ist ein Repository-Secret.
 
 on:
   schedule:
@@ -35,7 +36,7 @@ jobs:
       - name: Antworten uebernehmen
         id: uebernehmen
         env:
-          TERMIN_FORMULAR_URL: ${{ secrets.TERMIN_FORMULAR_URL }}
+          TERMIN_FORMULAR_URLS: ${{ secrets.TERMIN_FORMULAR_URLS }}
         run: node tools/uebernehme-terminaenderungen.mjs
 
       - name: Seite neu bauen

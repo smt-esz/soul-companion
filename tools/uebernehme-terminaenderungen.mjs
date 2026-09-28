@@ -1,13 +1,19 @@
 // Lehrerzugang fuer kleine, terminliche Aenderungen (Leo, 24.09.2026).
 //
-// Liest die Antworten aus dem geteilten Microsoft-Formular (eine Excel-Datei
-// in OneDrive, per Link freigegeben), prueft jede Antwort gegen den echten
-// Kalender und verschiebt bei einer gueltigen Antwort das Datum des
-// gewaehlten Termins in der passenden content/jahrgaenge/JgX.xlsx.
+// Liest die Antworten aus den geteilten Microsoft-Formularen (je Jahrgang
+// ein eigenes Formular, jeweils eine Excel-Datei in OneDrive, per Link
+// freigegeben), prueft jede Antwort gegen den echten Kalender und
+// verschiebt bei einer gueltigen Antwort das Datum des gewaehlten Termins
+// in der passenden content/jahrgaenge/JgX.xlsx. Welches Formular zu welchem
+// Jahrgang gehoert, muss nicht extra angegeben werden: der Code am Ende
+// jeder Formular-Auswahl ("[jgX-zY]") sagt es bereits.
 //
 // Aufruf:
-//   TERMIN_FORMULAR_URL=https://... node tools/uebernehme-terminaenderungen.mjs [--pruefen]
+//   TERMIN_FORMULAR_URLS=https://...,https://...,https://... node tools/uebernehme-terminaenderungen.mjs [--pruefen]
 //
+// TERMIN_FORMULAR_URLS: die Freigabe-Links auf die Antworten-Excel-Dateien,
+// getrennt durch Komma, Leerzeichen oder Zeilenumbruch (ein Link je
+// Formular, ueblicherweise drei - einer je Jahrgang).
 // --pruefen: nur pruefen und ausgeben, nichts schreiben (Trockenlauf).
 //
 // Erwartete Spalten in der Formular-Antworten-Tabelle (Gross-/Kleinschreibung
@@ -40,35 +46,44 @@ const LOG_PFAD = join(REPO, 'content', '.termin-sync-log.json');
 const PRUEFEN = process.argv.includes('--pruefen');
 
 async function main() {
-  const url = process.env.TERMIN_FORMULAR_URL;
-  if (!url) {
-    console.error('FEHLER: Umgebungsvariable TERMIN_FORMULAR_URL fehlt.');
+  const urls = String(process.env.TERMIN_FORMULAR_URLS || '')
+    .split(/[,\s]+/)
+    .map((u) => u.trim())
+    .filter(Boolean);
+  if (urls.length === 0) {
+    console.error('FEHLER: Umgebungsvariable TERMIN_FORMULAR_URLS fehlt (ein Link je Formular, mit Komma getrennt).');
     process.exitCode = 1;
     return;
   }
 
-  const antworten = await ladeAntworten(url);
   const schule = ladeSchule(REPO);
   const log = ladeLog();
 
   let geaendert = false;
   let neuVerarbeitet = 0;
 
-  for (const antwort of antworten) {
-    const schluessel = antwortSchluessel(antwort);
-    if (log[schluessel]) continue;
-    neuVerarbeitet++;
+  for (let quelle = 0; quelle < urls.length; quelle++) {
+    const antworten = await ladeAntworten(urls[quelle]);
+    console.log('Formular ' + (quelle + 1) + '/' + urls.length + ': ' + antworten.length + ' Antworten.');
 
-    const ergebnis = await verarbeiteAntwort(antwort, schule);
-    console.log((ergebnis.ok ? 'OK   ' : 'FEHLER ') + schluessel + ': ' + ergebnis.meldung);
+    for (const antwort of antworten) {
+      // Vorangestellte Quelle, falls zwei Formulare zufaellig dieselbe
+      // Forms-ID vergeben (jedes Formular zaehlt fuer sich bei 1 los).
+      const schluessel = 'formular' + quelle + ':' + antwortSchluessel(antwort);
+      if (log[schluessel]) continue;
+      neuVerarbeitet++;
 
-    log[schluessel] = {
-      verarbeitetAm: new Date().toISOString(),
-      ok: ergebnis.ok,
-      meldung: ergebnis.meldung,
-      antwort: kurzfassung(antwort)
-    };
-    if (ergebnis.ok && ergebnis.geaendert) geaendert = true;
+      const ergebnis = await verarbeiteAntwort(antwort, schule);
+      console.log((ergebnis.ok ? 'OK   ' : 'FEHLER ') + schluessel + ': ' + ergebnis.meldung);
+
+      log[schluessel] = {
+        verarbeitetAm: new Date().toISOString(),
+        ok: ergebnis.ok,
+        meldung: ergebnis.meldung,
+        antwort: kurzfassung(antwort)
+      };
+      if (ergebnis.ok && ergebnis.geaendert) geaendert = true;
+    }
   }
 
   if (neuVerarbeitet === 0) {
