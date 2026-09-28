@@ -133,7 +133,7 @@ function layoutAufbauen(jg) {
           alt: '',
           'aria-hidden': 'true'
         }),
-        el('p', { class: 'kopfzeile-titel', text: 'SOUL Companion' })
+        el('p', { class: 'kopfzeile-titel', text: 'Mein SOUL-Navi' })
       ]),
       statusBereich
     ]),

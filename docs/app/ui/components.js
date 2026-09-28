@@ -358,7 +358,10 @@ export function stationenTabelle(stationen = []) {
   const zeilen = (Array.isArray(stationen) ? stationen : []).map((station) => el('tr', {}, [
     el('td', { class: 'spalte-nr', text: String(station.nr ?? '') }),
     el('td', { text: station.titel || '' }),
-    el('td', {}, [artFeld(station.art)]),
+    el('td', {}, [
+      artFeld(station.art),
+      station.hinweis ? el('p', { class: 'text-klein text-neben', text: station.hinweis }) : null
+    ]),
     el('td', { class: 'spalte-zeit', text: station.minuten ? station.minuten + ' min' : '' }),
     el('td', {}, [niveauFeld(station.niveau)]),
     el('td', { text: station.material || '' })
