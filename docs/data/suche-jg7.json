@@ -5,8 +5,120 @@
     {
       "id": "baustein:jg7-bio-1",
       "typ": "baustein",
-      "titel": "Thema folgt",
-      "text": "",
+      "titel": "Krankheitserreger und Immunsystem",
+      "text": "Fallbericht an das Gesundheitsamt",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:1",
+      "typ": "station",
+      "titel": "Der Ausbruch beginnt (OS/GYM)",
+      "text": "Station 1 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:2",
+      "typ": "station",
+      "titel": "Die unsichtbaren Verdächtigen – Bakterien und Viren (OS/GYM)",
+      "text": "Station 2 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:3",
+      "typ": "station",
+      "titel": "Bakterien unter der Lupe",
+      "text": "Station 3 · Krankheitserreger und Immunsystem · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:4",
+      "typ": "station",
+      "titel": "Viren – Leben an der Grenze",
+      "text": "Station 4 · Krankheitserreger und Immunsystem · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:5",
+      "typ": "station",
+      "titel": "Die Kette der Ansteckung (OS/GYM)",
+      "text": "Station 5 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:6",
+      "typ": "station",
+      "titel": "Das Einsatzteam im Blut (OS/GYM)",
+      "text": "Station 6 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:7",
+      "typ": "station",
+      "titel": "Die Abwehr schlägt zurück (OS/GYM)",
+      "text": "Station 7 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:8",
+      "typ": "station",
+      "titel": "Wenn aus einem viele werden",
+      "text": "Station 8 · Krankheitserreger und Immunsystem · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:9",
+      "typ": "station",
+      "titel": "Warum wird man krank (OS/GYM)",
+      "text": "Station 9 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:10",
+      "typ": "station",
+      "titel": "Training für die Abwehr (OS/GYM)",
+      "text": "Station 10 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:11",
+      "typ": "station",
+      "titel": "Die Detektive der Wissenschaft",
+      "text": "Station 11 · Krankheitserreger und Immunsystem · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:12",
+      "typ": "station",
+      "titel": "Fallbericht an das Gesundheitsamt (OS/GYM)",
+      "text": "Station 12 · Krankheitserreger und Immunsystem",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:13",
+      "typ": "station",
+      "titel": "Wenn Gerüchte krank machen",
+      "text": "Station 13 · Krankheitserreger und Immunsystem · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg7-bio-1:14",
+      "typ": "station",
+      "titel": "Gesund handeln im Alltag",
+      "text": "Station 14 · Krankheitserreger und Immunsystem · Für Gymnasiasten ab Jgst. 7 Pflicht.",
       "route": "#/baustein/jg7-bio-1",
       "fach": "bio"
     },
@@ -29,16 +141,248 @@
     {
       "id": "baustein:jg7-de-1",
       "typ": "baustein",
-      "titel": "Thema folgt",
-      "text": "",
+      "titel": "Die geheimnisvolle Welt der Balladen",
+      "text": "komplexe Leistung",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:1",
+      "typ": "station",
+      "titel": "Lyrik-Check",
+      "text": "Station 1 · Die geheimnisvolle Welt der Balladen · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:2",
+      "typ": "station",
+      "titel": "Unbekannte Spurensuche",
+      "text": "Station 2 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:3",
+      "typ": "station",
+      "titel": "Die Geheimformel der Balladen (3a)",
+      "text": "Station 3 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:4",
+      "typ": "station",
+      "titel": "Anwendung der Geheimformel (3b)",
+      "text": "Station 4 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:5",
+      "typ": "station",
+      "titel": "Balladen inhaltlich verstehen (4a)",
+      "text": "Station 5 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:6",
+      "typ": "station",
+      "titel": "Balladen am roten Faden (4b)",
+      "text": "Station 6 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:7",
+      "typ": "station",
+      "titel": "Wahrheitssuche in einer Ballade",
+      "text": "Station 7 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:8",
+      "typ": "station",
+      "titel": "Der Konjunktiv-Check",
+      "text": "Station 8 · Die geheimnisvolle Welt der Balladen · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:9",
+      "typ": "station",
+      "titel": "Sprache mit Stil – Nachrichten im Konjunktiv",
+      "text": "Station 9 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:10",
+      "typ": "station",
+      "titel": "Eine Ballade unter der Lupe",
+      "text": "Station 10 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:11",
+      "typ": "station",
+      "titel": "Sprachliche Stilmittel in Balladen",
+      "text": "Station 11 · Die geheimnisvolle Welt der Balladen · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:12",
+      "typ": "station",
+      "titel": "Wenn Worte Bilder zaubern",
+      "text": "Station 12 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:13",
+      "typ": "station",
+      "titel": "Das Zauberchaos",
+      "text": "Station 13 · Die geheimnisvolle Welt der Balladen · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:14",
+      "typ": "station",
+      "titel": "Zwei Perspektiven, ein Schicksal",
+      "text": "Station 14 · Die geheimnisvolle Welt der Balladen",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:15",
+      "typ": "station",
+      "titel": "Bühne frei",
+      "text": "Station 15 · Die geheimnisvolle Welt der Balladen · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg7-de-1:16",
+      "typ": "station",
+      "titel": "Eine Ballade zum Leben erwecken",
+      "text": "Station 16 · Die geheimnisvolle Welt der Balladen · Läuft über 2 Termine à 90 Minuten.",
       "route": "#/baustein/jg7-de-1",
       "fach": "de"
     },
     {
       "id": "baustein:jg7-ma-1",
       "typ": "baustein",
-      "titel": "Thema folgt",
-      "text": "",
+      "titel": "Prozent- und Zinsrechnung",
+      "text": "Prozent- und Zinsaufgaben sicher lösen und das Vorgehen erklären",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:1",
+      "typ": "station",
+      "titel": "Vorwissen: Anteile und Prozente",
+      "text": "Station 1 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:2",
+      "typ": "station",
+      "titel": "Grundbegriffe der Prozentrechnung",
+      "text": "Station 2 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:3",
+      "typ": "station",
+      "titel": "1. Grundaufgabe: Prozentsatz",
+      "text": "Station 3 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:4",
+      "typ": "station",
+      "titel": "2. Grundaufgabe: Prozentwert",
+      "text": "Station 4 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:5",
+      "typ": "station",
+      "titel": "3. Grundaufgabe: Grundwert",
+      "text": "Station 5 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:6",
+      "typ": "station",
+      "titel": "Übung: Die drei Grundaufgaben",
+      "text": "Station 6 · Prozent- und Zinsrechnung · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:7",
+      "typ": "station",
+      "titel": "Diagramme und Prozente",
+      "text": "Station 7 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:8",
+      "typ": "station",
+      "titel": "Anwendung: Rabatt und Preisnachlass",
+      "text": "Station 8 · Prozent- und Zinsrechnung · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:9",
+      "typ": "station",
+      "titel": "Mehrwertsteuer und Brutto / Netto",
+      "text": "Station 9 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:10",
+      "typ": "station",
+      "titel": "Prozentuale Zunahme und Abnahme",
+      "text": "Station 10 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:11",
+      "typ": "station",
+      "titel": "Zinsrechnung: Jahreszinsen",
+      "text": "Station 11 · Prozent- und Zinsrechnung",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:12",
+      "typ": "station",
+      "titel": "Zinsrechnung: Monats- & Tageszinsen",
+      "text": "Station 12 · Prozent- und Zinsrechnung · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-ma-1",
+      "fach": "ma"
+    },
+    {
+      "id": "station:jg7-ma-1:13",
+      "typ": "station",
+      "titel": "Gelingensnachweis",
+      "text": "Station 13 · Prozent- und Zinsrechnung",
       "route": "#/baustein/jg7-ma-1",
       "fach": "ma"
     },

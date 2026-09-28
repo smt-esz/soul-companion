@@ -373,13 +373,140 @@
     {
       "id": "jg7-bio-1",
       "fach": "bio",
-      "titel": "",
+      "titel": "Krankheitserreger und Immunsystem",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "Fallbericht an das Gesundheitsamt",
+      "gelingensnachweisStation": 12,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Der Ausbruch beginnt (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "iPad, Website",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Die unsichtbaren Verdächtigen – Bakterien und Viren (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "A1, iPad, Website",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Bakterien unter der Lupe",
+          "art": "wahl",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "A2, iPad, Website",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 4,
+          "titel": "Viren – Leben an der Grenze",
+          "art": "wahl",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "iPad, Website",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 5,
+          "titel": "Die Kette der Ansteckung (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 3,
+          "material": "A3, iPad, Website",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Das Einsatzteam im Blut (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "A4 oder A5, iPad, Website",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Die Abwehr schlägt zurück (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 2,
+          "material": "A6, iPad, Website",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Wenn aus einem viele werden",
+          "art": "wahl",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "iPad, Website",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 9,
+          "titel": "Warum wird man krank (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "A7 oder A8, iPad, Website",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Training für die Abwehr (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "iPad, Website",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Die Detektive der Wissenschaft",
+          "art": "wahl",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "iPad, Website",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 12,
+          "titel": "Fallbericht an das Gesundheitsamt (OS/GYM)",
+          "art": "pflicht",
+          "minuten": 100,
+          "niveau": 3,
+          "material": "iPad, Website, Aktendulli",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Wenn Gerüchte krank machen",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "iPad, Website",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 14,
+          "titel": "Gesund handeln im Alltag",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "A9, iPad, Website",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        }
+      ]
     },
     {
       "id": "jg7-en-1",
@@ -406,24 +533,287 @@
     {
       "id": "jg7-de-1",
       "fach": "de",
-      "titel": "",
+      "titel": "Die geheimnisvolle Welt der Balladen",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "komplexe Leistung",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Lyrik-Check",
+          "art": "wahl",
+          "minuten": 10,
+          "niveau": 1,
+          "material": "iPad",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 2,
+          "titel": "Unbekannte Spurensuche",
+          "art": "pflicht",
+          "minuten": 25,
+          "niveau": 2,
+          "material": "Hefter, A1, A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Die Geheimformel der Balladen (3a)",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A3, M1, M2, Hefter, iPad",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Anwendung der Geheimformel (3b)",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Balladen inhaltlich verstehen (4a)",
+          "art": "pflicht",
+          "minuten": 15,
+          "niveau": 2,
+          "material": "A5, iPad",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Balladen am roten Faden (4b)",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M3, M4, Papier, Briefumschlag, Faden",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Wahrheitssuche in einer Ballade",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "Hefter, A6",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Der Konjunktiv-Check",
+          "art": "wahl",
+          "minuten": 15,
+          "niveau": 1,
+          "material": "M5, A7",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 9,
+          "titel": "Sprache mit Stil – Nachrichten im Konjunktiv",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "Hefter, A8",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Eine Ballade unter der Lupe",
+          "art": "pflicht",
+          "minuten": 35,
+          "niveau": 2,
+          "material": "A9, M6, iPad",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Sprachliche Stilmittel in Balladen",
+          "art": "wahl",
+          "minuten": 10,
+          "niveau": 1,
+          "material": "iPad",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 12,
+          "titel": "Wenn Worte Bilder zaubern",
+          "art": "pflicht",
+          "minuten": 25,
+          "niveau": 2,
+          "material": "iPad, A10",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Das Zauberchaos",
+          "art": "wahl",
+          "minuten": 10,
+          "niveau": 1,
+          "material": "M7",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 14,
+          "titel": "Zwei Perspektiven, ein Schicksal",
+          "art": "pflicht",
+          "minuten": 35,
+          "niveau": 2,
+          "material": "A11, A12, M8",
+          "hinweis": ""
+        },
+        {
+          "nr": 15,
+          "titel": "Bühne frei",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "M9",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 16,
+          "titel": "Eine Ballade zum Leben erwecken",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "Link / QR-Code",
+          "hinweis": "Läuft über 2 Termine à 90 Minuten."
+        }
+      ]
     },
     {
       "id": "jg7-ma-1",
       "fach": "ma",
-      "titel": "",
+      "titel": "Prozent- und Zinsrechnung",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "Prozent- und Zinsaufgaben sicher lösen und das Vorgehen erklären",
+      "gelingensnachweisStation": 13,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Vorwissen: Anteile und Prozente",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Heft, M1, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Grundbegriffe der Prozentrechnung",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Heft, M1, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "1. Grundaufgabe: Prozentsatz",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Heft, M2, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "2. Grundaufgabe: Prozentwert",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Heft, M2, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "3. Grundaufgabe: Grundwert",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Heft, M2, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Übung: Die drei Grundaufgaben",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Heft, M2, Lehrbuch",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 7,
+          "titel": "Diagramme und Prozente",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Heft, Geodreieck, Zirkel, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Anwendung: Rabatt und Preisnachlass",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Heft, M2, Lehrbuch",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 9,
+          "titel": "Mehrwertsteuer und Brutto / Netto",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Heft, M2, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Prozentuale Zunahme und Abnahme",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Heft, M2, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Zinsrechnung: Jahreszinsen",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Heft, M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Zinsrechnung: Monats- & Tageszinsen",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "Heft, M3",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 13,
+          "titel": "Gelingensnachweis",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "A3",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg7-geo-2",
