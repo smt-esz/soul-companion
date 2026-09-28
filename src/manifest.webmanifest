@@ -1,6 +1,6 @@
 {
-  "name": "SOUL Companion",
-  "short_name": "SOUL",
+  "name": "Mein SOUL-Navi",
+  "short_name": "SOUL-Navi",
   "lang": "de",
   "start_url": "./",
   "scope": "./",

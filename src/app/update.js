@@ -141,7 +141,7 @@ export async function init(optionen = {}) {
   } catch (fehler) {
     // Ohne Service Worker laeuft die App weiter, nur eben ohne Offline und
     // ohne Updates. Kein Grund, das Kind damit zu behelligen.
-    console.info('SOUL Companion: Service Worker nicht registriert.', fehler);
+    console.info('SOUL-Navi: Service Worker nicht registriert.', fehler);
     melde();
     return;
   }
@@ -238,7 +238,7 @@ export async function neuLaden() {
         .map((name) => caches.delete(name)));
     }
   } catch (fehler) {
-    console.info('SOUL Companion: Caches nicht vollstaendig geloescht.', fehler);
+    console.info('SOUL-Navi: Caches nicht vollstaendig geloescht.', fehler);
   }
 
   try {
@@ -247,7 +247,7 @@ export async function neuLaden() {
       await Promise.all(alle.map((eintrag) => eintrag.unregister()));
     }
   } catch (fehler) {
-    console.info('SOUL Companion: Service Worker nicht abgemeldet.', fehler);
+    console.info('SOUL-Navi: Service Worker nicht abgemeldet.', fehler);
   }
 
   location.reload();
@@ -380,10 +380,10 @@ async function speicherSichern() {
   try {
     if (navigator.storage && typeof navigator.storage.persist === 'function') {
       const dauerhaft = await navigator.storage.persist();
-      console.info('SOUL Companion: navigator.storage.persist() =', dauerhaft);
+      console.info('SOUL-Navi: navigator.storage.persist() =', dauerhaft);
     }
   } catch (fehler) {
-    console.info('SOUL Companion: persist() nicht moeglich.', fehler);
+    console.info('SOUL-Navi: persist() nicht moeglich.', fehler);
   }
 }
 

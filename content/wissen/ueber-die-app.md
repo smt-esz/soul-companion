@@ -12,7 +12,7 @@ Dieser Text wird noch von der Datenschutzstelle geprüft.
 
 ## Was die App macht
 
-Der SOUL Companion zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du auch nichts. Das machst du in lernlog.
+Der SOUL-Navi zeigt dir alle Bausteine deines Schuljahres, die laufenden Bausteine, die Abgaben, die Inputs, die Coachings, die Ferien, die Stufen und den Antrag auf Stufenaufstieg. Material gibt es hier nicht, und abhaken kannst du auch nichts. Das machst du in lernlog.
 
 ## Was auf deinem iPad gespeichert wird
 

@@ -723,8 +723,8 @@ function fusszeile(bogen, { antrag, leer, appVersion }) {
   const tag = formatDatum(heute(), 'datum');
   const id = sichereZeichen((antrag && antrag.id) || '');
   const text = leer
-    ? 'Vorlage aus SOUL Companion ' + version
-    : 'Erstellt mit SOUL Companion ' + version + ' am ' + tag + '.' + (id ? ' Antrag-ID ' + id + '.' : '');
+    ? 'Vorlage aus SOUL-Navi ' + version
+    : 'Erstellt mit SOUL-Navi ' + version + ' am ' + tag + '.' + (id ? ' Antrag-ID ' + id + '.' : '');
 
   const seiten = bogen.seiten;
   for (let i = 0; i < seiten.length; i++) {
@@ -752,8 +752,8 @@ function metadaten(doc, { stufe, leer, appVersion }) {
   const titel = sichereZeichen(stufe.titel || 'Antrag');
   try {
     doc.setTitle(leer ? titel + ' (Vorlage)' : titel);
-    doc.setCreator('SOUL Companion ' + sichereZeichen(appVersion || ''));
-    doc.setProducer('SOUL Companion ' + sichereZeichen(appVersion || ''));
+    doc.setCreator('SOUL-Navi ' + sichereZeichen(appVersion || ''));
+    doc.setProducer('SOUL-Navi ' + sichereZeichen(appVersion || ''));
     // Uhrzeit bleibt aussen vor, das Datum kommt aus dates.js (AP_ALLGEMEIN 5).
     doc.setCreationDate(heute());
     doc.setModificationDate(heute());

@@ -316,14 +316,14 @@ if (!pdftotext) {
 
     if (werk.leer) {
       pruefe(werk.name + ': Vorlage nennt keinen Namen', !text.includes('Max Muster'));
-      pruefe(werk.name + ': Fusszeile der Vorlage', flach.includes('Vorlage aus SOUL Companion ' + APP_VERSION));
+      pruefe(werk.name + ': Fusszeile der Vorlage', flach.includes('Vorlage aus SOUL-Navi ' + APP_VERSION));
       pruefe(werk.name + ': Vorlage nennt keine Antrag-ID', !text.includes('a-20261027-1a2b'));
     } else {
       pruefe(werk.name + ': Name und Klasse stehen im PDF',
         text.includes('Max Muster') && flach.includes('Klasse: 6B'));
       pruefe(werk.name + ': Kuerzel der Lernbegleitung steht im PDF', flach.includes('SMT'));
       pruefe(werk.name + ': Fusszeile mit Version und Antrag-ID',
-        flach.includes('Erstellt mit SOUL Companion ' + APP_VERSION) && flach.includes('a-20261027-1a2b'));
+        flach.includes('Erstellt mit SOUL-Navi ' + APP_VERSION) && flach.includes('a-20261027-1a2b'));
       pruefe(werk.name + ': Begruendung steht im PDF',
         flach.includes('Ich arbeite seit den Sommerferien selbststaendig'));
     }
