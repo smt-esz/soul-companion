@@ -437,11 +437,120 @@
       "fach": "de",
       "titel": "Satzglieder",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Lernübersicht zur Grammatik",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Sätze würfeln",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "M1, Satzgliedwürfel",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Wiederholung aller Satzglieder",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Der Hauptsatz",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A1, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Der Nebensatz",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A2, M2, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Einfache Satzreihen und Satzgefüge",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A3, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Mehrgliedrige Satzgefüge",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "A4, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Satzbilder zeichnen",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "A5",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Zeichensetzung bei wörtlicher Rede",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "M3, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Begleitsätze bei wörtlicher Rede",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "A6, A7",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Anwendung grammatischer Verfahren",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "A8, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Das kann ich jetzt!",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "M4, Material zur Gestaltung",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Weiterführende Übungen",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg6-ma-1",
@@ -470,22 +579,294 @@
       "fach": "en",
       "titel": "The Secret of Maple Hill",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "report on the events of the story – graded task",
+      "gelingensnachweisStation": 15,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Welcome to Maple Hill",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "M1",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Falling Leaves & First Feelings",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M2, white paper",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "The Strange Note",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "A1, A2, or A3",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "The Poem in the Attic",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A4, M2, white paper",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "What's Inside?",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "sensory boxes",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "The Mysterious Message",
+          "art": "pflicht",
+          "minuten": 35,
+          "niveau": 2,
+          "material": "M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "A Quiet Day",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M4",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Whispers in the Wind",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "laptop, headphones",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Maple Hill Side-Quests",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "A5, A6, A7, A8",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Through the Trees",
+          "art": "pflicht",
+          "minuten": 35,
+          "niveau": 2,
+          "material": "M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "The Hidden Door",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "The Secret of Maple Hill",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Escape the Forest",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 3,
+          "material": "",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Between Truth and Silence",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 15,
+          "titel": "Corinne's Choice – Your Task",
+          "art": "pflicht",
+          "minuten": 100,
+          "niveau": 3,
+          "material": "M5, M6, or M7",
+          "hinweis": ""
+        },
+        {
+          "nr": 16,
+          "titel": "A Quiet Voice Speaks",
+          "art": "wahl",
+          "minuten": 25,
+          "niveau": 2,
+          "material": "",
+          "hinweis": ""
+        },
+        {
+          "nr": 17,
+          "titel": "The Book with Her Name",
+          "art": "wahl",
+          "minuten": 25,
+          "niveau": 2,
+          "material": "",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg6-geo-1",
       "fach": "geo",
       "titel": "Europa",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "Klimadiagramm zeichnen",
+      "gelingensnachweisStation": 11,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Warm Up",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "A1, Hefter, Stift",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Länder Europas",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 2,
+          "material": "Atlas, A2, Lehrbuch, Hefter, Stift, Lineal",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Inseln, Halbinseln, Flüsse, Gebirge Europas",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "A3, A4, Lehrbuch, Atlas, Heft",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Europa – unser Heimatkontinent",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lehrbuch, M1, A5, Heft, Schere, Kleber",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Großlandschaften Europas",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Lehrbuch, Heft, A6, M2, Transparentpapier",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Die Europäische Union",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Lehrbuch, M3, Heft, Münzen",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Ländersteckbrief",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Lehrbuch, A7",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Wetter und Klima / Klimadiagramm",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M4, Lehrbuch, A8",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Klimadiagramm auswerten",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "A9, A10, M4",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Klimadiagramm zeichnen",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "Lehrbuch, kariertes Papier, Millimeterpapier",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Gelingensnachweis",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "A11, Lehrbuch, Millimeterpapier",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Universelles Klimadiagramm",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Pappe, Stecknadeln",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Vertiefung Topografie",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A2, A3, A4, Atlas, Wandkarte",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg6-ma-2",

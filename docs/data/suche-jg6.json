@@ -6,7 +6,103 @@
       "id": "baustein:jg6-de-1",
       "typ": "baustein",
       "titel": "Satzglieder",
-      "text": "",
+      "text": "Lernübersicht zur Grammatik",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:1",
+      "typ": "station",
+      "titel": "Sätze würfeln",
+      "text": "Station 1 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:2",
+      "typ": "station",
+      "titel": "Wiederholung aller Satzglieder",
+      "text": "Station 2 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:3",
+      "typ": "station",
+      "titel": "Der Hauptsatz",
+      "text": "Station 3 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:4",
+      "typ": "station",
+      "titel": "Der Nebensatz",
+      "text": "Station 4 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:5",
+      "typ": "station",
+      "titel": "Einfache Satzreihen und Satzgefüge",
+      "text": "Station 5 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:6",
+      "typ": "station",
+      "titel": "Mehrgliedrige Satzgefüge",
+      "text": "Station 6 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:7",
+      "typ": "station",
+      "titel": "Satzbilder zeichnen",
+      "text": "Station 7 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:8",
+      "typ": "station",
+      "titel": "Zeichensetzung bei wörtlicher Rede",
+      "text": "Station 8 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:9",
+      "typ": "station",
+      "titel": "Begleitsätze bei wörtlicher Rede",
+      "text": "Station 9 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:10",
+      "typ": "station",
+      "titel": "Anwendung grammatischer Verfahren",
+      "text": "Station 10 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:11",
+      "typ": "station",
+      "titel": "Das kann ich jetzt!",
+      "text": "Station 11 · Satzglieder",
+      "route": "#/baustein/jg6-de-1",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-1:12",
+      "typ": "station",
+      "titel": "Weiterführende Übungen",
+      "text": "Station 12 · Satzglieder",
       "route": "#/baustein/jg6-de-1",
       "fach": "de"
     },
@@ -30,7 +126,143 @@
       "id": "baustein:jg6-en-1",
       "typ": "baustein",
       "titel": "The Secret of Maple Hill",
-      "text": "",
+      "text": "report on the events of the story – graded task",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:1",
+      "typ": "station",
+      "titel": "Welcome to Maple Hill",
+      "text": "Station 1 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:2",
+      "typ": "station",
+      "titel": "Falling Leaves & First Feelings",
+      "text": "Station 2 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:3",
+      "typ": "station",
+      "titel": "The Strange Note",
+      "text": "Station 3 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:4",
+      "typ": "station",
+      "titel": "The Poem in the Attic",
+      "text": "Station 4 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:5",
+      "typ": "station",
+      "titel": "What's Inside?",
+      "text": "Station 5 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:6",
+      "typ": "station",
+      "titel": "The Mysterious Message",
+      "text": "Station 6 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:7",
+      "typ": "station",
+      "titel": "A Quiet Day",
+      "text": "Station 7 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:8",
+      "typ": "station",
+      "titel": "Whispers in the Wind",
+      "text": "Station 8 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:9",
+      "typ": "station",
+      "titel": "Maple Hill Side-Quests",
+      "text": "Station 9 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:10",
+      "typ": "station",
+      "titel": "Through the Trees",
+      "text": "Station 10 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:11",
+      "typ": "station",
+      "titel": "The Hidden Door",
+      "text": "Station 11 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:12",
+      "typ": "station",
+      "titel": "The Secret of Maple Hill",
+      "text": "Station 12 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:13",
+      "typ": "station",
+      "titel": "Escape the Forest",
+      "text": "Station 13 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:14",
+      "typ": "station",
+      "titel": "Between Truth and Silence",
+      "text": "Station 14 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:15",
+      "typ": "station",
+      "titel": "Corinne's Choice – Your Task",
+      "text": "Station 15 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:16",
+      "typ": "station",
+      "titel": "A Quiet Voice Speaks",
+      "text": "Station 16 · The Secret of Maple Hill",
+      "route": "#/baustein/jg6-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-1:17",
+      "typ": "station",
+      "titel": "The Book with Her Name",
+      "text": "Station 17 · The Secret of Maple Hill",
       "route": "#/baustein/jg6-en-1",
       "fach": "en"
     },
@@ -38,7 +270,111 @@
       "id": "baustein:jg6-geo-1",
       "typ": "baustein",
       "titel": "Europa",
-      "text": "",
+      "text": "Klimadiagramm zeichnen",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:1",
+      "typ": "station",
+      "titel": "Warm Up",
+      "text": "Station 1 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:2",
+      "typ": "station",
+      "titel": "Länder Europas",
+      "text": "Station 2 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:3",
+      "typ": "station",
+      "titel": "Inseln, Halbinseln, Flüsse, Gebirge Europas",
+      "text": "Station 3 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:4",
+      "typ": "station",
+      "titel": "Europa – unser Heimatkontinent",
+      "text": "Station 4 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:5",
+      "typ": "station",
+      "titel": "Großlandschaften Europas",
+      "text": "Station 5 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:6",
+      "typ": "station",
+      "titel": "Die Europäische Union",
+      "text": "Station 6 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:7",
+      "typ": "station",
+      "titel": "Ländersteckbrief",
+      "text": "Station 7 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:8",
+      "typ": "station",
+      "titel": "Wetter und Klima / Klimadiagramm",
+      "text": "Station 8 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:9",
+      "typ": "station",
+      "titel": "Klimadiagramm auswerten",
+      "text": "Station 9 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:10",
+      "typ": "station",
+      "titel": "Klimadiagramm zeichnen",
+      "text": "Station 10 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:11",
+      "typ": "station",
+      "titel": "Gelingensnachweis",
+      "text": "Station 11 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:12",
+      "typ": "station",
+      "titel": "Universelles Klimadiagramm",
+      "text": "Station 12 · Europa",
+      "route": "#/baustein/jg6-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-1:13",
+      "typ": "station",
+      "titel": "Vertiefung Topografie",
+      "text": "Station 13 · Europa",
       "route": "#/baustein/jg6-geo-1",
       "fach": "geo"
     },
