@@ -11,10 +11,10 @@
 // Jg5: dort faellt die Woche in eine bestehende Pufferwoche-Sonderwoche,
 // bei Jg6/Jg7 laeuft der reguläre Unterricht diese Woche weiter.
 //
-// Mehrere Inputs im November zu "Untersuchen eines Regenwurms" stehen im
-// Dokument nur mit Platzhalter-Thema ("6A: xxx", "Teilnahmepflicht: xxx").
-// Das eigentliche Thema erfinde ich nicht, "text" bleibt bei diesen Zeilen
-// leer, Klasse und Pflicht sind trotzdem echte Angaben und stehen drin.
+// Die sechs Bio-Inputs im November (Baustein "Unter der Lupe", 6A/6B/6C je
+// zweimal) standen im Dokument nur mit Platzhalter-Thema ("6A: xxx"). Die
+// echten Titel kommen von Leo (29.09.2026): pro Klasse zuerst "Mikroskopieren:
+// Einführung" (HAM), dann "Mikroskopieren: Zwiebelhäutchen" (BRU).
 import ExcelJS from 'exceljs';
 
 const PFAD = 'content/jahrgaenge/Jg6.xlsx';
@@ -66,24 +66,24 @@ const TERMINE = [
   ['2026-11-03', 'coaching', '', 'STE', '', '', '', '', '', ''],
   ['2026-11-04', 'input', 'ma', 'STE', '', '', 'Grundlegende Dreieckseigenschaften (Station 1-6)', '', '', ''],
   ['2026-11-04', 'coaching', '', 'BRU', '', '', '', '', '', ''],
-  ['2026-11-09', 'input', 'bio', 'HAM', 'A', '', '', '', 'ja', ''],
+  ['2026-11-09', 'input', 'bio', 'HAM', 'A', '', 'Mikroskopieren: Einführung', '', 'ja', ''],
   ['2026-11-10', 'input', 'de', 'HEC', '', '', 'Merkmale Fabeln und Fabeltiere (Station 3 und 4)', '', '', ''],
   ['2026-11-10', 'coaching', '', 'STE', '', '', '', '', '', ''],
   ['2026-11-11', 'input', 'ma', 'STE', '', '', 'Konstruktion nach dem Kongruenzsatz SsW', 11, '', ''],
   ['2026-11-11', 'coaching', '', 'BRU', '', '', '', '', '', ''],
   ['2026-11-12', 'coaching', '', 'OHR', '', '', '', '', '', ''],
-  ['2026-11-13', 'input', 'bio', 'BRU', 'A', '', '', '', 'ja', ''],
-  ['2026-11-16', 'input', 'bio', 'HAM', 'B', '', '', '', 'ja', ''],
+  ['2026-11-13', 'input', 'bio', 'BRU', 'A', '', 'Mikroskopieren: Zwiebelhäutchen', '', 'ja', ''],
+  ['2026-11-16', 'input', 'bio', 'HAM', 'B', '', 'Mikroskopieren: Einführung', '', 'ja', ''],
   ['2026-11-17', 'input', 'de', 'HEC', '', '', 'Der Aufbau einer Fabel', 5, '', ''],
   ['2026-11-17', 'coaching', '', 'STE', '', '', '', '', '', ''],
   ['2026-11-19', 'coaching', '', 'OHR', '', '', '', '', '', ''],
-  ['2026-11-20', 'input', 'bio', 'BRU', 'B', '', '', '', 'ja', ''],
-  ['2026-11-23', 'input', 'bio', 'HAM', 'C', '', '', '', 'ja', ''],
+  ['2026-11-20', 'input', 'bio', 'BRU', 'B', '', 'Mikroskopieren: Zwiebelhäutchen', '', 'ja', ''],
+  ['2026-11-23', 'input', 'bio', 'HAM', 'C', '', 'Mikroskopieren: Einführung', '', 'ja', ''],
   ['2026-11-24', 'input', 'de', 'HEC', '', '', 'Eine Fabel untersuchen und Lehren einer Fabel (Station 8 und 9)', '', '', ''],
   ['2026-11-25', 'input', 'ma', 'STE', '', '', 'Kommt mit euren Fragen!', '', '', ''],
   ['2026-11-25', 'coaching', '', 'BRU', '', '', '', '', '', ''],
   ['2026-11-26', 'coaching', '', 'OHR', '', '', '', '', '', ''],
-  ['2026-11-27', 'input', 'bio', 'BRU', 'C', '', '', '', 'ja', ''],
+  ['2026-11-27', 'input', 'bio', 'BRU', 'C', '', 'Mikroskopieren: Zwiebelhäutchen', '', 'ja', ''],
 
   ['2026-11-30', 'coaching', '', 'STE', '', '', '', '', '', ''],
   ['2026-12-01', 'coaching', '', 'STE', '', '', '', '', '', ''],
