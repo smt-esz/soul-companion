@@ -18,7 +18,7 @@ import { registerModule } from '../module.js';
 import * as data from '../data.js';
 import { formatDatum, parseISODate, toISODate } from '../dates.js';
 import * as update from '../update.js';
-import { el, etikett, hinweis, karte, knopf, leer, leerZustand } from '../ui/components.js';
+import { el, etikett, hinweis, karte, knopf, leer, leerZustand, zurueckLink } from '../ui/components.js';
 import { icon } from '../ui/icons.js';
 import { hakenAnimation } from '../ui/motion.js';
 import * as engine from '../antrag/engine.js';
@@ -328,9 +328,9 @@ async function renderAntrag(container, params, ctx) {
   const antrag = ctx.store.antraege.get(params && params.id);
   if (!antrag || !hatStufen(config)) {
     anfuegen(container, [
+      zurueckZeile(ctx.navigate),
       el('h1', { text: 'Antrag nicht gefunden', tabindex: '-1' }),
-      el('p', { text: 'Diesen Antrag gibt es auf diesem iPad nicht.' }),
-      zurueckZeile(ctx.navigate)
+      el('p', { text: 'Diesen Antrag gibt es auf diesem iPad nicht.' })
     ]);
     return;
   }
@@ -349,6 +349,7 @@ function zeichneAntrag(container, ctx, config, animiereSchritt) {
   const schritte = engine.schritteVon(stufe).filter((schritt) => schritt.typ !== 'nurPdf');
 
   const kinder = [
+    zurueckZeile(ctx.navigate),
     el('header', { class: 'antrag-kopf' }, [
       el('h1', { text: (stufe && stufe.titel) || ('Antrag auf Stufe ' + antrag.zielstufe), tabindex: '-1' }),
       stufe && stufe.unterzeile ? el('p', { text: stufe.unterzeile }) : null
@@ -360,8 +361,7 @@ function zeichneAntrag(container, ctx, config, animiereSchritt) {
       (schritt) => schrittKarte(schritt, ctx, config, container)
     )),
     abschlussAbschnitt(antrag, config, ctx, container),
-    loeschAbschnitt(antrag, ctx),
-    zurueckZeile(ctx.navigate)
+    loeschAbschnitt(antrag, ctx)
   ];
 
   anfuegen(container, kinder);
@@ -818,9 +818,9 @@ async function renderUebergabe(container, params, ctx) {
 
   if (!antrag || !schritt || !engine.kannBearbeiten(antrag, config, schritt.id)) {
     anfuegen(container, [
+      zurueckZeile(ctx.navigate, antrag ? '#/antrag/' + antrag.id : '#/antrag', antrag ? 'Antrag' : 'Anträge'),
       el('h1', { text: 'Dieser Schritt ist gerade nicht dran', tabindex: '-1' }),
-      el('p', { text: 'Gehe zurück zum Antrag.' }),
-      zurueckZeile(ctx.navigate, antrag ? '#/antrag/' + antrag.id : '#/antrag')
+      el('p', { text: 'Gehe zurück zum Antrag.' })
     ]);
     return;
   }
@@ -1026,10 +1026,8 @@ function anfuegen(container, kinder) {
   container.append(...kinder.filter(Boolean));
 }
 
-function zurueckZeile(navigate, ziel = '#/antrag') {
-  return el('p', { class: 'antrag-zurueck' }, [
-    knopf({ text: 'Zurück', icon: 'pfeil-links', art: 'neben', onTap: () => navigate(ziel) })
-  ]);
+function zurueckZeile(navigate, ziel = '#/antrag', text = 'Anträge') {
+  return zurueckLink({ text, onTap: () => navigate(ziel) });
 }
 
 function zeigeFehler(bereich, fehler) {

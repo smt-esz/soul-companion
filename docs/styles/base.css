@@ -266,6 +266,17 @@ h1:focus {
 
 .hauptnavigation {
   grid-area: nav;
+  /* Bleibt beim Scrollen stehen: klebt oben, sobald die Kopfzeile aus dem
+     Bild ist. align-self: start, damit die Zelle nicht die ganze Seitenhoehe
+     ausfuellt (sonst haette sticky nichts zum Mitwandern). Ist die Leiste
+     hoeher als der Bildschirm (Querformat, grosse Schrift), scrollt sie selbst. */
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: var(--s-2) var(--s-1);
   padding-left: calc(var(--s-1) + env(safe-area-inset-left));
   border-right: 1px solid var(--c-linie);
@@ -382,7 +393,11 @@ h1:focus {
 
   .hauptnavigation {
     position: sticky;
+    top: auto;
     bottom: 0;
+    align-self: stretch;
+    max-height: none;
+    overflow: visible;
     z-index: 2;
     padding: 0 var(--s-2);
     padding-bottom: env(safe-area-inset-bottom);
