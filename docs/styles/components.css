@@ -80,9 +80,18 @@
   font-weight: 700;
   line-height: 1.1;
   white-space: nowrap;
+  /* Nie schmaler als sein Inhalt: in Flex-Zeilen (Kartenkopf, Plan-Block)
+     schrumpfte sonst die Farbflaeche, und das Kuerzel ragte heraus. */
+  flex: none;
+  width: max-content;
+}
+
+.fach-badge .icon {
+  flex: none;
 }
 
 .fach-badge-kuerzel {
+  flex: none;
   letter-spacing: 0.01em;
 }
 
@@ -150,6 +159,7 @@
 
 /* Fachbadge und Etiketten rechts im Kopf. */
 .karte-marken {
+  flex: none;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -620,6 +630,7 @@
 
 .etikett {
   display: inline-block;
+  flex: none;
   padding: 2px var(--s-2);
   border-radius: var(--radius-klein);
   background: var(--c-linie);
@@ -629,6 +640,15 @@
   letter-spacing: var(--t-mini-sperrung);
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* In schmalen Plan-Bloecken (Handy) ist "VORLAEUFIG" breiter als der Block:
+   kleiner setzen und im Notfall umbrechen, damit die graue Flaeche passt. */
+.plan-block .etikett {
+  max-width: 100%;
+  letter-spacing: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .etikett--heute {
