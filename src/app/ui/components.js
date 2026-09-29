@@ -456,6 +456,28 @@ export function knopf(optionen = {}) {
   ]);
 }
 
+// --------------------------------------------------------------- zurueckLink
+
+/**
+ * Dezenter Zurück-Link am Seitenanfang: Pfeil und Zielname, ohne Rahmen.
+ * Klar erkennbar, aber leiser als ein Knopf.
+ * @param {object} optionen  { text: Name des Ziels, onTap }
+ */
+export function zurueckLink(optionen = {}) {
+  const { text = '', onTap = null } = optionen;
+  return el('p', { class: 'zurueck' }, [
+    el('button', {
+      type: 'button',
+      class: 'zurueck-link',
+      'aria-label': 'Zurück zu ' + text,
+      onclick: onTap || null
+    }, [
+      icon('pfeil-links', { groesse: 18 }),
+      el('span', { text })
+    ])
+  ]);
+}
+
 // --------------------------------------------------------------- segment
 
 /**

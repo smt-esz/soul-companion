@@ -18,7 +18,7 @@ import { registerModule } from '../module.js';
 import * as data from '../data.js';
 import { formatDatum } from '../dates.js';
 import * as model from '../model.js';
-import { el, hinweis, karte, knopf, leer, leerZustand } from '../ui/components.js';
+import { el, hinweis, karte, knopf, leer, leerZustand, zurueckLink } from '../ui/components.js';
 import { icon } from '../ui/icons.js';
 import { markiereEbene, stufenBaum } from '../ui/stufenbaum.js';
 
@@ -163,9 +163,9 @@ async function renderAufstieg(container, params, ctx) {
 
   if (!ziel || Number(ziel.id) < 2) {
     container.append(
+      zurueckZeile(ctx.navigate),
       el('h1', { text: 'Stufe nicht gefunden', tabindex: '-1' }),
       el('p', { text: 'Zu dieser Stufe gibt es keinen Aufstieg.' }),
-      zurueckZeile(ctx.navigate)
     );
     return;
   }
@@ -175,6 +175,7 @@ async function renderAufstieg(container, params, ctx) {
   const vorher = stufen.find((stufe) => Number(stufe.id) === Number(ziel.id) - 1) || null;
 
   container.append(...[
+    zurueckZeile(ctx.navigate),
     el('header', { class: 'stufen-aufstieg-kopf' }, [
       el('h1', { text: 'So kommst du in die Stufe ' + ziel.name, tabindex: '-1' }),
       stufenBaum({ stufen, hervorheben: ziel.id, klein: true, beschriftung: 'Baum der drei Stufen, ' + ziel.name + ' hervorgehoben' })
@@ -190,8 +191,7 @@ async function renderAufstieg(container, params, ctx) {
         art: 'haupt',
         onTap: () => ctx.navigate('#/antrag')
       })
-    ]),
-    zurueckZeile(ctx.navigate)
+    ])
   ].filter(Boolean));
 }
 
@@ -335,9 +335,7 @@ function mitArtikel(name) {
 }
 
 function zurueckZeile(navigate) {
-  return el('p', { class: 'stufen-zurueck' }, [
-    knopf({ text: 'Zurück zu den Stufen', icon: 'pfeil-links', art: 'neben', onTap: () => navigate('#/stufen') })
-  ]);
+  return zurueckLink({ text: 'Stufen', onTap: () => navigate('#/stufen') });
 }
 
 /** Anker als CSS-Auswahl, damit querySelector auch mit Ziffern am Anfang geht. */

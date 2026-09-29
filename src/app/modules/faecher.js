@@ -19,7 +19,7 @@ import * as model from '../model.js';
 import { icon } from '../ui/icons.js';
 import {
   countdown, el, etikett, fachBadge, hinweis, knopf, leerZustand,
-  stationenTabelle
+  stationenTabelle, zurueckLink
 } from '../ui/components.js';
 
 registerModule({
@@ -118,20 +118,20 @@ function renderFach(container, params, ctx) {
 
   if (!fach || !hatSlot(jg, fachId)) {
     anfuegen(container, [
+      verweis(navigate, '#/faecher', 'Fächer'),
       el('h1', { text: 'Fach nicht gefunden', tabindex: '-1' }),
-      el('p', { text: 'Dieses Fach gibt es in deinem Jahrgang nicht.' }),
-      verweis(navigate, '#/faecher', 'Zu deinen Fächern')
+      el('p', { text: 'Dieses Fach gibt es in deinem Jahrgang nicht.' })
     ]);
     return;
   }
 
   anfuegen(container, [
+    verweis(navigate, '#/faecher', 'Fächer'),
     fachKopf(fach),
     jahresAbschnitt(ctx, fach, model.bausteineDesFachs(jg, fachId, heute)),
     inputAbschnitt(jg, fach, model.inputsDesFachs(jg, fachId, heute)),
     // AP-12: Kompetenzen stehen in lernlog, nicht in dieser App.
-    el('p', { class: 'text-neben', text: 'Deine Kompetenzen in ' + fach.name + ' schätzt du in lernlog ein.' }),
-    verweis(navigate, '#/faecher', 'Zu deinen Fächern')
+    el('p', { class: 'text-neben', text: 'Deine Kompetenzen in ' + fach.name + ' schätzt du in lernlog ein.' })
   ]);
 }
 
@@ -248,9 +248,9 @@ function renderBaustein(container, params, ctx) {
 
   if (!baustein) {
     anfuegen(container, [
+      verweis(navigate, '#/faecher', 'Fächer'),
       el('h1', { text: 'Baustein nicht gefunden', tabindex: '-1' }),
-      el('p', { text: 'Diesen Baustein gibt es in deinem Jahrgang nicht.' }),
-      verweis(navigate, '#/faecher', 'Zu deinen Fächern')
+      el('p', { text: 'Diesen Baustein gibt es in deinem Jahrgang nicht.' })
     ]);
     return;
   }
@@ -264,6 +264,7 @@ function renderBaustein(container, params, ctx) {
   const slot = eintrag ? eintrag.slot : null;
 
   anfuegen(container, [
+    verweis(navigate, '#/fach/' + fach.id, fach.name),
     bausteinKopf(baustein, fach, slot),
     parallelZeile(jg, baustein, eintrag, heute, navigate),
     slot ? zeitAbschnitt(slot, eintrag.status, schule, heute) : null,
@@ -272,8 +273,7 @@ function renderBaustein(container, params, ctx) {
     baustein.materialort
       ? el('p', { class: 'baustein-material', text: 'Material: ' + baustein.materialort })
       : null,
-    inputsZumBaustein(jg, baustein),
-    verweis(navigate, '#/fach/' + fach.id, 'Alle Bausteine in ' + fach.name)
+    inputsZumBaustein(jg, baustein)
   ]);
 }
 
@@ -422,7 +422,7 @@ function anfuegen(container, kinder) {
 }
 
 function verweis(navigate, ziel, text) {
-  return el('p', {}, [knopf({ text, icon: 'faecher', art: 'neben', onTap: () => navigate(ziel) })]);
+  return zurueckLink({ text, onTap: () => navigate(ziel) });
 }
 
 function liste(objekt, feld) {

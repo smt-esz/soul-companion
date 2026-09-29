@@ -39,6 +39,7 @@
   .status,
   .leiste,
   .segment,
+  .zurueck,
   .knopf,
   .knopf-reihe {
     display: none !important;

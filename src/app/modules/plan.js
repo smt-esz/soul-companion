@@ -21,7 +21,7 @@ import { registerModule } from '../module.js';
 import { addDays, diffDays, formatDatum, mondayOf, parseISODate, toISODate } from '../dates.js';
 import * as model from '../model.js';
 import {
-  el, etikett, fachBadge, hinweis, knopf, leer, leerZustand, segment, tagKarte
+  el, etikett, fachBadge, hinweis, knopf, leer, leerZustand, segment, tagKarte, zurueckLink
 } from '../ui/components.js';
 
 registerModule({
@@ -246,9 +246,9 @@ function renderDruck(container, params, ctx) {
 
   if (!raster) {
     anfuegen(container, [
+      zurueckLink({ text: 'Plan', onTap: () => navigate('#/plan') }),
       el('h1', { text: 'Druckansicht', tabindex: '-1' }),
-      hinweis({ art: 'info', text: 'Diesen Bausteinzeitraum gibt es nicht.' }),
-      verweis(navigate, '#/plan', 'Zum Wochenraster')
+      hinweis({ art: 'info', text: 'Diesen Bausteinzeitraum gibt es nicht.' })
     ]);
     return;
   }
@@ -257,6 +257,7 @@ function renderDruck(container, params, ctx) {
   const titel = raster.titel || ('Bausteinzeitraum ' + formatDatum(raster.von, 'datum') + ' bis ' + formatDatum(raster.bis, 'datum'));
 
   container.append(el('div', { class: 'druck-seite' }, [
+    zurueckLink({ text: 'Plan', onTap: () => navigate('#/plan') }),
     el('header', { class: 'druck-kopf' }, [
       el('div', { class: 'druck-kopf-text' }, [
         el('h1', { text: titel, tabindex: '-1' }),
@@ -266,8 +267,7 @@ function renderDruck(container, params, ctx) {
     ]),
     druckTabelle(ctx, raster, wochen),
     el('p', { class: 'druck-knopfzeile' }, [
-      knopf({ text: 'Drucken', art: 'haupt', onTap: () => window.print() }),
-      knopf({ text: 'Zurück zum Plan', art: 'neben', onTap: () => navigate('#/plan') })
+      knopf({ text: 'Drucken', art: 'haupt', onTap: () => window.print() })
     ])
   ]));
 }
@@ -376,6 +376,7 @@ function renderJahr(container, params, ctx) {
   const nachFach = Boolean(params) && params.ansicht === 'fach';
 
   const kinder = [
+    zurueckLink({ text: 'Plan', onTap: () => navigate('#/plan') }),
     el('h1', { text: 'Jahresüberblick', tabindex: '-1' }),
     el('div', { class: 'plan-schalter' }, [segment(
       [{ id: 'zeitleiste', text: 'Zeitleiste' }, { id: 'fach', text: 'Nach Fach' }],
@@ -392,7 +393,6 @@ function renderJahr(container, params, ctx) {
       text: 'Für dein Schuljahr sind noch keine Bausteine eingetragen.',
       motiv: 'zahnrad'
     }));
-    kinder.push(verweis(navigate, '#/plan', 'Zum Wochenraster'));
     anfuegen(container, kinder);
     return;
   }
@@ -402,7 +402,6 @@ function renderJahr(container, params, ctx) {
 
   kinder.push(zeitleiste(ctx, zeitraum, geordnet, reihen, nachFach));
   kinder.push(listeKnopf(ctx, geordnet, nachFach));
-  kinder.push(verweis(navigate, '#/plan', 'Zum Wochenraster'));
 
   anfuegen(container, kinder);
   zuHeuteScrollen(container);

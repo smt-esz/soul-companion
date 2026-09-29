@@ -16,7 +16,7 @@
 
 import { registerModule } from '../module.js';
 import { icon } from '../ui/icons.js';
-import { el, etikett, karte, knopf, leer, leerZustand } from '../ui/components.js';
+import { el, etikett, karte, knopf, leer, leerZustand, zurueckLink } from '../ui/components.js';
 
 registerModule({
   id: 'wissen',
@@ -133,9 +133,9 @@ function renderSeite(container, params, ctx) {
 
   if (!seite) {
     anfuegen(container, [
+      zurueckZeile(navigate),
       el('h1', { text: 'Seite nicht gefunden', tabindex: '-1' }),
-      el('p', { text: 'Diese Wissensseite gibt es nicht.' }),
-      zurueckZeile(navigate)
+      el('p', { text: 'Diese Wissensseite gibt es nicht.' })
     ]);
     return;
   }
@@ -144,13 +144,13 @@ function renderSeite(container, params, ctx) {
   const inhalt = seitenInhalt(seite);
 
   anfuegen(container, [
+      zurueckZeile(navigate),
     el('header', { class: 'wissen-kopf' }, [
       el('h1', { text: seite.titel || seite.id, tabindex: '-1' }),
       entwurfEtikett(seite, ctx)
     ]),
     abschnitte.length > IVZ_AB ? inhaltsverzeichnis(abschnitte, inhalt) : null,
-    inhalt,
-    zurueckZeile(navigate)
+    inhalt
   ]);
 }
 
@@ -196,9 +196,9 @@ function renderGlossar(container, params, ctx) {
 
   if (eintraege.length === 0) {
     anfuegen(container, [
+      zurueckZeile(navigate),
       el('h1', { text: 'Wörterbuch', tabindex: '-1' }),
-      leerZustand({ text: 'Im Wörterbuch steht noch kein Begriff.', motiv: 'gluehbirne' }),
-      zurueckZeile(navigate)
+      leerZustand({ text: 'Im Wörterbuch steht noch kein Begriff.', motiv: 'gluehbirne' })
     ]);
     return;
   }
@@ -225,11 +225,11 @@ function renderGlossar(container, params, ctx) {
   }
 
   anfuegen(container, [
+      zurueckZeile(navigate),
     el('h1', { text: 'Wörterbuch', tabindex: '-1' }),
     el('p', { text: 'Begriffe aus SOUL, kurz erklärt.' }),
     sprungbuchstaben(gruppen, bereich),
-    bereich,
-    zurueckZeile(navigate)
+    bereich
   ]);
 }
 
@@ -247,9 +247,9 @@ function renderFaq(container, params, ctx) {
 
   if (fragen.length === 0) {
     anfuegen(container, [
+      zurueckZeile(navigate),
       el('h1', { text: 'Häufige Fragen', tabindex: '-1' }),
-      leerZustand({ text: 'Hier stehen noch keine Fragen.', motiv: 'gluehbirne' }),
-      zurueckZeile(navigate)
+      leerZustand({ text: 'Hier stehen noch keine Fragen.', motiv: 'gluehbirne' })
     ]);
     return;
   }
@@ -257,9 +257,9 @@ function renderFaq(container, params, ctx) {
   const liste = el('div', { class: 'wissen-faq' }, fragen.map((frage) => faqEintrag(frage)));
 
   anfuegen(container, [
+      zurueckZeile(navigate),
     el('h1', { text: 'Häufige Fragen', tabindex: '-1' }),
-    liste,
-    zurueckZeile(navigate)
+    liste
   ]);
 }
 
@@ -355,9 +355,7 @@ function anfuegen(container, kinder) {
 }
 
 function zurueckZeile(navigate) {
-  return el('p', { class: 'wissen-zurueck' }, [
-    knopf({ text: 'Zurück zum Wissen', icon: 'pfeil-links', art: 'neben', onTap: () => navigate('#/wissen') })
-  ]);
+  return zurueckLink({ text: 'Wissen', onTap: () => navigate('#/wissen') });
 }
 
 /**

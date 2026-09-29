@@ -2880,3 +2880,32 @@ body[data-uebergabe='1'] .inhalt {
     max-width: 16rem;
   }
 }
+
+/* --- Zurueck-Link (Seitenanfang, leise) --- */
+.zurueck {
+  margin: 0 0 var(--s-2);
+}
+
+.zurueck-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  min-height: var(--touch);
+  /* Negativer Rand: der Pfeil steht buendig mit dem Text darunter, die
+     Touchflaeche bleibt trotzdem 48 px hoch und rechts/links grosszuegig. */
+  margin-left: calc(-1 * var(--s-2));
+  padding: 0 var(--s-2);
+  border: 0;
+  border-radius: var(--radius-knopf);
+  background: none;
+  color: var(--c-text-2);
+  font: inherit;
+  font-size: var(--t-klein-groesse);
+  font-weight: var(--t-klein-gewicht);
+  cursor: pointer;
+}
+
+.zurueck-link:hover {
+  color: var(--c-teal-dunkel);
+  background: var(--c-teal-hell);
+}
