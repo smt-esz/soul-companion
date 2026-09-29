@@ -239,6 +239,22 @@
       "hinweis": ""
     },
     {
+      "id": "jg6-de-3b",
+      "fach": "de",
+      "nr": 3,
+      "spur": 3,
+      "spuren": [
+        3
+      ],
+      "stunden": 16,
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "abgabe": "2027-02-05",
+      "baustein": "jg6-de-3b",
+      "status": "wahl",
+      "hinweis": ""
+    },
+    {
       "id": "jg6-en-3",
       "fach": "en",
       "nr": 3,
@@ -1692,12 +1708,12 @@
     {
       "id": "jg6-de-3",
       "fach": "de",
-      "titel": "Ocean City ODER Herr der Diebe",
+      "titel": "Ocean City",
       "alternativen": [
         "Ocean City",
         "Herr der Diebe"
       ],
-      "gelingensnachweis": "Ocean City: Flipbook als Lektürebegleitung. Herr der Diebe: Eine Textstelle umschreiben",
+      "gelingensnachweis": "Flipbook als Lektürebegleitung",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
@@ -1709,7 +1725,7 @@
           "minuten": 15,
           "niveau": 1,
           "material": "Flipbook-Vorlage",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 2,
@@ -1718,7 +1734,7 @@
           "minuten": 30,
           "niveau": 1,
           "material": "Flipbook",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 3,
@@ -1727,7 +1743,7 @@
           "minuten": 15,
           "niveau": 2,
           "material": "Laptop",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 4,
@@ -1736,7 +1752,7 @@
           "minuten": 45,
           "niveau": 2,
           "material": "Flipbook, M1",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 5,
@@ -1745,7 +1761,7 @@
           "minuten": 45,
           "niveau": 3,
           "material": "Flipbook",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 6,
@@ -1754,7 +1770,7 @@
           "minuten": 30,
           "niveau": 2,
           "material": "—",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 7,
@@ -1763,7 +1779,7 @@
           "minuten": 60,
           "niveau": 3,
           "material": "Flipbook",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 8,
@@ -1772,7 +1788,7 @@
           "minuten": 20,
           "niveau": 1,
           "material": "Laptop",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 9,
@@ -1781,7 +1797,7 @@
           "minuten": 60,
           "niveau": 2,
           "material": "A1",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 10,
@@ -1790,7 +1806,7 @@
           "minuten": 30,
           "niveau": 2,
           "material": "Flipbook, M2",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 11,
@@ -1799,7 +1815,7 @@
           "minuten": 30,
           "niveau": 1,
           "material": "—",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 12,
@@ -1808,7 +1824,7 @@
           "minuten": 45,
           "niveau": 2,
           "material": "Flipbook",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 13,
@@ -1817,7 +1833,7 @@
           "minuten": 20,
           "niveau": 1,
           "material": "—",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 14,
@@ -1826,7 +1842,7 @@
           "minuten": 45,
           "niveau": 2,
           "material": "A2",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 15,
@@ -1835,7 +1851,7 @@
           "minuten": 25,
           "niveau": 3,
           "material": "Flipbook",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 16,
@@ -1844,7 +1860,7 @@
           "minuten": 30,
           "niveau": 2,
           "material": "Flipbook, Laptop",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 17,
@@ -1853,7 +1869,7 @@
           "minuten": 90,
           "niveau": 3,
           "material": "weißes A4-Blatt",
-          "hinweis": "Nur für Ocean City."
+          "hinweis": ""
         },
         {
           "nr": 18,
@@ -1862,133 +1878,7 @@
           "minuten": 45,
           "niveau": 3,
           "material": "Flipbook, A3",
-          "hinweis": "Nur für Ocean City."
-        },
-        {
-          "nr": 19,
-          "titel": "Venedig",
-          "art": "pflicht",
-          "minuten": 7,
-          "niveau": 1,
-          "material": "Laptop, Venedig-Quiz",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 20,
-          "titel": "Ein Auftrag für Victor und eine Kinderbande",
-          "art": "pflicht",
-          "minuten": 45,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 21,
-          "titel": "Ein Auftrag für den Herrn der Diebe",
-          "art": "pflicht",
-          "minuten": 45,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 22,
-          "titel": "Victor und die Kinder",
-          "art": "pflicht",
-          "minuten": 45,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 23,
-          "titel": "Der Umschlag des Conte & Victor in der Falle",
-          "art": "pflicht",
-          "minuten": 60,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 24,
-          "titel": "Wut, Streit und ein Ehrenwort",
-          "art": "pflicht",
-          "minuten": 45,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 25,
-          "titel": "Der Einbruch und eine alte Geschichte",
-          "art": "pflicht",
-          "minuten": 45,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 26,
-          "titel": "Treffen mit dem Conte und die Geheime Insel & Alles verloren?",
-          "art": "pflicht",
-          "minuten": 60,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 27,
-          "titel": "Das Karussell & Wie alle ein Zuhause finden",
-          "art": "pflicht",
-          "minuten": 60,
-          "niveau": 1,
-          "material": "Lektüre",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 28,
-          "titel": "Die Vogelmaske",
-          "art": "wahl",
-          "minuten": 30,
-          "niveau": 3,
-          "material": "M1",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 29,
-          "titel": "Detektivarbeit",
-          "art": "wahl",
-          "minuten": 30,
-          "niveau": 1,
-          "material": "M2",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 30,
-          "titel": "Das Karussell",
-          "art": "wahl",
-          "minuten": 30,
-          "niveau": 1,
-          "material": "—",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 31,
-          "titel": "Alternatives Buchcover",
-          "art": "wahl",
-          "minuten": 45,
-          "niveau": 1,
-          "material": "—",
-          "hinweis": "Nur für Herr der Diebe."
-        },
-        {
-          "nr": 32,
-          "titel": "Einen Erzähltext in eine Szene umschreiben",
-          "art": "pflicht",
-          "minuten": 120,
-          "niveau": 3,
-          "material": "Lektüre, Laptop",
-          "hinweis": "Nur für Herr der Diebe."
+          "hinweis": ""
         }
       ]
     },
@@ -2983,6 +2873,147 @@
           "minuten": 20,
           "niveau": 2,
           "material": "Laptop",
+          "hinweis": ""
+        }
+      ]
+    },
+    {
+      "id": "jg6-de-3b",
+      "fach": "de",
+      "titel": "Herr der Diebe",
+      "alternativen": [
+        "Ocean City",
+        "Herr der Diebe"
+      ],
+      "gelingensnachweis": "Eine Textstelle umschreiben",
+      "gelingensnachweisStation": null,
+      "materialort": "",
+      "kurzbeschreibung": "",
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Venedig",
+          "art": "pflicht",
+          "minuten": 7,
+          "niveau": 1,
+          "material": "Laptop, Venedig-Quiz",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Ein Auftrag für Victor und eine Kinderbande",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Ein Auftrag für den Herrn der Diebe",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Victor und die Kinder",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Der Umschlag des Conte & Victor in der Falle",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Wut, Streit und ein Ehrenwort",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Der Einbruch und eine alte Geschichte",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Treffen mit dem Conte und die Geheime Insel & Alles verloren?",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Das Karussell & Wie alle ein Zuhause finden",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Die Vogelmaske",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "M1",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Detektivarbeit",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Das Karussell",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Alternatives Buchcover",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Einen Erzähltext in eine Szene umschreiben",
+          "art": "pflicht",
+          "minuten": 120,
+          "niveau": 3,
+          "material": "Lektüre, Laptop",
           "hinweis": ""
         }
       ]

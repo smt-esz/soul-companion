@@ -1093,8 +1093,8 @@
     {
       "id": "baustein:jg6-de-3",
       "typ": "baustein",
-      "titel": "Ocean City ODER Herr der Diebe",
-      "text": "Ocean City: Flipbook als Lektürebegleitung. Herr der Diebe: Eine Textstelle umschreiben",
+      "titel": "Ocean City",
+      "text": "Flipbook als Lektürebegleitung",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1102,7 +1102,7 @@
       "id": "station:jg6-de-3:1",
       "typ": "station",
       "titel": "Das Flipbook",
-      "text": "Station 1 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 1 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1110,7 +1110,7 @@
       "id": "station:jg6-de-3:2",
       "typ": "station",
       "titel": "Der erste Eindruck",
-      "text": "Station 2 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 2 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1118,7 +1118,7 @@
       "id": "station:jg6-de-3:3",
       "typ": "station",
       "titel": "Ist das so richtig?",
-      "text": "Station 3 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 3 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1126,7 +1126,7 @@
       "id": "station:jg6-de-3:4",
       "typ": "station",
       "titel": "Mega-Floating-City: Ocean City",
-      "text": "Station 4 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 4 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1134,7 +1134,7 @@
       "id": "station:jg6-de-3:5",
       "typ": "station",
       "titel": "Jackson, Crockie & Henk",
-      "text": "Station 5 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 5 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1142,7 +1142,7 @@
       "id": "station:jg6-de-3:6",
       "typ": "station",
       "titel": "Macht durch Kontrolle",
-      "text": "Station 6 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 6 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1150,7 +1150,7 @@
       "id": "station:jg6-de-3:7",
       "typ": "station",
       "titel": "Zeit ist Geld",
-      "text": "Station 7 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 7 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1158,7 +1158,7 @@
       "id": "station:jg6-de-3:8",
       "typ": "station",
       "titel": "Beweg dich!",
-      "text": "Station 8 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 8 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1166,7 +1166,7 @@
       "id": "station:jg6-de-3:9",
       "typ": "station",
       "titel": "Der Transponder & andere Erfindungen",
-      "text": "Station 9 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 9 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1174,7 +1174,7 @@
       "id": "station:jg6-de-3:10",
       "typ": "station",
       "titel": "Die Große Zeremonie",
-      "text": "Station 10 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 10 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1182,7 +1182,7 @@
       "id": "station:jg6-de-3:11",
       "typ": "station",
       "titel": "Schulkleidung",
-      "text": "Station 11 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 11 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1190,7 +1190,7 @@
       "id": "station:jg6-de-3:12",
       "typ": "station",
       "titel": "Kommando „Matt Fuller“",
-      "text": "Station 12 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 12 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1198,7 +1198,7 @@
       "id": "station:jg6-de-3:13",
       "typ": "station",
       "titel": "Der Verrat",
-      "text": "Station 13 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 13 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1206,7 +1206,7 @@
       "id": "station:jg6-de-3:14",
       "typ": "station",
       "titel": "Die Rollen des Clark Kellington",
-      "text": "Station 14 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 14 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1214,7 +1214,7 @@
       "id": "station:jg6-de-3:15",
       "typ": "station",
       "titel": "Die Personenkonstellation",
-      "text": "Station 15 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 15 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1222,7 +1222,7 @@
       "id": "station:jg6-de-3:16",
       "typ": "station",
       "titel": "Der Autor & der Cliffhanger",
-      "text": "Station 16 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 16 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1230,7 +1230,7 @@
       "id": "station:jg6-de-3:17",
       "typ": "station",
       "titel": "Du bist dran!",
-      "text": "Station 17 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
+      "text": "Station 17 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -1238,119 +1238,7 @@
       "id": "station:jg6-de-3:18",
       "typ": "station",
       "titel": "Eine Rezension schreiben",
-      "text": "Station 18 · Ocean City ODER Herr der Diebe · Nur für Ocean City.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:19",
-      "typ": "station",
-      "titel": "Venedig",
-      "text": "Station 19 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:20",
-      "typ": "station",
-      "titel": "Ein Auftrag für Victor und eine Kinderbande",
-      "text": "Station 20 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:21",
-      "typ": "station",
-      "titel": "Ein Auftrag für den Herrn der Diebe",
-      "text": "Station 21 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:22",
-      "typ": "station",
-      "titel": "Victor und die Kinder",
-      "text": "Station 22 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:23",
-      "typ": "station",
-      "titel": "Der Umschlag des Conte & Victor in der Falle",
-      "text": "Station 23 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:24",
-      "typ": "station",
-      "titel": "Wut, Streit und ein Ehrenwort",
-      "text": "Station 24 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:25",
-      "typ": "station",
-      "titel": "Der Einbruch und eine alte Geschichte",
-      "text": "Station 25 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:26",
-      "typ": "station",
-      "titel": "Treffen mit dem Conte und die Geheime Insel & Alles verloren?",
-      "text": "Station 26 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:27",
-      "typ": "station",
-      "titel": "Das Karussell & Wie alle ein Zuhause finden",
-      "text": "Station 27 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:28",
-      "typ": "station",
-      "titel": "Die Vogelmaske",
-      "text": "Station 28 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:29",
-      "typ": "station",
-      "titel": "Detektivarbeit",
-      "text": "Station 29 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:30",
-      "typ": "station",
-      "titel": "Das Karussell",
-      "text": "Station 30 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:31",
-      "typ": "station",
-      "titel": "Alternatives Buchcover",
-      "text": "Station 31 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
-      "route": "#/baustein/jg6-de-3",
-      "fach": "de"
-    },
-    {
-      "id": "station:jg6-de-3:32",
-      "typ": "station",
-      "titel": "Einen Erzähltext in eine Szene umschreiben",
-      "text": "Station 32 · Ocean City ODER Herr der Diebe · Nur für Herr der Diebe.",
+      "text": "Station 18 · Ocean City",
       "route": "#/baustein/jg6-de-3",
       "fach": "de"
     },
@@ -2209,6 +2097,126 @@
       "text": "Station 4 · Climate Co2llaboration",
       "route": "#/baustein/jg6-geo-5",
       "fach": "geo"
+    },
+    {
+      "id": "baustein:jg6-de-3b",
+      "typ": "baustein",
+      "titel": "Herr der Diebe",
+      "text": "Eine Textstelle umschreiben",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:1",
+      "typ": "station",
+      "titel": "Venedig",
+      "text": "Station 1 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:2",
+      "typ": "station",
+      "titel": "Ein Auftrag für Victor und eine Kinderbande",
+      "text": "Station 2 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:3",
+      "typ": "station",
+      "titel": "Ein Auftrag für den Herrn der Diebe",
+      "text": "Station 3 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:4",
+      "typ": "station",
+      "titel": "Victor und die Kinder",
+      "text": "Station 4 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:5",
+      "typ": "station",
+      "titel": "Der Umschlag des Conte & Victor in der Falle",
+      "text": "Station 5 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:6",
+      "typ": "station",
+      "titel": "Wut, Streit und ein Ehrenwort",
+      "text": "Station 6 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:7",
+      "typ": "station",
+      "titel": "Der Einbruch und eine alte Geschichte",
+      "text": "Station 7 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:8",
+      "typ": "station",
+      "titel": "Treffen mit dem Conte und die Geheime Insel & Alles verloren?",
+      "text": "Station 8 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:9",
+      "typ": "station",
+      "titel": "Das Karussell & Wie alle ein Zuhause finden",
+      "text": "Station 9 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:10",
+      "typ": "station",
+      "titel": "Die Vogelmaske",
+      "text": "Station 10 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:11",
+      "typ": "station",
+      "titel": "Detektivarbeit",
+      "text": "Station 11 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:12",
+      "typ": "station",
+      "titel": "Das Karussell",
+      "text": "Station 12 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:13",
+      "typ": "station",
+      "titel": "Alternatives Buchcover",
+      "text": "Station 13 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-3b:14",
+      "typ": "station",
+      "titel": "Einen Erzähltext in eine Szene umschreiben",
+      "text": "Station 14 · Herr der Diebe",
+      "route": "#/baustein/jg6-de-3b",
+      "fach": "de"
     },
     {
       "id": "wissen:helferkette",
