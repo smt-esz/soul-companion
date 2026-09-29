@@ -1924,6 +1924,18 @@
       "raster": ""
     },
     {
+      "datum": "2026-12-18",
+      "art": "sonstiges",
+      "fach": "",
+      "kuerzel": "",
+      "klasse": null,
+      "input": "",
+      "text": "Weihnachtsmarkt",
+      "station": null,
+      "pflicht": false,
+      "raster": ""
+    },
+    {
       "datum": "2027-01-04",
       "art": "input",
       "fach": "geo",
