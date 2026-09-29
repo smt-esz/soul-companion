@@ -1606,7 +1606,7 @@
       "kuerzel": "HAM",
       "klasse": "A",
       "input": "",
-      "text": "",
+      "text": "Mikroskopieren: Einführung",
       "station": null,
       "pflicht": true,
       "raster": ""
@@ -1678,7 +1678,7 @@
       "kuerzel": "BRU",
       "klasse": "A",
       "input": "",
-      "text": "",
+      "text": "Mikroskopieren: Zwiebelhäutchen",
       "station": null,
       "pflicht": true,
       "raster": ""
@@ -1690,7 +1690,7 @@
       "kuerzel": "HAM",
       "klasse": "B",
       "input": "",
-      "text": "",
+      "text": "Mikroskopieren: Einführung",
       "station": null,
       "pflicht": true,
       "raster": ""
@@ -1738,7 +1738,7 @@
       "kuerzel": "BRU",
       "klasse": "B",
       "input": "",
-      "text": "",
+      "text": "Mikroskopieren: Zwiebelhäutchen",
       "station": null,
       "pflicht": true,
       "raster": ""
@@ -1750,7 +1750,7 @@
       "kuerzel": "HAM",
       "klasse": "C",
       "input": "",
-      "text": "",
+      "text": "Mikroskopieren: Einführung",
       "station": null,
       "pflicht": true,
       "raster": ""
@@ -1810,7 +1810,7 @@
       "kuerzel": "BRU",
       "klasse": "C",
       "input": "",
-      "text": "",
+      "text": "Mikroskopieren: Zwiebelhäutchen",
       "station": null,
       "pflicht": true,
       "raster": ""
