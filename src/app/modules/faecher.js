@@ -265,6 +265,7 @@ function renderBaustein(container, params, ctx) {
 
   anfuegen(container, [
     bausteinKopf(baustein, fach, slot),
+    parallelZeile(jg, baustein, eintrag, heute, navigate),
     slot ? zeitAbschnitt(slot, eintrag.status, schule, heute) : null,
     gelingensnachweisAbschnitt(baustein),
     stationenAbschnitt(baustein),
@@ -274,6 +275,24 @@ function renderBaustein(container, params, ctx) {
     inputsZumBaustein(jg, baustein),
     verweis(navigate, '#/fach/' + fach.id, 'Alle Bausteine in ' + fach.name)
   ]);
+}
+
+/** Parallele Wahlbausteine (gleiches Fach, gleicher Zeitraum): Verweis auf den anderen. */
+function parallelZeile(jg, baustein, eintrag, heute, navigate) {
+  if (!eintrag || eintrag.slot.status !== 'wahl') return null;
+  const tag = (datum) => formatDatum(datum, 'datum');
+  const andere = model.bausteineDesFachs(jg, baustein.fach, heute)
+    .filter((kandidat) => kandidat.baustein && kandidat.baustein.id !== baustein.id
+      && kandidat.slot.status === 'wahl'
+      && tag(kandidat.slot.von) === tag(eintrag.slot.von)
+      && tag(kandidat.slot.bis) === tag(eintrag.slot.bis));
+  if (andere.length === 0) return null;
+  return el('div', { class: 'baustein-parallel' }, andere.map((kandidat) => knopf({
+    text: 'Parallel zur Wahl: ' + titelVon(kandidat.baustein),
+    icon: 'faecher',
+    art: 'neben',
+    onTap: () => navigate('#/baustein/' + kandidat.baustein.id)
+  })));
 }
 
 /** Kopf: fachBadge, Titel, dazu Etikett und Hinweise des Slots. */

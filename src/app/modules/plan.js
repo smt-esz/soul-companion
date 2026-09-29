@@ -560,7 +560,21 @@ function zeitleiste(ctx, zeitraum, eintraege, reihen, nachFach) {
   }
 
   // 5. Slots zuletzt, damit sie über den Streifen liegen.
+  // Parallele Wahlbausteine (gleiches Fach, gleicher Zeitraum, beide "wahl") bekommen
+  // einen gemeinsamen Block mit beiden Titeln, sonst lägen sie übereinander.
+  const gezeigt = [];
   for (const eintrag of eintraege) {
+    const erster = eintrag.slot.status === 'wahl' ? gezeigt.find((kandidat) => kandidat.slot.status === 'wahl'
+      && kandidat.fachId === eintrag.fachId
+      && toISODate(kandidat.slot.von) === toISODate(eintrag.slot.von)
+      && toISODate(kandidat.slot.bis) === toISODate(eintrag.slot.bis)) : null;
+    if (erster) {
+      erster.parallel = (erster.parallel || []).concat(eintrag);
+    } else {
+      gezeigt.push(eintrag);
+    }
+  }
+  for (const eintrag of gezeigt) {
     const lage = nachFach
       ? { von: reihen.findIndex((reihe) => reihe.id === eintrag.fachId) + 1, span: 1 }
       : spurLage(eintrag.slot);
@@ -653,7 +667,8 @@ function slotBlock(ctx, eintrag, lage) {
   const { schule, navigate } = ctx;
   const slot = eintrag.slot;
   const fach = fachVon(schule, slot.fach);
-  const titel = (eintrag.baustein && eintrag.baustein.titel) || 'Thema folgt';
+  const titelVon = (kandidat) => (kandidat.baustein && kandidat.baustein.titel) || 'Thema folgt';
+  const titel = [eintrag].concat(eintrag.parallel || []).map(titelVon).join(' oder ');
   const vorlaeufig = slot.status === 'vorlaeufig';
   const stunden = Number(slot.stunden) > 0 ? Number(slot.stunden) + ' Stunden' : '';
 

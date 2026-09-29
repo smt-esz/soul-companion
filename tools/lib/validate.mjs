@@ -440,14 +440,18 @@ function pruefeSlots(jg, schule, datei, fachIds, bausteine, meldungen) {
       if (!vonOk || !bisOk) continue;
       if (!belegt.has(spur)) belegt.set(spur, []);
       for (const anderer of belegt.get(spur)) {
-        if (slot.von <= anderer.bis && anderer.von <= slot.bis) {
+        // Parallele Wahlbausteine (die SuS entscheiden sich vorher fuer einen) teilen sich
+        // eine Spur: gleiches Fach, beide Status "wahl", gleicher Zeitraum.
+        const parallelWahl = slot.status === 'wahl' && anderer.status === 'wahl'
+          && slot.fach === anderer.fach && slot.von === anderer.von && slot.bis === anderer.bis;
+        if (!parallelWahl && slot.von <= anderer.bis && anderer.von <= slot.bis) {
           meldungen.fehler({ ...ort, feld: 'von' },
             'Slot "' + slot.id + '" (' + slot.von + ' bis ' + slot.bis + ') ueberschneidet sich in Spur '
             + spur + ' mit "' + anderer.id + '" (' + anderer.von + ' bis ' + anderer.bis
             + ', Zeile ' + anderer.zeile + ').');
         }
       }
-      belegt.get(spur).push({ von: slot.von, bis: slot.bis, id: slot.id, zeile: slot.__zeile });
+      belegt.get(spur).push({ von: slot.von, bis: slot.bis, id: slot.id, zeile: slot.__zeile, fach: slot.fach, status: slot.status });
     }
   }
 
