@@ -1697,11 +1697,300 @@
         "Ocean City",
         "Herr der Diebe"
       ],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Ocean City: Flipbook als Lektürebegleitung. Herr der Diebe: Eine Textstelle umschreiben",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Das Flipbook",
+          "art": "pflicht",
+          "minuten": 15,
+          "niveau": 1,
+          "material": "Flipbook-Vorlage",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 2,
+          "titel": "Der erste Eindruck",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "Flipbook",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 3,
+          "titel": "Ist das so richtig?",
+          "art": "wahl",
+          "minuten": 15,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 4,
+          "titel": "Mega-Floating-City: Ocean City",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Flipbook, M1",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 5,
+          "titel": "Jackson, Crockie & Henk",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Flipbook",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 6,
+          "titel": "Macht durch Kontrolle",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "—",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 7,
+          "titel": "Zeit ist Geld",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "Flipbook",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 8,
+          "titel": "Beweg dich!",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 9,
+          "titel": "Der Transponder & andere Erfindungen",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A1",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 10,
+          "titel": "Die Große Zeremonie",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Flipbook, M2",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 11,
+          "titel": "Schulkleidung",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "—",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 12,
+          "titel": "Kommando „Matt Fuller“",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Flipbook",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 13,
+          "titel": "Der Verrat",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "—",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 14,
+          "titel": "Die Rollen des Clark Kellington",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A2",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 15,
+          "titel": "Die Personenkonstellation",
+          "art": "pflicht",
+          "minuten": 25,
+          "niveau": 3,
+          "material": "Flipbook",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 16,
+          "titel": "Der Autor & der Cliffhanger",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Flipbook, Laptop",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 17,
+          "titel": "Du bist dran!",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "weißes A4-Blatt",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 18,
+          "titel": "Eine Rezension schreiben",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Flipbook, A3",
+          "hinweis": "Nur für Ocean City."
+        },
+        {
+          "nr": 19,
+          "titel": "Venedig",
+          "art": "pflicht",
+          "minuten": 7,
+          "niveau": 1,
+          "material": "Laptop, Venedig-Quiz",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 20,
+          "titel": "Ein Auftrag für Victor und eine Kinderbande",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 21,
+          "titel": "Ein Auftrag für den Herrn der Diebe",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 22,
+          "titel": "Victor und die Kinder",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 23,
+          "titel": "Der Umschlag des Conte & Victor in der Falle",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 24,
+          "titel": "Wut, Streit und ein Ehrenwort",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 25,
+          "titel": "Der Einbruch und eine alte Geschichte",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 26,
+          "titel": "Treffen mit dem Conte und die Geheime Insel & Alles verloren?",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 27,
+          "titel": "Das Karussell & Wie alle ein Zuhause finden",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lektüre",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 28,
+          "titel": "Die Vogelmaske",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "M1",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 29,
+          "titel": "Detektivarbeit",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "M2",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 30,
+          "titel": "Das Karussell",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "—",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 31,
+          "titel": "Alternatives Buchcover",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "—",
+          "hinweis": "Nur für Herr der Diebe."
+        },
+        {
+          "nr": 32,
+          "titel": "Einen Erzähltext in eine Szene umschreiben",
+          "art": "pflicht",
+          "minuten": 120,
+          "niveau": 3,
+          "material": "Lektüre, Laptop",
+          "hinweis": "Nur für Herr der Diebe."
+        }
+      ]
     },
     {
       "id": "jg6-en-3",
@@ -2507,20 +2796,20 @@
         {
           "nr": 10,
           "titel": "Wahlaufgabe Vulkan",
-          "art": "pflicht",
+          "art": "wahl",
           "minuten": 120,
           "niveau": 3,
           "material": "Laptop, Material zum Vulkanbau",
-          "hinweis": ""
+          "hinweis": "Eine der beiden Wahlaufgaben (Station 10 oder 11) musst du machen."
         },
         {
           "nr": 11,
           "titel": "Wahlaufgabe Gebirgsbildung",
-          "art": "pflicht",
+          "art": "wahl",
           "minuten": 120,
           "niveau": 3,
           "material": "A13, optionale Materialien zu A13",
-          "hinweis": ""
+          "hinweis": "Eine der beiden Wahlaufgaben (Station 10 oder 11) musst du machen."
         },
         {
           "nr": 12,
