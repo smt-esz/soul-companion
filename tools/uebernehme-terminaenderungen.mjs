@@ -1,29 +1,33 @@
-// Lehrerzugang fuer kleine, terminliche Aenderungen (Leo, 24.09.2026).
+// Lehrerzugang fuer kleine, terminliche Aenderungen (Leo, 24./29.09.2026).
 //
 // Liest die Antworten aus den geteilten Microsoft-Formularen (je Jahrgang
 // ein eigenes Formular, jeweils eine Excel-Datei in OneDrive, per Link
 // freigegeben), prueft jede Antwort gegen den echten Kalender und
 // verschiebt bei einer gueltigen Antwort das Datum des gewaehlten Termins
-// in der passenden content/jahrgaenge/JgX.xlsx. Welches Formular zu welchem
-// Jahrgang gehoert, muss nicht extra angegeben werden: der Code am Ende
-// jeder Formular-Auswahl ("[jgX-zY]") sagt es bereits.
+// in der passenden content/jahrgaenge/JgX.xlsx.
 //
 // Aufruf:
-//   TERMIN_FORMULAR_URLS=https://...,https://...,https://... node tools/uebernehme-terminaenderungen.mjs [--pruefen]
+//   TERMIN_FORMULAR_URLS="5=https://...,6=https://...,7=https://..." \
+//     node tools/uebernehme-terminaenderungen.mjs [--pruefen]
 //
-// TERMIN_FORMULAR_URLS: die Freigabe-Links auf die Antworten-Excel-Dateien,
-// getrennt durch Komma, Leerzeichen oder Zeilenumbruch (ein Link je
-// Formular, ueblicherweise drei - einer je Jahrgang).
+// TERMIN_FORMULAR_URLS: "<Jahrgang>=<Freigabe-Link>"-Paare, getrennt durch
+// Komma oder Zeilenumbruch - ein Paar je Formular. Der Jahrgang sagt dem
+// Skript, in welcher Termine-Liste es die Text-Antwort wiederfinden muss
+// (die Beschriftung selbst traegt keinen Code mehr, siehe
+// tools/lib/termin-label.mjs).
 // --pruefen: nur pruefen und ausgeben, nichts schreiben (Trockenlauf).
 //
-// Erwartete Spalten in der Formular-Antworten-Tabelle (Gross-/Kleinschreibung
-// und genauer Wortlaut egal, gesucht wird nach diesen Teiltexten):
-//   - eine Spalte, deren Ueberschrift "Termin" enthaelt: die Auswahl aus
-//     tools/termine-liste.mjs, mit dem Code "[jgX-zY]" am Ende
-//   - eine Spalte, deren Ueberschrift "Datum" enthaelt: das neue Datum
-//     (Formular-Feldtyp "Datum", kommt als echtes Datum aus Excel)
-// Optional, nur fuers Protokoll: eine Spalte mit "Name" oder "E-Mail" und
-// eine mit "ID" (Microsoft Forms legt "ID" automatisch an).
+// Erwartetes Formular je Jahrgang (siehe tools/termine-liste.mjs):
+//   1. "Was soll verschoben werden?" (Input/Coaching, mit Verzweigung)
+//   2. eine Spalte, deren Ueberschrift "input" enthaelt: Dropdown mit den
+//      Input-Terminen
+//   3. eine Spalte, deren Ueberschrift "coaching" enthaelt: Dropdown mit
+//      den Coaching-Terminen
+//   4. eine Spalte, deren Ueberschrift "datum" enthaelt: das neue Datum
+// Genauer Wortlaut und Gross-/Kleinschreibung der Ueberschriften sind egal,
+// gesucht wird nach diesen Teiltexten. Optional, nur fuers Protokoll: eine
+// Spalte mit "Name" oder "E-Mail" und eine mit "ID" (Microsoft Forms legt
+// "ID" automatisch an).
 //
 // Jede einmal gesehene Antwort wird in content/.termin-sync-log.json
 // vermerkt (per ID, sonst per Zeileninhalt), damit sie nicht bei jedem Lauf
@@ -37,8 +41,8 @@ import { fileURLToPath } from 'node:url';
 import * as XLSX from 'xlsx';
 
 import { datumZuISO, istISODatum } from './lib/excel.mjs';
-import { ladeSchule } from './lib/inhalte.mjs';
-import { leseLabelCode } from './lib/termin-label.mjs';
+import { ladeSchule, ladeTermine } from './lib/inhalte.mjs';
+import { terminKategorie, terminLabel } from './lib/termin-label.mjs';
 import { istSchultag, parseISODate } from '../src/app/dates.js';
 
 const REPO = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -46,12 +50,9 @@ const LOG_PFAD = join(REPO, 'content', '.termin-sync-log.json');
 const PRUEFEN = process.argv.includes('--pruefen');
 
 async function main() {
-  const urls = String(process.env.TERMIN_FORMULAR_URLS || '')
-    .split(/[,\s]+/)
-    .map((u) => u.trim())
-    .filter(Boolean);
-  if (urls.length === 0) {
-    console.error('FEHLER: Umgebungsvariable TERMIN_FORMULAR_URLS fehlt (ein Link je Formular, mit Komma getrennt).');
+  const quellen = leseQuellen(process.env.TERMIN_FORMULAR_URLS);
+  if (quellen.length === 0) {
+    console.error('FEHLER: Umgebungsvariable TERMIN_FORMULAR_URLS fehlt oder hat kein gueltiges "Jahrgang=Link"-Paar.');
     process.exitCode = 1;
     return;
   }
@@ -62,18 +63,19 @@ async function main() {
   let geaendert = false;
   let neuVerarbeitet = 0;
 
-  for (let quelle = 0; quelle < urls.length; quelle++) {
-    const antworten = await ladeAntworten(urls[quelle]);
-    console.log('Formular ' + (quelle + 1) + '/' + urls.length + ': ' + antworten.length + ' Antworten.');
+  for (let index = 0; index < quellen.length; index++) {
+    const { jgst, url } = quellen[index];
+    const antworten = await ladeAntworten(url);
+    console.log('Formular Jg ' + jgst + ' (' + (index + 1) + '/' + quellen.length + '): ' + antworten.length + ' Antworten.');
+
+    const nachschlage = baueNachschlagewerk(jgst, schule);
 
     for (const antwort of antworten) {
-      // Vorangestellte Quelle, falls zwei Formulare zufaellig dieselbe
-      // Forms-ID vergeben (jedes Formular zaehlt fuer sich bei 1 los).
-      const schluessel = 'formular' + quelle + ':' + antwortSchluessel(antwort);
+      const schluessel = 'jg' + jgst + ':' + antwortSchluessel(antwort);
       if (log[schluessel]) continue;
       neuVerarbeitet++;
 
-      const ergebnis = await verarbeiteAntwort(antwort, schule);
+      const ergebnis = await verarbeiteAntwort(antwort, jgst, nachschlage, schule);
       console.log((ergebnis.ok ? 'OK   ' : 'FEHLER ') + schluessel + ': ' + ergebnis.meldung);
 
       log[schluessel] = {
@@ -101,6 +103,31 @@ async function main() {
   }
 }
 
+/** "5=https://...,6=https://..." zu [{ jgst, url }]. */
+function leseQuellen(wert) {
+  return String(wert || '')
+    .split(/[,\n]+/)
+    .map((teil) => teil.trim())
+    .filter(Boolean)
+    .map((teil) => {
+      const treffer = /^(\d+)\s*=\s*(\S+)$/.exec(teil);
+      return treffer ? { jgst: Number(treffer[1]), url: treffer[2] } : null;
+    })
+    .filter(Boolean);
+}
+
+/** Beschriftung -> Termin (mit Excel-Zeile), fuer den schnellen Abgleich. */
+function baueNachschlagewerk(jgst, schule) {
+  const jg = ladeTermine(REPO, jgst);
+  const karte = new Map();
+  if (!jg) return karte;
+  for (const termin of jg.termine) {
+    if (!termin.datum || !terminKategorie(termin.art)) continue;
+    karte.set(terminLabel(termin, jgst, schule), termin);
+  }
+  return karte;
+}
+
 // ---------------------------------------------------------------- Antworten
 
 async function ladeAntworten(url) {
@@ -118,12 +145,18 @@ async function ladeAntworten(url) {
 /** Findet Spalten anhand eines Teiltexts in der Ueberschrift, unabhaengig vom genauen Wortlaut. */
 function normalisiereZeile(zeile) {
   const spalte = (teiltext) => Object.keys(zeile).find((k) => k.toLowerCase().includes(teiltext));
-  const terminSpalte = spalte('termin');
+  const inputSpalte = spalte('input');
+  const coachingSpalte = spalte('coaching');
   const datumSpalte = spalte('datum');
   const idSpalte = spalte('id');
   const nameSpalte = spalte('name') || spalte('e-mail') || spalte('email');
+  // Wegen der Verzweigung im Formular ist immer nur eine der beiden Spalten
+  // gefuellt, die andere bleibt leer.
+  const terminLabelWert = (inputSpalte && String(zeile[inputSpalte] || '').trim())
+    || (coachingSpalte && String(zeile[coachingSpalte] || '').trim())
+    || '';
   return {
-    terminLabel: terminSpalte ? String(zeile[terminSpalte] || '').trim() : '',
+    terminLabel: terminLabelWert,
     neuesDatum: datumSpalte ? zeile[datumSpalte] : '',
     id: idSpalte ? String(zeile[idSpalte] || '').trim() : '',
     name: nameSpalte ? String(zeile[nameSpalte] || '').trim() : '',
@@ -157,13 +190,13 @@ function schreibeLog(log) {
 
 // ---------------------------------------------------------------- Verarbeitung
 
-async function verarbeiteAntwort(antwort, schule) {
+async function verarbeiteAntwort(antwort, jgst, nachschlage, schule) {
   if (!antwort.terminLabel) {
-    return { ok: false, meldung: 'Keine Auswahl bei "Welcher Termin?" gefunden.' };
+    return { ok: false, meldung: 'Keine Auswahl bei "Welcher Input/welches Coaching?" gefunden.' };
   }
-  const code = leseLabelCode(antwort.terminLabel);
-  if (!code) {
-    return { ok: false, meldung: 'Auswahl "' + antwort.terminLabel + '" hat keinen erkennbaren Code am Ende.' };
+  const termin = nachschlage.get(antwort.terminLabel);
+  if (!termin) {
+    return { ok: false, meldung: 'Auswahl "' + antwort.terminLabel + '" passt zu keinem aktuellen Termin in Jg ' + jgst + '.' };
   }
 
   const neuesDatumIso = alsIsoDatum(antwort.neuesDatum);
@@ -174,16 +207,16 @@ async function verarbeiteAntwort(antwort, schule) {
     return { ok: false, meldung: neuesDatumIso + ' ist kein Schultag (Wochenende oder Ferien), nicht uebernommen.' };
   }
 
-  const pfad = join(REPO, 'content', 'jahrgaenge', 'Jg' + code.jgst + '.xlsx');
+  const pfad = join(REPO, 'content', 'jahrgaenge', 'Jg' + jgst + '.xlsx');
   if (!existsSync(pfad)) {
-    return { ok: false, meldung: 'Jg' + code.jgst + '.xlsx gibt es nicht.' };
+    return { ok: false, meldung: 'Jg' + jgst + '.xlsx gibt es nicht.' };
   }
 
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.readFile(pfad);
   const sheet = workbook.getWorksheet('Termine');
   if (!sheet) {
-    return { ok: false, meldung: 'Blatt "Termine" fehlt in Jg' + code.jgst + '.xlsx.' };
+    return { ok: false, meldung: 'Blatt "Termine" fehlt in Jg' + jgst + '.xlsx.' };
   }
 
   const kopfzeile = sheet.getRow(1).values.slice(1).map(String);
@@ -192,10 +225,10 @@ async function verarbeiteAntwort(antwort, schule) {
     return { ok: false, meldung: 'Spalte "datum" fehlt im Blatt "Termine".' };
   }
 
-  const zielZeile = sheet.getRow(code.zeile);
+  const zielZeile = sheet.getRow(termin.__zeile);
   const alteZelle = zielZeile.getCell(datumSpalte);
   if (alteZelle.value === null || alteZelle.value === undefined || alteZelle.value === '') {
-    return { ok: false, meldung: 'Zeile ' + code.zeile + ' in Jg' + code.jgst + '.xlsx gibt es nicht mehr (leer).' };
+    return { ok: false, meldung: 'Zeile ' + termin.__zeile + ' in Jg' + jgst + '.xlsx gibt es nicht mehr (leer).' };
   }
 
   const altesDatumIso = alsIsoDatum(alteZelle.value);
@@ -211,7 +244,7 @@ async function verarbeiteAntwort(antwort, schule) {
   return {
     ok: true,
     geaendert: true,
-    meldung: 'Jg' + code.jgst + ' Zeile ' + code.zeile + ': ' + altesDatumIso + ' -> ' + neuesDatumIso
+    meldung: 'Jg' + jgst + ' Zeile ' + termin.__zeile + ': ' + altesDatumIso + ' -> ' + neuesDatumIso
       + (PRUEFEN ? ' (Trockenlauf, nicht gespeichert)' : '')
   };
 }

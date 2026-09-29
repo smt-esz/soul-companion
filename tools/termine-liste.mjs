@@ -1,10 +1,14 @@
-// Druckt die aktuelle Liste der Termine als Zeilen zum Einfuegen in die
-// Dropdown-Frage "Welcher Termin soll verschoben werden?" im passenden
-// Microsoft-Formular (Lehrerzugang, Leo 24.09.2026: ein Formular je
-// Jahrgang).
+// Druckt die aktuellen Termine eines Jahrgangs als zwei Listen (Input,
+// Coaching) zum Einfuegen in die zwei Dropdown-Fragen des passenden
+// Microsoft-Formulars (Lehrerzugang, Leo 24.09./29.09.2026: ein Formular je
+// Jahrgang, mit Verzweigung "Was soll verschoben werden? -> Input oder
+// Coaching -> passende Liste").
 //
-//   node tools/termine-liste.mjs 5      nur Jg 5
-//   node tools/termine-liste.mjs        alle Jahrgaenge zusammen
+//   node tools/termine-liste.mjs 5      Jg 5, beide Listen
+//   node tools/termine-liste.mjs        alle Jahrgaenge, beide Listen
+//
+// "Sonstiges" (z. B. ein Paedagogischer Tag) passt in keine der beiden
+// Fragen und erscheint hier nicht - sowas verschiebt niemand per Formular.
 //
 // Bei jeder inhaltlichen Aenderung an den Terminen (neue, verschobene oder
 // geloeschte Zeilen) diese Liste neu erzeugen und im passenden Formular
@@ -14,7 +18,7 @@
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ladeJahrgaenge, ladeSchule, ladeTermine } from './lib/inhalte.mjs';
-import { terminLabel } from './lib/termin-label.mjs';
+import { terminKategorie, terminLabel } from './lib/termin-label.mjs';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const NUR_JGST = process.argv[2] ? Number(process.argv[2]) : null;
@@ -27,14 +31,18 @@ for (const jgst of jahrgaenge) {
   const jg = ladeTermine(REPO, jgst);
   if (!jg) continue;
   for (const termin of jg.termine) {
-    if (!termin.datum) continue;
-    zeilen.push({ jgst, termin, label: terminLabel(termin, jgst, schule) });
+    const kategorie = terminKategorie(termin.art);
+    if (!termin.datum || !kategorie) continue;
+    zeilen.push({ jgst, kategorie, label: terminLabel(termin, jgst, schule), datum: termin.datum });
   }
 }
 
-zeilen.sort((a, b) => a.termin.datum.localeCompare(b.termin.datum));
+zeilen.sort((a, b) => a.datum.localeCompare(b.datum));
 
 const ziel = NUR_JGST === null ? 'alle Jahrgänge' : 'Jg ' + NUR_JGST;
-console.log('Zum Kopieren in die Formular-Dropdown-Liste (' + ziel + '), eine Zeile pro Option:\n');
-for (const { label } of zeilen) console.log(label);
-console.log('\n' + zeilen.length + ' Termine.');
+for (const kategorie of ['input', 'coaching']) {
+  const treffer = zeilen.filter((z) => z.kategorie === kategorie);
+  console.log('--- ' + (kategorie === 'input' ? 'Input' : 'Coaching') + '-Dropdown (' + ziel + ') ---\n');
+  for (const { label } of treffer) console.log(label);
+  console.log('\n' + treffer.length + ' Termine.\n');
+}

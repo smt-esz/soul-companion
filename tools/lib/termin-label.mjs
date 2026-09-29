@@ -1,12 +1,27 @@
-// Eine lesbare, aber eindeutige Beschriftung fuer einen Termin aus dem Blatt
-// "Termine" (siehe build.mjs, Funktion leseJahrgang). Dieselbe Funktion baut
-// die Dropdown-Liste fuers Formular (termine-liste.mjs) und liest sie beim
-// Uebernehmen der Antworten wieder aus (uebernehme-terminaenderungen.mjs).
-// Der Code in eckigen Klammern ist der Teil, den die Maschine braucht,
-// Jahrgang und Excel-Zeile aus leseMappe (__zeile).
+// Eine lesbare Beschriftung fuer einen Termin aus dem Blatt "Termine" (siehe
+// build.mjs, Funktion leseJahrgang). Dieselbe Funktion baut die Dropdown-
+// Liste fuers Formular (termine-liste.mjs) und wird beim Uebernehmen der
+// Antworten (uebernehme-terminaenderungen.mjs) fuer jeden Termin neu
+// berechnet, um die Text-Antwort wiederzufinden - kein Code im Text noetig,
+// weil jedes Formular schon auf einen Jahrgang beschraenkt ist (Leo,
+// 24.09.2026: ein Formular je Jahrgang) und die Beschriftung selbst
+// eindeutig genug ist (Datum + Beschreibung).
 
 // Dieselben Woerter wie TERMIN_WORT in src/app/ui/components.js.
 const ART_TEXT = { input: 'Input', coaching: 'Coaching', sonstiges: 'Termin', entfall: 'Fällt aus' };
+
+/**
+ * Zwei Formular-Fragen statt einer lange Liste (Leo, 29.09.2026):
+ * "input" und "entfall/coaching" landen in getrennten Dropdowns, "sonstiges"
+ * (z. B. der Paedagogische Tag) passt in keine der beiden Fragen und wird
+ * beim Erzeugen der Formular-Liste ausgelassen - sowas verschiebt niemand
+ * per Formular.
+ */
+export function terminKategorie(art) {
+  if (art === 'input') return 'input';
+  if (art === 'coaching' || art === 'entfall') return 'coaching';
+  return null;
+}
 
 /** 'YYYY-MM-DD' zu 'DD.MM.YYYY'. */
 function datumDeutsch(iso) {
@@ -32,14 +47,5 @@ export function terminLabel(termin, jgst, schule) {
   if (termin.kuerzel) teile.push(termin.kuerzel);
   if (termin.text) teile.push(termin.text);
   const beschreibung = teile.join(' ');
-  // Jahrgang gut lesbar im Text, nicht nur im Maschinen-Code am Ende
-  // (Leo, 24.09.2026: sonst nicht auf einen Blick erkennbar).
-  return datumDeutsch(termin.datum) + ' – Jg ' + jgst + ' – ' + beschreibung + ' [jg' + jgst + '-z' + termin.__zeile + ']';
-}
-
-/** Liest Jahrgang und Zeile aus einer Beschriftung. null, wenn es nicht passt. */
-export function leseLabelCode(label) {
-  const treffer = /\[jg(\d+)-z(\d+)\]\s*$/.exec(String(label || '').trim());
-  if (!treffer) return null;
-  return { jgst: Number(treffer[1]), zeile: Number(treffer[2]) };
+  return datumDeutsch(termin.datum) + ' – Jg ' + jgst + ' – ' + beschreibung;
 }

@@ -1,11 +1,11 @@
 name: Terminaenderungen uebernehmen
 
-# Lehrerzugang fuer kleine, terminliche Aenderungen (Leo, 24.09.2026):
+# Lehrerzugang fuer kleine, terminliche Aenderungen (Leo, 24./29.09.2026):
 # holt alle 15 Minuten die Antworten aus den drei Microsoft-Formularen (ein
 # Formular je Jahrgang), prueft sie und baut/veroeffentlicht die Seite neu,
-# wenn sich wirklich etwas geaendert hat. TERMIN_FORMULAR_URLS (die drei
-# Freigabe-Links auf die Formular-Antworten-Excel-Dateien, mit Komma
-# getrennt) ist ein Repository-Secret.
+# wenn sich wirklich etwas geaendert hat. TERMIN_FORMULAR_URLS ist ein
+# Repository-Secret mit "Jahrgang=Freigabe-Link"-Paaren, mit Komma getrennt,
+# z. B. "5=https://...,6=https://...,7=https://...".
 
 on:
   schedule:
