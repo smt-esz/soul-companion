@@ -5,9 +5,11 @@
 // Ausgelassen (schon anderswo abgedeckt):
 // - Buß- und Bettag (18.11.), Christi Himmelfahrt (06.05.), Pfingstmontag
 //   (17.05.): schulweit in schule.xlsx/Ferien.
-// - Weihnachtsmarkt (18.12.): siehe Bericht, evtl. Sonderwoche ergaenzen.
 // - Themen- und Fahrtenwoche (14.-18.09.), Herbstferien: schon vorhanden
 //   bzw. schulweite Ferien.
+// Weihnachtsmarkt (18.12.) ist hier ein normaler Termin, anders als bei
+// Jg5: dort faellt die Woche in eine bestehende Pufferwoche-Sonderwoche,
+// bei Jg6/Jg7 laeuft der reguläre Unterricht diese Woche weiter.
 //
 // Mehrere Inputs im November zu "Untersuchen eines Regenwurms" stehen im
 // Dokument nur mit Platzhalter-Thema ("6A: xxx", "Teilnahmepflicht: xxx").
@@ -92,6 +94,7 @@ const TERMINE = [
   ['2026-12-14', 'coaching', '', 'STE', '', '', '', '', '', ''],
   ['2026-12-16', 'input', 'ma', 'STE', '', '', 'Konstruktion nach dem Kongruenzsatz SsW', 11, '', ''],
   ['2026-12-17', 'input', 'en', 'EPP', '', '', 'Viewing and listening skills', 8, '', ''],
+  ['2026-12-18', 'sonstiges', '', '', '', '', 'Weihnachtsmarkt', '', '', ''],
   ['2027-01-04', 'input', 'geo', 'ADM', '', '', 'LK', '', '', ''],
   ['2027-01-06', 'input', 'ma', 'STE', '', '', 'Kommt mit euren Fragen!', '', '', ''],
   ['2027-01-07', 'input', 'en', 'EPP', '', '', 'Mediation from English to German', 9, '', ''],

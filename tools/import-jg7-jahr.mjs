@@ -4,8 +4,10 @@
 //
 // Ausgelassen (schon anderswo abgedeckt): Buß- und Bettag, Christi
 // Himmelfahrt, Pfingstmontag (schulweite Ferien), Themen- und
-// Fahrtenwoche/Herbstferien (Sonderwoche/Ferien), Weihnachtsmarkt (siehe
-// Bericht).
+// Fahrtenwoche/Herbstferien (Sonderwoche/Ferien). Weihnachtsmarkt (18.12.)
+// ist hier ein normaler Termin, anders als bei Jg5: dort faellt die Woche
+// in eine bestehende Pufferwoche-Sonderwoche, bei Jg7 laeuft der reguläre
+// Unterricht diese Woche weiter.
 import ExcelJS from 'exceljs';
 
 const PFAD = 'content/jahrgaenge/Jg7.xlsx';
@@ -87,6 +89,7 @@ const TERMINE = [
   ['2026-12-15', 'input', 'ma', 'STE', '', '', '', '', '', ''],
   ['2026-12-16', 'input', 'geo', 'KUL', '', '', '', '', '', ''],
   ['2026-12-17', 'input', 'de', 'HIL', '', '', '', '', '', ''],
+  ['2026-12-18', 'sonstiges', '', '', '', '', 'Weihnachtsmarkt', '', '', ''],
   ['2027-01-05', 'input', 'ma', 'STE', '', '', '', '', '', ''],
   ['2027-01-06', 'input', 'geo', 'KUL', '', '', '', '', '', ''],
   ['2027-01-07', 'input', 'de', 'HIL', '', '', '', '', '', ''],
