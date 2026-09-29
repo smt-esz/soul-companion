@@ -266,23 +266,25 @@ h1:focus {
 
 .hauptnavigation {
   grid-area: nav;
-  /* Bleibt beim Scrollen stehen: klebt oben, sobald die Kopfzeile aus dem
-     Bild ist. align-self: start, damit die Zelle nicht die ganze Seitenhoehe
-     ausfuellt (sonst haette sticky nichts zum Mitwandern). Ist die Leiste
-     hoeher als der Bildschirm (Querformat, grosse Schrift), scrollt sie selbst. */
-  position: sticky;
-  top: 0;
-  align-self: start;
-  max-height: 100vh;
-  max-height: 100dvh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* Die Zelle haelt nur den Platz und die Trennlinie frei. Die Liste selbst
+     steht fest (position: fixed) in der Mitte des Bildschirms und bleibt dort
+     beim Scrollen (siehe .hauptnavigation-liste). */
   padding: var(--s-2) var(--s-1);
   padding-left: calc(var(--s-1) + env(safe-area-inset-left));
   border-right: 1px solid var(--c-linie);
 }
 
 .hauptnavigation-liste {
+  position: fixed;
+  top: 50%;
+  left: calc(var(--s-1) + env(safe-area-inset-left));
+  width: calc(var(--nav-breite) - 2 * var(--s-1) - env(safe-area-inset-left));
+  transform: translateY(-50%);
+  /* Ist die Liste hoeher als der Bildschirm (grosse Schrift), scrollt sie selbst. */
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -393,11 +395,7 @@ h1:focus {
 
   .hauptnavigation {
     position: sticky;
-    top: auto;
     bottom: 0;
-    align-self: stretch;
-    max-height: none;
-    overflow: visible;
     z-index: 2;
     padding: 0 var(--s-2);
     padding-bottom: env(safe-area-inset-bottom);
@@ -407,6 +405,11 @@ h1:focus {
   }
 
   .hauptnavigation-liste {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    transform: none;
     flex-direction: row;
     justify-content: space-around;
     gap: var(--s-1);
