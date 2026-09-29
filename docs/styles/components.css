@@ -83,7 +83,11 @@
   /* Nie schmaler als sein Inhalt: in Flex-Zeilen (Kartenkopf, Plan-Block)
      schrumpfte sonst die Farbflaeche, und das Kuerzel ragte heraus. */
   flex: none;
-  width: max-content;
+  /* Alle Badges einer Groesse sind gleich breit (Leo, 29.09.2026): Mindestbreite
+     nach dem breitesten Kuerzel (GEO, FvU), Inhalt mittig. Waechst die Schrift
+     (Systemeinstellung), darf das Badge ueber die Mindestbreite hinaus wachsen. */
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .fach-badge .icon {
@@ -96,6 +100,7 @@
 }
 
 .fach-badge--s {
+  min-width: 70px;
   font-size: var(--t-klein-groesse);
   /* Vorher 2px var(--s-1): wirkte gedrungen (Leo, 24.09.2026). */
   padding: 4px var(--s-2);
@@ -107,10 +112,12 @@
 }
 
 .fach-badge--m {
+  min-width: 82px;
   font-size: var(--t-text-groesse);
 }
 
 .fach-badge--l {
+  min-width: 112px;
   font-size: var(--t-h2-groesse);
   padding: var(--s-2) var(--s-3);
   border-radius: var(--radius-knopf);
