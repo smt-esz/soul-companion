@@ -4426,6 +4426,48 @@
       "von": "2026-08-31",
       "bis": "2026-10-02",
       "titel": "Bausteinzeitraum 31.08. bis 02.10.2026"
+    },
+    {
+      "id": "jg5-r2",
+      "von": "2026-10-26",
+      "bis": "2026-11-20",
+      "titel": "Bausteinzeitraum 26.10. bis 20.11.2026"
+    },
+    {
+      "id": "jg5-r3",
+      "von": "2026-11-23",
+      "bis": "2027-01-08",
+      "titel": "Bausteinzeitraum 23.11. bis 08.01.2027"
+    },
+    {
+      "id": "jg5-r4",
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "titel": "Bausteinzeitraum 11.01. bis 05.02.2027"
+    },
+    {
+      "id": "jg5-r5",
+      "von": "2027-02-22",
+      "bis": "2027-03-19",
+      "titel": "Bausteinzeitraum 22.02. bis 19.03.2027"
+    },
+    {
+      "id": "jg5-r6",
+      "von": "2027-04-05",
+      "bis": "2027-04-30",
+      "titel": "Bausteinzeitraum 05.04. bis 30.04.2027"
+    },
+    {
+      "id": "jg5-r7",
+      "von": "2027-05-03",
+      "bis": "2027-06-04",
+      "titel": "Bausteinzeitraum 03.05. bis 04.06.2027"
+    },
+    {
+      "id": "jg5-r8",
+      "von": "2027-06-07",
+      "bis": "2027-07-02",
+      "titel": "Bausteinzeitraum 07.06. bis 02.07.2027"
     }
   ]
 }

@@ -4475,5 +4475,60 @@
       "raster": ""
     }
   ],
-  "raster": []
+  "raster": [
+    {
+      "id": "jg6-r1",
+      "von": "2026-08-17",
+      "bis": "2026-09-11",
+      "titel": "Bausteinzeitraum 17.08. bis 11.09.2026"
+    },
+    {
+      "id": "jg6-r2",
+      "von": "2026-09-21",
+      "bis": "2026-10-30",
+      "titel": "Bausteinzeitraum 21.09. bis 30.10.2026"
+    },
+    {
+      "id": "jg6-r3",
+      "von": "2026-11-02",
+      "bis": "2026-11-27",
+      "titel": "Bausteinzeitraum 02.11. bis 27.11.2026"
+    },
+    {
+      "id": "jg6-r4",
+      "von": "2026-11-30",
+      "bis": "2027-01-08",
+      "titel": "Bausteinzeitraum 30.11. bis 08.01.2027"
+    },
+    {
+      "id": "jg6-r5",
+      "von": "2027-01-11",
+      "bis": "2027-02-05",
+      "titel": "Bausteinzeitraum 11.01. bis 05.02.2027"
+    },
+    {
+      "id": "jg6-r6",
+      "von": "2027-02-22",
+      "bis": "2027-03-19",
+      "titel": "Bausteinzeitraum 22.02. bis 19.03.2027"
+    },
+    {
+      "id": "jg6-r7",
+      "von": "2027-04-05",
+      "bis": "2027-04-30",
+      "titel": "Bausteinzeitraum 05.04. bis 30.04.2027"
+    },
+    {
+      "id": "jg6-r8",
+      "von": "2027-05-03",
+      "bis": "2027-06-04",
+      "titel": "Bausteinzeitraum 03.05. bis 04.06.2027"
+    },
+    {
+      "id": "jg6-r9",
+      "von": "2027-06-07",
+      "bis": "2027-07-02",
+      "titel": "Bausteinzeitraum 07.06. bis 02.07.2027"
+    }
+  ]
 }
