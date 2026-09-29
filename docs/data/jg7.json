@@ -511,24 +511,269 @@
     {
       "id": "jg7-en-1",
       "fach": "en",
-      "titel": "",
+      "titel": "The Magic Mirror",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "design a reading journal",
+      "gelingensnachweisStation": 17,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "What's a magic mirror?",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "A1",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Judging a Book by Its Cover",
+          "art": "pflicht",
+          "minuten": 15,
+          "niveau": 1,
+          "material": "your book",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Getting Started: How to Team Reader (2.1)",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Getting Started: My Reading Journal (2.2)",
+          "art": "pflicht",
+          "minuten": 10,
+          "niveau": 1,
+          "material": "",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "The first part of the story",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 1,
+          "material": "a laptop, A3",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "In the museum (4.1)",
+          "art": "pflicht",
+          "minuten": 70,
+          "niveau": 1,
+          "material": "A4, A5",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Museums (4.2)",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "a laptop",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 8,
+          "titel": "Travelling back in time – Ruby",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "A6",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Travelling back in time – Noah",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 1,
+          "material": "A7",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Travelling back in time – Layla",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "A8",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "In the Tower",
+          "art": "pflicht",
+          "minuten": 120,
+          "niveau": 1,
+          "material": "A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Run, Ruby, Run!",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "A10",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Visiting the market",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 1,
+          "material": "A11",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Medieval markets (10.1)",
+          "art": "wahl",
+          "minuten": 50,
+          "niveau": 2,
+          "material": "a laptop",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 15,
+          "titel": "How to defeat the Spanish",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "A12",
+          "hinweis": ""
+        },
+        {
+          "nr": 16,
+          "titel": "Getting back with a surprise",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "A13 / A 14 / A15",
+          "hinweis": ""
+        },
+        {
+          "nr": 17,
+          "titel": "Leaving the Magic Mirror behind",
+          "art": "pflicht",
+          "minuten": 180,
+          "niveau": 3,
+          "material": "A16 / A17 / A18, M4, M5",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg7-geo-1",
       "fach": "geo",
-      "titel": "",
+      "titel": "Orientierung auf der Erde",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "Anwenden des erlernten Wissens, um das ausgefallene Navigationssystem neu zu starten",
+      "gelingensnachweisStation": 10,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Das Gradnetz der Erde",
+          "art": "pflicht",
+          "minuten": 65,
+          "niveau": 1,
+          "material": "M1 & 2, A1 & 2, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Geographische Koordinaten",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "M3, A3–6, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Wie weiß mein Handy, wo ich bin?",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "M4, A7, Atlas",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 4,
+          "titel": "Zeitzonen der Erde",
+          "art": "pflicht",
+          "minuten": 115,
+          "niveau": 2,
+          "material": "M5, A8–11, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Beleuchtungszonen der Erde",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 1,
+          "material": "A12–13, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Entstehung der Jahreszeiten",
+          "art": "pflicht",
+          "minuten": 110,
+          "niveau": 2,
+          "material": "M6, A14–17",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Schalenaufbau der Erde",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 1,
+          "material": "M7, A18–19, Kleber & Schere",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Klimazonen und Klimadiagramme",
+          "art": "pflicht",
+          "minuten": 120,
+          "niveau": 2,
+          "material": "A20–21, M8, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Warum lügen Weltkarten?",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "A22, Atlas",
+          "hinweis": "Für Gymnasiasten ab Jgst. 7 Pflicht."
+        },
+        {
+          "nr": 10,
+          "titel": "Gelingensnachweis",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "A23/0-5, Atlas",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg7-de-1",

@@ -118,7 +118,119 @@
       "id": "baustein:jg6-bio-1",
       "typ": "baustein",
       "titel": "Wirbellose Tiere in ihren Lebensräumen",
-      "text": "",
+      "text": "Bienen Comic (M11)",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:1",
+      "typ": "station",
+      "titel": "Vielfalt wirbelloser Tiere",
+      "text": "Station 1 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:2",
+      "typ": "station",
+      "titel": "Angepasstheit des Regenwurms",
+      "text": "Station 2 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:3",
+      "typ": "station",
+      "titel": "Untersuchen eines Regenwurms",
+      "text": "Station 3 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:4",
+      "typ": "station",
+      "titel": "Bau der Insekten",
+      "text": "Station 4 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:5",
+      "typ": "station",
+      "titel": "Insektenordnungen",
+      "text": "Station 5 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:6",
+      "typ": "station",
+      "titel": "Entwicklung der Insekten",
+      "text": "Station 6 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:7",
+      "typ": "station",
+      "titel": "Mundwerkzeuge der Insekten",
+      "text": "Station 7 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:8",
+      "typ": "station",
+      "titel": "Flügel der Insekten",
+      "text": "Station 8 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:9",
+      "typ": "station",
+      "titel": "Gliedmaßen der Insekten",
+      "text": "Station 9 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:10",
+      "typ": "station",
+      "titel": "Atmung der Insekten",
+      "text": "Station 10 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:11",
+      "typ": "station",
+      "titel": "Leben einer Arbeitsbiene",
+      "text": "Station 11 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:12",
+      "typ": "station",
+      "titel": "Tierstaat Honigbiene",
+      "text": "Station 12 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:13",
+      "typ": "station",
+      "titel": "Nutzinsekten",
+      "text": "Station 13 · Wirbellose Tiere in ihren Lebensräumen",
+      "route": "#/baustein/jg6-bio-1",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-1:14",
+      "typ": "station",
+      "titel": "Wirbellose Tiere als Parasiten",
+      "text": "Station 14 · Wirbellose Tiere in ihren Lebensräumen",
       "route": "#/baustein/jg6-bio-1",
       "fach": "bio"
     },
@@ -390,7 +502,111 @@
       "id": "baustein:jg6-de-2",
       "typ": "baustein",
       "titel": "Fabeln",
-      "text": "",
+      "text": "Eine eigene Fabel schreiben",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:1",
+      "typ": "station",
+      "titel": "Die Entstehung von Fabeln",
+      "text": "Station 1 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:2",
+      "typ": "station",
+      "titel": "Merkmale von Fabeln",
+      "text": "Station 2 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:3",
+      "typ": "station",
+      "titel": "Fabelhafte Tiere",
+      "text": "Station 3 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:4",
+      "typ": "station",
+      "titel": "Der Rabe und der Fuchs – Textverständnis",
+      "text": "Station 4 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:5",
+      "typ": "station",
+      "titel": "Der Aufbau einer Fabel (2 Seiten)",
+      "text": "Station 5 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:6",
+      "typ": "station",
+      "titel": "Das Präteritum in Fabeln",
+      "text": "Station 6 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:7",
+      "typ": "station",
+      "titel": "Wörtliche Rede in Fabeln",
+      "text": "Station 7 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:8",
+      "typ": "station",
+      "titel": "Die Lehren einer Fabel",
+      "text": "Station 8 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:9",
+      "typ": "station",
+      "titel": "Eine Fabel untersuchen",
+      "text": "Station 9 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:10",
+      "typ": "station",
+      "titel": "Der Drache und der Hase",
+      "text": "Station 10 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:11",
+      "typ": "station",
+      "titel": "Fabelhafter Kreativworkshop",
+      "text": "Station 11 · Fabeln · Läuft über 2 Termine à 90 Minuten.",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:12",
+      "typ": "station",
+      "titel": "Teste dich und dein fabelhaftes Wissen",
+      "text": "Station 12 · Fabeln",
+      "route": "#/baustein/jg6-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-2:13",
+      "typ": "station",
+      "titel": "Eine fabelhafte Geschichte",
+      "text": "Station 13 · Fabeln",
       "route": "#/baustein/jg6-de-2",
       "fach": "de"
     },
@@ -398,7 +614,119 @@
       "id": "baustein:jg6-bio-2",
       "typ": "baustein",
       "titel": "Unter der Lupe",
-      "text": "",
+      "text": "Herstellen eines Zellmodells",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:1",
+      "typ": "station",
+      "titel": "Escape Game: Wirbeltiere und Wirbellose",
+      "text": "Station 1 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:2",
+      "typ": "station",
+      "titel": "System der Wirbeltiere und Wirbellosen",
+      "text": "Station 2 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:3",
+      "typ": "station",
+      "titel": "Entwicklung der Zelllehre",
+      "text": "Station 3 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:4",
+      "typ": "station",
+      "titel": "Mikroskopieren I (Pflichtinput)",
+      "text": "Station 4 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:5",
+      "typ": "station",
+      "titel": "Memory Lichtmikroskop",
+      "text": "Station 5 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:6",
+      "typ": "station",
+      "titel": "Form und Größe von Zellen",
+      "text": "Station 6 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:7",
+      "typ": "station",
+      "titel": "Bestandteile der Zelle II",
+      "text": "Station 7 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:8",
+      "typ": "station",
+      "titel": "Modelle pflanzlicher Zellen",
+      "text": "Station 8 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:9",
+      "typ": "station",
+      "titel": "Anfertigen mikroskopischer Zeichnungen",
+      "text": "Station 9 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:10",
+      "typ": "station",
+      "titel": "Mikroskopieren II (Pflichtinput)",
+      "text": "Station 10 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:11",
+      "typ": "station",
+      "titel": "Vergleich tierischer und pflanzlicher Zellen",
+      "text": "Station 11 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:12",
+      "typ": "station",
+      "titel": "Leben in der Pfütze",
+      "text": "Station 12 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:13",
+      "typ": "station",
+      "titel": "Organisationsebenen des Lebens",
+      "text": "Station 13 · Unter der Lupe",
+      "route": "#/baustein/jg6-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-2:14",
+      "typ": "station",
+      "titel": "Weiterführende Übungen",
+      "text": "Station 14 · Unter der Lupe",
       "route": "#/baustein/jg6-bio-2",
       "fach": "bio"
     },
@@ -406,7 +734,135 @@
       "id": "baustein:jg6-en-2",
       "typ": "baustein",
       "titel": "Christmas",
-      "text": "",
+      "text": "design a collage on what Christmas means to you",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:1",
+      "typ": "station",
+      "titel": "A Christmas Card",
+      "text": "Station 1 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:2",
+      "typ": "station",
+      "titel": "The Yellow Elf",
+      "text": "Station 2 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:3",
+      "typ": "station",
+      "titel": "Christmas Vocabulary Booklet",
+      "text": "Station 3 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:4",
+      "typ": "station",
+      "titel": "Christmas Trees",
+      "text": "Station 4 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:5",
+      "typ": "station",
+      "titel": "Christmas Carols",
+      "text": "Station 5 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:6",
+      "typ": "station",
+      "titel": "Christmas Animals",
+      "text": "Station 6 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:7",
+      "typ": "station",
+      "titel": "Christmas Presents",
+      "text": "Station 7 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:8",
+      "typ": "station",
+      "titel": "The Day Before Christmas",
+      "text": "Station 8 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:9",
+      "typ": "station",
+      "titel": "The Night before Christmas",
+      "text": "Station 9 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:10",
+      "typ": "station",
+      "titel": "Getting Around Who-Ville",
+      "text": "Station 10 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:11",
+      "typ": "station",
+      "titel": "How the Grinch Stole Christmas",
+      "text": "Station 11 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:12",
+      "typ": "station",
+      "titel": "The Grinch and Cindy-Lou",
+      "text": "Station 12 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:13",
+      "typ": "station",
+      "titel": "The Grinch's Christmas",
+      "text": "Station 13 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:14",
+      "typ": "station",
+      "titel": "The Grinch Changes His Face",
+      "text": "Station 14 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:15",
+      "typ": "station",
+      "titel": "What Christmas is Actually About",
+      "text": "Station 15 · Christmas",
+      "route": "#/baustein/jg6-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-2:16",
+      "typ": "station",
+      "titel": "That's Christmas For Me",
+      "text": "Station 16 · Christmas",
       "route": "#/baustein/jg6-en-2",
       "fach": "en"
     },
@@ -414,7 +870,95 @@
       "id": "baustein:jg6-geo-2",
       "typ": "baustein",
       "titel": "Klima in Europa",
-      "text": "",
+      "text": "Gelingensnachweis",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:1",
+      "typ": "station",
+      "titel": "Wiederholung Topografie",
+      "text": "Station 1 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:2",
+      "typ": "station",
+      "titel": "Mündliche LK",
+      "text": "Station 2 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:3",
+      "typ": "station",
+      "titel": "Beleuchtungszonen der Erde",
+      "text": "Station 3 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:4",
+      "typ": "station",
+      "titel": "Klima-Vegetationszonen NEEF",
+      "text": "Station 4 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:5",
+      "typ": "station",
+      "titel": "Wind und Relief beeinflussen das Klima",
+      "text": "Station 5 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:6",
+      "typ": "station",
+      "titel": "Selbsttest Klima-Vegetationszonen",
+      "text": "Station 6 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:7",
+      "typ": "station",
+      "titel": "Der Golfstrom",
+      "text": "Station 7 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:8",
+      "typ": "station",
+      "titel": "Golfstrom und der Klimawandel",
+      "text": "Station 8 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:9",
+      "typ": "station",
+      "titel": "Gelingensnachweis",
+      "text": "Station 9 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:10",
+      "typ": "station",
+      "titel": "Metropolen",
+      "text": "Station 10 · Klima in Europa",
+      "route": "#/baustein/jg6-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-2:11",
+      "typ": "station",
+      "titel": "Satellitenbilder auswerten",
+      "text": "Station 11 · Klima in Europa",
       "route": "#/baustein/jg6-geo-2",
       "fach": "geo"
     },
@@ -422,7 +966,119 @@
       "id": "baustein:jg6-bio-3",
       "typ": "baustein",
       "titel": "Der Wald als Lebensgemeinschaft",
-      "text": "",
+      "text": "Ein Waldtier in das System des Waldes einordnen",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:1",
+      "typ": "station",
+      "titel": "Was weißt du schon über den Wald?",
+      "text": "Station 1 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:2",
+      "typ": "station",
+      "titel": "Die Stockwerke des Waldes",
+      "text": "Station 2 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:3",
+      "typ": "station",
+      "titel": "Wer lebt wo im Wald?",
+      "text": "Station 3 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:4",
+      "typ": "station",
+      "titel": "Der Wald im Jahresverlauf",
+      "text": "Station 4 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:5",
+      "typ": "station",
+      "titel": "Moose und Farne",
+      "text": "Station 5 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:6",
+      "typ": "station",
+      "titel": "Geheimnisvolle Welt der Pilze",
+      "text": "Station 6 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:7",
+      "typ": "station",
+      "titel": "Pilze sammeln und bestimmen",
+      "text": "Station 7 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:8",
+      "typ": "station",
+      "titel": "Tiere und Pflanzen des Waldes",
+      "text": "Station 8 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:9",
+      "typ": "station",
+      "titel": "Waldtiere im Wald",
+      "text": "Station 9 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:10",
+      "typ": "station",
+      "titel": "Nahrungsbeziehungen im Wald",
+      "text": "Station 10 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:11",
+      "typ": "station",
+      "titel": "Nahrungsnetze im Wald",
+      "text": "Station 11 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:12",
+      "typ": "station",
+      "titel": "Gefährdung und Schutz von Wäldern",
+      "text": "Station 12 · Der Wald als Lebensgemeinschaft",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:13",
+      "typ": "station",
+      "titel": "Ein Waldtier im System Wald",
+      "text": "Station 13 · Der Wald als Lebensgemeinschaft · Läuft über 2 Termine à 90 Minuten.",
+      "route": "#/baustein/jg6-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-3:14",
+      "typ": "station",
+      "titel": "Pflanzen können heilen",
+      "text": "Station 14 · Der Wald als Lebensgemeinschaft",
       "route": "#/baustein/jg6-bio-3",
       "fach": "bio"
     },
@@ -446,7 +1102,135 @@
       "id": "baustein:jg6-en-3",
       "typ": "baustein",
       "titel": "Peacemakers",
-      "text": "",
+      "text": "give a report about a peacemaker",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:1",
+      "typ": "station",
+      "titel": "What Are Peacemakers?",
+      "text": "Station 1 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:2",
+      "typ": "station",
+      "titel": "Describing Peaceful People",
+      "text": "Station 2 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:3",
+      "typ": "station",
+      "titel": "Talking About Peace",
+      "text": "Station 3 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:4",
+      "typ": "station",
+      "titel": "Important Peacemakers",
+      "text": "Station 4 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:5",
+      "typ": "station",
+      "titel": "Martin Luther King, Jr.",
+      "text": "Station 5 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:6",
+      "typ": "station",
+      "titel": "A Peacemaker Timeline",
+      "text": "Station 6 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:7",
+      "typ": "station",
+      "titel": "“I Have a Dream…”",
+      "text": "Station 7 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:8",
+      "typ": "station",
+      "titel": "Songs of Peace",
+      "text": "Station 8 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:9",
+      "typ": "station",
+      "titel": "Mahatma Gandhi",
+      "text": "Station 9 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:10",
+      "typ": "station",
+      "titel": "Words of Peace",
+      "text": "Station 10 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:11",
+      "typ": "station",
+      "titel": "Problems in South Africa",
+      "text": "Station 11 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:12",
+      "typ": "station",
+      "titel": "Nelson Mandela",
+      "text": "Station 12 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:13",
+      "typ": "station",
+      "titel": "Activist Word Search",
+      "text": "Station 13 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:14",
+      "typ": "station",
+      "titel": "A Long Walk to Freedom",
+      "text": "Station 14 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:15",
+      "typ": "station",
+      "titel": "Peaceful Heroes",
+      "text": "Station 15 · Peacemakers",
+      "route": "#/baustein/jg6-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-3:16",
+      "typ": "station",
+      "titel": "Young Peacemakers Today",
+      "text": "Station 16 · Peacemakers",
       "route": "#/baustein/jg6-en-3",
       "fach": "en"
     },
@@ -454,7 +1238,95 @@
       "id": "baustein:jg6-geo-3",
       "typ": "baustein",
       "titel": "Nordeuropa",
-      "text": "",
+      "text": "Reise durch Europa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:1",
+      "typ": "station",
+      "titel": "Tipps (0)",
+      "text": "Station 1 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:2",
+      "typ": "station",
+      "titel": "Topografie Nordeuropas",
+      "text": "Station 2 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:3",
+      "typ": "station",
+      "titel": "Glaziale Serie",
+      "text": "Station 3 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:4",
+      "typ": "station",
+      "titel": "Gletscher-Eis in Strömen",
+      "text": "Station 4 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:5",
+      "typ": "station",
+      "titel": "Ein Landschaftsprofil auswerten",
+      "text": "Station 5 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:6",
+      "typ": "station",
+      "titel": "Löss – ein Geschenk des Windes",
+      "text": "Station 6 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:7",
+      "typ": "station",
+      "titel": "Polartag / Polarnacht",
+      "text": "Station 7 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:8",
+      "typ": "station",
+      "titel": "Finnland und das grüne Gold",
+      "text": "Station 8 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:9",
+      "typ": "station",
+      "titel": "Nachhaltigkeit in der Forstwirtschaft",
+      "text": "Station 9 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:10",
+      "typ": "station",
+      "titel": "Island – Insel aus Feuer und Eis",
+      "text": "Station 10 · Nordeuropa",
+      "route": "#/baustein/jg6-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-3:11",
+      "typ": "station",
+      "titel": "Gelingensnachweis – Reise durch Europa",
+      "text": "Station 11 · Nordeuropa",
       "route": "#/baustein/jg6-geo-3",
       "fach": "geo"
     },
@@ -462,7 +1334,143 @@
       "id": "baustein:jg6-en-4",
       "typ": "baustein",
       "titel": "Pip and the Umbrella Room",
-      "text": "",
+      "text": "create a reading journal",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:1",
+      "typ": "station",
+      "titel": "Judging a Book by Its Cover",
+      "text": "Station 1 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:2",
+      "typ": "station",
+      "titel": "Getting Started: How to Team Reader (2.1)",
+      "text": "Station 2 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:3",
+      "typ": "station",
+      "titel": "Getting Started: My Reading Journal (2.2)",
+      "text": "Station 3 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:4",
+      "typ": "station",
+      "titel": "Strange Faces at Victoria Station",
+      "text": "Station 4 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:5",
+      "typ": "station",
+      "titel": "A Day Out in London",
+      "text": "Station 5 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:6",
+      "typ": "station",
+      "titel": "Looking for a Lost Umbrella",
+      "text": "Station 6 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:7",
+      "typ": "station",
+      "titel": "Silly Goose",
+      "text": "Station 7 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:8",
+      "typ": "station",
+      "titel": "Stubborn Goat",
+      "text": "Station 8 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:9",
+      "typ": "station",
+      "titel": "Greedy Pig",
+      "text": "Station 9 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:10",
+      "typ": "station",
+      "titel": "Mrs Morgan and the Evil Witch",
+      "text": "Station 10 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:11",
+      "typ": "station",
+      "titel": "Taking a Closer Look: Mrs Morgan",
+      "text": "Station 11 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:12",
+      "typ": "station",
+      "titel": "Goose Tale",
+      "text": "Station 12 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:13",
+      "typ": "station",
+      "titel": "Escape Goat",
+      "text": "Station 13 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:14",
+      "typ": "station",
+      "titel": "Stealth Pig",
+      "text": "Station 14 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:15",
+      "typ": "station",
+      "titel": "Umbrella Action Team",
+      "text": "Station 15 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:16",
+      "typ": "station",
+      "titel": "Pip's Plan",
+      "text": "Station 16 · Pip and the Umbrella Room",
+      "route": "#/baustein/jg6-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg6-en-4:17",
+      "typ": "station",
+      "titel": "The Last Umbrella",
+      "text": "Station 17 · Pip and the Umbrella Room",
       "route": "#/baustein/jg6-en-4",
       "fach": "en"
     },
@@ -478,7 +1486,111 @@
       "id": "baustein:jg6-bio-4",
       "typ": "baustein",
       "titel": "Samenpflanzen",
-      "text": "",
+      "text": "Erstellen eines Lapbooks",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:1",
+      "typ": "station",
+      "titel": "Das Lapbook",
+      "text": "Station 1 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:2",
+      "typ": "station",
+      "titel": "Welche Pflanzen kennst du schon?",
+      "text": "Station 2 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:3",
+      "typ": "station",
+      "titel": "Der Aufbau von Samenpflanzen",
+      "text": "Station 3 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:4",
+      "typ": "station",
+      "titel": "Gemüse – Pflanzenorgane als Nahrungsmittel",
+      "text": "Station 4 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:5",
+      "typ": "station",
+      "titel": "Das Laubblatt I",
+      "text": "Station 5 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:6",
+      "typ": "station",
+      "titel": "Das Laubblatt II",
+      "text": "Station 6 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:7",
+      "typ": "station",
+      "titel": "Der Aufbau der Blüte",
+      "text": "Station 7 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:8",
+      "typ": "station",
+      "titel": "Legebild und Blütendiagramm",
+      "text": "Station 8 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:9",
+      "typ": "station",
+      "titel": "Die Bestäubung",
+      "text": "Station 9 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:10",
+      "typ": "station",
+      "titel": "Von der Blüte zur Frucht",
+      "text": "Station 10 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:11",
+      "typ": "station",
+      "titel": "Fruchttypen",
+      "text": "Station 11 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:12",
+      "typ": "station",
+      "titel": "Pflanzenfamilien",
+      "text": "Station 12 · Samenpflanzen",
+      "route": "#/baustein/jg6-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg6-bio-4:13",
+      "typ": "station",
+      "titel": "Gewürze der Lippenblütler",
+      "text": "Station 13 · Samenpflanzen",
       "route": "#/baustein/jg6-bio-4",
       "fach": "bio"
     },
@@ -486,7 +1598,119 @@
       "id": "baustein:jg6-de-4",
       "typ": "baustein",
       "titel": "Beschreiben und Berichten",
-      "text": "",
+      "text": "Journalistisches Schreibprojekt: Der Unfallbericht",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:1",
+      "typ": "station",
+      "titel": "Personenbeschreibung",
+      "text": "Station 1 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:2",
+      "typ": "station",
+      "titel": "Wortarten-Check: Das Adjektiv",
+      "text": "Station 2 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:3",
+      "typ": "station",
+      "titel": "Ermittlung läuft – Das Phantombild",
+      "text": "Station 3 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:4",
+      "typ": "station",
+      "titel": "Wortarten-Check: Die Präposition",
+      "text": "Station 4 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:5",
+      "typ": "station",
+      "titel": "Wegbeschreibung",
+      "text": "Station 5 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:6",
+      "typ": "station",
+      "titel": "Vorgangsbeschreibung",
+      "text": "Station 6 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:7",
+      "typ": "station",
+      "titel": "Die Sprache der Profis",
+      "text": "Station 7 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:8",
+      "typ": "station",
+      "titel": "Aktiv und Passiv",
+      "text": "Station 8 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:9",
+      "typ": "station",
+      "titel": "Mein Kochrezept",
+      "text": "Station 9 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:10",
+      "typ": "station",
+      "titel": "Zeitformen-Check",
+      "text": "Station 10 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:11",
+      "typ": "station",
+      "titel": "Checkliste eines Unfallbericht",
+      "text": "Station 11 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:12",
+      "typ": "station",
+      "titel": "W-Fragen – Reporter-Prüfung",
+      "text": "Station 12 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:13",
+      "typ": "station",
+      "titel": "Von Unfällen berichten",
+      "text": "Station 13 · Beschreiben und Berichten",
+      "route": "#/baustein/jg6-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-4:14",
+      "typ": "station",
+      "titel": "ESZ ermittelt – Mein Unfallbericht",
+      "text": "Station 14 · Beschreiben und Berichten",
       "route": "#/baustein/jg6-de-4",
       "fach": "de"
     },
@@ -494,7 +1718,103 @@
       "id": "baustein:jg6-geo-4",
       "typ": "baustein",
       "titel": "Südeuropa",
-      "text": "",
+      "text": "Wahlstationen Vulkan oder Faltengebirge (Station 10 oder 11)",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:1",
+      "typ": "station",
+      "titel": "Der Süden Europas – Topografie",
+      "text": "Station 1 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:2",
+      "typ": "station",
+      "titel": "Vertiefung Topografie",
+      "text": "Station 2 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:3",
+      "typ": "station",
+      "titel": "Ein Flug über die Alpen",
+      "text": "Station 3 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:4",
+      "typ": "station",
+      "titel": "Höhenstufen der Alpen",
+      "text": "Station 4 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:5",
+      "typ": "station",
+      "titel": "Tiere im Alpenraum",
+      "text": "Station 5 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:6",
+      "typ": "station",
+      "titel": "Wirtschaftsmotor Alpen",
+      "text": "Station 6 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:7",
+      "typ": "station",
+      "titel": "Gebirgsbildung der Alpen",
+      "text": "Station 7 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:8",
+      "typ": "station",
+      "titel": "Mission Vulkan",
+      "text": "Station 8 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:9",
+      "typ": "station",
+      "titel": "Was sind eigentlich Erdbeben",
+      "text": "Station 9 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:10",
+      "typ": "station",
+      "titel": "Wahlaufgabe Vulkan",
+      "text": "Station 10 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:11",
+      "typ": "station",
+      "titel": "Wahlaufgabe Gebirgsbildung",
+      "text": "Station 11 · Südeuropa",
+      "route": "#/baustein/jg6-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-4:12",
+      "typ": "station",
+      "titel": "Mündliche LK",
+      "text": "Station 12 · Südeuropa",
       "route": "#/baustein/jg6-geo-4",
       "fach": "geo"
     },
@@ -502,7 +1822,71 @@
       "id": "baustein:jg6-de-5",
       "typ": "baustein",
       "titel": "Redewendungen und Sprichwörter",
-      "text": "",
+      "text": "ein Sprichwort/eine Redensart erklären und eine Beispielgeschichte dazu schreiben",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:1",
+      "typ": "station",
+      "titel": "Wörterschmiede 1",
+      "text": "Station 1 · Redewendungen und Sprichwörter",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:2",
+      "typ": "station",
+      "titel": "Wörterschmiede 2",
+      "text": "Station 2 · Redewendungen und Sprichwörter",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:3",
+      "typ": "station",
+      "titel": "Wortbildung kreativ",
+      "text": "Station 3 · Redewendungen und Sprichwörter",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:4",
+      "typ": "station",
+      "titel": "Fremd-, Erb- und Lehnwörter",
+      "text": "Station 4 · Redewendungen und Sprichwörter",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:5",
+      "typ": "station",
+      "titel": "Sprichwörter und Redewendungen",
+      "text": "Station 5 · Redewendungen und Sprichwörter",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:6",
+      "typ": "station",
+      "titel": "Bedeutungen von Redewendungen",
+      "text": "Station 6 · Redewendungen und Sprichwörter",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:7",
+      "typ": "station",
+      "titel": "Redewendungen kennen",
+      "text": "Station 7 · Redewendungen und Sprichwörter",
+      "route": "#/baustein/jg6-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg6-de-5:8",
+      "typ": "station",
+      "titel": "Gelingensnachweis: kreatives Schreiben",
+      "text": "Station 8 · Redewendungen und Sprichwörter",
       "route": "#/baustein/jg6-de-5",
       "fach": "de"
     },
@@ -533,8 +1917,40 @@
     {
       "id": "baustein:jg6-geo-5",
       "typ": "baustein",
-      "titel": "Thema folgt",
-      "text": "",
+      "titel": "Climate Co2llaboration",
+      "text": "Ein eigenes Projekt erstellen und in einem digitalen Showroom präsentieren",
+      "route": "#/baustein/jg6-geo-5",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-5:1",
+      "typ": "station",
+      "titel": "Entdecke Digital Sparks",
+      "text": "Station 1 · Climate Co2llaboration",
+      "route": "#/baustein/jg6-geo-5",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-5:2",
+      "typ": "station",
+      "titel": "Discover",
+      "text": "Station 2 · Climate Co2llaboration · Läuft über 2 Termine à 90 Minuten.",
+      "route": "#/baustein/jg6-geo-5",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-5:3",
+      "typ": "station",
+      "titel": "Create",
+      "text": "Station 3 · Climate Co2llaboration",
+      "route": "#/baustein/jg6-geo-5",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg6-geo-5:4",
+      "typ": "station",
+      "titel": "Showtime",
+      "text": "Station 4 · Climate Co2llaboration",
       "route": "#/baustein/jg6-geo-5",
       "fach": "geo"
     },

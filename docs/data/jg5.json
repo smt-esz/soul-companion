@@ -897,44 +897,471 @@
       "fach": "de",
       "titel": "Rechtschreibung",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Merksatzheft, Abschlusstest",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Deckblatt gestalten",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "zwei leere A5-Blätter",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Schreiben nach Silben",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 2,
+          "material": "M1, A1, Merksatzheft",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Silben-Uno",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "Wortkarten",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Wortfamilien (2 Seiten)",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 2,
+          "material": "Merksatzheft",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Gleich und ähnlich klingende Laute",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 2,
+          "material": "Merksatzheft, A2, LB",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Übungen: Gleich und ähnlich klingende Laute",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A3 oder LB",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Kurze Vokale (2 Seiten)",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Merksatzheft, M2, M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Lange Vokale",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Merksatzheft, M4",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "s-ss-ß",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Merksatzheft, LB, M5, A4, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Übungen: Kurze und lange Vokale",
+          "art": "wahl",
+          "minuten": 70,
+          "niveau": 2,
+          "material": "A5, M6, Buddy Book",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Groß- und Kleinschreibung",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M7, M8, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Gelingensnachweis: Abschlusstest",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "—",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-en-1",
       "fach": "en",
       "titel": "Grundlagen",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "eine Vokabelsammlung anlegen und fortführen",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Understanding tasks",
+          "art": "pflicht",
+          "minuten": 5,
+          "niveau": 1,
+          "material": "",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Meet the ENG-Racers",
+          "art": "pflicht",
+          "minuten": 25,
+          "niveau": 1,
+          "material": "",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "The ABC-Circuit",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "Laptop, A1 / A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Dictionary Driving Lesson",
+          "art": "wahl",
+          "minuten": 15,
+          "niveau": 1,
+          "material": "M1, Wörterbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Page Rage",
+          "art": "pflicht",
+          "minuten": 10,
+          "niveau": 2,
+          "material": "A3, 2 Wörterbücher",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Shortcuts",
+          "art": "pflicht",
+          "minuten": 10,
+          "niveau": 2,
+          "material": "M2, Wörterbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Word-Circuit",
+          "art": "pflicht",
+          "minuten": 10,
+          "niveau": 2,
+          "material": "Wörterbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Pimp your style",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "M3, Wörterbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "It's Electric – Words and their meanings",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "M4, A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Book Rally",
+          "art": "pflicht",
+          "minuten": 25,
+          "niveau": 2,
+          "material": "Schulbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Phrasal Verbs in Word Webs",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "Wörterbuch, A5, M5",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Words in Pictures",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M6, A6, Wörterbuch, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Parking Words",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "Lehrbuch, Laptop, A7, M7/8",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "My Vocabulary – on the long run",
+          "art": "pflicht",
+          "minuten": 70,
+          "niveau": 3,
+          "material": "Wörterbuch",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-geo-1",
       "fach": "geo",
       "titel": "Die Erde",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Lapbook",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Arbeitsplatz einrichten",
+          "art": "pflicht",
+          "minuten": 15,
+          "niveau": 1,
+          "material": "A3-Papier, Kopiervorlage Schere, Kleber, Stifte",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Kontinente und Ozeane",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "M1, A1, Laptop, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Landschaftsformen der Erde",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "A2, A3",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Die Erde – Die inneren Schichten",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A4, A5, M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Unser Sonnensystem",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A6, Laptop, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Lebensräume der Erde",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 1,
+          "material": "Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Himmelsrichtungen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "A7, M1, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Geografische Rekorde",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "A8, Laptop, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Hier lebe ich",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "A9, Lapbook, Schere, Kleber, Stifte",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Windspiel",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "A10, M2, Schere, Kleber, Stifte",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Steckbriefe Kontinente",
+          "art": "pflicht",
+          "minuten": 180,
+          "niveau": 3,
+          "material": "Laptop, A11, M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Google Earth",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-de-3",
       "fach": "de",
       "titel": "Zeichensetzung",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Buddybook zu den wichtigsten Regeln der Zeichensetzung",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Bevor es losgeht…",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "M1",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Satzschlusszeichen",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "Buddybook-Vorlage",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Übungen zu Satzschlusszeichen",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Kommasetzung I",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Kommasetzung II",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "M3, Lehrbuch, Buddybook",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Kommas können Inhalte verändern",
+          "art": "pflicht",
+          "minuten": 15,
+          "niveau": 1,
+          "material": "Buddybook",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Satzzeichen bei wörtlicher Rede",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 2,
+          "material": "A1, M4, Lehrbuch, Buddybook",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Satzzeichen bei wörtlicher Rede",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Zusammengesetzte Sätze",
+          "art": "pflicht",
+          "minuten": 70,
+          "niveau": 3,
+          "material": "M5, A2, Buddybook, Schere",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-ma-2",
@@ -952,55 +1379,582 @@
       "fach": "bio",
       "titel": "Lurche und Reptilien",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Jeweils ein Steckbrief zu einem Vertreter der Lurche und Kriechtiere",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Vom Wasser zum Land: Entwicklung der Lurche",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A1, M1, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Bau der Froschlurche",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "A2, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Atmung der Lurche",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "A3, M2, Lehrbuch, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Fortpflanzung der Lurche",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Glas-, Holzmodell, M3, Folienstift, A4, A5, M4, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Trockenlufttiere",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop, Schlangenhaut, Lupe",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Bau der Kriechtiere",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "A6, A7, Laptop, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Atmung der Kriechtiere",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "M5, A8 oder A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Fortpflanzung der Kriechtiere",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A10, M6, Laptop, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Beutefang der Kriechtiere",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A11, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Vielfalt der Lurche und Kriechtiere",
+          "art": "pflicht",
+          "minuten": 240,
+          "niveau": 3,
+          "material": "M7, Laptop, buntes Papier, Bilder",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Dinosaurier-Memory",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "M8, Dino-Memory, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Online Übungen Sofatutor",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-de-5",
       "fach": "de",
       "titel": "Märchen und Fantasie",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Märchen oder Fantasiegeschichte schreiben (mit Note)",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Die Merkmale von Märchen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "A1, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Der Aufbau von Märchen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Die Rolle der Figuren in Märchen",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Die Sprache der Märchen",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Die Rolle von Lehren in Märchen",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 3,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Märchen in verschiedenen Kulturen",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Märchen im Wandel der Zeit",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Einführung in Fantasiegeschichten",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "M1",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Fantasiewelten – Elemente erschaffen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "eventuell M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Erzähltechniken in Märchen und Fantasiegeschichten",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "A3",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Kreatives Schreiben",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "eventuell A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Märchen und Fantasiegeschichten inszenieren",
+          "art": "wahl",
+          "minuten": 120,
+          "niveau": 3,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Illustrationen und ihre Bedeutung",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Märchenrätsel",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "M4",
+          "hinweis": ""
+        },
+        {
+          "nr": 15,
+          "titel": "… und wenn sie nicht gestorben sind…",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 16,
+          "titel": "Märchen-Kahoot",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-en-2",
       "fach": "en",
       "titel": "Welcome to my world",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "ein Video erstellen, in dem du dich selbst vorstellst (mit Note)",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Me, My Body & My Clothes",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A1 / A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "My Hobbies",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "vocabulary folder",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Who Belongs to My Family?",
+          "art": "pflicht",
+          "minuten": 65,
+          "niveau": 2,
+          "material": "M1 / M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Sunday Lunch",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "English book",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Food & Drink",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 3,
+          "material": "English book, M3, A3 or A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Our House – My Bedroom",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "M4, empty piece of paper",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Study Skills: Mind Maps",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "English book",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "My Day at Home",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "English book",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "My Hometown",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "empty piece of paper",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "GEN: Your Task",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M5, a camera (laptop)",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-geo-2",
       "fach": "geo",
       "titel": "Atlasführerschein",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Test Atlasführerschein",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Bewegungen der Erde",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 2,
+          "material": "A1, A2, M1, Schere, Pin",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Jahreszeiten",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Lehrbuch, Globus, Laptop, A3, M1",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Windrose",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "weißes Blatt, A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Orientierung mit dem Gradnetz",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Atlas, Lehrbuch, Laptop, M2, A5, A6",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Physische und thematische Karten",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lehrbuch, A7, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Namensregister und Planquadrate",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A8, Laptop, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Signaturen und Legenden",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 2,
+          "material": "A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Höhenschichten",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A10, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Maßstäbe I",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M3, A11",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Maßstäbe II",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "A12, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Vertiefung und Lernzeit",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Laptop, deine Ausarbeitungen",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Eine eigene Karte zeichnen",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "Laptop, weißes Papier, Bleistift, Buntstifte, A13",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-de-4",
       "fach": "de",
       "titel": "Wörterbuch",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Abschlussquiz (ohne Note)",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Entstehungsgeschichte und Bedeutung des Dudens",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "M1, Duden",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Wörter alphabetisch sortieren (2.1)",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "—",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Wörter alphabetisch sortieren (2.2)",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "Duden",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Wörter im Wörterbuch finden",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "Duden",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Die Bedeutung von Wörtern herausfinden",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "Duden",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Rechtschreibkontrolle",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "Duden",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Verben und Adjektive finden",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "Duden",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Abschluss und Quiz",
+          "art": "pflicht",
+          "minuten": 15,
+          "niveau": 3,
+          "material": "A1, Duden",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-ma-3",
@@ -1018,44 +1972,543 @@
       "fach": "bio",
       "titel": "Vögel",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "zeichnerisches Darstellen einer Feder",
+      "gelingensnachweisStation": 3,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Merkmale der Vögel",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Hefter, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Vielfalt der Vögel",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A1, Hefter, Lehrbuch, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Körperbedeckung der Vögel",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Vogelfeder, Lupe, Pipette, Wasser, Becherglas, A2, M1, Hefter, Lehrbuch, A4-Blatt weiß",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Anpassungen an den Flug",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A3, Lehrbuch, Hefter",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Schnäbel und Ernährung",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Laptop, Hefter, A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Fortpflanzung der Vögel",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Laptop, A5, M3, Lehrbuch, Hefter",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Untersuchen eines Hühnereies",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "A6, Hefter",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Balzverhalten und Brutpflege",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "A7, Lehrbuch, Hefter, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Schutz heimischer Vogelarten",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Lehrbuch, Laptop, Hefter",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Vogelflug und Flugversuche",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "M4, Lehrbuch, Büroklammern, jeweils 1 Blatt A3, A4, A5, Hefter",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Vogelstimmen",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Laptop, Hefter",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Vertiefende Übungen Sofatutor",
+          "art": "wahl",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-de-6",
       "fach": "de",
       "titel": "Rico, Oskar und die Tieferschatten",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Komplexe Leistung – Papptheater, Textausschnitt lesen",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Beschreibung des Buchcovers",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Eine Figur beschreiben – Rico",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Lektüre-Buch, A1",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Ein erster Eindruck",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Der Nachbar Simon Westbühl und das einsturzgefährdete Haus",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Mister 2000 und die Tieferschatten",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 1,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Rico Ermittlungen – Kommt er Mister 2000 auf die Spur?",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Ricos Ermittlungen – Falscher Verdacht?",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Oskars Bericht",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 1,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Schöne Aussichten",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Komplexe Leistung",
+          "art": "pflicht",
+          "minuten": 120,
+          "niveau": 3,
+          "material": "Lektüre-Buch, Bastelmaterial",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Was hältst du von Rico?",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Die Freundschaft zwischen Rico und Oskar",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Alternatives Buchcover",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Wie geht es weiter?",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Lektüre-Buch",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-en-3",
       "fach": "en",
       "titel": "Holidays",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Brief schreiben, in dem über die Ferien berichtet wird (mit Note)",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "What do you do at the weekend",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 1,
+          "material": "book, M1",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Where were you?",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "book, M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "The basketball match",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "book",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Where did you travel to?",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "laptop, A1",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "How did you travel there?",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "vocabulary folder",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "What did you do in Plymouth?",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "book, laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "What was the weather like?",
+          "art": "pflicht",
+          "minuten": 55,
+          "niveau": 2,
+          "material": "book, M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "What is London like?",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Holiday logicals",
+          "art": "wahl",
+          "minuten": 25,
+          "niveau": 2,
+          "material": "A2 or A3 or A4",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "How were your holidays?",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "A5",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "What did you do in your holidays?",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "A6 or A7",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "How to write a letter",
+          "art": "wahl",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "German folder, M4",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Your task",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 3,
+          "material": "a piece of paper",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-geo-3",
       "fach": "geo",
       "titel": "Deutschland: Topografie und Küsten",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "ein Spiel zum Thema Deutschland erstellen (Domino/Memory)",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Nachbarstaaten Deutschlands",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lehrbuch, A1",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Bundesländer",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lehrbuch, A2, M1, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Lernen an der Karte I",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Stumme Karte",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Vielfalt in Deutschland",
+          "art": "wahl",
+          "minuten": 40,
+          "niveau": 1,
+          "material": "Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Großlandschaften in Deutschland",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "Lehrbuch, A3, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Flüsse Deutschlands",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "A4, Atlas, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Steckbrief Fluss",
+          "art": "wahl",
+          "minuten": 25,
+          "niveau": 1,
+          "material": "A5, Atlas, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Gebirge Deutschlands",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A6, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Lernen an der Karte II",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Stumme Karte",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Berlin – unsere Hauptstadt",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Berlin – Stadtplan",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "Lehrbuch, A7",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Topografie des Küstenraumes",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 1,
+          "material": "A8, Atlas, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Nordsee und Ostsee",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "M2, A9, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Küstenformen",
+          "art": "pflicht",
+          "minuten": 55,
+          "niveau": 2,
+          "material": "A10, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 15,
+          "titel": "Memory oder Domino",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Papier, Stift, Schere",
+          "hinweis": ""
+        },
+        {
+          "nr": 16,
+          "titel": "Mündlicher Test",
+          "art": "pflicht",
+          "minuten": 5,
+          "niveau": 2,
+          "material": "Papier, Stift, Schere",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-ma-4",
@@ -1073,44 +2526,516 @@
       "fach": "bio",
       "titel": "Säugetiere",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Forschertagebuch – 2 Noten (Inhalt und Darstellung)",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Vielfalt der Säugetiere",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "A1, M1, M2, weißes A-4 Blatt, Aktendulli",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Einheimische Wildtiere",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 2,
+          "material": "Karten- Lesespiel",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Das Fell der Säugetiere",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Forschertagebuch, Fellproben, Lupe",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Merkmale der Säugetiere",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A2, M3, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Körperbau der Säugetiere",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A3, Lehrbuch, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Die Katze – ein Jäger",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "Laptop, Lehrbuch, Forschertagebuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Rudelverhalten bei Hunden und Wölfen",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M4, Lehrbuch, Laptop, Folienstift",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Verhaltensweisen von Katzen und Hunden",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Anpassungen Lebensräumen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A4, M5, Laptop, Folienstift",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Gebisse der Säugetiere",
+          "art": "pflicht",
+          "minuten": 80,
+          "niveau": 3,
+          "material": "A5, M6, M7, Forschertagebuch, Schädelmodelle",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Atmung der Säugetiere",
+          "art": "pflicht",
+          "minuten": 30,
+          "niveau": 2,
+          "material": "A6, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Artenschutz Säugetiere",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M8, Laptop, Forschertagebuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Artgerechte Haltung von Hunden",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "A7, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Wissenswertes über Capybaras",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "A8, Laptop",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-de-7",
       "fach": "de",
       "titel": "Lyrik",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "Ein eigenes Gedicht zu einer Jahreszeit verfassen",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Jahreszeiten erkennen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lehrbuch, A1, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Merkmale und Aufbau Gedichte",
+          "art": "pflicht",
+          "minuten": 25,
+          "niveau": 1,
+          "material": "M1, A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Die Form von Gedichten untersuchen",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "A3",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Gedichtformen erkennen",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M2, A4, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Gedichte inhaltlich verstehen – 1",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "Lehrbuch, A5, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Gedichte inhaltlich verstehen – 2",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Gedichte inhaltlich verstehen – 3",
+          "art": "wahl",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Sprachliche Bilder",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "A6, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Sprachliche Bilder – Personifikation",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Sprachliche Bilder – Vergleich",
+          "art": "pflicht",
+          "minuten": 20,
+          "niveau": 1,
+          "material": "A7",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Ein eigenes Gedicht verfassen – 1",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "M3, A8, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Ein eigenes Gedicht verfassen – 2",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "M3, A8, A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 13,
+          "titel": "Ein Gedicht überarbeiten",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 3,
+          "material": "A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 14,
+          "titel": "Ein Gedicht vortragen",
+          "art": "wahl",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "M4",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-en-4",
       "fach": "en",
       "titel": "Party Star",
       "alternativen": [],
-      "gelingensnachweis": "",
+      "gelingensnachweis": "write a diary entry about your last birthday party",
       "gelingensnachweisStation": null,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Magazine Cover",
+          "art": "pflicht",
+          "minuten": 15,
+          "niveau": 1,
+          "material": "En folder",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Susy's Birthday",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "En folder, M1",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Party Outfits",
+          "art": "wahl",
+          "minuten": 25,
+          "niveau": 1,
+          "material": "En folder, M2",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Finger Food",
+          "art": "wahl",
+          "minuten": 40,
+          "niveau": 2,
+          "material": "En folder, M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "DIY: A Birthday Leporello",
+          "art": "wahl",
+          "minuten": 50,
+          "niveau": 2,
+          "material": "Paper strip, pens/pencils",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Party Game I",
+          "art": "wahl",
+          "minuten": 25,
+          "niveau": 2,
+          "material": "M4.1, M4.2",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Star Interviews",
+          "art": "pflicht",
+          "minuten": 50,
+          "niveau": 3,
+          "material": "En folder, teachers",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "DJ IVie's Party Song",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 2,
+          "material": "Laptop, En book, En folder",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Party Games II",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 1,
+          "material": "M5, En folder",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Birthday Presents",
+          "art": "pflicht",
+          "minuten": 70,
+          "niveau": 2,
+          "material": "En folder, A1, A2",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "The Day after the Party",
+          "art": "pflicht",
+          "minuten": 25,
+          "niveau": 1,
+          "material": "En folder, M6",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Dear Diary",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 3,
+          "material": "Laptop, En folder",
+          "hinweis": ""
+        }
+      ]
     },
     {
       "id": "jg5-geo-4",
       "fach": "geo",
       "titel": "Norddeutsches Tiefland und Mittelgebirge",
       "alternativen": [],
-      "gelingensnachweis": "",
-      "gelingensnachweisStation": null,
+      "gelingensnachweis": "Stadt-Umland-Beziehung",
+      "gelingensnachweisStation": 8,
       "materialort": "",
       "kurzbeschreibung": "",
-      "stationen": []
+      "stationen": [
+        {
+          "nr": 1,
+          "titel": "Landschaften im Norddeutschen Tiefland",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "Lehrbuch, A1, Heft, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 2,
+          "titel": "Gewässernetz im Norddeutschen Tiefland",
+          "art": "pflicht",
+          "minuten": 40,
+          "niveau": 1,
+          "material": "Lehrbuch, A2, M1, Heft",
+          "hinweis": ""
+        },
+        {
+          "nr": 3,
+          "titel": "Touristenmagnet Spreewald",
+          "art": "wahl",
+          "minuten": 80,
+          "niveau": 1,
+          "material": "A3, A4, M2, Atlas",
+          "hinweis": ""
+        },
+        {
+          "nr": 4,
+          "titel": "Landwirtschaft früher und heute",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "Lehrbuch, Heft, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 5,
+          "titel": "Magdeburger Börde",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "Lehrbuch, A5, Atlas, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 6,
+          "titel": "Bedeutung des Waldes",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 1,
+          "material": "A6, M3",
+          "hinweis": ""
+        },
+        {
+          "nr": 7,
+          "titel": "Braunkohle",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "M4, A7, Laptop, Lehrbuch",
+          "hinweis": ""
+        },
+        {
+          "nr": 8,
+          "titel": "Stadt-Umland-Beziehung",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 3,
+          "material": "M5, A8, Lehrbuch, Heft",
+          "hinweis": ""
+        },
+        {
+          "nr": 9,
+          "titel": "Wirtschaft",
+          "art": "pflicht",
+          "minuten": 45,
+          "niveau": 1,
+          "material": "Lehrbuch, Heft",
+          "hinweis": ""
+        },
+        {
+          "nr": 10,
+          "titel": "Diagramme zeichnen und auswerten",
+          "art": "pflicht",
+          "minuten": 90,
+          "niveau": 2,
+          "material": "Lehrbuch, A9",
+          "hinweis": ""
+        },
+        {
+          "nr": 11,
+          "titel": "Mittelgebirge",
+          "art": "wahl",
+          "minuten": 45,
+          "niveau": 2,
+          "material": "M6, A10, Laptop",
+          "hinweis": ""
+        },
+        {
+          "nr": 12,
+          "titel": "Erosion/Talformen",
+          "art": "pflicht",
+          "minuten": 60,
+          "niveau": 3,
+          "material": "A11, M7, Hefter",
+          "hinweis": ""
+        }
+      ]
     }
   ],
   "inputs": [

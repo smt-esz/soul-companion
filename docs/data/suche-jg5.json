@@ -414,7 +414,103 @@
       "id": "baustein:jg5-de-2",
       "typ": "baustein",
       "titel": "Rechtschreibung",
-      "text": "",
+      "text": "Merksatzheft, Abschlusstest",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:1",
+      "typ": "station",
+      "titel": "Deckblatt gestalten",
+      "text": "Station 1 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:2",
+      "typ": "station",
+      "titel": "Schreiben nach Silben",
+      "text": "Station 2 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:3",
+      "typ": "station",
+      "titel": "Silben-Uno",
+      "text": "Station 3 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:4",
+      "typ": "station",
+      "titel": "Wortfamilien (2 Seiten)",
+      "text": "Station 4 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:5",
+      "typ": "station",
+      "titel": "Gleich und ähnlich klingende Laute",
+      "text": "Station 5 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:6",
+      "typ": "station",
+      "titel": "Übungen: Gleich und ähnlich klingende Laute",
+      "text": "Station 6 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:7",
+      "typ": "station",
+      "titel": "Kurze Vokale (2 Seiten)",
+      "text": "Station 7 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:8",
+      "typ": "station",
+      "titel": "Lange Vokale",
+      "text": "Station 8 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:9",
+      "typ": "station",
+      "titel": "s-ss-ß",
+      "text": "Station 9 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:10",
+      "typ": "station",
+      "titel": "Übungen: Kurze und lange Vokale",
+      "text": "Station 10 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:11",
+      "typ": "station",
+      "titel": "Groß- und Kleinschreibung",
+      "text": "Station 11 · Rechtschreibung",
+      "route": "#/baustein/jg5-de-2",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-2:12",
+      "typ": "station",
+      "titel": "Gelingensnachweis: Abschlusstest",
+      "text": "Station 12 · Rechtschreibung",
       "route": "#/baustein/jg5-de-2",
       "fach": "de"
     },
@@ -422,7 +518,119 @@
       "id": "baustein:jg5-en-1",
       "typ": "baustein",
       "titel": "Grundlagen",
-      "text": "",
+      "text": "eine Vokabelsammlung anlegen und fortführen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:1",
+      "typ": "station",
+      "titel": "Understanding tasks",
+      "text": "Station 1 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:2",
+      "typ": "station",
+      "titel": "Meet the ENG-Racers",
+      "text": "Station 2 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:3",
+      "typ": "station",
+      "titel": "The ABC-Circuit",
+      "text": "Station 3 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:4",
+      "typ": "station",
+      "titel": "Dictionary Driving Lesson",
+      "text": "Station 4 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:5",
+      "typ": "station",
+      "titel": "Page Rage",
+      "text": "Station 5 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:6",
+      "typ": "station",
+      "titel": "Shortcuts",
+      "text": "Station 6 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:7",
+      "typ": "station",
+      "titel": "Word-Circuit",
+      "text": "Station 7 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:8",
+      "typ": "station",
+      "titel": "Pimp your style",
+      "text": "Station 8 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:9",
+      "typ": "station",
+      "titel": "It's Electric – Words and their meanings",
+      "text": "Station 9 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:10",
+      "typ": "station",
+      "titel": "Book Rally",
+      "text": "Station 10 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:11",
+      "typ": "station",
+      "titel": "Phrasal Verbs in Word Webs",
+      "text": "Station 11 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:12",
+      "typ": "station",
+      "titel": "Words in Pictures",
+      "text": "Station 12 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:13",
+      "typ": "station",
+      "titel": "Parking Words",
+      "text": "Station 13 · Grundlagen",
+      "route": "#/baustein/jg5-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-1:14",
+      "typ": "station",
+      "titel": "My Vocabulary – on the long run",
+      "text": "Station 14 · Grundlagen",
       "route": "#/baustein/jg5-en-1",
       "fach": "en"
     },
@@ -430,7 +638,103 @@
       "id": "baustein:jg5-geo-1",
       "typ": "baustein",
       "titel": "Die Erde",
-      "text": "",
+      "text": "Lapbook",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:1",
+      "typ": "station",
+      "titel": "Arbeitsplatz einrichten",
+      "text": "Station 1 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:2",
+      "typ": "station",
+      "titel": "Kontinente und Ozeane",
+      "text": "Station 2 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:3",
+      "typ": "station",
+      "titel": "Landschaftsformen der Erde",
+      "text": "Station 3 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:4",
+      "typ": "station",
+      "titel": "Die Erde – Die inneren Schichten",
+      "text": "Station 4 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:5",
+      "typ": "station",
+      "titel": "Unser Sonnensystem",
+      "text": "Station 5 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:6",
+      "typ": "station",
+      "titel": "Lebensräume der Erde",
+      "text": "Station 6 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:7",
+      "typ": "station",
+      "titel": "Himmelsrichtungen",
+      "text": "Station 7 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:8",
+      "typ": "station",
+      "titel": "Geografische Rekorde",
+      "text": "Station 8 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:9",
+      "typ": "station",
+      "titel": "Hier lebe ich",
+      "text": "Station 9 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:10",
+      "typ": "station",
+      "titel": "Windspiel",
+      "text": "Station 10 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:11",
+      "typ": "station",
+      "titel": "Steckbriefe Kontinente",
+      "text": "Station 11 · Die Erde",
+      "route": "#/baustein/jg5-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-1:12",
+      "typ": "station",
+      "titel": "Google Earth",
+      "text": "Station 12 · Die Erde",
       "route": "#/baustein/jg5-geo-1",
       "fach": "geo"
     },
@@ -438,7 +742,79 @@
       "id": "baustein:jg5-de-3",
       "typ": "baustein",
       "titel": "Zeichensetzung",
-      "text": "",
+      "text": "Buddybook zu den wichtigsten Regeln der Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:1",
+      "typ": "station",
+      "titel": "Bevor es losgeht…",
+      "text": "Station 1 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:2",
+      "typ": "station",
+      "titel": "Satzschlusszeichen",
+      "text": "Station 2 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:3",
+      "typ": "station",
+      "titel": "Übungen zu Satzschlusszeichen",
+      "text": "Station 3 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:4",
+      "typ": "station",
+      "titel": "Kommasetzung I",
+      "text": "Station 4 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:5",
+      "typ": "station",
+      "titel": "Kommasetzung II",
+      "text": "Station 5 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:6",
+      "typ": "station",
+      "titel": "Kommas können Inhalte verändern",
+      "text": "Station 6 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:7",
+      "typ": "station",
+      "titel": "Satzzeichen bei wörtlicher Rede",
+      "text": "Station 7 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:8",
+      "typ": "station",
+      "titel": "Satzzeichen bei wörtlicher Rede",
+      "text": "Station 8 · Zeichensetzung",
+      "route": "#/baustein/jg5-de-3",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-3:9",
+      "typ": "station",
+      "titel": "Zusammengesetzte Sätze",
+      "text": "Station 9 · Zeichensetzung",
       "route": "#/baustein/jg5-de-3",
       "fach": "de"
     },
@@ -454,7 +830,103 @@
       "id": "baustein:jg5-bio-2",
       "typ": "baustein",
       "titel": "Lurche und Reptilien",
-      "text": "",
+      "text": "Jeweils ein Steckbrief zu einem Vertreter der Lurche und Kriechtiere",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:1",
+      "typ": "station",
+      "titel": "Vom Wasser zum Land: Entwicklung der Lurche",
+      "text": "Station 1 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:2",
+      "typ": "station",
+      "titel": "Bau der Froschlurche",
+      "text": "Station 2 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:3",
+      "typ": "station",
+      "titel": "Atmung der Lurche",
+      "text": "Station 3 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:4",
+      "typ": "station",
+      "titel": "Fortpflanzung der Lurche",
+      "text": "Station 4 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:5",
+      "typ": "station",
+      "titel": "Trockenlufttiere",
+      "text": "Station 5 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:6",
+      "typ": "station",
+      "titel": "Bau der Kriechtiere",
+      "text": "Station 6 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:7",
+      "typ": "station",
+      "titel": "Atmung der Kriechtiere",
+      "text": "Station 7 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:8",
+      "typ": "station",
+      "titel": "Fortpflanzung der Kriechtiere",
+      "text": "Station 8 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:9",
+      "typ": "station",
+      "titel": "Beutefang der Kriechtiere",
+      "text": "Station 9 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:10",
+      "typ": "station",
+      "titel": "Vielfalt der Lurche und Kriechtiere",
+      "text": "Station 10 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:11",
+      "typ": "station",
+      "titel": "Dinosaurier-Memory",
+      "text": "Station 11 · Lurche und Reptilien",
+      "route": "#/baustein/jg5-bio-2",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-2:12",
+      "typ": "station",
+      "titel": "Online Übungen Sofatutor",
+      "text": "Station 12 · Lurche und Reptilien",
       "route": "#/baustein/jg5-bio-2",
       "fach": "bio"
     },
@@ -462,7 +934,135 @@
       "id": "baustein:jg5-de-5",
       "typ": "baustein",
       "titel": "Märchen und Fantasie",
-      "text": "",
+      "text": "Märchen oder Fantasiegeschichte schreiben (mit Note)",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:1",
+      "typ": "station",
+      "titel": "Die Merkmale von Märchen",
+      "text": "Station 1 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:2",
+      "typ": "station",
+      "titel": "Der Aufbau von Märchen",
+      "text": "Station 2 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:3",
+      "typ": "station",
+      "titel": "Die Rolle der Figuren in Märchen",
+      "text": "Station 3 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:4",
+      "typ": "station",
+      "titel": "Die Sprache der Märchen",
+      "text": "Station 4 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:5",
+      "typ": "station",
+      "titel": "Die Rolle von Lehren in Märchen",
+      "text": "Station 5 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:6",
+      "typ": "station",
+      "titel": "Märchen in verschiedenen Kulturen",
+      "text": "Station 6 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:7",
+      "typ": "station",
+      "titel": "Märchen im Wandel der Zeit",
+      "text": "Station 7 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:8",
+      "typ": "station",
+      "titel": "Einführung in Fantasiegeschichten",
+      "text": "Station 8 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:9",
+      "typ": "station",
+      "titel": "Fantasiewelten – Elemente erschaffen",
+      "text": "Station 9 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:10",
+      "typ": "station",
+      "titel": "Erzähltechniken in Märchen und Fantasiegeschichten",
+      "text": "Station 10 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:11",
+      "typ": "station",
+      "titel": "Kreatives Schreiben",
+      "text": "Station 11 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:12",
+      "typ": "station",
+      "titel": "Märchen und Fantasiegeschichten inszenieren",
+      "text": "Station 12 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:13",
+      "typ": "station",
+      "titel": "Illustrationen und ihre Bedeutung",
+      "text": "Station 13 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:14",
+      "typ": "station",
+      "titel": "Märchenrätsel",
+      "text": "Station 14 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:15",
+      "typ": "station",
+      "titel": "… und wenn sie nicht gestorben sind…",
+      "text": "Station 15 · Märchen und Fantasie",
+      "route": "#/baustein/jg5-de-5",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-5:16",
+      "typ": "station",
+      "titel": "Märchen-Kahoot",
+      "text": "Station 16 · Märchen und Fantasie",
       "route": "#/baustein/jg5-de-5",
       "fach": "de"
     },
@@ -470,7 +1070,87 @@
       "id": "baustein:jg5-en-2",
       "typ": "baustein",
       "titel": "Welcome to my world",
-      "text": "",
+      "text": "ein Video erstellen, in dem du dich selbst vorstellst (mit Note)",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:1",
+      "typ": "station",
+      "titel": "Me, My Body & My Clothes",
+      "text": "Station 1 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:2",
+      "typ": "station",
+      "titel": "My Hobbies",
+      "text": "Station 2 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:3",
+      "typ": "station",
+      "titel": "Who Belongs to My Family?",
+      "text": "Station 3 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:4",
+      "typ": "station",
+      "titel": "Sunday Lunch",
+      "text": "Station 4 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:5",
+      "typ": "station",
+      "titel": "Food & Drink",
+      "text": "Station 5 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:6",
+      "typ": "station",
+      "titel": "Our House – My Bedroom",
+      "text": "Station 6 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:7",
+      "typ": "station",
+      "titel": "Study Skills: Mind Maps",
+      "text": "Station 7 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:8",
+      "typ": "station",
+      "titel": "My Day at Home",
+      "text": "Station 8 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:9",
+      "typ": "station",
+      "titel": "My Hometown",
+      "text": "Station 9 · Welcome to my world",
+      "route": "#/baustein/jg5-en-2",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-2:10",
+      "typ": "station",
+      "titel": "GEN: Your Task",
+      "text": "Station 10 · Welcome to my world",
       "route": "#/baustein/jg5-en-2",
       "fach": "en"
     },
@@ -478,7 +1158,103 @@
       "id": "baustein:jg5-geo-2",
       "typ": "baustein",
       "titel": "Atlasführerschein",
-      "text": "",
+      "text": "Test Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:1",
+      "typ": "station",
+      "titel": "Bewegungen der Erde",
+      "text": "Station 1 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:2",
+      "typ": "station",
+      "titel": "Jahreszeiten",
+      "text": "Station 2 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:3",
+      "typ": "station",
+      "titel": "Windrose",
+      "text": "Station 3 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:4",
+      "typ": "station",
+      "titel": "Orientierung mit dem Gradnetz",
+      "text": "Station 4 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:5",
+      "typ": "station",
+      "titel": "Physische und thematische Karten",
+      "text": "Station 5 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:6",
+      "typ": "station",
+      "titel": "Namensregister und Planquadrate",
+      "text": "Station 6 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:7",
+      "typ": "station",
+      "titel": "Signaturen und Legenden",
+      "text": "Station 7 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:8",
+      "typ": "station",
+      "titel": "Höhenschichten",
+      "text": "Station 8 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:9",
+      "typ": "station",
+      "titel": "Maßstäbe I",
+      "text": "Station 9 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:10",
+      "typ": "station",
+      "titel": "Maßstäbe II",
+      "text": "Station 10 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:11",
+      "typ": "station",
+      "titel": "Vertiefung und Lernzeit",
+      "text": "Station 11 · Atlasführerschein",
+      "route": "#/baustein/jg5-geo-2",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-2:12",
+      "typ": "station",
+      "titel": "Eine eigene Karte zeichnen",
+      "text": "Station 12 · Atlasführerschein",
       "route": "#/baustein/jg5-geo-2",
       "fach": "geo"
     },
@@ -486,7 +1262,71 @@
       "id": "baustein:jg5-de-4",
       "typ": "baustein",
       "titel": "Wörterbuch",
-      "text": "",
+      "text": "Abschlussquiz (ohne Note)",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:1",
+      "typ": "station",
+      "titel": "Entstehungsgeschichte und Bedeutung des Dudens",
+      "text": "Station 1 · Wörterbuch",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:2",
+      "typ": "station",
+      "titel": "Wörter alphabetisch sortieren (2.1)",
+      "text": "Station 2 · Wörterbuch",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:3",
+      "typ": "station",
+      "titel": "Wörter alphabetisch sortieren (2.2)",
+      "text": "Station 3 · Wörterbuch",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:4",
+      "typ": "station",
+      "titel": "Wörter im Wörterbuch finden",
+      "text": "Station 4 · Wörterbuch",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:5",
+      "typ": "station",
+      "titel": "Die Bedeutung von Wörtern herausfinden",
+      "text": "Station 5 · Wörterbuch",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:6",
+      "typ": "station",
+      "titel": "Rechtschreibkontrolle",
+      "text": "Station 6 · Wörterbuch",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:7",
+      "typ": "station",
+      "titel": "Verben und Adjektive finden",
+      "text": "Station 7 · Wörterbuch",
+      "route": "#/baustein/jg5-de-4",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-4:8",
+      "typ": "station",
+      "titel": "Abschluss und Quiz",
+      "text": "Station 8 · Wörterbuch",
       "route": "#/baustein/jg5-de-4",
       "fach": "de"
     },
@@ -502,7 +1342,103 @@
       "id": "baustein:jg5-bio-3",
       "typ": "baustein",
       "titel": "Vögel",
-      "text": "",
+      "text": "zeichnerisches Darstellen einer Feder",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:1",
+      "typ": "station",
+      "titel": "Merkmale der Vögel",
+      "text": "Station 1 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:2",
+      "typ": "station",
+      "titel": "Vielfalt der Vögel",
+      "text": "Station 2 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:3",
+      "typ": "station",
+      "titel": "Körperbedeckung der Vögel",
+      "text": "Station 3 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:4",
+      "typ": "station",
+      "titel": "Anpassungen an den Flug",
+      "text": "Station 4 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:5",
+      "typ": "station",
+      "titel": "Schnäbel und Ernährung",
+      "text": "Station 5 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:6",
+      "typ": "station",
+      "titel": "Fortpflanzung der Vögel",
+      "text": "Station 6 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:7",
+      "typ": "station",
+      "titel": "Untersuchen eines Hühnereies",
+      "text": "Station 7 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:8",
+      "typ": "station",
+      "titel": "Balzverhalten und Brutpflege",
+      "text": "Station 8 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:9",
+      "typ": "station",
+      "titel": "Schutz heimischer Vogelarten",
+      "text": "Station 9 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:10",
+      "typ": "station",
+      "titel": "Vogelflug und Flugversuche",
+      "text": "Station 10 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:11",
+      "typ": "station",
+      "titel": "Vogelstimmen",
+      "text": "Station 11 · Vögel",
+      "route": "#/baustein/jg5-bio-3",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-3:12",
+      "typ": "station",
+      "titel": "Vertiefende Übungen Sofatutor",
+      "text": "Station 12 · Vögel",
       "route": "#/baustein/jg5-bio-3",
       "fach": "bio"
     },
@@ -510,7 +1446,119 @@
       "id": "baustein:jg5-de-6",
       "typ": "baustein",
       "titel": "Rico, Oskar und die Tieferschatten",
-      "text": "",
+      "text": "Komplexe Leistung – Papptheater, Textausschnitt lesen",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:1",
+      "typ": "station",
+      "titel": "Beschreibung des Buchcovers",
+      "text": "Station 1 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:2",
+      "typ": "station",
+      "titel": "Eine Figur beschreiben – Rico",
+      "text": "Station 2 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:3",
+      "typ": "station",
+      "titel": "Ein erster Eindruck",
+      "text": "Station 3 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:4",
+      "typ": "station",
+      "titel": "Der Nachbar Simon Westbühl und das einsturzgefährdete Haus",
+      "text": "Station 4 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:5",
+      "typ": "station",
+      "titel": "Mister 2000 und die Tieferschatten",
+      "text": "Station 5 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:6",
+      "typ": "station",
+      "titel": "Rico Ermittlungen – Kommt er Mister 2000 auf die Spur?",
+      "text": "Station 6 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:7",
+      "typ": "station",
+      "titel": "Ricos Ermittlungen – Falscher Verdacht?",
+      "text": "Station 7 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:8",
+      "typ": "station",
+      "titel": "Oskars Bericht",
+      "text": "Station 8 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:9",
+      "typ": "station",
+      "titel": "Schöne Aussichten",
+      "text": "Station 9 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:10",
+      "typ": "station",
+      "titel": "Komplexe Leistung",
+      "text": "Station 10 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:11",
+      "typ": "station",
+      "titel": "Was hältst du von Rico?",
+      "text": "Station 11 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:12",
+      "typ": "station",
+      "titel": "Die Freundschaft zwischen Rico und Oskar",
+      "text": "Station 12 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:13",
+      "typ": "station",
+      "titel": "Alternatives Buchcover",
+      "text": "Station 13 · Rico, Oskar und die Tieferschatten",
+      "route": "#/baustein/jg5-de-6",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-6:14",
+      "typ": "station",
+      "titel": "Wie geht es weiter?",
+      "text": "Station 14 · Rico, Oskar und die Tieferschatten",
       "route": "#/baustein/jg5-de-6",
       "fach": "de"
     },
@@ -518,7 +1566,111 @@
       "id": "baustein:jg5-en-3",
       "typ": "baustein",
       "titel": "Holidays",
-      "text": "",
+      "text": "Brief schreiben, in dem über die Ferien berichtet wird (mit Note)",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:1",
+      "typ": "station",
+      "titel": "What do you do at the weekend",
+      "text": "Station 1 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:2",
+      "typ": "station",
+      "titel": "Where were you?",
+      "text": "Station 2 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:3",
+      "typ": "station",
+      "titel": "The basketball match",
+      "text": "Station 3 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:4",
+      "typ": "station",
+      "titel": "Where did you travel to?",
+      "text": "Station 4 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:5",
+      "typ": "station",
+      "titel": "How did you travel there?",
+      "text": "Station 5 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:6",
+      "typ": "station",
+      "titel": "What did you do in Plymouth?",
+      "text": "Station 6 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:7",
+      "typ": "station",
+      "titel": "What was the weather like?",
+      "text": "Station 7 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:8",
+      "typ": "station",
+      "titel": "What is London like?",
+      "text": "Station 8 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:9",
+      "typ": "station",
+      "titel": "Holiday logicals",
+      "text": "Station 9 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:10",
+      "typ": "station",
+      "titel": "How were your holidays?",
+      "text": "Station 10 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:11",
+      "typ": "station",
+      "titel": "What did you do in your holidays?",
+      "text": "Station 11 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:12",
+      "typ": "station",
+      "titel": "How to write a letter",
+      "text": "Station 12 · Holidays",
+      "route": "#/baustein/jg5-en-3",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-3:13",
+      "typ": "station",
+      "titel": "Your task",
+      "text": "Station 13 · Holidays",
       "route": "#/baustein/jg5-en-3",
       "fach": "en"
     },
@@ -526,7 +1678,135 @@
       "id": "baustein:jg5-geo-3",
       "typ": "baustein",
       "titel": "Deutschland: Topografie und Küsten",
-      "text": "",
+      "text": "ein Spiel zum Thema Deutschland erstellen (Domino/Memory)",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:1",
+      "typ": "station",
+      "titel": "Nachbarstaaten Deutschlands",
+      "text": "Station 1 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:2",
+      "typ": "station",
+      "titel": "Bundesländer",
+      "text": "Station 2 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:3",
+      "typ": "station",
+      "titel": "Lernen an der Karte I",
+      "text": "Station 3 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:4",
+      "typ": "station",
+      "titel": "Vielfalt in Deutschland",
+      "text": "Station 4 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:5",
+      "typ": "station",
+      "titel": "Großlandschaften in Deutschland",
+      "text": "Station 5 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:6",
+      "typ": "station",
+      "titel": "Flüsse Deutschlands",
+      "text": "Station 6 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:7",
+      "typ": "station",
+      "titel": "Steckbrief Fluss",
+      "text": "Station 7 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:8",
+      "typ": "station",
+      "titel": "Gebirge Deutschlands",
+      "text": "Station 8 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:9",
+      "typ": "station",
+      "titel": "Lernen an der Karte II",
+      "text": "Station 9 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:10",
+      "typ": "station",
+      "titel": "Berlin – unsere Hauptstadt",
+      "text": "Station 10 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:11",
+      "typ": "station",
+      "titel": "Berlin – Stadtplan",
+      "text": "Station 11 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:12",
+      "typ": "station",
+      "titel": "Topografie des Küstenraumes",
+      "text": "Station 12 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:13",
+      "typ": "station",
+      "titel": "Nordsee und Ostsee",
+      "text": "Station 13 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:14",
+      "typ": "station",
+      "titel": "Küstenformen",
+      "text": "Station 14 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:15",
+      "typ": "station",
+      "titel": "Memory oder Domino",
+      "text": "Station 15 · Deutschland: Topografie und Küsten",
+      "route": "#/baustein/jg5-geo-3",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-3:16",
+      "typ": "station",
+      "titel": "Mündlicher Test",
+      "text": "Station 16 · Deutschland: Topografie und Küsten",
       "route": "#/baustein/jg5-geo-3",
       "fach": "geo"
     },
@@ -542,7 +1822,119 @@
       "id": "baustein:jg5-bio-4",
       "typ": "baustein",
       "titel": "Säugetiere",
-      "text": "",
+      "text": "Forschertagebuch – 2 Noten (Inhalt und Darstellung)",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:1",
+      "typ": "station",
+      "titel": "Vielfalt der Säugetiere",
+      "text": "Station 1 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:2",
+      "typ": "station",
+      "titel": "Einheimische Wildtiere",
+      "text": "Station 2 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:3",
+      "typ": "station",
+      "titel": "Das Fell der Säugetiere",
+      "text": "Station 3 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:4",
+      "typ": "station",
+      "titel": "Merkmale der Säugetiere",
+      "text": "Station 4 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:5",
+      "typ": "station",
+      "titel": "Körperbau der Säugetiere",
+      "text": "Station 5 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:6",
+      "typ": "station",
+      "titel": "Die Katze – ein Jäger",
+      "text": "Station 6 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:7",
+      "typ": "station",
+      "titel": "Rudelverhalten bei Hunden und Wölfen",
+      "text": "Station 7 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:8",
+      "typ": "station",
+      "titel": "Verhaltensweisen von Katzen und Hunden",
+      "text": "Station 8 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:9",
+      "typ": "station",
+      "titel": "Anpassungen Lebensräumen",
+      "text": "Station 9 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:10",
+      "typ": "station",
+      "titel": "Gebisse der Säugetiere",
+      "text": "Station 10 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:11",
+      "typ": "station",
+      "titel": "Atmung der Säugetiere",
+      "text": "Station 11 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:12",
+      "typ": "station",
+      "titel": "Artenschutz Säugetiere",
+      "text": "Station 12 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:13",
+      "typ": "station",
+      "titel": "Artgerechte Haltung von Hunden",
+      "text": "Station 13 · Säugetiere",
+      "route": "#/baustein/jg5-bio-4",
+      "fach": "bio"
+    },
+    {
+      "id": "station:jg5-bio-4:14",
+      "typ": "station",
+      "titel": "Wissenswertes über Capybaras",
+      "text": "Station 14 · Säugetiere",
       "route": "#/baustein/jg5-bio-4",
       "fach": "bio"
     },
@@ -550,7 +1942,119 @@
       "id": "baustein:jg5-de-7",
       "typ": "baustein",
       "titel": "Lyrik",
-      "text": "",
+      "text": "Ein eigenes Gedicht zu einer Jahreszeit verfassen",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:1",
+      "typ": "station",
+      "titel": "Jahreszeiten erkennen",
+      "text": "Station 1 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:2",
+      "typ": "station",
+      "titel": "Merkmale und Aufbau Gedichte",
+      "text": "Station 2 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:3",
+      "typ": "station",
+      "titel": "Die Form von Gedichten untersuchen",
+      "text": "Station 3 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:4",
+      "typ": "station",
+      "titel": "Gedichtformen erkennen",
+      "text": "Station 4 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:5",
+      "typ": "station",
+      "titel": "Gedichte inhaltlich verstehen – 1",
+      "text": "Station 5 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:6",
+      "typ": "station",
+      "titel": "Gedichte inhaltlich verstehen – 2",
+      "text": "Station 6 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:7",
+      "typ": "station",
+      "titel": "Gedichte inhaltlich verstehen – 3",
+      "text": "Station 7 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:8",
+      "typ": "station",
+      "titel": "Sprachliche Bilder",
+      "text": "Station 8 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:9",
+      "typ": "station",
+      "titel": "Sprachliche Bilder – Personifikation",
+      "text": "Station 9 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:10",
+      "typ": "station",
+      "titel": "Sprachliche Bilder – Vergleich",
+      "text": "Station 10 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:11",
+      "typ": "station",
+      "titel": "Ein eigenes Gedicht verfassen – 1",
+      "text": "Station 11 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:12",
+      "typ": "station",
+      "titel": "Ein eigenes Gedicht verfassen – 2",
+      "text": "Station 12 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:13",
+      "typ": "station",
+      "titel": "Ein Gedicht überarbeiten",
+      "text": "Station 13 · Lyrik",
+      "route": "#/baustein/jg5-de-7",
+      "fach": "de"
+    },
+    {
+      "id": "station:jg5-de-7:14",
+      "typ": "station",
+      "titel": "Ein Gedicht vortragen",
+      "text": "Station 14 · Lyrik",
       "route": "#/baustein/jg5-de-7",
       "fach": "de"
     },
@@ -558,7 +2062,103 @@
       "id": "baustein:jg5-en-4",
       "typ": "baustein",
       "titel": "Party Star",
-      "text": "",
+      "text": "write a diary entry about your last birthday party",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:1",
+      "typ": "station",
+      "titel": "Magazine Cover",
+      "text": "Station 1 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:2",
+      "typ": "station",
+      "titel": "Susy's Birthday",
+      "text": "Station 2 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:3",
+      "typ": "station",
+      "titel": "Party Outfits",
+      "text": "Station 3 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:4",
+      "typ": "station",
+      "titel": "Finger Food",
+      "text": "Station 4 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:5",
+      "typ": "station",
+      "titel": "DIY: A Birthday Leporello",
+      "text": "Station 5 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:6",
+      "typ": "station",
+      "titel": "Party Game I",
+      "text": "Station 6 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:7",
+      "typ": "station",
+      "titel": "Star Interviews",
+      "text": "Station 7 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:8",
+      "typ": "station",
+      "titel": "DJ IVie's Party Song",
+      "text": "Station 8 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:9",
+      "typ": "station",
+      "titel": "Party Games II",
+      "text": "Station 9 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:10",
+      "typ": "station",
+      "titel": "Birthday Presents",
+      "text": "Station 10 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:11",
+      "typ": "station",
+      "titel": "The Day after the Party",
+      "text": "Station 11 · Party Star",
+      "route": "#/baustein/jg5-en-4",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg5-en-4:12",
+      "typ": "station",
+      "titel": "Dear Diary",
+      "text": "Station 12 · Party Star",
       "route": "#/baustein/jg5-en-4",
       "fach": "en"
     },
@@ -566,7 +2166,103 @@
       "id": "baustein:jg5-geo-4",
       "typ": "baustein",
       "titel": "Norddeutsches Tiefland und Mittelgebirge",
-      "text": "",
+      "text": "Stadt-Umland-Beziehung",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:1",
+      "typ": "station",
+      "titel": "Landschaften im Norddeutschen Tiefland",
+      "text": "Station 1 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:2",
+      "typ": "station",
+      "titel": "Gewässernetz im Norddeutschen Tiefland",
+      "text": "Station 2 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:3",
+      "typ": "station",
+      "titel": "Touristenmagnet Spreewald",
+      "text": "Station 3 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:4",
+      "typ": "station",
+      "titel": "Landwirtschaft früher und heute",
+      "text": "Station 4 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:5",
+      "typ": "station",
+      "titel": "Magdeburger Börde",
+      "text": "Station 5 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:6",
+      "typ": "station",
+      "titel": "Bedeutung des Waldes",
+      "text": "Station 6 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:7",
+      "typ": "station",
+      "titel": "Braunkohle",
+      "text": "Station 7 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:8",
+      "typ": "station",
+      "titel": "Stadt-Umland-Beziehung",
+      "text": "Station 8 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:9",
+      "typ": "station",
+      "titel": "Wirtschaft",
+      "text": "Station 9 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:10",
+      "typ": "station",
+      "titel": "Diagramme zeichnen und auswerten",
+      "text": "Station 10 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:11",
+      "typ": "station",
+      "titel": "Mittelgebirge",
+      "text": "Station 11 · Norddeutsches Tiefland und Mittelgebirge",
+      "route": "#/baustein/jg5-geo-4",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg5-geo-4:12",
+      "typ": "station",
+      "titel": "Erosion/Talformen",
+      "text": "Station 12 · Norddeutsches Tiefland und Mittelgebirge",
       "route": "#/baustein/jg5-geo-4",
       "fach": "geo"
     },

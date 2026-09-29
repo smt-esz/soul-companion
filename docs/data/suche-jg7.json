@@ -125,16 +125,232 @@
     {
       "id": "baustein:jg7-en-1",
       "typ": "baustein",
-      "titel": "Thema folgt",
-      "text": "",
+      "titel": "The Magic Mirror",
+      "text": "design a reading journal",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:1",
+      "typ": "station",
+      "titel": "What's a magic mirror?",
+      "text": "Station 1 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:2",
+      "typ": "station",
+      "titel": "Judging a Book by Its Cover",
+      "text": "Station 2 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:3",
+      "typ": "station",
+      "titel": "Getting Started: How to Team Reader (2.1)",
+      "text": "Station 3 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:4",
+      "typ": "station",
+      "titel": "Getting Started: My Reading Journal (2.2)",
+      "text": "Station 4 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:5",
+      "typ": "station",
+      "titel": "The first part of the story",
+      "text": "Station 5 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:6",
+      "typ": "station",
+      "titel": "In the museum (4.1)",
+      "text": "Station 6 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:7",
+      "typ": "station",
+      "titel": "Museums (4.2)",
+      "text": "Station 7 · The Magic Mirror · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:8",
+      "typ": "station",
+      "titel": "Travelling back in time – Ruby",
+      "text": "Station 8 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:9",
+      "typ": "station",
+      "titel": "Travelling back in time – Noah",
+      "text": "Station 9 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:10",
+      "typ": "station",
+      "titel": "Travelling back in time – Layla",
+      "text": "Station 10 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:11",
+      "typ": "station",
+      "titel": "In the Tower",
+      "text": "Station 11 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:12",
+      "typ": "station",
+      "titel": "Run, Ruby, Run!",
+      "text": "Station 12 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:13",
+      "typ": "station",
+      "titel": "Visiting the market",
+      "text": "Station 13 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:14",
+      "typ": "station",
+      "titel": "Medieval markets (10.1)",
+      "text": "Station 14 · The Magic Mirror · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:15",
+      "typ": "station",
+      "titel": "How to defeat the Spanish",
+      "text": "Station 15 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:16",
+      "typ": "station",
+      "titel": "Getting back with a surprise",
+      "text": "Station 16 · The Magic Mirror",
+      "route": "#/baustein/jg7-en-1",
+      "fach": "en"
+    },
+    {
+      "id": "station:jg7-en-1:17",
+      "typ": "station",
+      "titel": "Leaving the Magic Mirror behind",
+      "text": "Station 17 · The Magic Mirror",
       "route": "#/baustein/jg7-en-1",
       "fach": "en"
     },
     {
       "id": "baustein:jg7-geo-1",
       "typ": "baustein",
-      "titel": "Thema folgt",
-      "text": "",
+      "titel": "Orientierung auf der Erde",
+      "text": "Anwenden des erlernten Wissens, um das ausgefallene Navigationssystem neu zu starten",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:1",
+      "typ": "station",
+      "titel": "Das Gradnetz der Erde",
+      "text": "Station 1 · Orientierung auf der Erde",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:2",
+      "typ": "station",
+      "titel": "Geographische Koordinaten",
+      "text": "Station 2 · Orientierung auf der Erde",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:3",
+      "typ": "station",
+      "titel": "Wie weiß mein Handy, wo ich bin?",
+      "text": "Station 3 · Orientierung auf der Erde · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:4",
+      "typ": "station",
+      "titel": "Zeitzonen der Erde",
+      "text": "Station 4 · Orientierung auf der Erde",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:5",
+      "typ": "station",
+      "titel": "Beleuchtungszonen der Erde",
+      "text": "Station 5 · Orientierung auf der Erde",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:6",
+      "typ": "station",
+      "titel": "Entstehung der Jahreszeiten",
+      "text": "Station 6 · Orientierung auf der Erde",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:7",
+      "typ": "station",
+      "titel": "Schalenaufbau der Erde",
+      "text": "Station 7 · Orientierung auf der Erde",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:8",
+      "typ": "station",
+      "titel": "Klimazonen und Klimadiagramme",
+      "text": "Station 8 · Orientierung auf der Erde",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:9",
+      "typ": "station",
+      "titel": "Warum lügen Weltkarten?",
+      "text": "Station 9 · Orientierung auf der Erde · Für Gymnasiasten ab Jgst. 7 Pflicht.",
+      "route": "#/baustein/jg7-geo-1",
+      "fach": "geo"
+    },
+    {
+      "id": "station:jg7-geo-1:10",
+      "typ": "station",
+      "titel": "Gelingensnachweis",
+      "text": "Station 10 · Orientierung auf der Erde",
       "route": "#/baustein/jg7-geo-1",
       "fach": "geo"
     },
