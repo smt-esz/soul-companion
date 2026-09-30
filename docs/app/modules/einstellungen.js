@@ -6,7 +6,8 @@
 import { registerModule } from '../module.js';
 import { APP_VERSION } from '../version.js';
 import * as update from '../update.js';
-import { el, hinweis, knopf, leer, statusPunkt } from '../ui/components.js';
+import { el, hinweis, knopf, leer, segment, statusPunkt } from '../ui/components.js';
+import { leseFarbschema, setzeFarbschema } from '../ui/farbschema.js';
 
 registerModule({
   id: 'einstellungen',
@@ -23,6 +24,7 @@ function renderEinstellungen(container, params, ctx) {
   const kinder = [
     el('h1', { text: 'Einstellungen', tabindex: '-1' }),
     jahrgangAbschnitt(ctx),
+    darstellungAbschnitt(),
     appAbschnitt(),
     installationsAbschnitt(),
     ueberAbschnitt(),
@@ -73,6 +75,30 @@ function jahrgangRueckfrage(bereich, nummer, store) {
       knopf({ text: 'Abbrechen', art: 'neben', onTap: () => leer(bereich) })
     ])
   );
+}
+
+// ------------------------------------------------------------------ Darstellung
+
+function darstellungAbschnitt() {
+  const optionen = [
+    { id: 'system', text: 'Automatisch' },
+    { id: 'hell', text: 'Hell' },
+    { id: 'dunkel', text: 'Dunkel' }
+  ];
+  const halter = el('div', {});
+  const zeichne = () => {
+    leer(halter);
+    halter.append(segment(optionen, leseFarbschema(), (wahl) => {
+      setzeFarbschema(wahl);
+      zeichne();
+    }));
+  };
+  zeichne();
+
+  return abschnitt('Darstellung', [
+    el('p', { class: 'text-klein text-neben', text: 'Automatisch folgt der Einstellung deines Geräts.' }),
+    halter
+  ]);
 }
 
 // ------------------------------------------------------------------ App / Update

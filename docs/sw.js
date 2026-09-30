@@ -23,7 +23,7 @@
 //   - keine fremden Hosts, es wird nichts nachgeladen und nichts gecacht,
 //     was nicht aus dem eigenen Ordner kommt.
 
-const VERSION = '0.1.0-2496db31';
+const VERSION = '0.2.0-57ef72e7';
 const PRECACHE = [
   "./",
   "./.nojekyll",
@@ -51,6 +51,7 @@ const PRECACHE = [
   "./app/search.js",
   "./app/store.js",
   "./app/ui/components.js",
+  "./app/ui/farbschema.js",
   "./app/ui/icons.js",
   "./app/ui/motion.js",
   "./app/ui/stufenbaum.js",
@@ -62,6 +63,9 @@ const PRECACHE = [
   "./assets/schullogo.png",
   "./assets/soul-logo-weiss.png",
   "./assets/soul-logo.png",
+  "./assets/stufen/krone.svg",
+  "./assets/stufen/stamm.svg",
+  "./assets/stufen/wurzel.svg",
   "./data/antrag.json",
   "./data/index.json",
   "./data/jg5.json",
@@ -78,6 +82,7 @@ const PRECACHE = [
   "./manifest.webmanifest",
   "./styles/base.css",
   "./styles/components.css",
+  "./styles/glas.css",
   "./styles/print.css",
   "./styles/tokens.css",
   "./styles/tones.css",

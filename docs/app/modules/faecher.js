@@ -79,34 +79,48 @@ function renderFaecher(container, params, ctx) {
  * genauso erreichbar ist wie mit dem Finger (DESIGN 11).
  */
 function fachKachel(fach, eintraege, navigate) {
-  const zeile = standZeile(eintraege);
+  const zeilen = standZeilen(eintraege);
   return el('button', {
     type: 'button',
     class: 'fach-kachel',
     dataset: { fach: fach.farbe },
-    'aria-label': fach.name + ': ' + zeile,
+    'aria-label': fach.name + ': ' + zeilen.map((zeile) => zeile.text).join(' '),
     onclick: () => navigate('#/fach/' + fach.id)
   }, [
     fachBadge(fach, { groesse: 'l' }),
-    el('span', { class: 'fach-kachel-name', text: fach.name }),
-    el('span', { class: 'fach-kachel-stand', text: zeile })
+    el('span', { class: 'fach-kachel-text' }, [
+      el('span', { class: 'fach-kachel-name', text: fach.name }),
+      el('span', { class: 'fach-kachel-stand' }, zeilen.map(
+        (zeile) => el('span', { class: 'fach-kachel-stand-' + zeile.art, text: zeile.text })
+      ))
+    ])
   ]);
 }
 
-/** "Läuft: ...", "Wieder dran ab ...: ..." oder "In diesem Schuljahr fertig". */
-function standZeile(eintraege) {
+/**
+ * Stand als Zeilen { art, text } (art: kopf, baustein, datum, text):
+ * Läuft / Baustein / bis Datum, Nächster Baustein / Name / ab Datum oder
+ * "In diesem Schuljahr fertig".
+ */
+function standZeilen(eintraege) {
   const laeuft = eintraege.find((eintrag) => eintrag.status === 'laeuft');
   if (laeuft) {
-    return 'Läuft: ' + titelVon(laeuft.baustein)
-      + ' bis ' + formatDatum(laeuft.slot.bis, 'datum');
+    return [
+      { art: 'kopf', text: 'Läuft' },
+      { art: 'baustein', text: titelVon(laeuft.baustein) },
+      { art: 'datum', text: 'bis ' + formatDatum(laeuft.slot.bis, 'datum') }
+    ];
   }
   // bausteineDesFachs sortiert nach Datum, der erste "kommt" ist der nächste.
   const kommt = eintraege.find((eintrag) => eintrag.status === 'kommt');
   if (kommt) {
-    return 'Wieder dran ab ' + formatDatum(kommt.slot.von, 'datum')
-      + ': ' + titelVon(kommt.baustein);
+    return [
+      { art: 'kopf', text: 'Nächster Baustein' },
+      { art: 'baustein', text: titelVon(kommt.baustein) },
+      { art: 'datum', text: 'ab ' + formatDatum(kommt.slot.von, 'datum') }
+    ];
   }
-  return 'In diesem Schuljahr fertig';
+  return [{ art: 'text', text: 'In diesem Schuljahr fertig' }];
 }
 
 // ===================================================== Route #/fach/:fachId
@@ -295,13 +309,14 @@ function parallelZeile(jg, baustein, eintrag, heute, navigate) {
   })));
 }
 
-/** Kopf: fachBadge, Titel, dazu Etikett und Hinweise des Slots. */
+/** Kopf: Fachname, fachBadge (als Wasserzeichen), Titel, dazu Etikett und Hinweise des Slots. */
 function bausteinKopf(baustein, fach, slot) {
   const vorlaeufig = Boolean(slot) && slot.status === 'vorlaeufig';
   const wahl = Boolean(slot) && slot.status === 'wahl';
   const alternativen = Array.isArray(baustein.alternativen) ? baustein.alternativen : [];
 
   return el('header', { class: 'baustein-kopf', dataset: { fach: fach.farbe } }, [
+    el('p', { class: 'baustein-kopf-fach', text: fach.name }),
     el('div', { class: 'baustein-kopf-marken' }, [
       fachBadge(fach, { groesse: 'l' }),
       vorlaeufig ? etikett('Vorläufig', 'vorlaeufig') : null,
