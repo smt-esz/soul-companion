@@ -10,6 +10,7 @@ import * as onboarding from './onboarding.js';
 import { el, leer } from './ui/components.js';
 import { icon } from './ui/icons.js';
 import { wendeFarbschemaAn } from './ui/farbschema.js';
+import { zieheZumNeuladen } from './ui/neuladen.js';
 
 // Module melden sich beim Import selbst an. Ohne Bundler braucht es diese
 // Zeile je Moduldatei. Welche davon wirklich gelten, sagt content/index.json
@@ -109,6 +110,9 @@ async function appStarten(index, schule, vorschau) {
   // Service Worker, Update-Leiste und Statusanzeige (AP-03). Der Aufruf
   // steht bewusst am Ende: Erst die Seite, dann die Registrierung.
   update.init({ statusEl: statusBereich, leisteEl: leistenBereich });
+
+  // Ziehen zum Neuladen: Caches leeren und neu laden, der lokale Speicher bleibt.
+  zieheZumNeuladen({ onNeuLaden: () => update.neuLaden() });
 }
 
 // Layout: Statuszeile oben rechts, Navigation links bzw. unten, Inhalt daneben.

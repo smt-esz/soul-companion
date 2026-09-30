@@ -741,7 +741,8 @@ body {
    Stamm #AB8742, Krone #82AC28) mit den echten Symbolen. Die ausgewaehlte
    Ebene hebt sich wie "heute" ab: groesser, angehoben, viel Schatten. */
 
-.stufen-baum { max-width: 24rem; overflow: visible; }
+/* Die viewBox hat Rand, damit die vergroesserte Ebene nicht abgeschnitten wird. */
+.stufen-baum { max-width: 25.7rem; overflow: visible; }
 
 .stufen-ebene {
   overflow: visible;
@@ -777,10 +778,21 @@ body {
 .stufen-ebene[aria-current='true'],
 .stufen-ebene[data-hervorheben='true'] {
   filter: drop-shadow(0 4px 0 rgb(0 0 0 / 0.25)) drop-shadow(0 16px 16px rgb(0 0 0 / 0.38));
-  transform: translateY(-3px) scale(1.06);
+  transform: scale(1.06);
 }
-/* Die anderen Ebenen treten zurueck, solange eine gewaehlt ist. */
-.stufen-baum:has([aria-pressed='true']) .stufen-ebene:not([aria-pressed='true']) { opacity: 0.8; }
+/* Abstaende bleiben gleich: Die gewaehlte Ebene waechst um 3,12 Einheiten je
+   Seite (6 % von 104, halbiert). Die Nachbarn weichen genau um diesen Wert aus,
+   die Ebenen darueber nach oben, die darunter nach unten. */
+.stufen-baum:has([data-ebene='3']:is([aria-pressed='true'], [aria-current='true'], [data-hervorheben='true'])) .stufen-ebene:not([data-ebene='3']) { transform: translateY(3.12px); }
+.stufen-baum:has([data-ebene='2']:is([aria-pressed='true'], [aria-current='true'], [data-hervorheben='true'])) .stufen-ebene[data-ebene='3'] { transform: translateY(-3.12px); }
+.stufen-baum:has([data-ebene='2']:is([aria-pressed='true'], [aria-current='true'], [data-hervorheben='true'])) .stufen-ebene[data-ebene='1'] { transform: translateY(3.12px); }
+.stufen-baum:has([data-ebene='1']:is([aria-pressed='true'], [aria-current='true'], [data-hervorheben='true'])) .stufen-ebene:not([data-ebene='1']) { transform: translateY(-3.12px); }
+
+/* Die anderen Ebenen treten zurueck (blasser, weniger Saettigung), solange eine gewaehlt ist. */
+.stufen-baum:has([aria-pressed='true']) .stufen-ebene:not([aria-pressed='true']) {
+  opacity: 0.85;
+  filter: saturate(0.55) drop-shadow(0 3px 0 rgb(0 0 0 / 0.22)) drop-shadow(0 8px 10px rgb(0 0 0 / 0.14));
+}
 .stufen-ebene:not([aria-pressed='true']):hover .stufen-form { filter: brightness(1.05); }
 
 /* Startseite "Als Naechstes": aufgeraeumte Liste, eine Zeile je Fach. */
@@ -811,3 +823,47 @@ body {
 .woche-zeile:hover { background: color-mix(in srgb, var(--c-teal-dunkel) 8%, transparent); }
 .woche-zeile-titel { min-width: 0; font-style: italic; font-weight: 650; }
 .woche-zeile-datum { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+
+/* Ziehen zum Neuladen: kein Mitwandern des Hintergrunds beim Ueberziehen
+   (Safari 16+), dazu eine Glas-Kapsel als Anzeige (ui/neuladen.js). */
+html, body { overscroll-behavior-y: none; }
+
+.zieh-anzeige {
+  --zieh-weg: 0px;
+  --zieh-winkel: 0deg;
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 6px);
+  left: 50%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
+  border: 1px solid var(--glas-kante);
+  border-radius: 999px;
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: var(--glas-glanz), var(--glas-schatten);
+  font-size: var(--t-klein-groesse);
+  font-weight: 650;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, calc(var(--zieh-weg) - 130%));
+  transition: transform var(--zeit-wechsel) var(--kurve), opacity var(--zeit-zustand) var(--kurve);
+}
+.zieh-anzeige[data-zustand='zieht'],
+.zieh-anzeige[data-zustand='bereit'],
+.zieh-anzeige[data-zustand='laedt'] { opacity: 1; }
+.zieh-anzeige[data-zustand='zieht'] { transition: none; }
+.zieh-kreis {
+  width: 16px;
+  height: 16px;
+  border: 2.5px solid var(--c-teal-dunkel);
+  border-top-color: transparent;
+  border-radius: 50%;
+  transform: rotate(var(--zieh-winkel));
+}
+.zieh-anzeige[data-zustand='bereit'] .zieh-kreis { border-top-color: var(--c-teal-dunkel); }
+.zieh-anzeige[data-zustand='laedt'] .zieh-kreis { animation: zieh-drehen 0.8s linear infinite; }
+@keyframes zieh-drehen { to { transform: rotate(360deg); } }
