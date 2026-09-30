@@ -901,3 +901,20 @@ html, body { overscroll-behavior-y: none; }
 
 /* Das Etikett "HEUTE" braucht die Karte als Bezugsfeld, auch ohne Transformation. */
 .tag-karte { position: relative; }
+
+/* Seitenspalte darf schmaler als ihr Inhalt werden: Breite Tabellen (Stationen)
+   scrollen in ihrem Rahmen, statt die ganze Seite zu verbreitern. Sonst
+   scrollt die Seite seitwaerts und die feste Navigation verrutscht. */
+body { grid-template-columns: var(--nav-breite) minmax(0, 1fr); }
+@media (max-width: 899px) {
+  body { grid-template-columns: minmax(0, 1fr); }
+}
+.inhalt { min-width: 0; }
+
+/* Scrollende Tabellenrahmen sind Bezugsfeld: unsichtbare Vorlese-Texte
+   (position: absolute) in der Tabelle werden sonst nicht abgeschnitten und
+   verbreitern die ganze Seite. */
+.stationen-rahmen,
+.wissen-tabelle-rahmen,
+.druck-tabelle-rahmen,
+.plan-zeitleiste { position: relative; }
