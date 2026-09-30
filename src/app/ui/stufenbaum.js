@@ -1,8 +1,9 @@
 // Baum der drei Stufen (DESIGN 8, AP-13).
 //
-// Drei Ebenen übereinander: Krone oben, Stamm in der Mitte, Wurzel unten im
-// Boden. Flach, drei Farbtöne aus Teal und Navy, der Boden ist eine Linie.
-// Der Baum steht nur auf der Stufen-Seite, nie als Schmuck anderswo.
+// Drei Ebenen übereinander: Krone oben, Stamm in der Mitte, Wurzel unten.
+// Jede Ebene ist eine Kachel in der Farbe des Namensschilds, darauf das echte
+// SOUL-Symbol (assets/stufen/*.svg). Der Baum steht nur auf der Stufen-Seite,
+// nie als Schmuck anderswo.
 //
 // Bedienung (AP-13, Akzeptanzkriterium 2):
 // - Finger und Maus: tippen auf eine Ebene.
@@ -26,21 +27,16 @@ const STUFEN_STANDARD = [
   { id: 3, name: 'Krone', symbol: 'krone' }
 ];
 
-// Von oben nach unten: Krone, Stamm, Wurzel. Die Wurzel liegt unter der
-// Bodenlinie (y = 174).
+// Von oben nach unten: Krone, Stamm, Wurzel. Masse in Einheiten der viewBox
+// (280 x 312). Die Bilder sitzen alle auf einer senkrechten Achse (x = 205) und
+// greifen ueber die Kachelraender, so dass sie uebereinander einen Baum ergeben.
+// Links stehen Name und Stufe.
+const KACHEL_X = 0;
+const KACHEL_B = 280;
 const EBENEN = [
-  { index: 2, form: 'M100 10a58 58 0 0 1 48 90H52A58 58 0 0 1 100 10z', schriftY: 62 },
-  { index: 1, form: 'M76 106h48v62H76z', schriftY: 142 },
-  { index: 0, form: 'M100 174c26 0 46 14 46 30H54c0-16 20-30 46-30z', schriftY: 196 }
-];
-
-// Drei Punkte in der Krone. Reiner Schmuck, nur in der Tonlage verspielt
-// sichtbar (DESIGN 4: "Baum farbig" bei Jg 5, "keine Motive außer Baum" bei
-// Jg 7). Sie liegen in der Krone, damit sie nichts überdecken.
-const SCHMUCK = [
-  { cx: 78, cy: 44, r: 7 },
-  { cx: 122, cy: 44, r: 7 },
-  { cx: 100, cy: 30, r: 6 }
+  { index: 2, y: 0, h: 116, bild: 'krone', bx: 156.9, by: 26, bb: 96.3, bh: 92 },
+  { index: 1, y: 124, h: 96, bild: 'stamm', bx: 184.4, by: 116, bb: 41.1, bh: 100 },
+  { index: 0, y: 228, h: 84, bild: 'wurzel', bx: 157.5, by: 222, bb: 95, bh: 66 }
 ];
 
 /**
@@ -71,7 +67,7 @@ export function stufenBaum(optionen = {}) {
   const liste = Array.isArray(stufen) && stufen.length === 3 ? stufen : STUFEN_STANDARD;
 
   const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('viewBox', '0 0 200 220');
+  svg.setAttribute('viewBox', '0 0 280 312');
   svg.setAttribute('class', klein ? 'stufen-baum stufen-baum--klein' : 'stufen-baum');
   svg.setAttribute('role', 'group');
   svg.setAttribute('aria-label', beschriftung);
@@ -97,27 +93,36 @@ export function stufenBaum(optionen = {}) {
     if (String(aktuelleStufe) === String(stufe.id)) gruppe.setAttribute('aria-current', 'true');
     if (String(hervorheben) === String(stufe.id)) gruppe.setAttribute('data-hervorheben', 'true');
 
-    const form = document.createElementNS(NS, 'path');
-    form.setAttribute('d', ebene.form);
+    const form = document.createElementNS(NS, 'rect');
+    form.setAttribute('x', String(KACHEL_X));
+    form.setAttribute('y', String(ebene.y));
+    form.setAttribute('width', String(KACHEL_B - KACHEL_X));
+    form.setAttribute('height', String(ebene.h));
+    form.setAttribute('rx', '18');
     form.setAttribute('class', 'stufen-form');
     gruppe.append(form);
 
-    if (ebene.index === 2) {
-      for (const punkt of SCHMUCK) {
-        const kreis = document.createElementNS(NS, 'circle');
-        kreis.setAttribute('cx', String(punkt.cx));
-        kreis.setAttribute('cy', String(punkt.cy));
-        kreis.setAttribute('r', String(punkt.r));
-        kreis.setAttribute('class', 'stufen-schmuck');
-        kreis.setAttribute('aria-hidden', 'true');
-        gruppe.append(kreis);
-      }
-    }
+    const bild = document.createElementNS(NS, 'image');
+    bild.setAttribute('href', 'assets/stufen/' + ebene.bild + '.svg');
+    bild.setAttribute('x', String(ebene.bx));
+    bild.setAttribute('y', String(ebene.by));
+    bild.setAttribute('width', String(ebene.bb));
+    bild.setAttribute('height', String(ebene.bh));
+    bild.setAttribute('class', 'stufen-bild');
+    bild.setAttribute('aria-hidden', 'true');
+    gruppe.append(bild);
+
+    const nummer = document.createElementNS(NS, 'text');
+    nummer.setAttribute('x', '22');
+    nummer.setAttribute('y', String(ebene.y + ebene.h / 2 - 12));
+    nummer.setAttribute('class', 'stufen-nummer');
+    nummer.setAttribute('aria-hidden', 'true');
+    nummer.textContent = 'STUFE ' + stufe.id;
+    gruppe.append(nummer);
 
     const schrift = document.createElementNS(NS, 'text');
-    schrift.setAttribute('x', '100');
-    schrift.setAttribute('y', String(ebene.schriftY));
-    schrift.setAttribute('text-anchor', 'middle');
+    schrift.setAttribute('x', '22');
+    schrift.setAttribute('y', String(ebene.y + ebene.h / 2 + 14));
     schrift.setAttribute('class', 'stufen-schrift');
     schrift.setAttribute('aria-hidden', 'true');
     schrift.textContent = stufe.name;
@@ -126,16 +131,6 @@ export function stufenBaum(optionen = {}) {
     svg.append(gruppe);
     gruppen.push(gruppe);
   }
-
-  // Der Boden kommt zuletzt, damit die Linie über der Wurzel liegt.
-  const boden = document.createElementNS(NS, 'line');
-  boden.setAttribute('x1', '20');
-  boden.setAttribute('y1', '174');
-  boden.setAttribute('x2', '180');
-  boden.setAttribute('y2', '174');
-  boden.setAttribute('class', 'stufen-boden');
-  boden.setAttribute('aria-hidden', 'true');
-  svg.append(boden);
 
   if (onEbene) verdrahte(gruppen, onEbene);
   return svg;

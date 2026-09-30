@@ -98,7 +98,6 @@ function zeigeStufe(bereich, stufeId, ctx, stufen) {
   const seite = stufenSeite(ctx, stufe.id);
 
   bereich.append(el('h2', { class: 'stufen-details-titel' }, [
-    icon(stufe.symbol || 'stufen', { groesse: 28 }),
     el('span', { text: 'Stufe ' + stufe.id + ': ' + stufe.name })
   ]));
 

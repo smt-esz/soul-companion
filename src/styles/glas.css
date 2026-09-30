@@ -1,0 +1,999 @@
+/* Liquid-Glass-Naeherung (Entwurf Runde 1).
+   Glas nur fuer die Bedienebene: Kopfzeile und Navigation. Inhalt bleibt flach.
+   Alle Werte hier als Tokens, damit die Rueckmeldung schnell einfliesst. */
+
+:root {
+  --glas-flaeche: rgb(255 255 255 / 0.58);
+  --glas-flaeche-stark: rgb(255 255 255 / 0.78);
+  --glas-kante: rgb(255 255 255 / 0.7);
+  --glas-glanz: inset 0 1px 0 rgb(255 255 255 / 0.9), inset 0 -1px 0 rgb(14 40 65 / 0.05);
+  --glas-schatten: 0 10px 30px rgb(14 40 65 / 0.14), 0 2px 6px rgb(14 40 65 / 0.06);
+  --glas-filter: blur(22px) saturate(180%);
+  --glas-aktiv: rgb(7 138 135 / 0.16);
+  --glas-abstand: 12px;
+  --grund-verlauf:
+    radial-gradient(60rem 40rem at 8% -5%, rgb(7 138 135 / 0.20), transparent 60%),
+    radial-gradient(50rem 36rem at 100% 10%, rgb(215 162 45 / 0.16), transparent 60%),
+    radial-gradient(60rem 40rem at 60% 110%, rgb(21 96 130 / 0.16), transparent 60%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) {
+    --glas-flaeche: rgb(40 46 56 / 0.55);
+    --glas-flaeche-stark: rgb(30 36 46 / 0.74);
+    --glas-kante: rgb(255 255 255 / 0.16);
+    --glas-glanz: inset 0 1px 0 rgb(255 255 255 / 0.20), inset 0 -1px 0 rgb(0 0 0 / 0.2);
+    --glas-schatten: 0 10px 30px rgb(0 0 0 / 0.40);
+    --glas-aktiv: rgb(92 201 196 / 0.22);
+    --grund-verlauf:
+      radial-gradient(55rem 38rem at 5% -8%, rgb(45 212 191 / 0.14), transparent 62%),
+      radial-gradient(50rem 40rem at 105% 30%, rgb(139 110 230 / 0.10), transparent 62%),
+      radial-gradient(60rem 40rem at 40% 115%, rgb(45 160 190 / 0.10), transparent 62%);
+  }
+}
+
+:root[data-farbschema='dunkel'] {
+  --glas-flaeche: rgb(40 46 56 / 0.55);
+  --glas-flaeche-stark: rgb(30 36 46 / 0.74);
+  --glas-kante: rgb(255 255 255 / 0.16);
+  --glas-glanz: inset 0 1px 0 rgb(255 255 255 / 0.20), inset 0 -1px 0 rgb(0 0 0 / 0.2);
+  --glas-schatten: 0 10px 30px rgb(0 0 0 / 0.40);
+  --glas-aktiv: rgb(92 201 196 / 0.22);
+  --grund-verlauf:
+    radial-gradient(55rem 38rem at 5% -8%, rgb(45 212 191 / 0.14), transparent 62%),
+      radial-gradient(50rem 40rem at 105% 30%, rgb(139 110 230 / 0.10), transparent 62%),
+      radial-gradient(60rem 40rem at 40% 115%, rgb(45 160 190 / 0.10), transparent 62%);
+}
+
+body {
+  background: var(--grund-verlauf), var(--c-grund);
+  background-attachment: fixed;
+}
+
+/* ------------------------------------------------------ Kopfzeile */
+.kopfzeile {
+  position: sticky;
+  top: var(--glas-abstand);
+  z-index: 3;
+  margin: var(--glas-abstand) var(--glas-abstand) 0;
+  padding: var(--s-2) var(--s-4);
+  border: 1px solid var(--glas-kante);
+  border-radius: 28px;
+  background: var(--glas-flaeche);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: var(--glas-glanz), var(--glas-schatten);
+}
+
+.kopfzeile-suche-feld {
+  border-radius: 999px;
+  border-color: var(--glas-kante);
+  background: var(--glas-flaeche-stark);
+  padding: 0 var(--s-4);
+}
+
+/* ------------------------------------------------------ Navigation */
+.hauptnavigation {
+  border: 0;
+}
+
+.hauptnavigation-liste {
+  left: calc(var(--glas-abstand) + env(safe-area-inset-left));
+  width: calc(var(--nav-breite) - var(--glas-abstand));
+  padding: var(--s-2);
+  border: 1px solid var(--glas-kante);
+  border-radius: 32px;
+  background: var(--glas-flaeche);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: var(--glas-glanz), var(--glas-schatten);
+}
+
+.hauptnavigation-link {
+  border-radius: 24px;
+  transition: background var(--zeit-zustand) var(--kurve);
+}
+
+.hauptnavigation-link:hover {
+  border-color: transparent;
+  background: rgb(127 127 127 / 0.12);
+}
+
+.hauptnavigation-link[aria-current="page"] {
+  background: var(--glas-aktiv);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5);
+}
+
+/* Hochformat: schwebende Kapsel unten, Inhalt laeuft darunter durch. */
+@media (max-width: 899px) {
+  .hauptnavigation {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 var(--glas-abstand);
+    padding-bottom: calc(var(--glas-abstand) + env(safe-area-inset-bottom));
+    background: none;
+    border: 0;
+    pointer-events: none;
+  }
+
+  .hauptnavigation-liste {
+    position: static;
+    width: auto;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: var(--s-1);
+    pointer-events: auto;
+    border-radius: 999px;
+  }
+
+  .hauptnavigation-link {
+    border-radius: 999px;
+  }
+
+  .inhalt {
+    padding-bottom: calc(var(--tab-hoehe) + var(--s-7));
+  }
+
+  .kopfzeile {
+    padding-left: var(--s-4);
+    padding-right: var(--s-4);
+  }
+}
+
+/* Ohne Transparenz oder Blur: deckende Flaechen. */
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glas-flaeche: var(--c-karte); --glas-flaeche-stark: var(--c-karte); }
+  .kopfzeile, .hauptnavigation-liste { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --glas-flaeche: var(--c-karte); --glas-flaeche-stark: var(--c-karte); }
+}
+
+/* Runde 1, Korrektur: laengste Beschriftung ("Einstellungen") muss passen. */
+:root { --nav-breite: 112px; }
+
+.hauptnavigation-link {
+  font-size: 0.74rem;
+  padding-inline: 2px;
+  hyphens: manual;
+  overflow-wrap: normal;
+}
+
+@media (max-width: 899px) {
+  .hauptnavigation-liste { max-width: 40rem; }
+  .hauptnavigation-liste li { max-width: 8rem; }
+  .hauptnavigation-link { font-size: 0.66rem; overflow-wrap: normal; }
+}
+
+/* Runde 2: tieferes Mitternachtsblau im Dunkelmodus, Glanz statt Grau. */
+
+/* Runde 2: einzeilige Kopfzeile, alles mittig. Version steht in den
+   Einstellungen; Offline und Update bleiben oben sichtbar. */
+.kopfzeile {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-5);
+  padding: var(--s-3) var(--s-5);
+  min-height: 84px;
+}
+
+.kopfzeile-oben { display: contents; }
+.kopfzeile-marke { order: 1; gap: var(--s-3); }
+.kopfzeile-suche { order: 2; flex: 1 1 16rem; align-items: center; }
+.status { order: 3; min-height: 0; display: flex; align-items: center; }
+.status:has(.status-punkt--version) { display: none; }
+
+.kopfzeile-logo { height: 3.25rem; }
+.kopfzeile-titel { font-size: var(--t-h2-groesse); font-weight: var(--t-h2-gewicht); }
+
+@media (max-width: 599px) {
+  .kopfzeile-suche { flex-basis: 100%; }
+  .kopfzeile-logo { height: 2.75rem; }
+}
+
+/* Runde 3: Dunkelmodus neutraler (Graphit mit Teal-Hauch statt Marineblau). */
+:root {
+  --c-grund--dunkel: #0D1217;
+  --c-karte--dunkel: #171E26;
+  --c-linie--dunkel: #2B343E;
+  --c-text-2--dunkel: #AEB9C2;
+}
+
+/* Runde 3: Suchfeld behaelt im Hellmodus eine sichtbare Kontur. */
+.kopfzeile-suche-feld {
+  border: 1px solid rgb(14 40 65 / 0.22);
+  box-shadow: inset 0 1px 2px rgb(14 40 65 / 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) .kopfzeile-suche-feld {
+    border-color: rgb(255 255 255 / 0.22);
+    box-shadow: none;
+  }
+}
+:root[data-farbschema='dunkel'] .kopfzeile-suche-feld {
+  border-color: rgb(255 255 255 / 0.22);
+  box-shadow: none;
+}
+
+/* Runde 3: "heute" ohne Gold. Der Tag hebt sich durch Hoehe, kraeftigen
+   Rahmen in Textfarbe und ein gefuelltes Etikett ab, keine neue Farbe. */
+.tag-karte--heute,
+.karte--heute {
+  border: 2px solid var(--c-navy);
+  box-shadow: 0 12px 28px rgb(14 40 65 / 0.18), 0 2px 6px rgb(14 40 65 / 0.08);
+  transform: translateY(-4px);
+}
+
+.etikett--heute {
+  background: var(--c-navy);
+  color: var(--c-grund);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) .tag-karte--heute,
+  :root:not([data-farbschema='hell']) .karte--heute { box-shadow: 0 12px 28px rgb(0 0 0 / 0.5); }
+}
+:root[data-farbschema='dunkel'] .tag-karte--heute,
+:root[data-farbschema='dunkel'] .karte--heute { box-shadow: 0 12px 28px rgb(0 0 0 / 0.5); }
+
+/* ================================================================
+   Runde 4
+   ================================================================ */
+
+/* --- Dunkelmodus warm: Espresso statt Marine. Teal bleibt als Markenfarbe. */
+:root {
+  --c-grund--dunkel: #161210;
+  --c-karte--dunkel: #211B18;
+  --c-linie--dunkel: #3B312B;
+  --c-navy--dunkel: #F4EDE6;
+  --c-text-2--dunkel: #C4B7AD;
+  --c-teal-hell--dunkel: #2C3A37;
+  --fach-ma-flaeche--dunkel: #1F272B;
+  --fach-de-flaeche--dunkel: #491614;
+  --fach-en-flaeche--dunkel: #493914;
+  --fach-bio-flaeche--dunkel: #1B3622;
+  --fach-geo-flaeche--dunkel: #381E2E;
+  --fach-offen-flaeche--dunkel: #343131;
+  --fach-fvu-flaeche--dunkel: linear-gradient(90deg, #491614, #493914, #1B3622, #1F272B, #381E2E);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) {
+    --glas-flaeche: rgb(58 46 40 / 0.55);
+    --glas-flaeche-stark: rgb(44 35 31 / 0.75);
+    --glas-kante: rgb(255 236 220 / 0.16);
+    --grund-verlauf:
+      radial-gradient(55rem 38rem at 100% -8%, rgb(224 140 70 / 0.14), transparent 62%),
+      radial-gradient(50rem 40rem at -5% 45%, rgb(45 190 175 / 0.09), transparent 62%),
+      radial-gradient(60rem 40rem at 60% 115%, rgb(200 110 90 / 0.09), transparent 62%);
+  }
+}
+:root[data-farbschema='dunkel'] {
+  --glas-flaeche: rgb(58 46 40 / 0.55);
+  --glas-flaeche-stark: rgb(44 35 31 / 0.75);
+  --glas-kante: rgb(255 236 220 / 0.16);
+  --grund-verlauf:
+    radial-gradient(55rem 38rem at 100% -8%, rgb(224 140 70 / 0.14), transparent 62%),
+    radial-gradient(50rem 40rem at -5% 45%, rgb(45 190 175 / 0.09), transparent 62%),
+    radial-gradient(60rem 40rem at 60% 115%, rgb(200 110 90 / 0.09), transparent 62%);
+}
+
+/* --- "Heute": Etikett mittig auf dem oberen Kartenrand, Karte groesser. */
+.wochenraster { padding-top: var(--s-4); }
+
+.tag-karte--heute {
+  z-index: 1;
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 22px 44px rgb(14 40 65 / 0.26), 0 4px 10px rgb(14 40 65 / 0.12);
+}
+
+.tag-karte > .etikett--heute {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3px var(--s-3);
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgb(14 40 65 / 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) .tag-karte--heute { box-shadow: 0 22px 44px rgb(0 0 0 / 0.6), 0 4px 10px rgb(0 0 0 / 0.35); }
+}
+:root[data-farbschema='dunkel'] .tag-karte--heute { box-shadow: 0 22px 44px rgb(0 0 0 / 0.6), 0 4px 10px rgb(0 0 0 / 0.35); }
+
+/* --- Gold als "heute/aktuell" wird neutral (Textfarbe). Warnungen und
+   Statusmeldungen behalten ihr Amber, damit sie auffallen. */
+.countdown--heute { background: var(--c-navy); color: var(--c-grund); }
+.plan-heute,
+.plan-zeitleiste[data-ansicht='fach'] .plan-heute { border-left-color: var(--c-navy); }
+@media (max-width: 899px) {
+  .plan-heute { border-top-color: var(--c-navy); }
+  .plan-zeitleiste[data-ansicht='fach'] .plan-heute { border-top-color: transparent; }
+}
+.plan-woche--aktuell .plan-woche-kopf { color: var(--c-navy); }
+.stufen-ebene[aria-current='true'] .stufen-form,
+.stufen-ebene[data-hervorheben='true'] .stufen-form { stroke: var(--c-navy); }
+.stufen-termin { border-left-color: var(--c-navy); }
+
+/* --- Faecherkacheln ganz in der Fachfarbe. */
+.fach-kachel {
+  --kachel-grund: var(--fach-kante);
+  --kachel-schrift: #FFFFFF;
+  position: relative;
+  min-height: 9.5rem;
+  border: 1px solid rgb(255 255 255 / 0.4);
+  background:
+    linear-gradient(160deg, rgb(255 255 255 / 0.22), rgb(255 255 255 / 0) 55%),
+    var(--kachel-grund);
+  color: var(--kachel-schrift);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.5),
+    0 14px 28px color-mix(in srgb, var(--kachel-grund) 38%, transparent);
+  transition: transform var(--zeit-zustand) var(--kurve), box-shadow var(--zeit-zustand) var(--kurve);
+}
+.fach-kachel:hover,
+.fach-kachel:focus-visible { transform: translateY(-3px); }
+
+.fach-kachel[data-fach='de'] { --kachel-grund: #D10000; }
+.fach-kachel[data-fach='en'],
+.fach-kachel[data-fach='bio'],
+.fach-kachel[data-fach='offen'] { --kachel-schrift: #0E2841; }
+
+.fach-kachel .fach-kachel-name,
+.fach-kachel .fach-kachel-stand { color: var(--kachel-schrift); }
+.fach-kachel .fach-kachel-stand { opacity: 0.92; }
+
+/* Das Badge steht als weisse Kapsel auf der Farbflaeche, sonst verschwindet es. */
+.fach-kachel .fach-badge {
+  background: rgb(255 255 255 / 0.92);
+  color: #000;
+  border-radius: 999px;
+}
+
+/* Faecherverbindend: heller Grund mit Regenbogen oben statt Farbflaeche. */
+.fach-kachel[data-fach='fvu'] {
+  --kachel-grund: var(--c-karte);
+  --kachel-schrift: var(--c-navy);
+  overflow: hidden;
+}
+.fach-kachel[data-fach='fvu']::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background-image: var(--fach-fvu-kante);
+}
+
+.tag-karte--heute { padding-top: calc(var(--s-3) + 10px); }
+
+/* ================================================================
+   Runde 5
+   ================================================================ */
+
+/* --- Dunkelmodus neutral: Graphit, kein Braun, kein Marineblau. */
+:root {
+  --c-grund--dunkel: #131314;
+  --c-karte--dunkel: #1D1D1E;
+  --c-linie--dunkel: #35353A;
+  --c-navy--dunkel: #F2F1EE;
+  --c-text-2--dunkel: #BAB9B5;
+  --c-teal-hell--dunkel: #283C3C;
+  --fach-ma-flaeche--dunkel: #1C2930;
+  --fach-de-flaeche--dunkel: #461819;
+  --fach-en-flaeche--dunkel: #463A19;
+  --fach-bio-flaeche--dunkel: #183727;
+  --fach-geo-flaeche--dunkel: #352033;
+  --fach-offen-flaeche--dunkel: #313336;
+  --fach-fvu-flaeche--dunkel: linear-gradient(90deg, #461819, #463A19, #183727, #1C2930, #352033);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) {
+    --glas-flaeche: rgb(52 52 56 / 0.55);
+    --glas-flaeche-stark: rgb(38 38 41 / 0.78);
+    --glas-kante: rgb(255 255 255 / 0.16);
+    --grund-verlauf:
+      radial-gradient(55rem 38rem at 0% -10%, rgb(45 200 185 / 0.11), transparent 62%),
+      radial-gradient(50rem 40rem at 105% 40%, rgb(120 130 160 / 0.07), transparent 62%);
+  }
+}
+:root[data-farbschema='dunkel'] {
+  --glas-flaeche: rgb(52 52 56 / 0.55);
+  --glas-flaeche-stark: rgb(38 38 41 / 0.78);
+  --glas-kante: rgb(255 255 255 / 0.16);
+  --grund-verlauf:
+    radial-gradient(55rem 38rem at 0% -10%, rgb(45 200 185 / 0.11), transparent 62%),
+    radial-gradient(50rem 40rem at 105% 40%, rgb(120 130 160 / 0.07), transparent 62%);
+}
+
+/* --- Faecherkacheln: klare Kontur, kaum Unschaerfe, Abhebung bleibt. */
+.fach-kachel {
+  border: 2px solid color-mix(in srgb, var(--kachel-grund) 62%, #000);
+  background: var(--kachel-grund);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    0 2px 0 color-mix(in srgb, var(--kachel-grund) 55%, #000),
+    0 8px 14px -4px rgb(0 0 0 / 0.22);
+}
+.fach-kachel:hover,
+.fach-kachel:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    0 2px 0 color-mix(in srgb, var(--kachel-grund) 55%, #000),
+    0 12px 18px -4px rgb(0 0 0 / 0.26);
+}
+.fach-kachel[data-fach='fvu'] {
+  border-color: var(--c-linie);
+  box-shadow: 0 2px 0 var(--c-linie), 0 8px 14px -4px rgb(0 0 0 / 0.18);
+}
+
+/* Runde 6: Kachel-Kontur greift den Farbton auf, nur leicht abgedunkelt. */
+.fach-kachel {
+  border: 1.5px solid color-mix(in srgb, var(--kachel-grund) 80%, #000);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    0 2px 0 color-mix(in srgb, var(--kachel-grund) 72%, #000),
+    0 7px 10px -5px rgb(0 0 0 / 0.16);
+}
+.fach-kachel:hover,
+.fach-kachel:focus-visible {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    0 2px 0 color-mix(in srgb, var(--kachel-grund) 72%, #000),
+    0 10px 14px -5px rgb(0 0 0 / 0.2);
+}
+
+/* ================================================================
+   Runde 7: Dunkelmodus = Option B (Ozean-Teal), staerkerer Verlauf.
+   ================================================================ */
+:root {
+  --c-grund--dunkel: #06151B;
+  --c-karte--dunkel: #0F2229;
+  --c-linie--dunkel: #1F4048;
+  --c-navy--dunkel: #EAF6F6;
+  --c-text-2--dunkel: #A9C6CB;
+  --c-teal-hell--dunkel: #133B40;
+  --fach-ma-flaeche--dunkel: #102E3B;
+  --fach-de-flaeche--dunkel: #3F1B21;
+  --fach-en-flaeche--dunkel: #3F4221;
+  --fach-bio-flaeche--dunkel: #0C3E31;
+  --fach-geo-flaeche--dunkel: #2C243E;
+  --fach-offen-flaeche--dunkel: #283941;
+  --fach-fvu-flaeche--dunkel: linear-gradient(90deg, #3F1B21, #3F4221, #0C3E31, #102E3B, #2C243E);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) {
+    --glas-flaeche: rgb(20 72 80 / 0.50);
+    --glas-flaeche-stark: rgb(10 44 50 / 0.78);
+    --glas-kante: rgb(170 240 235 / 0.20);
+    --grund-verlauf: radial-gradient(60rem 42rem at 0% -10%, rgb(20 184 166 / 0.42), transparent 62%), radial-gradient(55rem 40rem at 105% 40%, rgb(14 116 144 / 0.36), transparent 62%), radial-gradient(60rem 40rem at 40% 115%, rgb(16 185 129 / 0.18), transparent 62%);
+  }
+}
+:root[data-farbschema='dunkel'] {
+  --glas-flaeche: rgb(20 72 80 / 0.50);
+  --glas-flaeche-stark: rgb(10 44 50 / 0.78);
+  --glas-kante: rgb(170 240 235 / 0.20);
+  --grund-verlauf: radial-gradient(60rem 42rem at 0% -10%, rgb(20 184 166 / 0.42), transparent 62%), radial-gradient(55rem 40rem at 105% 40%, rgb(14 116 144 / 0.36), transparent 62%), radial-gradient(60rem 40rem at 40% 115%, rgb(16 185 129 / 0.18), transparent 62%);
+}
+
+/* ================================================================
+   Runde 7: Kachel-Optionen (Vorschau ueber data-kachel am html)
+   ================================================================ */
+
+/* Alle Optionen: Innenschatten. */
+.fach-kachel:not([data-fach='fvu']) {
+  box-shadow:
+    inset 0 2px 3px rgb(255 255 255 / 0.4),
+    inset 0 -8px 14px -6px rgb(0 0 0 / 0.28),
+    0 2px 0 color-mix(in srgb, var(--kachel-grund) 72%, #000),
+    0 7px 10px -5px rgb(0 0 0 / 0.16);
+}
+
+/* ================================================================
+   Runde 8: Fachkachel mit Symbol als Wasserzeichen (Option 2),
+   Lichtschein geht vom Symbol aus (Idee aus Option 4).
+   ================================================================ */
+.fach-kachel:not([data-fach='fvu']) {
+  min-height: 10.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 96%, rgb(255 255 255 / 0.34), rgb(255 255 255 / 0) 58%),
+    var(--kachel-grund);
+}
+
+/* Das Badge wird zum Wasserzeichen: nur das Symbol bleibt, gross und blass. */
+.fach-kachel:not([data-fach='fvu']) .fach-badge {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  padding: 0;
+  background: none;
+  color: var(--kachel-schrift);
+  border-radius: 0;
+  pointer-events: none;
+}
+.fach-kachel:not([data-fach='fvu']) .fach-badge .icon {
+  position: absolute;
+  right: -26px;
+  bottom: -34px;
+  width: 8.5rem;
+  height: 8.5rem;
+  opacity: 0.18;
+}
+.fach-kachel:not([data-fach='fvu']) .fach-badge-kuerzel { display: none; }
+
+/* Name mit Kuerzel in Grossbuchstaben, Rest in Kapitaelchen. */
+.fach-kachel .fach-kachel-name { margin-top: var(--s-2); font-size: 1.6rem; }
+.fach-kachel .fach-kachel-kurz { font-weight: 800; letter-spacing: 0.02em; }/* Runde 17: Fach-Badges im Stil der Kacheln: Farbton, Verlauf von links,
+   Kontur in dunklerer Stufe, Innenschatten, Marine-Schrift. Steht vor den
+   Kachelregeln, damit das Badge in der Kachel (Wasserzeichen) sie behaelt. */
+.fach-badge:not(.fach-badge--fvu) {
+  --badge-grund: var(--fach-kante);
+  border: 1.5px solid color-mix(in srgb, var(--badge-grund) 78%, #000);
+  border-radius: var(--radius-klein);
+  background:
+    linear-gradient(100deg, rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.18) 65%, rgb(255 255 255 / 0)),
+    var(--badge-grund);
+  color: #0E2841;
+  font-weight: 800;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--badge-grund) 70%, #000);
+}
+.fach-badge[data-fach='de']:not(.fach-badge--fvu) { --badge-grund: #D10000; }
+
+/* Badge: erst das Kuerzel, dann das Symbol. */
+.fach-badge .fach-badge-kuerzel { order: -1; }
+
+/* Runde 8: Fachkachel mit Symbol als Wasserzeichen (Option 2),
+   Lichtschein geht vom Symbol aus (Idee aus Option 4). Runde 9: Symbol
+   vollstaendig sichtbar, Name ausgeschrieben in Grossbuchstaben. */
+.fach-kachel:not([data-fach='fvu']) {
+  min-height: 10.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 86% 88%, rgb(255 255 255 / 0.34), rgb(255 255 255 / 0) 55%),
+    var(--kachel-grund);
+}
+
+/* Das Badge wird zum Wasserzeichen: nur das Symbol bleibt, blass, ganz sichtbar. */
+.fach-kachel:not([data-fach='fvu']) .fach-badge {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  padding: 0;
+  background: none;
+  color: var(--kachel-schrift);
+  border-radius: 0;
+  pointer-events: none;
+}
+.fach-kachel:not([data-fach='fvu']) .fach-badge .icon {
+  position: absolute;
+  right: var(--s-3);
+  bottom: var(--s-3);
+  width: 6.5rem;
+  height: 6.5rem;
+  opacity: 0.22;
+}
+.fach-kachel:not([data-fach='fvu']) .fach-badge-kuerzel { display: none; }
+
+/* Name ausgeschrieben in Grossbuchstaben, keine Kapitaelchen. */
+.fach-kachel .fach-kachel-name {
+  font-variant-caps: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 800;
+  font-size: var(--t-h3-groesse);
+}
+.fach-kachel:not([data-fach='fvu']) .fach-kachel-stand { max-width: calc(100% - 6rem); }
+
+/* Runde 10: Stand in drei Zeilen (Kopfzeile, Wert, Wert). */
+.fach-kachel-stand { display: flex; flex-direction: column; gap: 1px; }
+.fach-kachel-stand-kopf { font-weight: 700; }
+
+/* Runde 10: Symbole enden alle auf gleicher Hoehe. Die Werte sind der leere
+   Rand unter dem Motiv im 96er Kasten (in Einheiten), damit die sichtbare
+   Unterkante bei jedem Fach 14 px ueber dem Kachelrand liegt. */
+.fach-kachel[data-fach='ma'] { --sym-leer: 15; }
+.fach-kachel[data-fach='de'] { --sym-leer: 19; }
+.fach-kachel[data-fach='en'] { --sym-leer: 24; }
+.fach-kachel[data-fach='bio'] { --sym-leer: 3; }
+.fach-kachel[data-fach='geo'] { --sym-leer: 2; }
+.fach-kachel[data-fach='offen'] { --sym-leer: 0; }
+.fach-kachel:not([data-fach='fvu']) .fach-badge .icon {
+  bottom: calc(14px - var(--sym-leer, 0) * 6.5rem / 96);
+}
+
+/* ================================================================
+   Runde 11 bis 14: Stand auf der Fachkachel.
+   Eine Schriftfarbe (Marine) auf allen Kacheln. Der Farbverlauf kommt von der
+   Textseite: links aufgehellt (Marine >= 4,5 : 1 auf jeder Fachfarbe), nach
+   rechts voller Farbton mit dem Symbol. Kein Kasten um den Text.
+   Stand: Kopf / Name (kursiv) / Datum mit senkrechtem Strich.
+   ================================================================ */
+.fach-kachel[data-fach]:not([data-fach='fvu']) { --kachel-schrift: #0E2841; }
+
+.fach-kachel-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  width: fit-content;
+  max-width: calc(100% - 6.5rem);
+}
+.fach-kachel:not([data-fach='fvu']) .fach-kachel-stand { max-width: none; }
+
+.fach-kachel:not([data-fach='fvu']) {
+  background:
+    linear-gradient(100deg, rgb(255 255 255 / 0.38) 0%, rgb(255 255 255 / 0.36) 35%, rgb(255 255 255 / 0.29) 55%, rgb(255 255 255 / 0.16) 75%, rgb(255 255 255 / 0.05) 90%, rgb(255 255 255 / 0) 100%),
+    var(--kachel-grund);
+}
+
+.fach-kachel-stand { gap: 3px; align-items: flex-start; }
+.fach-kachel-stand-baustein {
+  font-size: var(--t-text-groesse);
+  font-style: italic;
+  font-weight: 650;
+  line-height: 1.25;
+}
+.fach-kachel-stand-datum {
+  padding: 0 0 0 var(--s-2);
+  border-left: 3px solid currentColor;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ================================================================
+   Runde 16: Fachseite und Plan im gleichen Stil.
+   ================================================================ */
+
+/* --- Fachseite: Kopf wie die Kachel (Verlauf von links, Symbol als Wasserzeichen). */
+.fach-kopf[data-fach]:not([data-fach='fvu']) {
+  --kachel-grund: var(--fach-kante);
+  min-height: 8.5rem;
+  overflow: hidden;
+  padding: var(--s-5) var(--s-5);
+  border: 1.5px solid color-mix(in srgb, var(--kachel-grund) 80%, #000);
+  border-radius: var(--radius-karte);
+  background:
+    linear-gradient(100deg, rgb(255 255 255 / 0.38) 0%, rgb(255 255 255 / 0.36) 35%, rgb(255 255 255 / 0.29) 55%, rgb(255 255 255 / 0.16) 75%, rgb(255 255 255 / 0.05) 90%, rgb(255 255 255 / 0) 100%),
+    var(--kachel-grund);
+  color: #0E2841;
+  box-shadow:
+    inset 0 2px 3px rgb(255 255 255 / 0.4),
+    inset 0 -8px 14px -6px rgb(0 0 0 / 0.28),
+    0 2px 0 color-mix(in srgb, var(--kachel-grund) 72%, #000),
+    0 7px 10px -5px rgb(0 0 0 / 0.16);
+}
+.fach-kopf[data-fach='de'] { --kachel-grund: #D10000; }
+.fach-kopf[data-fach]:not([data-fach='fvu']) .fach-kopf-symbol {
+  position: absolute;
+  right: var(--s-5);
+  bottom: 14px;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 0;
+  background: none;
+  color: #0E2841;
+  opacity: 0.22;
+}
+.fach-kopf[data-fach]:not([data-fach='fvu']) .fach-kopf-symbol .icon {
+  width: 100%;
+  height: 100%;
+  margin-bottom: calc(var(--sym-leer, 0) * -6.5rem / 96);
+}
+.fach-kopf[data-fach='ma'] { --sym-leer: 15; }
+.fach-kopf[data-fach='de'] { --sym-leer: 19; }
+.fach-kopf[data-fach='en'] { --sym-leer: 24; }
+.fach-kopf[data-fach='bio'] { --sym-leer: 3; }
+.fach-kopf[data-fach='geo'] { --sym-leer: 2; }
+.fach-kopf[data-fach]:not([data-fach='fvu']) .fach-kopf-name {
+  color: #0E2841;
+  font-variant-caps: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 800;
+}
+
+/* --- Fachseite: Bausteinliste als ruhige Glaskarten. */
+.fach-jahr-eintrag {
+  border-color: var(--glas-kante);
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: 0 6px 16px -8px rgb(14 40 65 / 0.22);
+}
+.fach-jahr-eintrag[data-status='laeuft'] {
+  border: 2px solid var(--c-teal-dunkel);
+  background: color-mix(in srgb, var(--c-teal-dunkel) 12%, var(--glas-flaeche-stark));
+  box-shadow: 0 14px 28px -12px rgb(14 40 65 / 0.35);
+}
+.fach-jahr-eintrag[data-status='vorbei'] { box-shadow: none; background: transparent; }
+
+/* --- Plan: Tageskarten und Ferienbalken. */
+.tag-karte {
+  border-color: var(--glas-kante);
+  box-shadow: 0 6px 16px -8px rgb(14 40 65 / 0.2);
+}
+.plan-balken {
+  border-color: var(--glas-kante);
+  background: var(--glas-flaeche);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: var(--glas-glanz);
+}
+.plan-balken--ferien { background: var(--glas-flaeche); }
+.segment {
+  border-color: var(--glas-kante);
+  border-radius: 999px;
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+}
+.segment-knopf { border-radius: 999px; }
+
+/* Korrekturen Runde 16 */
+.fach-kopf[data-fach='de']:not([data-fach='fvu']) { --kachel-grund: #D10000; }
+.tag-karte.tag-karte--heute { border-color: var(--c-navy); }
+
+/* ================================================================
+   Runde 19: uebrige Seiten (Baustein, Wissen, Stufen, Antrag).
+   ================================================================ */
+
+/* Allgemeine Karten als ruhiges Glas. */
+.karte {
+  border-color: var(--glas-kante);
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: 0 6px 16px -8px rgb(14 40 65 / 0.22);
+}
+.karte--tappbar:hover { border-color: var(--c-teal); box-shadow: 0 12px 24px -10px rgb(14 40 65 / 0.3); }
+
+.hinweis-feld {
+  border-color: var(--glas-kante);
+  border-left-color: var(--c-teal-dunkel);
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+}
+.hinweis-feld--warnung { border-left-color: var(--c-gold-dunkel); }
+
+.gelingensnachweis {
+  border: 1.5px solid color-mix(in srgb, var(--c-teal-dunkel) 60%, transparent);
+  background: color-mix(in srgb, var(--c-teal-dunkel) 10%, var(--glas-flaeche-stark));
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+}
+.countdown { background: color-mix(in srgb, var(--c-teal-dunkel) 14%, transparent); }
+
+/* Baustein-Kopf wie der Fachkopf: Fachfarbe von rechts, Symbol als Wasserzeichen. */
+.baustein-kopf[data-fach]:not([data-fach='fvu']) {
+  --kachel-grund: var(--fach-kante);
+  position: relative;
+  min-height: 8.5rem;
+  overflow: hidden;
+  padding: var(--s-5);
+  border: 1.5px solid color-mix(in srgb, var(--kachel-grund) 80%, #000);
+  border-radius: var(--radius-karte);
+  background:
+    linear-gradient(100deg, rgb(255 255 255 / 0.38) 0%, rgb(255 255 255 / 0.36) 35%, rgb(255 255 255 / 0.29) 55%, rgb(255 255 255 / 0.16) 75%, rgb(255 255 255 / 0.05) 90%, rgb(255 255 255 / 0) 100%),
+    var(--kachel-grund);
+  color: #0E2841;
+  box-shadow:
+    inset 0 2px 3px rgb(255 255 255 / 0.4),
+    inset 0 -8px 14px -6px rgb(0 0 0 / 0.28),
+    0 2px 0 color-mix(in srgb, var(--kachel-grund) 72%, #000),
+    0 7px 10px -5px rgb(0 0 0 / 0.16);
+}
+.baustein-kopf[data-fach='de']:not([data-fach='fvu']) { --kachel-grund: #D10000; }
+.baustein-kopf[data-fach]:not([data-fach='fvu']) h1 { margin: 0; color: #0E2841; }
+.baustein-kopf[data-fach]:not([data-fach='fvu']) .baustein-kopf-marken { position: static; }
+.baustein-kopf[data-fach]:not([data-fach='fvu']) .fach-badge {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  color: #0E2841;
+  pointer-events: none;
+}
+.baustein-kopf[data-fach]:not([data-fach='fvu']) .fach-badge .icon {
+  position: absolute;
+  right: var(--s-5);
+  bottom: 14px;
+  width: 6.5rem;
+  height: 6.5rem;
+  opacity: 0.22;
+  margin-bottom: calc(var(--sym-leer, 0) * -6.5rem / 96);
+}
+.baustein-kopf[data-fach]:not([data-fach='fvu']) .fach-badge-kuerzel { display: none; }
+.baustein-kopf[data-fach='ma'] { --sym-leer: 15; }
+.baustein-kopf[data-fach='de'] { --sym-leer: 19; }
+.baustein-kopf[data-fach='en'] { --sym-leer: 24; }
+.baustein-kopf[data-fach='bio'] { --sym-leer: 3; }
+.baustein-kopf[data-fach='geo'] { --sym-leer: 2; }
+
+/* Runde 20: Fachname ueber dem Bausteinnamen (kursiv), Wissen als Listengruppen. */
+.baustein-kopf[data-fach]:not([data-fach='fvu']) .baustein-kopf-fach {
+  margin: 0 0 var(--s-1);
+  font-size: var(--t-klein-groesse);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.baustein-kopf[data-fach]:not([data-fach='fvu']) h1 { font-style: italic; font-weight: 700; }
+.baustein-kopf-fach { margin: 0; }
+
+/* Wissen: pro Bereich eine Glasflaeche, darin Zeilen mit Trennlinie und Pfeil. */
+.wissen-karten {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--glas-kante);
+  border-radius: var(--radius-karte);
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: 0 6px 16px -8px rgb(14 40 65 / 0.22);
+}
+.wissen-karten .karte {
+  margin: 0;
+  padding: var(--s-4) var(--s-6) var(--s-4) var(--s-4);
+  border: 0;
+  border-bottom: 1px solid var(--c-linie);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.wissen-karten .karte:last-child { border-bottom: 0; }
+.wissen-karten .karte .karte-kopf { margin: 0; padding: 0; }
+.wissen-karten .karte::after {
+  content: '\203A';
+  position: absolute;
+  right: var(--s-4);
+  top: 50%;
+  transform: translateY(-52%);
+  color: var(--c-text-2);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.wissen-karten .karte--tappbar:hover {
+  background: color-mix(in srgb, var(--c-teal-dunkel) 8%, transparent);
+  box-shadow: none;
+}
+.wissen-karten .karte-titel { font-weight: 600; }
+
+/* Runde 21: Text in Kachel und Bausteinkopf vertikal mittig. */
+.fach-kachel:not([data-fach='fvu']) { justify-content: center; }
+.baustein-kopf[data-fach]:not([data-fach='fvu']) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ================================================================
+   Runde 22: Handy (Tab-Leiste) und Jahrgangswahl.
+   ================================================================ */
+
+/* Schmale Geraete: die Leiste zeigt Symbole in gut tippbarer Groesse. Nur der
+   aktive Eintrag zeigt zusaetzlich seinen Namen, die Kapsel sitzt genau um
+   Symbol und Text. Inaktive Eintraege schrumpfen bei Bedarf, der aktive nie.
+   Die Beschriftung bleibt fuer Screenreader immer im Text. */
+@media (max-width: 599px) {
+  .hauptnavigation { padding-left: var(--s-2); padding-right: var(--s-2); }
+  .hauptnavigation-liste {
+    justify-content: space-between;
+    gap: 2px;
+    padding: 6px;
+  }
+  .hauptnavigation-liste li { flex: 1 1 0; min-width: 34px; max-width: none; }
+  .hauptnavigation-liste li:has(> [aria-current='page']) { flex: 0 0 auto; }
+  .hauptnavigation-link {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--s-2);
+    height: 44px;
+    min-height: 44px;
+    padding: 0 6px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    white-space: nowrap;
+  }
+  .hauptnavigation-link .icon { width: 26px; height: 26px; }
+  .hauptnavigation-link[aria-current='page'] { padding: 0 14px 0 10px; }
+  .hauptnavigation-beschriftung {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .hauptnavigation-link[aria-current='page'] .hauptnavigation-beschriftung {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    font-weight: 700;
+  }
+}
+
+/* Jahrgangswahl: grosse, mittige Kacheln. */
+.karten-reihe .karte {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+  text-align: center;
+}
+.karten-reihe .karte .karte-kopf { margin: 0; padding: 0; justify-content: center; }
+.karten-reihe .karte .karte-titel { font-size: var(--t-h2-groesse); font-weight: 800; }
+.karten-reihe .karte--tappbar:hover { transform: translateY(-3px); }
+
+
+/* ================================================================
+   Runde 23: Stufenbaum mit den echten Symbolen. Jede Ebene ist eine Kachel in
+   der Farbe des Namensschilds (Wurzel #5D5340, Stamm #AB8742, Krone #82AC28).
+   ================================================================ */
+.stufen-baum { max-width: 24rem; overflow: visible; }
+.stufen-ebene { filter: drop-shadow(0 3px 0 rgb(0 0 0 / 0.22)) drop-shadow(0 8px 10px rgb(0 0 0 / 0.14)); }
+.stufen-ebene[data-ebene='1'] .stufen-form,
+[data-ton='sachlich'] .stufen-ebene[data-ebene='1'] .stufen-form { fill: #5D5340; stroke: #453D2E; stroke-width: 1.5; }
+.stufen-ebene[data-ebene='2'] .stufen-form,
+[data-ton='sachlich'] .stufen-ebene[data-ebene='2'] .stufen-form { fill: #AB8742; stroke: #8A6C31; stroke-width: 1.5; }
+.stufen-ebene[data-ebene='3'] .stufen-form,
+[data-ton='sachlich'] .stufen-ebene[data-ebene='3'] .stufen-form { fill: #82AC28; stroke: #678A1B; stroke-width: 1.5; }
+.stufen-ebene .stufen-nummer,
+.stufen-ebene .stufen-schrift,
+[data-ton='sachlich'] .stufen-ebene .stufen-schrift {
+  fill: #FFFFFF;
+  stroke: rgb(0 0 0 / 0.28);
+  stroke-width: 2.5px;
+  paint-order: stroke;
+  stroke-linejoin: round;
+}
+.stufen-ebene .stufen-nummer { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; }
+.stufen-ebene .stufen-schrift { font-size: 24px; font-weight: 800; }
+.stufen-ebene[aria-current='true'] .stufen-form,
+.stufen-ebene[data-hervorheben='true'] .stufen-form,
+[data-ton='sachlich'] .stufen-ebene[data-hervorheben='true'] .stufen-form { stroke: var(--c-navy); stroke-width: 4; }
+.stufen-ebene[aria-pressed='true'] .stufen-form { stroke: var(--c-navy); stroke-width: 3; }
+.stufen-ebene:hover .stufen-form { filter: brightness(1.05); }
+
+/* Runde 23: aktiver Eintrag mit langem Namen ("Einstellungen") passt in die Leiste. */
+@media (max-width: 599px) {
+  .hauptnavigation-liste li { min-width: 30px; }
+  .hauptnavigation-link { padding: 0 3px; font-size: 0.76rem; }
+  .hauptnavigation-link .icon { width: 24px; height: 24px; }
+  .hauptnavigation-link[aria-current='page'] { padding: 0 12px 0 9px; gap: 6px; }
+}
+
+/* Runde 24: Symbole werfen einen kraeftigen Schatten (heben Krone vom Gruen der
+   Kachel ab), Rahmen der gewaehlten Ebene im Dunkelmodus dezenter. */
+.stufen-bild { filter: drop-shadow(3px 6px 4px rgb(0 0 0 / 0.5)); }
+.stufen-ebene { overflow: visible; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) .stufen-ebene[aria-pressed='true'] .stufen-form,
+  :root:not([data-farbschema='hell']) .stufen-ebene[aria-current='true'] .stufen-form,
+  :root:not([data-farbschema='hell']) .stufen-ebene[data-hervorheben='true'] .stufen-form,
+  :root:not([data-farbschema='hell']) [data-ton='sachlich'] .stufen-ebene[data-hervorheben='true'] .stufen-form {
+    stroke: rgb(255 255 255 / 0.55);
+    stroke-width: 2;
+  }
+}
+:root[data-farbschema='dunkel'] .stufen-ebene[aria-pressed='true'] .stufen-form,
+:root[data-farbschema='dunkel'] .stufen-ebene[aria-current='true'] .stufen-form,
+:root[data-farbschema='dunkel'] .stufen-ebene[data-hervorheben='true'] .stufen-form {
+  stroke: rgb(255 255 255 / 0.55);
+  stroke-width: 2;
+}

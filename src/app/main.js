@@ -9,6 +9,7 @@ import * as update from './update.js';
 import * as onboarding from './onboarding.js';
 import { el, leer } from './ui/components.js';
 import { icon } from './ui/icons.js';
+import { wendeFarbschemaAn } from './ui/farbschema.js';
 
 // Module melden sich beim Import selbst an. Ohne Bundler braucht es diese
 // Zeile je Moduldatei. Welche davon wirklich gelten, sagt content/index.json
@@ -34,6 +35,7 @@ let sucheFeld = null;
 const SUCHE_ENTPRELLUNG_MS = 150;
 let sucheZeitstempel = null;
 
+wendeFarbschemaAn();
 start();
 
 async function start() {
