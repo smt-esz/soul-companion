@@ -867,3 +867,37 @@ html, body { overscroll-behavior-y: none; }
 .zieh-anzeige[data-zustand='bereit'] .zieh-kreis { border-top-color: var(--c-teal-dunkel); }
 .zieh-anzeige[data-zustand='laedt'] .zieh-kreis { animation: zieh-drehen 0.8s linear infinite; }
 @keyframes zieh-drehen { to { transform: rotate(360deg); } }
+
+/* Plan: Ferien- und Sonderwochen als eine schmale Zeile, aufeinanderfolgende
+   Wochen zusammengefasst (plan.js, kompaktBlock). */
+.plan-woche--kompakt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-3);
+  margin-bottom: var(--s-3);
+}
+.plan-woche--kompakt .plan-woche-kopf {
+  flex: none;
+  margin: 0;
+  font-size: var(--t-klein-groesse);
+}
+.plan-balken--kompakt {
+  flex: 1 1 10rem;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: var(--s-1) var(--s-3);
+}
+
+/* Hochformat: die Heute-Karte steht auf voller Breite und wuerde beim
+   Vergroessern seitlich abgeschnitten. Sie hebt sich dort nur durch Rahmen,
+   Schatten und Abstand ab. */
+@media (max-width: 899px) {
+  .tag-karte.tag-karte--heute {
+    margin-block: var(--s-3);
+    transform: none;
+  }
+}
+
+/* Das Etikett "HEUTE" braucht die Karte als Bezugsfeld, auch ohne Transformation. */
+.tag-karte { position: relative; }
