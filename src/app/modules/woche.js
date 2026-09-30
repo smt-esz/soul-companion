@@ -10,7 +10,7 @@ import { formatDatum, isWeekend, schultageBis, toISODate } from '../dates.js';
 import * as model from '../model.js';
 import * as update from '../update.js';
 import {
-  countdown, el, etikett, fortschritt, karte, knopf, leer, leerZustand,
+  el, etikett, fachBadge, fortschritt, karte, knopf, leer, leerZustand,
   tagKarte, terminZeile
 } from '../ui/components.js';
 
@@ -196,29 +196,51 @@ function laeuftAbschnitt(ctx) {
     ]);
   }
 
-  const karten = slots.map((slot) => {
-    const fach = fachVon(schule, slot.fach);
-    const baustein = bausteinVon(jg, slot.baustein);
-    const titel = (baustein && baustein.titel) || 'Thema folgt';
-    const tage = schultageBis(heute, slot.abgabe, schule);
-    // DESIGN 2.2: Status vorlaeufig bekommt Etikett und Hinweistext.
-    const vorlaeufig = slot.status === 'vorlaeufig';
-    return karte({
-      titel,
-      fach,
-      zustand: 'laeuft',
-      onTap: slot.baustein ? () => navigate('#/baustein/' + slot.baustein) : null,
-      etiketten: vorlaeufig ? [etikett('Vorläufig', 'vorlaeufig')] : [],
-      kinder: [
-        vorlaeufig && slot.hinweis ? el('p', { class: 'text-klein', text: slot.hinweis }) : null,
-        el('p', { class: 'text-klein', text: 'Abgabe ' + formatDatum(slot.abgabe, 'datum') }),
-        countdown({ bis: slot.abgabe, label: 'bis zur Abgabe', schultage: tage }),
-        fortschritt({ von: slot.von, bis: slot.bis, heute })
-      ]
-    });
-  });
+  const kacheln = slots.map((slot) => laufKachel(ctx, slot));
 
-  return abschnitt('Läuft gerade', [el('div', { class: 'karten-reihe' }, karten)]);
+  return abschnitt('Läuft gerade', [el('div', { class: 'fach-kacheln' }, kacheln)]);
+}
+
+/**
+ * Eine Kachel je laufendem Baustein, im Stil der Fachkacheln: Fach, Baustein
+ * (kursiv), Abgabe mit Strich, verbleibende Schultage und ein duenner
+ * Zeitbalken. Tippen fuehrt zum Baustein.
+ */
+function laufKachel(ctx, slot) {
+  const { jg, schule, heute, navigate } = ctx;
+  const fach = fachVon(schule, slot.fach);
+  const baustein = bausteinVon(jg, slot.baustein);
+  const titel = (baustein && baustein.titel) || 'Thema folgt';
+  const tage = schultageBis(heute, slot.abgabe, schule);
+  // DESIGN 2.2: Status vorlaeufig bekommt Hinweis.
+  const vorlaeufig = slot.status === 'vorlaeufig';
+  const tageText = tage <= 0 ? 'Abgabe heute'
+    : tage === 1 ? 'Noch 1 Schultag' : 'Noch ' + tage + ' Schultage';
+
+  const zeilen = [
+    { art: 'kopf', text: vorlaeufig ? 'Läuft, vorläufig' : 'Läuft' },
+    { art: 'baustein', text: titel },
+    { art: 'datum', text: 'Abgabe ' + formatDatum(slot.abgabe, 'datum') },
+    { art: 'text', text: tageText }
+  ];
+  if (vorlaeufig && slot.hinweis) zeilen.push({ art: 'text', text: slot.hinweis });
+
+  const kachel = el(slot.baustein ? 'button' : 'div', {
+    type: slot.baustein ? 'button' : null,
+    class: 'fach-kachel fach-kachel--lauft',
+    dataset: { fach: fach.farbe },
+    onclick: slot.baustein ? () => navigate('#/baustein/' + slot.baustein) : null
+  }, [
+    fachBadge(fach, { groesse: 'l' }),
+    el('span', { class: 'fach-kachel-text' }, [
+      el('span', { class: 'fach-kachel-name', text: fach.name }),
+      el('span', { class: 'fach-kachel-stand' }, zeilen.map(
+        (zeile) => el('span', { class: 'fach-kachel-stand-' + zeile.art, text: zeile.text })
+      )),
+      fortschritt({ von: slot.von, bis: slot.bis, heute })
+    ])
+  ]);
+  return kachel;
 }
 
 // ------------------------------------------------------------------ Als Nächstes
@@ -237,15 +259,25 @@ function naechstesAbschnitt(ctx) {
     ]);
   }
 
+  // Eine Zeile je Fach: Badge, Baustein (kursiv), Beginn rechts. Tippen fuehrt
+  // zum Fach.
   const liste = eintraege.map(([fachId, slot]) => {
     const fach = fachVon(schule, fachId);
     const baustein = bausteinVon(jg, slot.baustein);
     const titel = (baustein && baustein.titel) || 'Thema folgt';
-    const text = fach.name + ': ' + titel + ', ab ' + tagUndMonat(slot.von);
-    return knopf({ text, art: 'text', onTap: () => navigate('#/fach/' + fachId) });
+    return el('button', {
+      type: 'button',
+      class: 'woche-zeile',
+      'aria-label': fach.name + ': ' + titel + ', ab ' + tagUndMonat(slot.von),
+      onclick: () => navigate('#/fach/' + fachId)
+    }, [
+      fachBadge(fach, { groesse: 's' }),
+      el('span', { class: 'woche-zeile-titel', text: titel }),
+      el('span', { class: 'woche-zeile-datum', text: 'ab ' + tagUndMonat(slot.von) })
+    ]);
   });
 
-  return abschnitt('Als Nächstes', [el('div', {}, liste)]);
+  return abschnitt('Als Nächstes', [el('div', { class: 'woche-liste' }, liste)]);
 }
 
 // ------------------------------------------------------------------ Nächste Ferien
