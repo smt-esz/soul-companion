@@ -96,8 +96,10 @@ function renderWochenraster(container, params, ctx) {
     ));
 
     leer(wochenBereich);
-    for (const montag of wochenListe(raster, heute, ansicht)) {
-      wochenBereich.append(wocheBlock(ctx, montag));
+    for (const gruppe of wochenGruppen(ctx, wochenListe(raster, heute, ansicht))) {
+      wochenBereich.append(gruppe.art
+        ? kompaktBlock(ctx, gruppe)
+        : wocheBlock(ctx, gruppe.montage[0]));
     }
     zurAktuellenWoche(wochenBereich);
   }
@@ -149,6 +151,70 @@ function wochenListe(raster, heute, ansicht) {
   // Liegt heute im Rasterzeitraum, aber nicht auf einer der Wochen (kann bei
   // einem Zeitraum ohne volle Woche vorkommen), bleibt der ganze Zeitraum.
   return treffer.length > 0 ? treffer : alle;
+}
+
+/**
+ * Art einer Woche, die keine Tageskarten braucht: 'ferien' (alle fuenf Tage in
+ * den Ferien) oder 'sonderwoche', sonst null.
+ */
+function wochenArt(ctx, montag) {
+  const { jg, schule } = ctx;
+  const info = model.wocheninfo(schule, jg, montag);
+  if (info.sonderwoche && info.sonderwoche.titel) {
+    return { art: 'sonderwoche', name: info.sonderwoche.titel, kw: info.kw };
+  }
+  const tage = model.wocheTermine(jg, schule, montag);
+  const ferien = tage[0] && tage[0].ferien;
+  if (ferien && tage.every((tag) => tag.ferien)) {
+    return { art: 'ferien', name: ferien.name || 'Ferien', kw: info.kw };
+  }
+  return null;
+}
+
+/**
+ * Fasst aufeinanderfolgende Ferien- bzw. Sonderwochen mit gleichem Namen zu
+ * einer Gruppe zusammen (z. B. KW 42 und 43, Herbstferien). Normale Wochen
+ * bleiben einzeln: { art: null, montage: [montag] }.
+ */
+function wochenGruppen(ctx, montage) {
+  const gruppen = [];
+  for (const montag of montage) {
+    const art = wochenArt(ctx, montag);
+    const letzte = gruppen[gruppen.length - 1];
+    if (art && letzte && letzte.art === art.art && letzte.name === art.name) {
+      letzte.montage.push(montag);
+      letzte.kwEnde = art.kw;
+    } else {
+      gruppen.push({
+        art: art ? art.art : null,
+        name: art ? art.name : null,
+        kw: art ? art.kw : null,
+        kwEnde: art ? art.kw : null,
+        montage: [montag]
+      });
+    }
+  }
+  return gruppen;
+}
+
+/** Eine Zeile fuer eine oder mehrere Ferien- bzw. Sonderwochen. */
+function kompaktBlock(ctx, gruppe) {
+  const { heute } = ctx;
+  const erster = gruppe.montage[0];
+  const letzter = gruppe.montage[gruppe.montage.length - 1];
+  const istAktuell = gruppe.montage.some((montag) => toISODate(mondayOf(heute)) === toISODate(montag));
+  const kw = gruppe.kw === gruppe.kwEnde ? 'KW ' + gruppe.kw : 'KW ' + gruppe.kw + ' bis ' + gruppe.kwEnde;
+
+  return el('section', {
+    class: 'plan-woche plan-woche--kompakt' + (istAktuell ? ' plan-woche--aktuell' : ''),
+    dataset: istAktuell ? { aktuell: 'true' } : null
+  }, [
+    el('h2', {
+      class: 'plan-woche-kopf',
+      text: kw + ' · ' + formatDatum(erster, 'kurz') + ' bis ' + formatDatum(addDays(letzter, 4), 'kurz')
+    }),
+    el('p', { class: 'plan-balken plan-balken--kompakt plan-balken--' + gruppe.art, text: gruppe.name })
+  ]);
 }
 
 /** Eine Woche: Kopfzeile und darunter fuenf Tageskarten oder ein Balken. */

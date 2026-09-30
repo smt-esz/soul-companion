@@ -28,7 +28,7 @@ const STUFEN_STANDARD = [
 ];
 
 // Von oben nach unten: Krone, Stamm, Wurzel. Masse in Einheiten der viewBox
-// (280 x 332), alle Kacheln gleich gross (104). Die Bilder sitzen rechts in ihrer Kachel. Sie sind so versetzt,
+// (280 x 340), alle Kacheln gleich gross (104). Die Bilder sitzen rechts in ihrer Kachel. Sie sind so versetzt,
 // dass die Mitte des Stammfusses der Krone, des Stamms und des Wurzelstumpfs
 // auf derselben senkrechten Achse (x = 214) liegt: uebereinander ergibt das einen
 // Baum. Links stehen Name und Stufe.
@@ -36,8 +36,8 @@ const KACHEL_X = 0;
 const KACHEL_B = 280;
 const EBENEN = [
   { index: 2, y: 0, h: 104, bild: 'krone', bx: 160.3, by: 6, bb: 96.3, bh: 92 },
-  { index: 1, y: 114, h: 104, bild: 'stamm', bx: 195.3, by: 124, bb: 34.5, bh: 84 },
-  { index: 0, y: 228, h: 104, bild: 'wurzel', bx: 170.6, by: 247, bb: 95, bh: 66 }
+  { index: 1, y: 118, h: 104, bild: 'stamm', bx: 195.3, by: 128, bb: 34.5, bh: 84 },
+  { index: 0, y: 236, h: 104, bild: 'wurzel', bx: 170.6, by: 255, bb: 95, bh: 66 }
 ];
 
 /**
@@ -68,7 +68,7 @@ export function stufenBaum(optionen = {}) {
   const liste = Array.isArray(stufen) && stufen.length === 3 ? stufen : STUFEN_STANDARD;
 
   const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('viewBox', '0 0 280 332');
+  svg.setAttribute('viewBox', '-10 -12 300 364');
   svg.setAttribute('class', klein ? 'stufen-baum stufen-baum--klein' : 'stufen-baum');
   svg.setAttribute('role', 'group');
   svg.setAttribute('aria-label', beschriftung);
