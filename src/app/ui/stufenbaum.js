@@ -28,15 +28,16 @@ const STUFEN_STANDARD = [
 ];
 
 // Von oben nach unten: Krone, Stamm, Wurzel. Masse in Einheiten der viewBox
-// (280 x 312). Die Bilder sitzen alle auf einer senkrechten Achse (x = 205) und
-// greifen ueber die Kachelraender, so dass sie uebereinander einen Baum ergeben.
-// Links stehen Name und Stufe.
+// (280 x 312). Die Bilder sitzen rechts in ihrer Kachel. Sie sind so versetzt,
+// dass die Mitte des Stammfusses der Krone, des Stamms und des Wurzelstumpfs
+// auf derselben senkrechten Achse (x = 214) liegt: uebereinander ergibt das einen
+// Baum. Links stehen Name und Stufe.
 const KACHEL_X = 0;
 const KACHEL_B = 280;
 const EBENEN = [
-  { index: 2, y: 0, h: 116, bild: 'krone', bx: 156.9, by: 26, bb: 96.3, bh: 92 },
-  { index: 1, y: 124, h: 96, bild: 'stamm', bx: 184.4, by: 116, bb: 41.1, bh: 100 },
-  { index: 0, y: 228, h: 84, bild: 'wurzel', bx: 157.5, by: 222, bb: 95, bh: 66 }
+  { index: 2, y: 0, h: 116, bild: 'krone', bx: 160.3, by: 12, bb: 96.3, bh: 92 },
+  { index: 1, y: 124, h: 96, bild: 'stamm', bx: 195.3, by: 130, bb: 34.5, bh: 84 },
+  { index: 0, y: 228, h: 84, bild: 'wurzel', bx: 170.6, by: 237, bb: 95, bh: 66 }
 ];
 
 /**

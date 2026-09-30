@@ -997,3 +997,94 @@ body {
   stroke: rgb(255 255 255 / 0.55);
   stroke-width: 2;
 }
+
+/* Runde 25: Symbole bleiben in ihren Kacheln, gleiche Mittelachse; Beschriftung
+   etwas kleiner, damit sie neben der Krone Platz hat. */
+.stufen-ebene .stufen-schrift { font-size: 22px; }
+.stufen-ebene .stufen-nummer { font-size: 9px; }
+
+/* ================================================================
+   Runde 26: Grundstil auf Knoepfe, Einstellungen, Antrag, Jahresueberblick.
+   Knoepfe: Kontur in dunklerer Stufe der Farbe, leichter Absatz, sonst flach.
+   ================================================================ */
+.knopf {
+  border-width: 1.5px;
+  transition: background-color var(--zeit-zustand) var(--kurve), transform var(--zeit-zustand) var(--kurve), box-shadow var(--zeit-zustand) var(--kurve);
+}
+.knopf--haupt {
+  border-color: color-mix(in srgb, var(--c-teal-dunkel) 70%, #000);
+  background: linear-gradient(100deg, rgb(255 255 255 / 0.14), rgb(255 255 255 / 0)), var(--c-teal-dunkel);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--c-teal-dunkel) 60%, #000), 0 6px 10px -5px rgb(0 0 0 / 0.25);
+}
+.knopf--neben {
+  border-color: color-mix(in srgb, var(--c-teal-dunkel) 55%, transparent);
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--c-teal-dunkel) 25%, transparent), 0 6px 10px -6px rgb(14 40 65 / 0.2);
+}
+.knopf:hover:not([disabled]) { transform: translateY(-1px); }
+.knopf:active:not([disabled]) { transform: translateY(1px); box-shadow: none; }
+.knopf--text { box-shadow: none; }
+
+/* Eingabefelder und Wahlknoepfe (Antrag). */
+.antrag-textfeld,
+.antrag-eingabe--kurz,
+.antrag-klasse {
+  border-color: rgb(14 40 65 / 0.22);
+  background: var(--glas-flaeche-stark);
+  box-shadow: inset 0 1px 2px rgb(14 40 65 / 0.06);
+}
+.antrag-klasse[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--c-teal-dunkel) 70%, #000);
+  background: var(--c-teal-dunkel);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--c-teal-dunkel) 60%, #000);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-farbschema='hell']) .antrag-textfeld,
+  :root:not([data-farbschema='hell']) .antrag-eingabe--kurz,
+  :root:not([data-farbschema='hell']) .antrag-klasse { border-color: rgb(255 255 255 / 0.22); box-shadow: none; }
+}
+:root[data-farbschema='dunkel'] .antrag-textfeld,
+:root[data-farbschema='dunkel'] .antrag-eingabe--kurz,
+:root[data-farbschema='dunkel'] .antrag-klasse { border-color: rgb(255 255 255 / 0.22); box-shadow: none; }
+
+/* Antrag: Kopfkarte und Schritte als Glaskarten. */
+.antrag-kopfkarte,
+.antrag-schritt,
+.antrag-kasten,
+.antrag-unterschrift-rahmen {
+  border-color: var(--glas-kante);
+  background: var(--glas-flaeche-stark);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: 0 6px 16px -8px rgb(14 40 65 / 0.22);
+}
+.antrag-schritt[data-status="abgeschlossen"] { border: 1.5px solid color-mix(in srgb, var(--c-teal-dunkel) 60%, transparent); }
+
+/* Einstellungen: jeder Abschnitt als Glasflaeche. */
+.inhalt section:has(> h2) > h2:first-child { margin-top: 0; }
+.inhalt > .inhalt-seite > section {
+  margin-bottom: var(--s-5);
+  padding: var(--s-4) var(--s-5) var(--s-2);
+  border: 1px solid var(--glas-kante);
+  border-radius: var(--radius-karte);
+  background: var(--glas-flaeche);
+  -webkit-backdrop-filter: var(--glas-filter);
+  backdrop-filter: var(--glas-filter);
+  box-shadow: 0 6px 16px -8px rgb(14 40 65 / 0.18);
+}
+
+/* Jahresueberblick: Bausteinbloecke wie die Fachkacheln (Verlauf von links,
+   Kontur in dunklerer Stufe), Schrift Marine. */
+.plan-block {
+  --kachel-grund: var(--fach-kante);
+  border: 1.5px solid color-mix(in srgb, var(--kachel-grund) 80%, #000);
+  background:
+    linear-gradient(100deg, rgb(255 255 255 / 0.5) 0%, rgb(255 255 255 / 0.4) 55%, rgb(255 255 255 / 0.15) 100%),
+    var(--kachel-grund);
+  color: #0E2841;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.4), 0 2px 0 color-mix(in srgb, var(--kachel-grund) 72%, #000);
+}
+.plan-block[data-fach='de'] { --kachel-grund: #D10000; }
+.plan-block .text-neben, .plan-block .text-klein { color: #0E2841; }
