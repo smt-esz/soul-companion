@@ -1088,3 +1088,19 @@ body {
 }
 .plan-block[data-fach='de'] { --kachel-grund: #D10000; }
 .plan-block .text-neben, .plan-block .text-klein { color: #0E2841; }
+
+/* Runde 27: Jahresueberblick Zeitleiste ohne Spurnamen. Die Namen bleiben fuer
+   Screenreader im Text, die Namensspalte schrumpft auf einen schmalen Rand. */
+.plan-gitter--ohne-namen { --plan-kopf: 0.5rem; }
+.plan-gitter--ohne-namen .plan-reihenname { border-right: 0; }
+.plan-gitter--ohne-namen .plan-reihenname-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (max-width: 899px) {
+  .plan-gitter--ohne-namen { --plan-kopf: 0.4rem; }
+}

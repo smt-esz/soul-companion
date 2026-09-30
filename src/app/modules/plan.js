@@ -513,7 +513,9 @@ function zeitleiste(ctx, zeitraum, eintraege, reihen, nachFach) {
   const { jg, schule, heute } = ctx;
   const tage = diffDays(zeitraum.von, zeitraum.bis) + 1;
 
-  const gitter = el('div', { class: 'plan-gitter' });
+  // Ohne Fachnamen (Zeitleiste) stehen keine Spurnamen im Bild, sie bleiben nur
+  // fuer Screenreader im Text (glas.css, plan-gitter--ohne-namen).
+  const gitter = el('div', { class: nachFach ? 'plan-gitter' : 'plan-gitter plan-gitter--ohne-namen' });
   // Die beiden Achsen als eigene Werte: components.css entscheidet, welche
   // davon Spalten und welche Zeilen werden (Quer- bzw. Hochformat).
   gitter.style.setProperty('--plan-zeit-achse', 'var(--plan-kopf) repeat(' + tage + ', var(--plan-tag))');
