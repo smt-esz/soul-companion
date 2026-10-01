@@ -918,3 +918,8 @@ body { grid-template-columns: var(--nav-breite) minmax(0, 1fr); }
 .wissen-tabelle-rahmen,
 .druck-tabelle-rahmen,
 .plan-zeitleiste { position: relative; }
+
+/* Fachkacheln: alle gleich gross. Alle Zeilen so hoch wie die hoechste Kachel
+   (Bausteinnamen mit zwei Zeilen machen sonst einzelne Kacheln hoeher). */
+.fach-kacheln { grid-auto-rows: 1fr; }
+.fach-kacheln > .fach-kachel { height: 100%; }
