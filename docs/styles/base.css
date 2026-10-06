@@ -238,7 +238,7 @@ h1:focus {
    bleibt als Symbol am linken Rand des Feldes, rechts schliesst ein Kreuz. */
 .kopfzeile-suche {
   position: relative;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   width: var(--touch);
   max-width: 100%;
   min-width: 0;
@@ -253,6 +253,7 @@ h1:focus {
 }
 
 .kopfzeile--suche-offen .kopfzeile-suche {
+  flex-shrink: 1;
   width: 24rem;
 }
 
