@@ -31,6 +31,8 @@ let navigation = null;
 let statusBereich = null;
 let leistenBereich = null;
 let sucheFeld = null;
+let kopfElement = null;
+let sucheKnopfElement = null;
 
 // Entprellung der Sucheingabe (AP-18: 150 ms).
 const SUCHE_ENTPRELLUNG_MS = 150;
@@ -141,10 +143,12 @@ function layoutAufbauen(jg) {
         }),
         el('p', { class: 'kopfzeile-titel', text: 'Mein SOUL-Navi' })
       ]),
-      statusBereich
-    ]),
-    sucheBereich()
+      statusBereich,
+      sucheBereich()
+    ])
   ]);
+  kopfElement = kopf;
+  sucheOeffnen(sucheFeld.value !== '' || zerlegeHash(location.hash).pfad === '#/suche', false);
 
   navigation = el('nav', { class: 'hauptnavigation', 'aria-label': 'Bereiche' }, [
     el('ul', { class: 'hauptnavigation-liste' }, getModules()
@@ -198,14 +202,49 @@ function sucheBereich() {
     id: 'suche-eingabe',
     type: 'search',
     class: 'kopfzeile-suche-feld',
-    placeholder: 'Suchen',
+    placeholder: 'Suchen: Begriffe, Bausteine, Fächer …',
+    onkeydown: (ereignis) => { if (ereignis.key === 'Escape') sucheSchliessen(); },
     autocomplete: 'off',
     oninput: (ereignis) => sucheEingabe(ereignis.target.value)
   });
+  // Die Lupe ist zu der ganze Knopf; offen bleibt sie als Symbol im Feld.
+  sucheKnopfElement = el('button', {
+    type: 'button',
+    class: 'kopfzeile-lupe',
+    'aria-label': 'Suche öffnen',
+    'aria-expanded': 'false',
+    'aria-controls': 'suche-eingabe',
+    onclick: () => sucheOeffnen(true, true)
+  }, [icon('suche')]);
+  const zuKnopf = el('button', {
+    type: 'button',
+    class: 'kopfzeile-suche-zu',
+    'aria-label': 'Suche schließen',
+    onclick: () => sucheSchliessen()
+  }, [icon('schliessen')]);
   return el('div', { class: 'kopfzeile-suche', role: 'search' }, [
     el('label', { class: 'nur-vorlesen', for: 'suche-eingabe', text: 'Suchen' }),
-    sucheFeld
+    sucheKnopfElement,
+    sucheFeld,
+    zuKnopf
   ]);
+}
+
+function sucheOeffnen(offen, fokussieren) {
+  if (!kopfElement) return;
+  kopfElement.classList.toggle('kopfzeile--suche-offen', offen);
+  sucheKnopfElement.setAttribute('aria-expanded', offen ? 'true' : 'false');
+  sucheKnopfElement.setAttribute('aria-label', offen ? 'Suche' : 'Suche öffnen');
+  if (offen && fokussieren) sucheFeld.focus();
+  if (!offen && sucheFeld.value !== '') {
+    sucheFeld.value = '';
+    if (zerlegeHash(location.hash).pfad === '#/suche') navigate('#/woche');
+  }
+}
+
+function sucheSchliessen() {
+  sucheOeffnen(false, false);
+  sucheKnopfElement.focus();
 }
 
 /** Entprellt auf 150 ms (AP-18) und wechselt dann zu #/suche?q=... */
@@ -226,6 +265,7 @@ function syncSucheFeld(hash) {
   if (!sucheFeld || document.activeElement === sucheFeld) return;
   const { pfad, query } = zerlegeHash(hash);
   sucheFeld.value = pfad === '#/suche' ? (query.q || '') : '';
+  if (pfad === '#/suche') sucheOeffnen(true, false);
 }
 
 // Onboarding-Weiche: main.js liefert die Einzelseite (Rahmen, Fokus), den
@@ -279,6 +319,8 @@ function einzelseite(kinder) {
   statusBereich = null;
   leistenBereich = null;
   sucheFeld = null;
+  kopfElement = null;
+  sucheKnopfElement = null;
   inhalt = el('main', { id: 'inhalt', class: 'inhalt inhalt-einzel' }, kinder);
   document.body.append(inhalt);
   if (typeof window.scrollTo === 'function') window.scrollTo(0, 0);
