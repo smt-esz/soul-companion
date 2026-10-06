@@ -2219,6 +2219,69 @@
       "fach": "de"
     },
     {
+      "id": "wissen:eltern",
+      "typ": "wissen",
+      "titel": "Für Eltern",
+      "text": "Diese Seite ist für Sie als Eltern. Sie erklärt kurz, wie das Lernen in SOUL abläuft, was die wichtigsten Begriffe bedeuten und an wen Sie sich wenden können. Ihr Kind sieht in dieser App seinen Plan und seine Abgaben. SOUL heißt SelbstOrganisiertes Umfeld zum Lernen. Ihr Kind gestaltet seinen Le...",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:0",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "Diese Seite ist für Sie als Eltern. Sie erklärt kurz, wie das Lernen in SOUL abläuft, was die wichtigsten Begriffe bedeuten und an wen Sie sich wenden können. Ihr Kind sieht in dieser App seinen Plan und seine Abgaben.",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:1",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "SOUL heißt SelbstOrganisiertes Umfeld zum Lernen. Ihr Kind gestaltet seinen Lernprozess eigenverantwortlich und erarbeitet sich Inhalte selbstständig. Die Lehrkraft ist dabei Lernbegleitung: Sie unterstützt bei der Organisation, gibt Denkanstöße und hilft beim Nachdenken über das eigene Lernen.",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:2",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "Gelernt wird in Bausteinen. In einem Bausteinzeitraum arbeitet Ihr Kind an drei Bausteinen aus drei Fächern gleichzeitig. Jeder Baustein besteht aus Stationen, manche sind Pflicht, manche darf Ihr Kind wählen. Am Ende eines Bausteins gibt Ihr Kind einen Gelingensnachweis bei einer Lernbegleitung ...",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:3",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "Jede SOUL-Stunde hat den gleichen Ablauf: Ankommen, Arbeiten, Aufhören und anschließend gemeinsame Frühstückspause. Mehr dazu steht unter So läuft eine SOUL-Stunde.",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:4",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "Etwa fünfmal im Schuljahr hat Ihr Kind ein Coaching mit der Lernbegleitung, das dauert etwa 10 bis 15 Minuten. Dabei geht es um Lernprozess, Motivation, Stärken, Schwierigkeiten und Ziele. Im Coaching wird auch entschieden, ob Ihr Kind in die nächste Stufe aufsteigt.",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:5",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "SOUL hat drei Stufen: Wurzel, Stamm und Krone. Je höher die Stufe, desto mehr Freiheit und Verantwortung hat Ihr Kind. Alle starten in Stufe 1, aufsteigen kann man frühestens nach den Herbstferien. Mehr dazu unter Rund um die Stufen.",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:6",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "Alle Begriffe stehen im Wörterbuch.",
+      "route": "#/wissen/eltern"
+    },
+    {
+      "id": "abschnitt:eltern:7",
+      "typ": "abschnitt",
+      "titel": "Für Eltern",
+      "text": "Kommt Ihr Kind bei einer Aufgabe nicht weiter, folgt es zuerst der Helferkette: selbst nachdenken, nachsehen, mit anderen arbeiten, Expertinnen und Experten fragen und erst zuletzt die Lernbegleitung um Hilfe bitten.",
+      "route": "#/wissen/eltern"
+    },
+    {
       "id": "wissen:helferkette",
       "typ": "wissen",
       "titel": "Ich komme nicht weiter",

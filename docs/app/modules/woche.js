@@ -139,15 +139,19 @@ function coachingHinweisFuer(jg, datum, istHeute, termine = []) {
   return el('p', { class: 'text-klein text-neben', text: 'Wann dein Coaching ist, erfährst du von deiner Lernbegleitung.' });
 }
 
-/** Terminzeile mit Knopf "In Kalender" (Inputs und Coachings, nicht bei Entfall). */
+/**
+ * Terminzeile mit Kalendersymbol. Nur Inputs: Coachings vergibt die
+ * Lernbegleitung in lernlog, dort stehen auch ihre Termine.
+ */
 function terminMitKalender(termin, datum, schule, jgst) {
   const zeile = terminZeile(termin, schule, jgst);
-  if (termin.art !== 'input' && termin.art !== 'coaching') return zeile;
+  if (termin.art !== 'input') return zeile;
   const titel = terminTitel(termin, schule) + (termin.kuerzel ? ' (' + termin.kuerzel + ')' : '');
   const iso = toISODate(datum);
   const kalender = el('button', {
     type: 'button',
-    class: 'knopf knopf--text woche-kalender',
+    class: 'woche-kalender',
+    title: 'In den Kalender eintragen',
     'aria-label': titel + ' am ' + formatDatum(datum, 'lang') + ' in den Kalender eintragen',
     onclick: () => ladeHerunter(terminAlsIcs({
       datum: iso,
@@ -156,7 +160,7 @@ function terminMitKalender(termin, datum, schule, jgst) {
       zeit: soulZeit(datum),
       beschreibung: 'Findet innerhalb der SOUL-Zeit statt. Die genaue Uhrzeit nennt deine Lernbegleitung.'
     }), dateiname(titel, iso))
-  }, [icon('kalender', { groesse: 18 }), el('span', { text: 'In Kalender' })]);
+  }, [icon('kalender', { groesse: 22 })]);
   return el('div', { class: 'termin-mit-kalender' }, [zeile, kalender]);
 }
 
