@@ -31,7 +31,7 @@ registerModule({
   id: 'antrag',
   titel: 'Antrag',
   icon: 'antrag',
-  nav: { position: 50, sichtbar: true },
+  nav: { position: 50, sichtbar: false },
   routes: [
     { pattern: '#/antrag', render: renderListe },
     { pattern: '#/antrag/:id', render: renderAntrag },

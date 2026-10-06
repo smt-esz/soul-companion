@@ -3,7 +3,7 @@ id: eltern
 titel: Für Eltern
 bereich: eltern
 jahrgaenge: alle
-status: entwurf
+status: freigegeben
 reihenfolge: 10
 stichworte: [Eltern, Ablauf, Begriffe, Ansprechpersonen, Lernbegleitung, Coaching, Abgabe]
 quelle: SOUL_Wissensbasis.md; SOUL Onboarding_Stand 01_2026.pdf; vorhandene Wissensseiten soul, soul-stunde, zeitraum, coaching, stufen-allgemein, glossar

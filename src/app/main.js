@@ -183,9 +183,11 @@ function navigationMarkieren(hash) {
   syncSucheFeld(hash);
   if (!navigation) return;
   const { pfad } = zerlegeHash(hash);
+  // Der Antrag gehört zu den Stufen und hat keinen eigenen Eintrag mehr.
+  const aktiverPfad = pfad.startsWith('#/antrag') ? '#/stufen' : pfad;
   for (const link of navigation.querySelectorAll('.hauptnavigation-link')) {
     const eigen = zerlegeHash(link.getAttribute('href')).pfad;
-    if (eigen === pfad) {
+    if (eigen === aktiverPfad) {
       link.setAttribute('aria-current', 'page');
     } else {
       link.removeAttribute('aria-current');
@@ -254,7 +256,10 @@ function sucheEingabe(wert) {
   setTimeout(() => {
     if (sucheZeitstempel !== zeitstempel) return;
     const bereinigt = String(wert || '').trim();
-    navigate(bereinigt ? '#/suche?q=' + encodeURIComponent(bereinigt) : '#/suche');
+    const ziel = bereinigt ? '#/suche?q=' + encodeURIComponent(bereinigt) : '#/suche';
+    // Auf der Suchseite ersetzt jede Eingabe den Verlaufseintrag, sonst führt
+    // "Zurück" durch jeden getippten Buchstaben.
+    navigate(ziel, { ersetzen: zerlegeHash(location.hash).pfad === '#/suche' });
   }, SUCHE_ENTPRELLUNG_MS);
 }
 

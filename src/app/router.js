@@ -29,11 +29,16 @@ export function startRouter({ container, ctx }) {
 }
 
 /** Wechselt die Seite. */
-export function navigate(hash) {
+export function navigate(hash, optionen = {}) {
   const neuerHash = String(hash || STANDARD_HASH);
   if (location.hash === neuerHash) {
     // Gleicher Hash löst kein hashchange aus, deshalb direkt rendern.
     return rendern();
+  }
+  // "ersetzen": kein neuer Verlaufseintrag (z. B. beim Tippen in der Suche).
+  if (optionen.ersetzen) {
+    location.replace(location.pathname + location.search + neuerHash);
+    return undefined;
   }
   location.hash = neuerHash;
   return undefined;
@@ -106,6 +111,10 @@ function zeigeHinweis(titel, text) {
 }
 
 function fokusAufTitel() {
+  // Wer gerade in ein Feld tippt (Suche), behält den Fokus. Sonst bricht die
+  // Eingabe nach jedem Zeichen ab und die Tastatur klappt zu.
+  const aktiv = document.activeElement;
+  if (aktiv && aktiv !== document.body && aktiv.matches && aktiv.matches('input, textarea, select, [contenteditable]')) return;
   const titel = ziel.querySelector('h1');
   if (!titel) return;
   if (!titel.hasAttribute('tabindex')) titel.setAttribute('tabindex', '-1');

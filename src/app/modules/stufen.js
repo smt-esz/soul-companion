@@ -86,6 +86,7 @@ function renderStufen(container, params, ctx) {
   ]));
 
   kinder.push(aufstiegsKnoepfe(ctx, stufen));
+  kinder.push(antragKarte(ctx));
   kinder.push(allgemeinAbschnitt(ctx));
 
   container.append(...kinder.filter(Boolean));
@@ -122,6 +123,23 @@ function zeigeStufe(bereich, stufeId, ctx, stufen) {
       etiketten: [icon(ABSCHNITT_ICONS[i] || 'info', { groesse: 24 })],
       kinder: inhalt ? [inhalt] : []
     }));
+  });
+}
+
+/** Zugang zu den Anträgen (der Antrag ist Teil der Stufen). */
+function antragKarte(ctx) {
+  return karte({
+    titel: 'Dein Antrag auf Stufenaufstieg',
+    etiketten: [icon('antrag', { groesse: 24 })],
+    kinder: [
+      el('p', { text: 'Hier füllst du deinen Antrag aus, lässt ihn unterschreiben und schickst ihn als PDF an deine Klassenleitung.' }),
+      el('p', {}, [knopf({
+        text: 'Zu meinen Anträgen',
+        icon: 'pfeil-rechts',
+        art: 'neben',
+        onTap: () => ctx.navigate('#/antrag')
+      })])
+    ]
   });
 }
 

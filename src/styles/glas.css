@@ -989,37 +989,28 @@ body { grid-template-columns: var(--nav-breite) minmax(0, 1fr); }
 
 .termin-mit-kalender {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s-1) var(--s-3);
+  align-items: flex-start;
+  gap: var(--s-2);
 }
-.termin-mit-kalender > .termin-zeile { flex: 1 1 18rem; }
+.termin-mit-kalender > .termin-zeile { flex: 1 1 auto; min-width: 0; }
+/* Nur das Symbol, rund und ruhig; die Tippfläche bleibt 44 px gross. */
 .woche-kalender {
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
-  gap: var(--s-1);
-  min-height: var(--touch);
-  padding: 0 var(--s-3);
-}
-
-/* Variante B: die Woche als eine Liste. */
-.woche-agenda { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--s-2); }
-.woche-agenda-tag {
-  padding: var(--s-3) var(--s-4);
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-top: 2px;
+  padding: 0;
   border: 1px solid var(--glas-kante);
-  border-radius: var(--radius-karte);
+  border-radius: 50%;
   background: var(--glas-flaeche);
+  color: var(--c-teal-dunkel);
+  cursor: pointer;
+  transition: background var(--zeit-zustand) var(--kurve);
 }
-.woche-agenda-tag--heute {
-  border-color: var(--c-gold);
-  background: var(--glas-flaeche-stark);
-  box-shadow: inset 4px 0 0 var(--c-gold);
-}
-.woche-agenda-kopf { display: flex; align-items: baseline; gap: var(--s-3); flex-wrap: wrap; }
-.woche-agenda-name { font-weight: 700; }
-.woche-agenda-datum { color: var(--c-text-2); font-variant-numeric: tabular-nums; }
-.woche-agenda-leer { margin: var(--s-1) 0 0; color: var(--c-text-2); }
+.woche-kalender:hover { background: var(--glas-flaeche-stark); }
 
 /* Als Nächstes eingeklappt. */
 .woche-naechstes { margin-bottom: var(--s-6); }
