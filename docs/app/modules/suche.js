@@ -41,7 +41,7 @@ const TYP_GRUPPEN = [
   { typ: 'station', titel: 'Stationen' },
   { typ: 'input', titel: 'Inputs' },
   { typ: 'wissen', titel: 'Wissen' },
-  { typ: 'abschnitt', titel: 'Aus den Wissensseiten' },
+  { typ: 'abschnitt', titel: 'Weitere Wissensseiten' },
   { typ: 'faq', titel: 'Häufige Fragen' },
   { typ: 'stufe', titel: 'Stufen' }
 ];
@@ -70,6 +70,9 @@ async function renderSuche(container, params, ctx) {
 
   const alle = eintraege.concat(zusaetzlicheTreffer(ctx));
   const treffer = sucheAusfuehren(alle, abfrage);
+  const gruppen = gruppiereNachTyp(treffer);
+  // Verfeinern: ?typ=... zeigt nur eine Gruppe. Unbekannter Wert = alles.
+  const gewaehlt = gruppen.find((gruppe) => gruppe.typ === (params && params.typ)) || null;
 
   if (treffer.length === 0) {
     kinder.push(leerZustand({ text: 'Nichts gefunden für "' + abfrage + '".', motiv: 'keins' }));
@@ -77,9 +80,11 @@ async function renderSuche(container, params, ctx) {
     return;
   }
 
-  for (const gruppe of gruppiereNachTyp(treffer)) {
+  if (gruppen.length > 1) kinder.push(verfeinerung(gruppen, gewaehlt, abfrage, treffer.length, ctx));
+
+  for (const gruppe of gewaehlt ? [gewaehlt] : gruppen) {
     kinder.push(el('section', { class: 'suche-gruppe' }, [
-      el('h2', { text: gruppe.titel }),
+      gewaehlt ? null : el('h2', { text: gruppe.titel }),
       el('ul', { class: 'suche-liste' }, gruppe.eintraege.map((eintrag) => treffereintrag(eintrag, worte, ctx)))
     ]));
   }
@@ -134,20 +139,38 @@ function gruppiereNachTyp(treffer) {
   const gruppen = [];
   for (const definition of TYP_GRUPPEN) {
     const liste = nachTyp.get(definition.typ);
-    if (liste && liste.length > 0) gruppen.push({ titel: definition.titel, eintraege: liste });
+    if (liste && liste.length > 0) gruppen.push({ typ: definition.typ, titel: definition.titel, eintraege: liste });
   }
   for (const [typ, liste] of nachTyp) {
     if (!TYP_GRUPPEN.some((definition) => definition.typ === typ)) {
-      gruppen.push({ titel: typ, eintraege: liste });
+      gruppen.push({ typ, titel: typ, eintraege: liste });
     }
   }
   return gruppen;
 }
 
+/** Filterleiste: "Alle" und je eine Auswahl pro Trefferart, mit Anzahl. */
+function verfeinerung(gruppen, gewaehlt, abfrage, gesamt, ctx) {
+  const { navigate } = ctx;
+  const basis = '#/suche?q=' + encodeURIComponent(abfrage);
+  const auswahl = (titel, anzahl, aktiv, ziel) => el('button', {
+    type: 'button',
+    class: 'suche-filter' + (aktiv ? ' suche-filter--aktiv' : ''),
+    'aria-pressed': aktiv ? 'true' : 'false',
+    onclick: () => navigate(ziel)
+  }, [titel + ' ', el('span', { class: 'suche-filter-zahl', text: String(anzahl) })]);
+
+  return el('div', { class: 'suche-filterleiste', role: 'group', 'aria-label': 'Treffer eingrenzen' },
+    [auswahl('Alle', gesamt, !gewaehlt, basis)].concat(gruppen.map((gruppe) => auswahl(
+      gruppe.titel, gruppe.eintraege.length, gewaehlt === gruppe,
+      basis + '&typ=' + encodeURIComponent(gruppe.typ)
+    ))));
+}
+
 function vorschlaege(ctx) {
   const { navigate } = ctx;
   return el('div', { class: 'suche-vorschlaege' }, [
-    el('p', { text: 'Zum Beispiel:' }),
+    el('p', { text: 'Suche nach Begriffen, Bausteinen, Fächern oder Fragen. Zum Beispiel:' }),
     el('div', { class: 'suche-vorschlaege-liste' }, VORSCHLAEGE.map((wort) => knopf({
       text: wort,
       art: 'neben',

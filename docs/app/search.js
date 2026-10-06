@@ -5,6 +5,7 @@
 
 const HOECHSTENS = 30;
 const MINDESTLAENGE = 2;
+const TEILWORT_MINDESTLAENGE = 3;
 
 // Muster fuer ein "Wort": Buchstaben (inkl. Umlaute vor der Normalisierung)
 // und Ziffern. Alles andere (Satzzeichen, Leerzeichen) trennt Wörter.
@@ -71,6 +72,10 @@ export function suche(eintraege, abfrage, optionen = {}) {
         summe += 5;
       } else if (enthaeltAlsWortpraefix(textNormalisiert, wort)) {
         summe += 1;
+      } else if (enthaeltAlsTeilwort(titelNormalisiert, wort)) {
+        summe += 2;
+      } else if (enthaeltAlsTeilwort(textNormalisiert, wort)) {
+        summe += 0.5;
       } else {
         vollstaendig = false;
         break;
@@ -99,6 +104,12 @@ function enthaeltAlsWortpraefix(normalisierterText, wort) {
   return normalisierterText.split(' ').some((teil) => teil.length > 0 && teil.startsWith(wort));
 }
 
+// Teilwort mitten im Wort ("termin" in "Abgabetermin"), erst ab 3 Zeichen,
+// damit kurze Eingaben nicht fast alles treffen.
+function enthaeltAlsTeilwort(normalisierterText, wort) {
+  return wort.length >= TEILWORT_MINDESTLAENGE && normalisierterText.includes(wort);
+}
+
 /**
  * Zerlegt einen Text in Stücke für die Hervorhebung: `{ text, treffer }`.
  * `treffer` ist wahr, wenn das Stück ein zusammenhängendes Wort ist, das mit
@@ -125,7 +136,9 @@ export function hervorhebung(text, worte) {
   while ((treffer = WORT_MUSTER.exec(roh)) !== null) {
     if (treffer.index > rest) stuecke.push({ text: roh.slice(rest, treffer.index), treffer: false });
     const wort = treffer[0];
-    const istTreffer = worte.some((suchwort) => normalisiere(wort).startsWith(suchwort));
+    const normal = normalisiere(wort);
+    const istTreffer = worte.some((suchwort) => normal.startsWith(suchwort)
+      || (suchwort.length >= TEILWORT_MINDESTLAENGE && normal.includes(suchwort)));
     stuecke.push({ text: wort, treffer: istTreffer });
     rest = treffer.index + wort.length;
   }

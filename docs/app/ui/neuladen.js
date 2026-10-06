@@ -9,14 +9,18 @@
 // Kein Ziehen in Formularen, auf dem Antrag und in waagerecht scrollenden
 // Bereichen, damit dort nichts verloren geht oder verrutscht.
 
-const SCHWELLE = 56;      // gedämpfter Zugweg in px, ab dem "loslassen" gilt
-const MAXIMUM = 84;       // weiter zieht die Anzeige nicht mit
-const DAEMPFUNG = 0.5;    // Finger bewegt sich doppelt so weit wie die Anzeige
+const TOTZONE = 28;       // Fingerweg in px, bevor überhaupt etwas passiert (kein Auslösen beim normalen Hochscrollen)
+const SCHWELLE = 64;      // gedämpfter Zugweg in px, ab dem "loslassen" gilt
+const MAXIMUM = 92;       // weiter zieht die Anzeige nicht mit
+const DAEMPFUNG = 0.45;   // Finger bewegt sich mehr als doppelt so weit wie die Anzeige
+const HALTEZEIT = 450;    // ms, die die Schwelle gehalten sein muss, bevor Loslassen neu lädt
 
 let anzeige = null;
 let text = null;
 let start = null;         // { y } während eines Zugs
 let weg = 0;              // aktueller gedämpfter Zugweg
+let bereitSeit = 0;       // Zeitpunkt, ab dem die Schwelle erreicht ist (0 = nicht erreicht)
+let haltetimer = null;
 let laedt = false;
 
 /**
@@ -32,6 +36,7 @@ export function zieheZumNeuladen(optionen = {}) {
     if (!hochgescrollt() || istAusgenommen(ereignis.target)) { start = null; return; }
     start = { y: ereignis.touches[0].clientY };
     weg = 0;
+    bereitSeit = 0;
   }, { passive: true });
 
   document.addEventListener('touchmove', (ereignis) => {
@@ -40,14 +45,23 @@ export function zieheZumNeuladen(optionen = {}) {
     if (dy <= 0 || !hochgescrollt()) { zuruecksetzen(); start = null; return; }
     // Das native Überziehen unterdrücken, sonst wandert die ganze Seite mit.
     if (ereignis.cancelable) ereignis.preventDefault();
-    weg = Math.min(MAXIMUM, dy * DAEMPFUNG);
-    zeige(weg, weg >= SCHWELLE ? 'bereit' : 'zieht');
+    weg = Math.min(MAXIMUM, (dy - TOTZONE) * DAEMPFUNG);
+    if (weg < SCHWELLE) {
+      bereitSeit = 0;
+      clearTimeout(haltetimer);
+    } else if (!bereitSeit) {
+      bereitSeit = Date.now();
+      // Auch bei stillgehaltenem Finger auf "Loslassen" umschalten.
+      haltetimer = setTimeout(() => { if (start && istBereit()) zeige(weg, 'bereit'); }, HALTEZEIT);
+    }
+    zeige(weg, istBereit() ? 'bereit' : 'zieht');
   }, { passive: false });
 
   document.addEventListener('touchend', () => {
     if (!start) return;
-    const bereit = weg >= SCHWELLE;
+    const bereit = istBereit();
     start = null;
+    clearTimeout(haltetimer);
     if (!bereit) { zuruecksetzen(); return; }
     laedt = true;
     zeige(SCHWELLE, 'laedt');
@@ -55,6 +69,12 @@ export function zieheZumNeuladen(optionen = {}) {
   }, { passive: true });
 
   document.addEventListener('touchcancel', () => { start = null; zuruecksetzen(); }, { passive: true });
+}
+
+// Bereit erst, wenn die Schwelle erreicht und kurz gehalten wurde. Ein
+// schnelles Durchziehen löst so nicht versehentlich ein Neuladen aus.
+function istBereit() {
+  return bereitSeit > 0 && Date.now() - bereitSeit >= HALTEZEIT;
 }
 
 function hochgescrollt() {
