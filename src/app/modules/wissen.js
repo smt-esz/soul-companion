@@ -42,7 +42,8 @@ const BEREICHE = [
   { id: 'ablauf', titel: 'So läuft SOUL ab' },
   { id: 'stufen', titel: 'Stufen und Regeln' },
   { id: 'faq', titel: 'Häufige Fragen' },
-  { id: 'glossar', titel: 'Wörterbuch' }
+  { id: 'glossar', titel: 'Wörterbuch' },
+  { id: 'eltern', titel: 'Für Eltern' }
 ];
 
 // Ab wie vielen Abschnitten eine Seite ein Inhaltsverzeichnis bekommt (AP-16).

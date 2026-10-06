@@ -18,7 +18,7 @@ export const STATION_ARTEN = ['pflicht', 'wahl'];
 export const INPUT_ARTEN = ['fach', 'methode', 'baustein'];
 export const TERMIN_ARTEN = ['input', 'coaching', 'sonstiges', 'entfall'];
 export const TONLAGEN = ['verspielt', 'klar', 'sachlich'];
-export const WISSEN_BEREICHE = ['soul', 'ablauf', 'hilfe', 'stufen', 'faq', 'glossar'];
+export const WISSEN_BEREICHE = ['soul', 'ablauf', 'hilfe', 'stufen', 'faq', 'glossar', 'eltern'];
 export const WISSEN_STATUS = ['entwurf', 'freigegeben'];
 export const ANTRAG_TYPEN = ['freitext', 'personen', 'kriterien', 'erklaerung', 'nurPdf'];
 

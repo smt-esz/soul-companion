@@ -6,13 +6,15 @@
 // Abschnitte folgt DESIGN 10 und AP-10.md.
 
 import { registerModule } from '../module.js';
+import { terminAlsIcs, dateiname, ladeHerunter } from '../ics.js';
 import { formatDatum, isWeekend, schultageBis, toISODate } from '../dates.js';
 import * as model from '../model.js';
 import * as update from '../update.js';
 import {
   el, etikett, fachBadge, fortschritt, karte, knopf, leer, leerZustand,
-  tagKarte, terminZeile
+  tagKarte, terminTitel, terminZeile
 } from '../ui/components.js';
+import { icon } from '../ui/icons.js';
 
 registerModule({
   id: 'woche',
@@ -29,151 +31,133 @@ registerModule({
 const FACH_OFFEN = { id: 'offen', name: 'Fach offen', kurz: '?', farbe: 'offen', symbol: 'fragezeichen' };
 
 function renderWoche(container, params, ctx) {
-  const kinder = [
+  container.append(...[
     update.installKarte(),
     el('h1', { text: 'Diese Woche', tabindex: '-1' }),
-    kopfAbschnitt(ctx),
-    heuteAbschnitt(ctx),
-    wocheAbschnitt(ctx),
-    laeuftAbschnitt(ctx),
-    naechstesAbschnitt(ctx),
-    ferienAbschnitt(ctx),
-    verweisAbschnitt(ctx)
-  ].filter(Boolean);
-  container.append(...kinder);
+    el('div', { class: 'woche-zweispaltig' }, [
+      el('div', { class: 'woche-spalte' }, [
+        el('h2', { text: 'Deine Termine' }),
+        tagWaehler(ctx),
+        verweisAbschnitt(ctx),
+        ferienZeile(ctx)
+      ]),
+      el('div', { class: 'woche-spalte' }, [laeuftAbschnitt(ctx), naechstesAbschnitt(ctx, { eingeklappt: true })])
+    ])
+  ].filter(Boolean));
 }
 
-// ------------------------------------------------------------------ Kopf
+// Ab so vielen Schultagen vor der Abgabe gilt der Baustein als "letzte Woche".
+const LETZTE_WOCHE_TAGE = 5;
 
-// DESIGN 10, Punkt 1. Keine A/B-Woche (DATENMODELL 2, Leo 22.09.2026).
-function kopfAbschnitt(ctx) {
-  const { jg, schule, heute } = ctx;
-  const info = model.wocheninfo(schule, jg, heute);
-
-  const kinder = [el('p', { class: 'titel-gross', text: ohneJahr(heute) })];
-  if (info.sonderwoche && info.sonderwoche.titel) {
-    kinder.push(etikett(info.sonderwoche.titel, 'neutral'));
-  } else if (info.ferien && info.ferien.name) {
-    kinder.push(etikett(info.ferien.name, 'neutral'));
-  }
-  return el('div', { style: { marginBottom: 'var(--s-5)' } }, kinder);
+// SOUL-Zeiten für die Kalenderdatei (Leo, 06.10.2026): Dienstag 10:00 bis 11:20,
+// sonst 08:00 bis 09:30.
+function soulZeit(datum) {
+  return datum.getDay() === 2 ? { von: '10:00', bis: '11:20' } : { von: '08:00', bis: '09:30' };
 }
 
-// ------------------------------------------------------------------ Heute
+// ------------------------------------------------------------ Bausteine
 
-// DESIGN 10, Punkt 2; AP-10.md, Abschnitt "Startseite", Punkt 2.
-function heuteAbschnitt(ctx) {
-  const { jg, schule, heute } = ctx;
-  const info = model.wocheninfo(schule, jg, heute);
-  const wochenende = isWeekend(heute);
-  const abwesend = wochenende || Boolean(info.ferien) || Boolean(info.sonderwoche);
-
-  if (abwesend) {
-    const kinder = [el('p', { text: heuteAbwesendText(wochenende, info) })];
-    const naechster = model.naechsterSoulTag(schule, jg, heute);
-    if (naechster) {
-      kinder.push(el('p', { text: 'Nächster SOUL-Tag: ' + ohneJahr(naechster) }));
-    }
-    return abschnitt('Heute', kinder);
-  }
-
-  const termine = model.termineAm(jg, schule, heute);
-  // AP-10: Gilt heute kein Coaching-Muster, steht der Hinweis auf die
-  // Lernbegleitung unter den Terminen, auch wenn der Tag sonst leer ist.
-  const heuteISO = toISODate(heute);
-  const ohneMuster = !(jg.coachings || []).some((c) =>
-    (!c.gueltigAb || c.gueltigAb <= heuteISO) && (!c.gueltigBis || heuteISO <= c.gueltigBis));
-  const coachingHinweis = () => el('p', {
-    class: 'text-klein text-neben',
-    text: 'Wann dein Coaching ist, erfährst du von deiner Lernbegleitung.'
-  });
-
-  if (termine.length === 0) {
-    const kinder = [el('p', { text: 'Heute stehen keine Inputs oder Coachings im Plan.' })];
-    if (ohneMuster) kinder.push(coachingHinweis());
-    return abschnitt('Heute', kinder);
-  }
-
-  const kinder = [el('div', {}, termine.map((termin) => terminZeile(termin, schule, jg.jgst)))];
-  if (ohneMuster && !termine.some((termin) => termin.art === 'coaching')) {
-    kinder.push(coachingHinweis());
-  }
-  return abschnitt('Heute', kinder);
+/** Eine Zeile: "Noch 12 Schultage bis zu den Herbstferien" (statt eigener Karte). */
+function ferienZeile(ctx) {
+  const { schule, heute } = ctx;
+  const ferien = model.naechsteFerien(schule, heute);
+  if (!ferien) return null;
+  const tage = ferien.schultageBis;
+  const text = ferien.laeuft
+    ? 'Gerade sind ' + ferien.name + ', bis ' + formatDatum(ferien.bis, 'datum') + '.'
+    : 'Noch ' + (tage === 1 ? '1 Schultag' : tage + ' Schultage') + ' bis zu den ' + ferien.name + '.';
+  return el('p', { class: 'woche-ferienzeile' }, [icon('kalender', { groesse: 18 }), el('span', { text })]);
 }
 
-// Kein Wortlaut dafür in Planung/DESIGN.md oder AP-10.md vorgegeben (dort
-// steht nur "passender Satz"), deshalb eigene, kurze Formulierung. Siehe
-// Abschlussbericht, Abschnitt "Abweichungen von der Planung".
-function heuteAbwesendText(wochenende, info) {
-  if (info.sonderwoche && info.sonderwoche.titel) {
-    return 'Diese Woche: ' + info.sonderwoche.titel + '.';
-  }
-  if (info.ferien && info.ferien.name) {
-    return 'Gerade sind ' + info.ferien.name + ', bis ' + formatDatum(info.ferien.bis, 'datum') + '.';
-  }
-  if (wochenende) {
-    return 'Heute ist Wochenende, kein SOUL-Tag.';
-  }
-  return 'Heute ist kein SOUL-Tag.';
-}
-
-// ------------------------------------------------------------------ Diese Woche
-
-// DESIGN 10, Punkt 3. Tippen auf eine Tageskarte klappt die Tagesansicht
-// darunter auf (kein neuer Hash, model.wocheTermine liefert je Tag schon
-// termine, ferien und sonderwoche).
-function wocheAbschnitt(ctx) {
+/** Wochenstreifen (fünf Tage) mit einem Tagesblock darunter, der den gewählten Tag zeigt. */
+function tagWaehler(ctx) {
   const { jg, schule, heute } = ctx;
   const tage = model.wocheTermine(jg, schule, heute);
   const heuteISO = toISODate(heute);
-  const detailBereich = el('div', { style: { marginTop: 'var(--s-4)' } });
+  const block = el('section', { class: 'woche-tagblock', 'aria-live': 'polite' });
+  const knoepfe = [];
 
-  const karten = tage.map((tag) => {
+  const waehle = (tag) => {
     const istHeute = toISODate(tag.datum) === heuteISO;
-    const karte = tagKarte({
-      datum: tag.datum,
-      termine: tag.termine,
-      istHeute,
-      sonderwoche: tag.sonderwoche,
-      schule,
-      jgst: jg.jgst
-    });
-    // Tippbar: ein <article> darf nicht role="button" tragen. Deshalb derselbe
-    // Inhalt in einem div. Der Name kommt aus dem sichtbaren Inhalt (Tag,
-    // Datum, Termine), so wie DESIGN 11 es für VoiceOver beschreibt.
-    const element = el('div', {
-      class: karte.className + ' woche-tag-karte',
-      role: 'button',
-      tabindex: '0'
-    }, [...karte.childNodes]);
-    const oeffnen = () => tagDetailZeigen(detailBereich, tag, istHeute, schule, jg.jgst);
-    element.addEventListener('click', oeffnen);
-    element.addEventListener('keydown', (ereignis) => {
-      if (ereignis.key !== 'Enter' && ereignis.key !== ' ') return;
-      ereignis.preventDefault();
-      oeffnen();
-    });
-    if (istHeute) tagDetailZeigen(detailBereich, tag, true, schule, jg.jgst, { keinScroll: true });
-    return element;
-  });
+    knoepfe.forEach((eintrag) => eintrag.knopf.setAttribute('aria-pressed', eintrag.tag === tag ? 'true' : 'false'));
+    leer(block);
+    block.append(...tagBlockInhalt(ctx, tag, istHeute).filter(Boolean));
+  };
 
-  return abschnitt('Diese Woche', [
-    el('div', { class: 'wochenraster' }, karten),
-    detailBereich
-  ]);
+  const streifen = el('div', { class: 'woche-streifen', role: 'group', 'aria-label': 'Tage dieser Woche' },
+    tage.map((tag) => {
+      const istHeute = toISODate(tag.datum) === heuteISO;
+      const faecher = [...new Set(tag.termine.map((t) => t.fach).filter(Boolean))].slice(0, 3);
+      const knopf = el('button', {
+        type: 'button',
+        class: 'woche-streifen-tag' + (istHeute ? ' woche-streifen-tag--heute' : ''),
+        'aria-pressed': 'false',
+        'aria-label': formatDatum(tag.datum, 'lang') + (tag.termine.length ? ', ' + tag.termine.length + ' Termine' : ', kein Termin'),
+        onclick: () => waehle(tag)
+      }, [
+        el('span', { class: 'woche-streifen-name', text: formatDatum(tag.datum, 'tagLang').slice(0, 2) }),
+        el('span', { class: 'woche-streifen-datum', text: formatDatum(tag.datum, 'kurz') }),
+        el('span', { class: 'woche-streifen-punkte', 'aria-hidden': 'true' },
+          tag.termine.length === 0
+            ? [el('span', { class: 'woche-streifen-leer', text: '–' })]
+            : (faecher.length ? faecher : [null]).map((fachId) => el('span', {
+              class: 'woche-punkt',
+              dataset: { fach: fachId ? fachVon(schule, fachId).farbe : 'offen' }
+            })))
+      ]);
+      knoepfe.push({ knopf, tag });
+      return knopf;
+    }));
+
+  const start = tage.find((tag) => toISODate(tag.datum) === heuteISO) || tage[0];
+  waehle(start);
+  return el('div', { class: 'woche-tagwaehler' }, [streifen, block]);
 }
 
-function tagDetailZeigen(bereich, tag, istHeute, schule, jgst, optionen = {}) {
-  leer(bereich);
-  bereich.append(
-    el('h3', { text: (istHeute ? 'Heute, ' : '') + formatDatum(tag.datum, 'lang') }),
-    tag.termine.length > 0
-      ? el('div', {}, tag.termine.map((termin) => terminZeile(termin, schule, jgst)))
-      : leerZustand({ text: tagLeerText(tag), motiv: 'keins' })
-  );
-  if (!optionen.keinScroll && typeof bereich.scrollIntoView === 'function') {
-    bereich.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+function tagBlockInhalt(ctx, tag, istHeute) {
+  const { jg, schule } = ctx;
+  const titel = (istHeute ? 'Heute, ' : '') + formatDatum(tag.datum, 'lang');
+  const kopf = el('div', { class: 'woche-tagblock-kopf' }, [
+    el('h2', { text: titel })
+  ]);
+  if (tag.termine.length === 0) {
+    return [kopf, leerZustand({ text: tagLeerText(tag), motiv: 'keins' }), coachingHinweisFuer(jg, tag.datum, istHeute)];
   }
+  return [
+    kopf,
+    el('div', {}, tag.termine.map((termin) => terminMitKalender(termin, tag.datum, schule, jg.jgst))),
+    coachingHinweisFuer(jg, tag.datum, istHeute, tag.termine)
+  ];
+}
+
+function coachingHinweisFuer(jg, datum, istHeute, termine = []) {
+  if (!istHeute) return null;
+  const iso = toISODate(datum);
+  const ohneMuster = !(jg.coachings || []).some((c) =>
+    (!c.gueltigAb || c.gueltigAb <= iso) && (!c.gueltigBis || iso <= c.gueltigBis));
+  if (!ohneMuster || termine.some((termin) => termin.art === 'coaching')) return null;
+  return el('p', { class: 'text-klein text-neben', text: 'Wann dein Coaching ist, erfährst du von deiner Lernbegleitung.' });
+}
+
+/** Terminzeile mit Knopf "In Kalender" (Inputs und Coachings, nicht bei Entfall). */
+function terminMitKalender(termin, datum, schule, jgst) {
+  const zeile = terminZeile(termin, schule, jgst);
+  if (termin.art !== 'input' && termin.art !== 'coaching') return zeile;
+  const titel = terminTitel(termin, schule) + (termin.kuerzel ? ' (' + termin.kuerzel + ')' : '');
+  const iso = toISODate(datum);
+  const kalender = el('button', {
+    type: 'button',
+    class: 'knopf knopf--text woche-kalender',
+    'aria-label': titel + ' am ' + formatDatum(datum, 'lang') + ' in den Kalender eintragen',
+    onclick: () => ladeHerunter(terminAlsIcs({
+      datum: iso,
+      titel,
+      kennung: iso + '-' + termin.art + '-' + (termin.fach || termin.kuerzel || 'x'),
+      zeit: soulZeit(datum),
+      beschreibung: 'Findet innerhalb der SOUL-Zeit statt. Die genaue Uhrzeit nennt deine Lernbegleitung.'
+    }), dateiname(titel, iso))
+  }, [icon('kalender', { groesse: 18 }), el('span', { text: 'In Kalender' })]);
+  return el('div', { class: 'termin-mit-kalender' }, [zeile, kalender]);
 }
 
 function tagLeerText(tag) {
@@ -185,9 +169,8 @@ function tagLeerText(tag) {
 
 // ------------------------------------------------------------------ Läuft gerade
 
-// DESIGN 10, Punkt 4.
 function laeuftAbschnitt(ctx) {
-  const { jg, schule, heute, navigate } = ctx;
+  const { jg, heute } = ctx;
   const slots = model.slotsAm(jg, heute);
 
   if (slots.length === 0) {
@@ -196,15 +179,14 @@ function laeuftAbschnitt(ctx) {
     ]);
   }
 
-  const kacheln = slots.map((slot) => laufKachel(ctx, slot));
-
-  return abschnitt('Läuft gerade', [el('div', { class: 'fach-kacheln' }, kacheln)]);
+  return abschnitt('Läuft gerade', [el('div', { class: 'fach-kacheln' }, slots.map((slot) => laufKachel(ctx, slot)))]);
 }
 
 /**
  * Eine Kachel je laufendem Baustein, im Stil der Fachkacheln: Fach, Baustein
- * (kursiv), Abgabe mit Strich, verbleibende Schultage und ein duenner
- * Zeitbalken. Tippen fuehrt zum Baustein.
+ * (kursiv), Abgabe mit Strich, verbleibende Schultage und ein Zeitbalken.
+ * In den letzten 5 Schultagen vor der Abgabe wird der Zeitbalken
+ * durch eine Leiste ersetzt. Tippen führt zum Baustein.
  */
 function laufKachel(ctx, slot) {
   const { jg, schule, heute, navigate } = ctx;
@@ -214,20 +196,35 @@ function laufKachel(ctx, slot) {
   const tage = schultageBis(heute, slot.abgabe, schule);
   // DESIGN 2.2: Status vorlaeufig bekommt Hinweis.
   const vorlaeufig = slot.status === 'vorlaeufig';
+  const bald = tage <= LETZTE_WOCHE_TAGE;
   const tageText = tage <= 0 ? 'Abgabe heute'
     : tage === 1 ? 'Noch 1 Schultag' : 'Noch ' + tage + ' Schultage';
 
   const zeilen = [
-    { art: 'kopf', text: vorlaeufig ? 'Läuft, vorläufig' : 'Läuft' },
+    { art: 'kopf', text: bald ? (vorlaeufig ? 'Letzte Woche, vorläufig' : 'Letzte Woche') : (vorlaeufig ? 'Läuft, vorläufig' : 'Läuft') },
     { art: 'baustein', text: titel },
-    { art: 'datum', text: 'Abgabe ' + formatDatum(slot.abgabe, 'datum') },
-    { art: 'text', text: tageText }
+    { art: 'datum', text: 'Abgabe ' + formatDatum(slot.abgabe, 'datum') }
   ];
   if (vorlaeufig && slot.hinweis) zeilen.push({ art: 'text', text: slot.hinweis });
 
-  const kachel = el(slot.baustein ? 'button' : 'div', {
+  // Unten steht immer ein Zeitfeld gleicher Höhe: Läuft der Baustein noch,
+  // zeigt es "Noch N Schultage" mit Zeitbalken. In den letzten 5 Schultagen
+  // vor der Abgabe ersetzt eine Leiste beides (nichts steht doppelt), und die
+  // Kacheln nebeneinander bleiben auch dann ruhig, wenn nur einige Bausteine
+  // schon in der letzten Woche sind.
+  const zeitfeld = bald
+    ? [el('span', { class: 'bald-leiste' }, [
+      icon('uhr', { groesse: 16 }),
+      el('span', { class: 'bald-leiste-text', text: tage <= 0 ? 'Heute abgeben' : 'Noch ' + tage + (tage === 1 ? ' Tag' : ' Tage') })
+    ])]
+    : [
+      el('span', { class: 'fach-kachel-stand-text', text: tageText }),
+      fortschritt({ von: slot.von, bis: slot.bis, heute })
+    ];
+
+  return el(slot.baustein ? 'button' : 'div', {
     type: slot.baustein ? 'button' : null,
-    class: 'fach-kachel fach-kachel--lauft',
+    class: 'fach-kachel fach-kachel--lauft' + (bald ? ' fach-kachel--bald' : ''),
     dataset: { fach: fach.farbe },
     onclick: slot.baustein ? () => navigate('#/baustein/' + slot.baustein) : null
   }, [
@@ -237,16 +234,15 @@ function laufKachel(ctx, slot) {
       el('span', { class: 'fach-kachel-stand' }, zeilen.map(
         (zeile) => el('span', { class: 'fach-kachel-stand-' + zeile.art, text: zeile.text })
       )),
-      fortschritt({ von: slot.von, bis: slot.bis, heute })
+      el('span', { class: 'kachel-zeit' }, zeitfeld)
     ])
   ]);
-  return kachel;
 }
 
 // ------------------------------------------------------------------ Als Nächstes
 
 // DESIGN 10, Punkt 5.
-function naechstesAbschnitt(ctx) {
+function naechstesAbschnitt(ctx, optionen = {}) {
   const { jg, schule, heute, navigate } = ctx;
   const treffer = model.naechsterSlotJeFach(jg, heute);
   const eintraege = Object.entries(treffer)
@@ -277,28 +273,13 @@ function naechstesAbschnitt(ctx) {
     ]);
   });
 
-  return abschnitt('Als Nächstes', [el('div', { class: 'woche-liste' }, liste)]);
-}
-
-// ------------------------------------------------------------------ Nächste Ferien
-
-// DESIGN 10, Punkt 6.
-function ferienAbschnitt(ctx) {
-  const { schule, heute } = ctx;
-  const ferien = model.naechsteFerien(schule, heute);
-
-  if (!ferien) {
-    return abschnitt('Nächste Ferien', [
-      leerZustand({ text: 'Keine weiteren Ferien in diesem Schuljahr.', motiv: 'keins' })
+  if (optionen.eingeklappt) {
+    return el('details', { class: 'woche-naechstes' }, [
+      el('summary', {}, [el('h2', { text: 'Als Nächstes' }), el('span', { class: 'woche-naechstes-zahl', text: eintraege.length + ' Bausteine' })]),
+      el('div', { class: 'woche-liste' }, liste)
     ]);
   }
-
-  const tage = ferien.schultageBis;
-  const text = ferien.laeuft
-    ? 'Gerade sind ' + ferien.name + ', bis ' + formatDatum(ferien.bis, 'datum') + '.'
-    : 'Noch ' + (tage === 1 ? '1 Schultag' : tage + ' Schultage') + ' bis zu den ' + ferien.name + '.';
-
-  return abschnitt('Nächste Ferien', [karte({ titel: ferien.name, kinder: [el('p', { text })] })]);
+  return abschnitt('Als Nächstes', [el('div', { class: 'woche-liste' }, liste)]);
 }
 
 // ------------------------------------------------------------------ Verweis
@@ -331,15 +312,6 @@ function fachVon(schule, fachId) {
 function bausteinVon(jg, bausteinId) {
   const liste = jg && Array.isArray(jg.bausteine) ? jg.bausteine : [];
   return liste.find((eintrag) => eintrag && eintrag.id === bausteinId) || null;
-}
-
-// "Montag, 31. August 2026" -> "Montag, 31. August" (dates.js kennt keinen
-// eigenen Stil ohne Jahr, deshalb wird nur der letzte Textteil abgeschnitten,
-// keine eigene Datumsrechnung).
-function ohneJahr(datum) {
-  const teile = formatDatum(datum, 'lang').split(' ');
-  teile.pop();
-  return teile.join(' ');
 }
 
 // "Montag, 31. August 2026" -> "31. August" (DESIGN 10, Beispiel

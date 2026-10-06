@@ -241,6 +241,21 @@ const TERMIN_WORT = {
 };
 
 /**
+ * Titel eines Termins: Art und Fach ("Input Biologie", DESIGN 11), dahinter der
+ * eigene Titel, wenn es einen gibt ("Input Biologie: Sektion eines Fisches",
+ * AP-11, Tageskarte). model.termineAm setzt titel aus dem Input oder aus dem
+ * Freitext, bei Coachings bleibt es leer.
+ */
+export function terminTitel(termin, schule = null) {
+  const daten = termin || {};
+  const fach = daten.fach ? fachAusListe(schule, daten.fach) : null;
+  const wort = TERMIN_WORT[daten.art || 'sonstiges'] || TERMIN_WORT.sonstiges;
+  const grund = fach ? wort + ' ' + alsFach(fach).name : wort;
+  const eigen = daten.titel || daten.text || '';
+  return !eigen || eigen === grund ? grund : grund + ': ' + eigen;
+}
+
+/**
  * Eine Zeile für Input, Coaching, Sonstiges oder Entfall.
  * @param {object} termin  Eintrag aus jg.termine oder aus dem Coaching-Muster
  * @param {object} schule  data/schule.json (für Fachname und Kürzel)
@@ -251,15 +266,7 @@ export function terminZeile(termin, schule = null, jgst = null) {
   const daten = termin || {};
   const art = daten.art || 'sonstiges';
   const fach = daten.fach ? fachAusListe(schule, daten.fach) : null;
-
-  // Titel: Art und Fach ("Input Biologie", DESIGN 11), dahinter der eigene
-  // Titel des Termins, wenn es einen gibt ("Input Biologie: Sektion eines
-  // Fisches", AP-11, Tageskarte). model.termineAm setzt titel aus dem Input
-  // oder aus dem Freitext, bei Coachings bleibt es leer.
-  const wort = TERMIN_WORT[art] || TERMIN_WORT.sonstiges;
-  const grund = fach ? wort + ' ' + alsFach(fach).name : wort;
-  const eigen = daten.titel || daten.text || '';
-  const titel = !eigen || eigen === grund ? grund : grund + ': ' + eigen;
+  const titel = terminTitel(daten, schule);
 
   return el('div', { class: 'termin-zeile' + (art === 'entfall' ? ' termin-zeile--entfall' : '') }, [
     fach ? fachBadge(fach, { groesse: 's' }) : null,
